@@ -11,15 +11,6 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Models/f:PhutballBoardModel.cs" caret="0" fromTop="0" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BoardJumpTree.cs" caret="234" fromTop="9" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:DfsSearchSpecs.cs" caret="1295" fromTop="2" />
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/f:App.xaml.cs" caret="17" fromTop="0" />
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/f:EngGamesRegistry.cs" caret="0" fromTop="0" />
-      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/d:Mapping/f:observations_for_mapping.cs" caret="25" fromTop="2" />
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:SystemToWpfTypeMapping.cs" caret="0" fromTop="0" />
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:FieldToFieldModelMapping.cs" caret="0" fromTop="0" />
-      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:StoneToStoneModelMapping.cs" caret="0" fromTop="0" />
       <File id="B9D565CE-4AB5-4119-971D-57D54813E739/f:BootstrapperTaskSpecs.cs" caret="0" fromTop="0" />
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/d:BoardValues/f:TargetBorderEnum.cs" caret="25" fromTop="2" />
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:PhutballGameStateEnum.cs" caret="25" fromTop="2" />
@@ -31,48 +22,57 @@
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:PhutballBoard.cs" caret="15" fromTop="0" />
       <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/d:BoardValues/f:WhiteStoneToBorderDistanceValueSpecs.cs" caret="3567" fromTop="15" />
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:ReadOnlyPhutballBoard.cs" caret="880" fromTop="12" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:IFieldsGraph.cs" caret="218" fromTop="8" />
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:Field.cs" caret="912" fromTop="30" />
       <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/f:FieldsGraphSpecs.cs" caret="384" fromTop="5" />
-      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:SpecificationExtensions.cs" caret="3986" fromTop="15" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:FieldsGraph.cs" caret="3747" fromTop="17" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:DfsSearch.cs" caret="1164" fromTop="21" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BruteForceMoveFindingStartegy.cs" caret="2401" fromTop="15" />
       <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="309" fromTop="10" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="819" fromTop="8" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="1678" fromTop="5" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/d:BoardValues/f:IValueOf.cs" caret="111" fromTop="4" />
+      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:SpecificationExtensions.cs" caret="970" fromTop="24" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:StoneJumper.cs" caret="818" fromTop="21" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/d:BoardValues/f:WhiteStoneToBorderDistanceValue.cs" caret="623" fromTop="16" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:DfsSearch.cs" caret="1243" fromTop="23" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BoardJumpTree.cs" caret="883" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BruteForceMoveFindingStartegy.cs" caret="1795" fromTop="20" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:StoneMover.cs" caret="243" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="7731" fromTop="10" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:FieldJump.cs" caret="1060" fromTop="24" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="1178" fromTop="18" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:FieldsGraph.cs" caret="2064" fromTop="17" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:FieldJumpIterator.cs" caret="800" fromTop="30" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:DirectedJumpersFactory.cs" caret="219" fromTop="8" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:IFieldsGraph.cs" caret="266" fromTop="9" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Models/f:PhutballBoardModel.cs" caret="1512" fromTop="15" />
     </RecentFiles>
     <RecentEdits>
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="3" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2854" fromTop="6" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2728" fromTop="13" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5787" fromTop="19" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4945" fromTop="15" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4842" fromTop="15" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="13" fromTop="0" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2672" fromTop="26" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="12" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="406" fromTop="6" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="945" fromTop="11" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3463" fromTop="21" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4622" fromTop="15" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="3" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2691" fromTop="30" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5083" fromTop="30" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="805" fromTop="29" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3768" fromTop="15" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5043" fromTop="10" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5043" fromTop="12" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4308" fromTop="13" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3310" fromTop="1" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3240" fromTop="15" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BruteForceMoveFindingStartegy.cs" caret="2399" fromTop="15" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="163" fromTop="6" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="7008" fromTop="11" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="7193" fromTop="17" />
-      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="338" fromTop="10" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="1497" fromTop="11" />
-      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2132" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="537" fromTop="19" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3884" fromTop="33" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2898" fromTop="4" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3499" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3271" fromTop="19" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3968" fromTop="6" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4735" fromTop="19" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5034" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5283" fromTop="19" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="6105" fromTop="5" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="6858" fromTop="18" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="6402" fromTop="12" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="9758" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="321" fromTop="12" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="10740" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="11927" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="12466" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="14787" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="15527" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="16031" fromTop="30" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/d:BoardValues/f:WhiteStoneToBorderDistanceValue.cs" caret="844" fromTop="24" />
+      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:SpecificationExtensions.cs" caret="990" fromTop="24" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="15615" fromTop="12" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:FieldJump.cs" caret="1063" fromTop="18" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Jumpers/f:FieldJump.cs" caret="1608" fromTop="21" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="7565" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="7420" fromTop="9" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="7178" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="9978" fromTop="10" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:FieldsGraph.cs" caret="2064" fromTop="17" />
     </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
@@ -81,7 +81,7 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="CaliburnApplication" priority="0" />
-      <Item value="override" priority="57" />
+      <Item value="override" priority="60" />
       <Item value="ctx" priority="0" />
       <Item value="ctor" priority="37" />
       <Item value="InitializeComponent" priority="0" />
@@ -93,18 +93,18 @@
       <Item value="TScreen" priority="11" />
       <Item value="IServiceLocator" priority="0" />
       <Item value="serviceLocator" priority="1" />
-      <Item value="var" priority="79" />
-      <Item value="new" priority="179" />
+      <Item value="var" priority="82" />
+      <Item value="new" priority="181" />
       <Item value="ie" priority="1" />
       <Item value="UiRegistry" priority="0" />
       <Item value="ObjectFactory" priority="1" />
-      <Item value="return" priority="167" />
+      <Item value="return" priority="172" />
       <Item value="base" priority="4" />
       <Item value="StructureMapAdapter" priority="0" />
       <Item value="Container" priority="7" />
       <Item value="IShellPresenter" priority="5" />
       <Item value="Scan" priority="1" />
-      <Item value="this" priority="29" />
+      <Item value="this" priority="30" />
       <Item value="scanner" priority="4" />
       <Item value="namespace" priority="0" />
       <Item value="EndGames.Shell" priority="1" />
@@ -117,16 +117,16 @@
       <Item value="IHomePresenter" priority="2" />
       <Item value="Initialize" priority="0" />
       <Item value="ToList" priority="1" />
-      <Item value="Sut" priority="30" />
-      <Item value="tm" priority="68" />
+      <Item value="Sut" priority="31" />
+      <Item value="tm" priority="76" />
       <Item value="Dependency" priority="7" />
       <Item value="shell" priority="0" />
       <Item value="_shellPresenter" priority="2" />
       <Item value="ICheckersBoardPresenter" priority="3" />
-      <Item value="public" priority="144" />
+      <Item value="public" priority="151" />
       <Item value="For" priority="0" />
       <Item value="ShellPresenter" priority="2" />
-      <Item value="observations_for_sut_of_type" priority="5" />
+      <Item value="observations_for_sut_of_type" priority="7" />
       <Item value="ProvideImplementationOf" priority="2" />
       <Item value="ITestScreen" priority="1" />
       <Item value="_testScreen" priority="1" />
@@ -139,19 +139,19 @@
       <Item value="HomePresenter" priority="1" />
       <Item value="home" priority="0" />
       <Item value="true" priority="18" />
-      <Item value="class" priority="60" />
+      <Item value="class" priority="64" />
       <Item value="observations_for_auto_created_sut_of_type" priority="13" />
       <Item value="object" priority="6" />
-      <Item value="abstract" priority="8" />
-      <Item value="null" priority="29" />
+      <Item value="abstract" priority="9" />
+      <Item value="null" priority="30" />
       <Item value="throw" priority="0" />
       <Item value="observations_for_static_sut_with_ioc" priority="2" />
-      <Item value="protected" priority="6" />
+      <Item value="protected" priority="7" />
       <Item value="ce" priority="0" />
       <Item value="ShellRegistry" priority="0" />
       <Item value="bool" priority="17" />
       <Item value="TInterfaces" priority="0" />
-      <Item value="static" priority="34" />
+      <Item value="static" priority="38" />
       <Item value="container" priority="3" />
       <Item value="RegistrationTypeConstraint" priority="1" />
       <Item value="TWhat" priority="0" />
@@ -171,7 +171,7 @@
       <Item value="ScreenSubject" priority="0" />
       <Item value="CheckersBoardSubject" priority="0" />
       <Item value="prop" priority="3" />
-      <Item value="string" priority="12" />
+      <Item value="string" priority="13" />
       <Item value="CheckersBoardPresenter" priority="2" />
       <Item value="screenCollection" priority="1" />
       <Item value="presenter" priority="5" />
@@ -183,18 +183,18 @@
       <Item value="BindableCollection" priority="5" />
       <Item value="FieldModel" priority="17" />
       <Item value="Background" priority="2" />
-      <Item value="int" priority="80" />
+      <Item value="int" priority="83" />
       <Item value="Left" priority="1" />
       <Item value="Top" priority="1" />
       <Item value="Width" priority="0" />
       <Item value="Height" priority="0" />
       <Item value="model" priority="2" />
       <Item value="DataTemplateSelector" priority="1" />
-      <Item value="const" priority="9" />
+      <Item value="const" priority="10" />
       <Item value="as" priority="4" />
       <Item value="ContentPresenter" priority="0" />
       <Item value="item" priority="1" />
-      <Item value="if" priority="46" />
+      <Item value="if" priority="47" />
       <Item value="field" priority="63" />
       <Item value="EMPTY_CHECKER" priority="0" />
       <Item value="DataTemplate" priority="5" />
@@ -305,7 +305,7 @@
       <Item value="src" priority="11" />
       <Item value="pawn" priority="0" />
       <Item value="TestTask" priority="2" />
-      <Item value="false" priority="28" />
+      <Item value="false" priority="29" />
       <Item value="AssemblyLoadEventArgs" priority="0" />
       <Item value="assemblty" priority="0" />
       <Item value="t" priority="4" />
@@ -432,10 +432,10 @@
       <Item value="toField" priority="3" />
       <Item value="IEnumerator" priority="1" />
       <Item value="IDirectedJumper`0" priority="0" />
-      <Item value="IFieldsGraph`0" priority="27" />
+      <Item value="IFieldsGraph`0" priority="31" />
       <Item value="Tuple" priority="11" />
       <Item value="Current" priority="6" />
-      <Item value="column" priority="7" />
+      <Item value="column" priority="8" />
       <Item value="Tuple&lt;int,int&gt;" priority="4" />
       <Item value="cords" priority="5" />
       <Item value="columnIndex" priority="1" />
@@ -475,7 +475,7 @@
       <Item value="PlayerSelectedFieldStateMove`0" priority="1" />
       <Item value="Is" priority="1" />
       <Item value="pattern" priority="0" />
-      <Item value="expected" priority="0" />
+      <Item value="expected" priority="1" />
       <Item value="changedFieldModels" priority="1" />
       <Item value="oldField" priority="1" />
       <Item value="MapFrom`2" priority="0" />
@@ -562,7 +562,7 @@
       <Item value="BindingFlags`0" priority="0" />
       <Item value="EnumOf" priority="3" />
       <Item value="PhutballGameStateEnum`0" priority="8" />
-      <Item value="readonly" priority="3" />
+      <Item value="readonly" priority="4" />
       <Item value="_currentState" priority="2" />
       <Item value="Player`0" priority="0" />
       <Item value="Player" priority="0" />
@@ -637,7 +637,7 @@
       <Item value="valueSubject" priority="2" />
       <Item value="fieldsToUpdate" priority="0" />
       <Item value="Dictionary&lt;int,Field&gt;" priority="0" />
-      <Item value="TargetBorder`0" priority="7" />
+      <Item value="TargetBorder`0" priority="8" />
       <Item value="targetBorder" priority="1" />
       <Item value="PhutballOptions`0" priority="1" />
       <Item value="_rowIndex" priority="0" />
@@ -645,7 +645,7 @@
       <Item value="_isInitilized" priority="0" />
       <Item value="TargetBorder" priority="2" />
       <Item value="Math`0" priority="3" />
-      <Item value="whiteField" priority="15" />
+      <Item value="whiteField" priority="16" />
       <Item value="_winingBorder" priority="0" />
       <Item value="maxValue" priority="0" />
       <Item value="minValue" priority="0" />
@@ -707,7 +707,7 @@
       <Item value="DirectedJumpersFactory" priority="0" />
       <Item value="jumpDireactions" priority="1" />
       <Item value="jump" priority="2" />
-      <Item value="actualGraph" priority="1" />
+      <Item value="actualGraph" priority="5" />
       <Item value="treeNode" priority="3" />
       <Item value="lastMove" priority="0" />
       <Item value="actualNode" priority="1" />
@@ -743,20 +743,20 @@
       <Item value="OneTimeValueThenDefault&lt;bool&gt;" priority="2" />
       <Item value="_default" priority="0" />
       <Item value="_shouldStop" priority="0" />
-      <Item value="BruteForceMoveFindingStartegy" priority="1" />
-      <Item value="tf" priority="1" />
+      <Item value="BruteForceMoveFindingStartegy" priority="2" />
+      <Item value="tf" priority="2" />
       <Item value="_bestMove" priority="4" />
       <Item value="FieldsGraph`0" priority="3" />
       <Item value="_clonedGraph" priority="1" />
       <Item value="Initialize`0" priority="0" />
-      <Item value="BruteForceMoveFindingStartegy`0" priority="0" />
+      <Item value="BruteForceMoveFindingStartegy`0" priority="2" />
       <Item value="columnCount" priority="5" />
       <Item value="FileAssert`0" priority="0" />
       <Item value="_fieldCreator" priority="1" />
-      <Item value="TestFieldsGraph`0" priority="0" />
+      <Item value="TestFieldsGraph`0" priority="2" />
       <Item value="observations_for_brute_force_searching`0" priority="0" />
       <Item value="TestFieldsGraph" priority="0" />
-      <Item value="FT`0" priority="6" />
+      <Item value="FT`0" priority="7" />
       <Item value="_graphCreator" priority="0" />
       <Item value="graphs" priority="2" />
       <Item value="Length" priority="1" />
@@ -768,6 +768,22 @@
       <Item value="Reverse`1" priority="1" />
       <Item value="list" priority="1" />
       <Item value="items" priority="0" />
+      <Item value="TestGraphs`0" priority="9" />
+      <Item value="testFieldsGraph" priority="1" />
+      <Item value="observations_for_applying_best_move`0" priority="0" />
+      <Item value="AfterMoveOn`0" priority="8" />
+      <Item value="resultGraph" priority="3" />
+      <Item value="graph" priority="1" />
+      <Item value="message" priority="0" />
+      <Item value="actual" priority="0" />
+      <Item value="bestMove" priority="1" />
+      <Item value="BasicExtensionsTester`0" priority="0" />
+      <Item value="Empty" priority="7" />
+      <Item value="Black" priority="2" />
+      <Item value="White" priority="1" />
+      <Item value="DebuggerStepThrough" priority="1" />
+      <Item value="DebuggerStepperBoundary" priority="0" />
+      <Item value="jumpedFieldsAndLastWhite" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Configuration.PresentationFrameworkConfiguration">
       <Item value="With" priority="1" />
@@ -1108,7 +1124,7 @@
     <ItemStatistics item="Qualified:System.Int32">
       <Item value="IsEven" priority="1" />
       <Item value="Upto`0" priority="3" />
-      <Item value="ShouldEqual`0" priority="7" />
+      <Item value="ShouldEqual`0" priority="11" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Windows.Visibility">
       <Item value="Visible" priority="2" />
@@ -1125,6 +1141,7 @@
       <Item value="LastOrDefault`1" priority="0" />
       <Item value="ToArray`0" priority="0" />
       <Item value="AddRange`0" priority="1" />
+      <Item value="Last`1" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Shapes.Line">
       <Item value="StrokeThickness" priority="0" />
@@ -1218,10 +1235,10 @@
     <ItemStatistics item="Qualified:EndGames.Phutball.Field">
       <Item value="Selected" priority="3" />
       <Item value="PlaceBlackStone`0" priority="1" />
-      <Item value="RowIndex" priority="11" />
-      <Item value="ColumnIndex" priority="3" />
+      <Item value="RowIndex" priority="14" />
+      <Item value="ColumnIndex" priority="5" />
       <Item value="Stone" priority="5" />
-      <Item value="HasStone" priority="3" />
+      <Item value="HasStone" priority="4" />
       <Item value="IsInMiddleRows`0" priority="0" />
       <Item value="PlaceWhiteStone`0" priority="5" />
       <Item value="IsWinningField`0" priority="0" />
@@ -1333,8 +1350,9 @@
       <Item value="Initialize`0" priority="1" />
       <Item value="GetFields`0" priority="2" />
       <Item value="UpdateFields`0" priority="3" />
-      <Item value="GetWhiteField`0" priority="4" />
+      <Item value="GetWhiteField`0" priority="9" />
       <Item value="RowCount" priority="0" />
+      <Item value="ShouldHaveWhiteFieldAt`0" priority="7" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Shell.Presenters.GameStatePresenter">
       <Item value="Activate`0" priority="1" />
@@ -1409,7 +1427,7 @@
       <Item value="LastMove" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Phutball.Moves.IMove`1">
-      <Item value="Perform`0" priority="2" />
+      <Item value="Perform`0" priority="4" />
       <Item value="Undo`0" priority="0" />
       <Item value="ShouldBeNull`0" priority="0" />
       <Item value="ShouldBeOfType`0" priority="3" />
@@ -1420,7 +1438,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@EndGames.Phutball.Search.BoardValues.TargetBorderEnum">
       <Item value="Bottom" priority="0" />
-      <Item value="Upper" priority="1" />
+      <Item value="Upper" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Phutball.Search.BoardValues.IValueOfGraph">
       <Item value="GetValue`0" priority="1" />
@@ -1441,18 +1459,38 @@
       <Item value="GetValue`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Phutball.Search.BruteForceMoveFindingStartegy">
-      <Item value="Search`0" priority="1" />
+      <Item value="Search`0" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Tests.Phutball.Search.TestFieldsGraph">
-      <Item value="GetFieldsGraph`0" priority="1" />
+      <Item value="GetFieldsGraph`0" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@EndGames.Tests.Phutball.Search.FT">
-      <Item value="Empty" priority="3" />
-      <Item value="White" priority="1" />
-      <Item value="Black" priority="1" />
+      <Item value="Empty" priority="6" />
+      <Item value="White" priority="2" />
+      <Item value="Black" priority="6" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:EndGames.Phutball.Moves.CompositeMove`1">
       <Item value="GetMoves`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.Phutball.Search.TestGraphs">
+      <Item value="OneBlackStoneToJump`0" priority="1" />
+      <Item value="BlackStonToJumpToWinningBorder`0" priority="1" />
+      <Item value="BlackStoneToJumpToLoosingBorder`0" priority="1" />
+      <Item value="TwoBackWardJumpsToImprovePosition`0" priority="0" />
+      <Item value="TwoWaysToJumpBackwardsOneWillLose`0" priority="0" />
+      <Item value="TwoWaysToJumpBackwardsOneWins`0" priority="0" />
+      <Item value="WinningWayPassingThoughLossingField`0" priority="0" />
+      <Item value="ContinueSearchAfterImprovingPosition`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.Phutball.Search.TestGraphs+FT">
+      <Item value="Empty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Phutball.Search.FieldType">
+      <Item value="Equals`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.Phutball.Search.FieldType">
+      <Item value="Black" priority="0" />
+      <Item value="White" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <UnitTestRunnerNUnit>

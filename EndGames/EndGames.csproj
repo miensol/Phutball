@@ -61,10 +61,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\wpf\caliburn\trunk\bin\net-3.5\debug\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGraph, Version=3.3.40824.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\QuickGraph.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

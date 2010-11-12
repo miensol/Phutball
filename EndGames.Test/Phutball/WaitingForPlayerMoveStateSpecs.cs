@@ -49,6 +49,13 @@ namespace EndGames.Tests.Phutball
         {
             return new Field(1,1,1);
         }
+
+        protected override void EstablishContext()
+        {
+            base.EstablishContext();
+            Dependency<IPhutballBoard>().Stub(board => board.CanPlaceBlackStone(Arg.Is(_clickedField)))
+                .Return(true);
+        }
     }
 
     public class when_clicking_empty_field_on_the_board_edge : observations_for_clicking_field_in_waiting_for_player_move_state

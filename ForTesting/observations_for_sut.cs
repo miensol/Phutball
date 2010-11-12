@@ -103,12 +103,6 @@ namespace ForTesting
             base.Setup();
         }
 
-        /// <summary>
-        /// Instruuje AutoMockingKernel ze typ ma byc stubem
-        /// jesli jednak typ byl juz zbindowany to zostanie zwrocony obiekt zgodnie z poprzednim bindingiem
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
         protected T Stub<T>() where T : class
         {
             var stub = MockRepository.GenerateStub<T>();
@@ -116,21 +110,11 @@ namespace ForTesting
             return stub;
         }
 
-        /// <summary>
-        /// Generuje stuba w oderwaniu od automocking kernela
-        /// </summary>
-        /// <typeparam name="T">Typ stuba</typeparam>
-        /// <returns>Stub typu t</returns>
         protected T GenerateStub<T>() where T : class
         {
             return MockRepository.GenerateStub<T>();
         }
 
-        /// <summary>
-        /// Binduje typ do sta³ej
-        /// </summary>
-        /// <typeparam name="TType"></typeparam>
-        /// <param name="implementation"></param>
         protected void ProvideImplementationOf<TType>(TType implementation)
         {
             _autoMocker.Container.Inject(implementation);
@@ -150,18 +134,18 @@ namespace ForTesting
             where T : class
         {
             T result = null;
-            try
-            {
-                result = _autoMocker.Get<T>();
-                if (!_mocks.IsInReplayMode(result))
-                {
-                    _mocks.Replay(result);
-                }
-            }
-            catch
-            {
+//            try
+//            {
+                  result = _autoMocker.Get<T>();
+//                if (!_mocks.IsInReplayMode(result))
+//                {
+//                    _mocks.Replay(result);
+//                }
+//            }
+//            catch
+//            {
                 //result = null;
-            }
+//            }
             return result;
         }
 
