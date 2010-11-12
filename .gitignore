@@ -1,3 +1,28 @@
+ForTesting/obj/
+ForTesting/[Bb]in
+ForTesting/[Dd]ebug*/
+ForTesting/[Rr]elease*/
+
+Endgames/obj/
+Endgames/[Bb]in
+Endgames/[Dd]ebug*/
+Endgames/[Rr]elease*/
+
+Endgames.Shell/obj/
+Endgames.Shell/[Bb]in
+Endgames.Shell/[Dd]ebug*/
+Endgames.Shell/[Rr]elease*/
+
+Endgames.Tests/obj/
+Endgames.Tests/[Bb]in
+Endgames.Tests/[Dd]ebug*/
+Endgames.Tests/[Rr]elease*/
+
+Endgames.Shell.Tests/obj/
+Endgames.Shell.Tests/[Bb]in
+Endgames.Shell.Tests/[Dd]ebug*/
+Endgames.Shell.Tests/[Rr]elease*/
+
 #OS junk files
 [Tt]humbs.db
 *.DS_Store
@@ -6,7 +31,7 @@
 *.[Oo]bj
 *.exe
 *.pdb
-s*.user
+g*.user
 *.aps
 *.pch
 *.vspscc
@@ -34,6 +59,7 @@ Ankh.NoLoad
 #Tooling
 _ReSharper*/
 *.resharper
+*.Resharper
 [Tt]est[Rr]esult*
 
 #Project files
