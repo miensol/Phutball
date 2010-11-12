@@ -58,7 +58,7 @@
     </Reference>
     <Reference Include="Caliburn.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\wpf\caliburn\trunk\bin\net-3.5\debug\Caliburn.Core.dll</HintPath>
+      <HintPath>..\lib\Caliburn.Core.dll</HintPath>
     </Reference>
     <Reference Include="Caliburn.StructureMap, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
