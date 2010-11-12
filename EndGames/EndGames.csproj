@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EndGames</RootNamespace>
+    <AssemblyName>EndGames</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\wpf\caliburn\trunk\bin\net-3.5\debug\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph, Version=3.3.40824.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventPublisher.cs" />
+    <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Utils\EnumOf.cs" />
+    <Compile Include="Phutball\CurrentPlayerWonEvent.cs" />
+    <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />
+    <Compile Include="Phutball\Moves\CompositeMove.cs" />
+    <Compile Include="Phutball\Moves\DeselectWhiteFIeldMove.cs" />
+    <Compile Include="Phutball\Moves\IMove.cs" />
+    <Compile Include="Phutball\Jumpers\FieldJump.cs" />
+    <Compile Include="Phutball\Jumpers\FieldJumpIterator.cs" />
+    <Compile Include="Phutball\Field.cs" />
+    <Compile Include="Phutball\FieldsGraph.cs" />
+    <Compile Include="Phutball\Events\PhutballBoardInitialized.cs" />
+    <Compile Include="Phutball\Events\PhutballGameFieldsChanged.cs" />
+    <Compile Include="Phutball\Events\PhutballGameStarted.cs" />
+    <Compile Include="Phutball\Moves\IPhutballBoardMove.cs" />
+    <Compile Include="Phutball\Moves\JumpWhiteStoneMove.cs" />
+    <Compile Include="Phutball\Moves\PlaceBlackStoneMove.cs" />
+    <Compile Include="Phutball\Moves\SelectWhiteFieldMove.cs" />
+    <Compile Include="Phutball\PlayerMoves\HandlePlayerMoves.cs" />
+    <Compile Include="Phutball\Jumpers\IJumpDirectly.cs" />
+    <Compile Include="Phutball\IFieldsGraph.cs" />
+    <Compile Include="Phutball\PlayerMoves\IHandlePlayerMoves.cs" />
+    <Compile Include="Phutball\Jumpers\IJump.cs" />
+    <Compile Include="Phutball\IPhutballBoard.cs" />
+    <Compile Include="Phutball\IPhutballOptions.cs" />
+    <Compile Include="Phutball\PlayerMoves\IPlayerMoveState.cs" />
+    <Compile Include="Phutball\Jumpers\IStoneJumper.cs" />
+    <Compile Include="Phutball\Jumpers\StoneMover.cs" />
+    <Compile Include="Phutball\PhutballBoard.cs" />
+    <Compile Include="Phutball\PhutballGameState.cs" />
+    <Compile Include="Phutball\PhutballGameStateEnum.cs" />
+    <Compile Include="Phutball\PhutballOptions.cs" />
+    <Compile Include="Phutball\Player\Player.cs" />
+    <Compile Include="Phutball\Player\PlayerEnum.cs" />
+    <Compile Include="Phutball\PlayerMoves\PlayerMoveStateBase.cs" />
+    <Compile Include="Phutball\PlayerMoves\PlayerSelectedFieldStateMove.cs" />
+    <Compile Include="Phutball\Jumpers\StoneJumper.cs" />
+    <Compile Include="Phutball\PlayerMoves\WaitingForPlayerMoveState.cs" />
+    <Compile Include="Phutball\Search\BoardJumpTree.cs" />
+    <Compile Include="Phutball\Search\BoardValues\IValueOfGraph.cs" />
+    <Compile Include="Phutball\Search\BoardValues\TargetBorder.cs" />
+    <Compile Include="Phutball\Search\BoardValues\TargetBorderEnum.cs" />
+    <Compile Include="Phutball\ReadOnlyPhutballBoard.cs" />
+    <Compile Include="Phutball\Search\BoardValues\IValueOf.cs" />
+    <Compile Include="Phutball\Search\BoardValues\WhiteStoneToBorderDistanceValue.cs" />
+    <Compile Include="Phutball\Search\BruteForceMoveFindingStartegy.cs" />
+    <Compile Include="Phutball\Search\DfsSearch.cs" />
+    <Compile Include="Phutball\Search\IMoveFindingStartegy.cs" />
+    <Compile Include="Phutball\Search\JumpNode.cs" />
+    <Compile Include="Phutball\Search\OneTimeValueThenDefault.cs" />
+    <Compile Include="Phutball\Search\Tree.cs" />
+    <Compile Include="Phutball\WhiteStone.cs" />
+    <Compile Include="Phutball\IStone.cs" />
+    <Compile Include="Phutball\Player\IPlayer.cs" />
+    <Compile Include="Utils\IStartupTask.cs" />
+    <Compile Include="Mapping\AutoMapperExtensions.cs" />
+    <Compile Include="BasicExtensions.cs" />
+    <Compile Include="Mapping\IDoMapper.cs" />
+    <Compile Include="Mapping\ObjectMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
