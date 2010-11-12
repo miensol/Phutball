@@ -1,0 +1,640 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">True</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:New.cs" caret="124" fromTop="6" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:BlackCheckerField.cs" caret="307" fromTop="2" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Extensions/f:CaliburnExtensions.cs" caret="0" fromTop="0" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Games/f:CheckerGameSpecs.cs" caret="1053" fromTop="40" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersFieldsFactory.cs" caret="1966" fromTop="24" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Models/f:CheckersBoardModel.cs" caret="1299" fromTop="18" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="5" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Views/f:CheckersBoardView.xaml" caret="674" fromTop="10" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Mapping/f:AutoMapperSpecs.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Mapping/f:ObjectMapper.cs" caret="77" fromTop="4" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:ICheckersGame.cs" caret="223" fromTop="8" />
+      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:StructureMapContainerSpecifications.cs" caret="208" fromTop="0" />
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/f:ShellRegistrySpecs.cs" caret="110" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Mapping/f:AutoMapperExtensionsSpecs.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Mapping/f:AutoMapperExtensions.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:IBoostrapperTask.cs" caret="657" fromTop="12" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/f:BootstrapperTaskSpecs.cs" caret="338" fromTop="0" />
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/d:Mapping/f:BaseCheckerFieldToFieldModelMappingSpecs.cs" caret="580" fromTop="19" />
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/d:Mapping/f:CheckersGameToBoardModelMappingSpecs.cs" caret="581" fromTop="15" />
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/d:Presenters/f:CheckersBoardPresenterSpecs.cs" caret="800" fromTop="15" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/f:App.xaml.cs" caret="1246" fromTop="19" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:BaseCheckerField.cs" caret="279" fromTop="14" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:ICheckerField.cs" caret="103" fromTop="5" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="496" fromTop="13" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:IPlayer.cs" caret="105" fromTop="9" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:BaseCheckerFieldToFieldModelMapping.cs" caret="0" fromTop="0" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Presenters/f:CheckersBoardPresenter.cs" caret="1307" fromTop="26" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/f:ShellRegistrySpecs.cs" caret="0" fromTop="0" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Views/f:CheckersBoardView.xaml" caret="379" fromTop="8" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Views/f:CheckersBoardView.xaml" caret="747" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="192" fromTop="7" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1111" fromTop="20" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Views/f:CheckersBoardView.xaml" caret="667" fromTop="10" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Models/f:CheckersBoardModel.cs" caret="1299" fromTop="18" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1111" fromTop="13" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1111" fromTop="19" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1111" fromTop="20" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="537" fromTop="9" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1095" fromTop="13" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1084" fromTop="18" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1099" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="8" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1111" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="1364" fromTop="9" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="9" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="5" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="14" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="12" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="14" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="829" fromTop="14" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersGame.cs" caret="98" fromTop="5" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersFieldsFactory.cs" caret="194" fromTop="9" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersFieldsFactory.cs" caret="435" fromTop="16" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Games/f:CheckersFieldsFactory.cs" caret="1966" fromTop="24" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Games/f:CheckerGameSpecs.cs" caret="1384" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Games/f:CheckerGameSpecs.cs" caret="1181" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Games/f:CheckerGameSpecs.cs" caret="1739" fromTop="24" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="CaliburnApplication" priority="0" />
+      <Item value="override" priority="33" />
+      <Item value="ctx" priority="0" />
+      <Item value="ctor" priority="12" />
+      <Item value="InitializeComponent" priority="0" />
+      <Item value="using" priority="2" />
+      <Item value="module" priority="0" />
+      <Item value="IScreen" priority="3" />
+      <Item value="void" priority="12" />
+      <Item value="where" priority="4" />
+      <Item value="TScreen" priority="11" />
+      <Item value="IServiceLocator" priority="0" />
+      <Item value="serviceLocator" priority="1" />
+      <Item value="var" priority="13" />
+      <Item value="new" priority="46" />
+      <Item value="ie" priority="1" />
+      <Item value="UiRegistry" priority="0" />
+      <Item value="ObjectFactory" priority="1" />
+      <Item value="return" priority="48" />
+      <Item value="base" priority="3" />
+      <Item value="StructureMapAdapter" priority="0" />
+      <Item value="Container" priority="6" />
+      <Item value="IShellPresenter" priority="5" />
+      <Item value="Scan" priority="1" />
+      <Item value="this" priority="18" />
+      <Item value="scanner" priority="3" />
+      <Item value="namespace" priority="0" />
+      <Item value="EndGames.Shell" priority="1" />
+      <Item value="Presenters.Interfaces" priority="0" />
+      <Item value="shellPresenter" priority="0" />
+      <Item value="MessageBox" priority="0" />
+      <Item value="_serviceLocator" priority="0" />
+      <Item value="presenterToOpen" priority="0" />
+      <Item value="Open" priority="0" />
+      <Item value="IHomePresenter" priority="2" />
+      <Item value="Initialize" priority="0" />
+      <Item value="ToList" priority="1" />
+      <Item value="Sut" priority="12" />
+      <Item value="tm" priority="29" />
+      <Item value="Dependency" priority="7" />
+      <Item value="shell" priority="0" />
+      <Item value="_shellPresenter" priority="2" />
+      <Item value="ICheckersBoardPresenter" priority="3" />
+      <Item value="public" priority="46" />
+      <Item value="For" priority="0" />
+      <Item value="ShellPresenter" priority="2" />
+      <Item value="observations_for_sut_of_type" priority="1" />
+      <Item value="ProvideImplementationOf" priority="2" />
+      <Item value="ITestScreen" priority="1" />
+      <Item value="_testScreen" priority="1" />
+      <Item value="GenerateStub" priority="2" />
+      <Item value="Microsoft" priority="0" />
+      <Item value="ServiceLocator" priority="2" />
+      <Item value="StructureMap" priority="0" />
+      <Item value="_autoMocker" priority="1" />
+      <Item value="_defaultScreen" priority="1" />
+      <Item value="HomePresenter" priority="1" />
+      <Item value="home" priority="0" />
+      <Item value="true" priority="4" />
+      <Item value="class" priority="17" />
+      <Item value="observations_for_auto_created_sut_of_type" priority="7" />
+      <Item value="object" priority="5" />
+      <Item value="abstract" priority="2" />
+      <Item value="null" priority="13" />
+      <Item value="throw" priority="0" />
+      <Item value="observations_for_static_sut_with_ioc" priority="2" />
+      <Item value="protected" priority="0" />
+      <Item value="ce" priority="0" />
+      <Item value="ShellRegistry" priority="0" />
+      <Item value="bool" priority="5" />
+      <Item value="TInterfaces" priority="0" />
+      <Item value="static" priority="16" />
+      <Item value="container" priority="3" />
+      <Item value="RegistrationTypeConstraint" priority="0" />
+      <Item value="TWhat" priority="0" />
+      <Item value="_container" priority="3" />
+      <Item value="_model" priority="2" />
+      <Item value="IRegistrationTypeConstraint" priority="1" />
+      <Item value="TPluginType" priority="1" />
+      <Item value="InstanceScope" priority="1" />
+      <Item value="Application" priority="0" />
+      <Item value="PropertyChangedBase" priority="2" />
+      <Item value="CheckersBoardModel" priority="13" />
+      <Item value="Subject" priority="2" />
+      <Item value="NotifyOfPropertyChange" priority="4" />
+      <Item value="Title" priority="2" />
+      <Item value="IScreenCollection" priority="1" />
+      <Item value="IScreenSubject" priority="0" />
+      <Item value="ScreenSubject" priority="0" />
+      <Item value="CheckersBoardSubject" priority="0" />
+      <Item value="prop" priority="3" />
+      <Item value="string" priority="12" />
+      <Item value="CheckersBoardPresenter" priority="2" />
+      <Item value="screenCollection" priority="1" />
+      <Item value="presenter" priority="5" />
+      <Item value="TScreenToOpen" priority="0" />
+      <Item value="Screen" priority="0" />
+      <Item value="ItemsControl" priority="0" />
+      <Item value="IEnumerable" priority="3" />
+      <Item value="Fields" priority="4" />
+      <Item value="BindableCollection" priority="2" />
+      <Item value="FieldModel" priority="14" />
+      <Item value="Background" priority="2" />
+      <Item value="int" priority="16" />
+      <Item value="Left" priority="1" />
+      <Item value="Top" priority="1" />
+      <Item value="Width" priority="0" />
+      <Item value="Height" priority="0" />
+      <Item value="model" priority="2" />
+      <Item value="DataTemplateSelector" priority="1" />
+      <Item value="const" priority="7" />
+      <Item value="as" priority="4" />
+      <Item value="ContentPresenter" priority="0" />
+      <Item value="item" priority="1" />
+      <Item value="if" priority="5" />
+      <Item value="field" priority="0" />
+      <Item value="EMPTY_CHECKER" priority="0" />
+      <Item value="DataTemplate" priority="5" />
+      <Item value="else" priority="1" />
+      <Item value="CHECKER" priority="1" />
+      <Item value="me" priority="0" />
+      <Item value="name" priority="0" />
+      <Item value="TResourceType" priority="0" />
+      <Item value="Extensions" priority="0" />
+      <Item value="_board" priority="0" />
+      <Item value="value" priority="0" />
+      <Item value="Board" priority="3" />
+      <Item value="AsyncAction" priority="0" />
+      <Item value="_inputViewModel" priority="0" />
+      <Item value="_resolvedDataTemplate" priority="0" />
+      <Item value="FrameworkElement" priority="2" />
+      <Item value="_fakeFrameWorkElement" priority="0" />
+      <Item value="_resourceProvider" priority="1" />
+      <Item value="IResoureceProvider" priority="0" />
+      <Item value="provider" priority="0" />
+      <Item value="_expectedDataTemlate" priority="1" />
+      <Item value="resourceProvider" priority="1" />
+      <Item value="templateName" priority="0" />
+      <Item value="GetDataTemlate" priority="0" />
+      <Item value="DependencyObject" priority="0" />
+      <Item value="key" priority="1" />
+      <Item value="Arg" priority="3" />
+      <Item value="ByTypeTemplateSelector" priority="1" />
+      <Item value="mapper" priority="5" />
+      <Item value="source" priority="4" />
+      <Item value="TTargetType" priority="3" />
+      <Item value="IMapper" priority="3" />
+      <Item value="TestTargetClass" priority="3" />
+      <Item value="_source" priority="7" />
+      <Item value="_mapped" priority="5" />
+      <Item value="_expectedMappedObject" priority="1" />
+      <Item value="Mapping" priority="0" />
+      <Item value="typeof" priority="4" />
+      <Item value="AutoMapper" priority="0" />
+      <Item value="TestSourceViewModel" priority="1" />
+      <Item value="SomeProperty" priority="0" />
+      <Item value="New" priority="1" />
+      <Item value="Mapper" priority="12" />
+      <Item value="TestViewModel" priority="0" />
+      <Item value="Enumerable" priority="0" />
+      <Item value="for" priority="1" />
+      <Item value="i" priority="3" />
+      <Item value="List" priority="1" />
+      <Item value="IList" priority="1" />
+      <Item value="Random" priority="2" />
+      <Item value="random" priority="0" />
+      <Item value="switch" priority="0" />
+      <Item value="which" priority="0" />
+      <Item value="case" priority="0" />
+      <Item value="EmptyFieldModel" priority="0" />
+      <Item value="Id" priority="0" />
+      <Item value="break" priority="0" />
+      <Item value="WhiteFieldModel" priority="2" />
+      <Item value="BlackFieldModel" priority="6" />
+      <Item value="checkersGame" priority="0" />
+      <Item value="_checkersGame" priority="1" />
+      <Item value="UndirectedGraph" priority="1" />
+      <Item value="IMutableUndirectedGraph" priority="0" />
+      <Item value="IEdge" priority="0" />
+      <Item value="ICheckersField" priority="5" />
+      <Item value="Edge" priority="1" />
+      <Item value="_gameGraph" priority="3" />
+      <Item value="BoardSize" priority="8" />
+      <Item value="fieldIndex" priority="2" />
+      <Item value="FieldCount" priority="1" />
+      <Item value="Func" priority="0" />
+      <Item value="index" priority="13" />
+      <Item value="number" priority="0" />
+      <Item value="_id" priority="0" />
+      <Item value="BaseCheckerField" priority="1" />
+      <Item value="newField" priority="0" />
+      <Item value="CheckersGame" priority="12" />
+      <Item value="GameFields" priority="4" />
+      <Item value="EmptyCheckerField" priority="1" />
+      <Item value="BlackCheckerField" priority="8" />
+      <Item value="gf" priority="0" />
+      <Item value="f" priority="2" />
+      <Item value="IPlayer" priority="9" />
+      <Item value="_player1" priority="4" />
+      <Item value="IPawn" priority="0" />
+      <Item value="blackField" priority="0" />
+      <Item value="WhitePawn" priority="2" />
+      <Item value="BlackPawn" priority="5" />
+      <Item value="_player2" priority="4" />
+      <Item value="Stub" priority="0" />
+      <Item value="is" priority="5" />
+      <Item value="cf" priority="4" />
+      <Item value="Pawn" priority="3" />
+      <Item value="AllBlackFields" priority="0" />
+      <Item value="IBackgroundTask" priority="0" />
+      <Item value="ICheckerField" priority="3" />
+      <Item value="WhiteCheckerField" priority="0" />
+      <Item value="observations_for_sut" priority="0" />
+      <Item value="observations_for_static_sut" priority="3" />
+      <Item value="TTask" priority="4" />
+      <Item value="IBoostrapperTask" priority="5" />
+      <Item value="Activator" priority="1" />
+      <Item value="BoostrapperTask" priority="9" />
+      <Item value="BaseCheckerFieldToFieldModelMapping" priority="2" />
+      <Item value="TMapping" priority="0" />
+      <Item value="dst" priority="4" />
+      <Item value="opt" priority="4" />
+      <Item value="src" priority="3" />
+      <Item value="pawn" priority="0" />
+      <Item value="TestTask" priority="2" />
+      <Item value="false" priority="4" />
+      <Item value="AssemblyLoadEventArgs" priority="0" />
+      <Item value="assemblty" priority="0" />
+      <Item value="t" priority="3" />
+      <Item value="private" priority="0" />
+      <Item value="Type" priority="0" />
+      <Item value="boostrappTask" priority="0" />
+      <Item value="Run" priority="0" />
+      <Item value="WasExecuted" priority="2" />
+      <Item value="TestTask2" priority="0" />
+      <Item value="_currentAssemblty" priority="0" />
+      <Item value="Assembly" priority="0" />
+      <Item value="TSource" priority="2" />
+      <Item value="TDestination" priority="2" />
+      <Item value="IMappingExpression" priority="0" />
+      <Item value="mappingExpression" priority="1" />
+      <Item value="BuildInitialGameGraph" priority="0" />
+      <Item value="ICheckersGame" priority="4" />
+      <Item value="game" priority="0" />
+      <Item value="_expectedBoardModel" priority="0" />
+      <Item value="observations_for_mapping_defined_in" priority="0" />
+      <Item value="CheckersGameToCheckersBoardModelMapping" priority="0" />
+      <Item value="internal" priority="0" />
+      <Item value="interface" priority="0" />
+      <Item value="IObjectMapper" priority="0" />
+      <Item value="DoMapper" priority="0" />
+      <Item value="IDoMapper" priority="0" />
+      <Item value="row" priority="5" />
+      <Item value="Binding" priority="0" />
+      <Item value="Visibility" priority="2" />
+      <Item value="HasPawn" priority="0" />
+      <Item value="CheckersFieldsFactory" priority="0" />
+      <Item value="_boardSize" priority="5" />
+      <Item value="_checkersFieldFactory" priority="0" />
+      <Item value="fields" priority="0" />
+      <Item value="_fieldCount" priority="0" />
+      <Item value="_firstPlayer" priority="1" />
+      <Item value="_secondPlayer" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Configuration.PresentationFrameworkConfiguration">
+      <Item value="With" priority="0" />
+      <Item value="RegisterAllScreensWithSubjects" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@StructureMap.ObjectFactory">
+      <Item value="Initialize" priority="0" />
+      <Item value="Container" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.IInitializationExpression">
+      <Item value="AddRegistry" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.ApplicationModel.CaliburnApplication">
+      <Item value="CreateContainer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Practices.ServiceLocation.IServiceLocator">
+      <Item value="GetInstance" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Graph.IAssemblyScanner">
+      <Item value="TheCallingAssembly" priority="1" />
+      <Item value="WithDefaultConventions" priority="0" />
+      <Item value="AssemblyContainingType" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.MessageBox">
+      <Item value="Show" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.ShellPresenter">
+      <Item value="Open" priority="2" />
+      <Item value="IsActive" priority="0" />
+      <Item value="Activate" priority="0" />
+      <Item value="ActiveScreen" priority="0" />
+      <Item value="OpenScreen" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ArrayList">
+      <Item value="ToArray" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.HomePresenter">
+      <Item value="GoToCheckers" priority="0" />
+      <Item value="CloseApplication" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.Interfaces.IShellPresenter">
+      <Item value="Open" priority="2" />
+      <Item value="ShouldBeOfType" priority="0" />
+      <Item value="OpenScreen" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1">
+      <Item value="Use" priority="0" />
+      <Item value="Singleton" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Screens.IScreen">
+      <Item value="ShouldEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Practices.ServiceLocation.ServiceLocator">
+      <Item value="Current" priority="4" />
+      <Item value="SetLocatorProvider" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.AutoMocking.RhinoAutoMocker`1">
+      <Item value="Container" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.Interfaces.IHomePresenter">
+      <Item value="CanShutdown" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IMethodOptions`1">
+      <Item value="Return" priority="3" />
+      <Item value="IgnoreArguments" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.IContainer">
+      <Item value="Configure" priority="0" />
+      <Item value="AssertConfigurationIsValid" priority="0" />
+      <Item value="WhatDoIHave" priority="0" />
+      <Item value="Model" priority="1" />
+      <Item value="ShouldRegister" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.ConfigurationExpression">
+      <Item value="AddRegistry" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Query.IModel">
+      <Item value="HasImplementationsFor" priority="1" />
+      <Item value="For" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="ShouldBeTrue" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Query.IPluginTypeConfiguration">
+      <Item value="Lifecycle" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ShouldEqual" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@StructureMap.InstanceScope">
+      <Item value="Singleton" priority="0" />
+      <Item value="Transient" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.InstanceScope">
+      <Item value="ToString" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Application">
+      <Item value="Current" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Application">
+      <Item value="Shutdown" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Screens.IScreenCollection">
+      <Item value="OpenScreen" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="NewGuid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Guid">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ItemsControl">
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.FieldModel">
+      <Item value="Background" priority="1" />
+      <Item value="Empty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ContentPresenter">
+      <Item value="FindResource" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.FrameworkElement">
+      <Item value="FindResource" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading.Thread">
+      <Item value="Sleep" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.DataTemplate">
+      <Item value="ShouldNotBeNull" priority="0" />
+      <Item value="ShouldEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Utils.IResourceProvider">
+      <Item value="FindDataTemplate" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="Name" priority="0" />
+      <Item value="IsPublic" priority="0" />
+      <Item value="IsAssignableFrom" priority="0" />
+      <Item value="Assembly" priority="1" />
+      <Item value="IsClass" priority="0" />
+      <Item value="IsAbstract" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.Arg">
+      <Item value="Is" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Mapping.IMapper">
+      <Item value="AssertWasCalled" priority="1" />
+      <Item value="MapTo" priority="4" />
+      <Item value="Stub" priority="1" />
+      <Item value="DoMap" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Mapping.TestTargetClass">
+      <Item value="ShouldEqual" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AutoMapper.Mapper">
+      <Item value="Map" priority="5" />
+      <Item value="Reset" priority="1" />
+      <Item value="CreateMap" priority="7" />
+      <Item value="AssertConfigurationIsValid" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Mapping.AutoMapper">
+      <Item value="MapTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ForTesting.New">
+      <Item value="String" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Mapping.TestViewModel">
+      <Item value="ShouldNotBeNull" priority="0" />
+      <Item value="SomeProperty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Linq.Enumerable">
+      <Item value="Range" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Random">
+      <Item value="Next" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add" priority="0" />
+      <Item value="Each" priority="0" />
+      <Item value="Where" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:QuickGraph.IMutableUndirectedGraph`2">
+      <Item value="Vertices" priority="0" />
+      <Item value="AddVertex" priority="0" />
+      <Item value="AddVertexRange" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.CheckersGame">
+      <Item value="GameField" priority="0" />
+      <Item value="Fields" priority="1" />
+      <Item value="Initialize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ShouldHaveCount" priority="1" />
+      <Item value="ToList" priority="0" />
+      <Item value="Each" priority="3" />
+      <Item value="Cast" priority="1" />
+      <Item value="Where" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Games.CheckersGame">
+      <Item value="BoardSize" priority="2" />
+      <Item value="FieldCount" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.ICheckerField">
+      <Item value="ShouldBeOfType" priority="1" />
+      <Item value="Id" priority="1" />
+      <Item value="As" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.BlackCheckerField">
+      <Item value="Pawn" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPawn">
+      <Item value="ShouldBeOfType" priority="0" />
+      <Item value="Owner" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPlayer">
+      <Item value="ShouldEqual" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMappingExpression`2">
+      <Item value="Include" priority="2" />
+      <Item value="ForMember" priority="4" />
+      <Item value="CreateWpfCollectionMapping" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.BlackFieldModel">
+      <Item value="HasPawn" priority="1" />
+      <Item value="Color" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Activator">
+      <Item value="CreateInstance" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:">
+      <Item value="Execute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.BoostrapperTask">
+      <Item value="Run" priority="3" />
+      <Item value="RunAllFrom" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ForTesting.observations_for_static_sut">
+      <Item value="EstablishContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMemberConfigurationExpression`1">
+      <Item value="MapFrom" priority="3" />
+      <Item value="Ignore" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Shell.Models.BlackFieldModel">
+      <Item value="BlackPawnColor" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.TestTask">
+      <Item value="WasExecuted" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.Assembly">
+      <Item value="GetTypes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.IBoostrapperTask">
+      <Item value="Execute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.TestTask2">
+      <Item value="WasExecuted" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.Assembly">
+      <Item value="GetExecutingAssembly" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ForTesting.IRegistrationTypeConstraint">
+      <Item value="AsTransient" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.CheckersBoardPresenter">
+      <Item value="Initialize" priority="0" />
+      <Item value="Activate" priority="0" />
+      <Item value="Board" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.ICheckersGame">
+      <Item value="AssertWasCalled" priority="0" />
+      <Item value="Initialize" priority="0" />
+      <Item value="MapTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.CheckersBoardModel">
+      <Item value="ShouldEqual" priority="0" />
+      <Item value="Fields" priority="0" />
+      <Item value="Title" priority="1" />
+      <Item value="ShouldNotBeNull" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Tests.Mapping.observations_for_mapping_defined_in`1">
+      <Item value="EstablishContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="IsEven" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Visibility">
+      <Item value="Visible" priority="0" />
+      <Item value="Collapsed" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

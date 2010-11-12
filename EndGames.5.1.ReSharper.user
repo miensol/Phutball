@@ -1,0 +1,1463 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">True</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Models/f:PhutballBoardModel.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BoardJumpTree.cs" caret="234" fromTop="9" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:DfsSearchSpecs.cs" caret="1295" fromTop="2" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/f:App.xaml.cs" caret="17" fromTop="0" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/f:EngGamesRegistry.cs" caret="0" fromTop="0" />
+      <File id="8C4B129C-C134-4960-9746-269CABC49C8F/d:Mapping/f:observations_for_mapping.cs" caret="25" fromTop="2" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:SystemToWpfTypeMapping.cs" caret="0" fromTop="0" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:FieldToFieldModelMapping.cs" caret="0" fromTop="0" />
+      <File id="6ED2F022-574E-40AB-8271-431ED97EE2CF/d:Mapping/f:StoneToStoneModelMapping.cs" caret="0" fromTop="0" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/f:BootstrapperTaskSpecs.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/d:BoardValues/f:TargetBorderEnum.cs" caret="25" fromTop="2" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:PhutballGameStateEnum.cs" caret="25" fromTop="2" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Player/f:PlayerEnum.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Utils/f:EnumOf.cs" caret="0" fromTop="0" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Utils/f:IStartupTask.cs" caret="1276" fromTop="51" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:OneTimeValueThenDefault.cs" caret="535" fromTop="20" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:SelectWhiteFieldMove.cs" caret="335" fromTop="13" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:PhutballBoard.cs" caret="15" fromTop="0" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/d:BoardValues/f:WhiteStoneToBorderDistanceValueSpecs.cs" caret="3567" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:ReadOnlyPhutballBoard.cs" caret="880" fromTop="12" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:IFieldsGraph.cs" caret="218" fromTop="8" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:Field.cs" caret="912" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/f:FieldsGraphSpecs.cs" caret="384" fromTop="5" />
+      <File id="B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02/f:SpecificationExtensions.cs" caret="3986" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/f:FieldsGraph.cs" caret="3747" fromTop="17" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:DfsSearch.cs" caret="1164" fromTop="21" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BruteForceMoveFindingStartegy.cs" caret="2401" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="309" fromTop="10" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="819" fromTop="8" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="1678" fromTop="5" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2854" fromTop="6" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2728" fromTop="13" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5787" fromTop="19" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4945" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4842" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="13" fromTop="0" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2672" fromTop="26" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="12" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="406" fromTop="6" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="945" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3463" fromTop="21" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4622" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="294" fromTop="3" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2691" fromTop="30" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5083" fromTop="30" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="805" fromTop="29" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3768" fromTop="15" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5043" fromTop="10" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="5043" fromTop="12" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="4308" fromTop="13" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3310" fromTop="1" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="3240" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Search/f:BruteForceMoveFindingStartegy.cs" caret="2399" fromTop="15" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="163" fromTop="6" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="7008" fromTop="11" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/f:BasicExtensions.cs" caret="7193" fromTop="17" />
+      <File id="8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD/d:Phutball/d:Moves/f:CompositeMove.cs" caret="338" fromTop="10" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="1497" fromTop="11" />
+      <File id="B9D565CE-4AB5-4119-971D-57D54813E739/d:Phutball/d:Search/f:BruteForceMoveFindingStartegySpecs.cs" caret="2132" fromTop="11" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="CaliburnApplication" priority="0" />
+      <Item value="override" priority="57" />
+      <Item value="ctx" priority="0" />
+      <Item value="ctor" priority="37" />
+      <Item value="InitializeComponent" priority="0" />
+      <Item value="using" priority="3" />
+      <Item value="module" priority="1" />
+      <Item value="IScreen" priority="3" />
+      <Item value="void" priority="40" />
+      <Item value="where" priority="6" />
+      <Item value="TScreen" priority="11" />
+      <Item value="IServiceLocator" priority="0" />
+      <Item value="serviceLocator" priority="1" />
+      <Item value="var" priority="79" />
+      <Item value="new" priority="179" />
+      <Item value="ie" priority="1" />
+      <Item value="UiRegistry" priority="0" />
+      <Item value="ObjectFactory" priority="1" />
+      <Item value="return" priority="167" />
+      <Item value="base" priority="4" />
+      <Item value="StructureMapAdapter" priority="0" />
+      <Item value="Container" priority="7" />
+      <Item value="IShellPresenter" priority="5" />
+      <Item value="Scan" priority="1" />
+      <Item value="this" priority="29" />
+      <Item value="scanner" priority="4" />
+      <Item value="namespace" priority="0" />
+      <Item value="EndGames.Shell" priority="1" />
+      <Item value="Presenters.Interfaces" priority="0" />
+      <Item value="shellPresenter" priority="0" />
+      <Item value="MessageBox" priority="0" />
+      <Item value="_serviceLocator" priority="0" />
+      <Item value="presenterToOpen" priority="0" />
+      <Item value="Open" priority="0" />
+      <Item value="IHomePresenter" priority="2" />
+      <Item value="Initialize" priority="0" />
+      <Item value="ToList" priority="1" />
+      <Item value="Sut" priority="30" />
+      <Item value="tm" priority="68" />
+      <Item value="Dependency" priority="7" />
+      <Item value="shell" priority="0" />
+      <Item value="_shellPresenter" priority="2" />
+      <Item value="ICheckersBoardPresenter" priority="3" />
+      <Item value="public" priority="144" />
+      <Item value="For" priority="0" />
+      <Item value="ShellPresenter" priority="2" />
+      <Item value="observations_for_sut_of_type" priority="5" />
+      <Item value="ProvideImplementationOf" priority="2" />
+      <Item value="ITestScreen" priority="1" />
+      <Item value="_testScreen" priority="1" />
+      <Item value="GenerateStub" priority="2" />
+      <Item value="Microsoft" priority="0" />
+      <Item value="ServiceLocator" priority="2" />
+      <Item value="StructureMap" priority="0" />
+      <Item value="_autoMocker" priority="1" />
+      <Item value="_defaultScreen" priority="1" />
+      <Item value="HomePresenter" priority="1" />
+      <Item value="home" priority="0" />
+      <Item value="true" priority="18" />
+      <Item value="class" priority="60" />
+      <Item value="observations_for_auto_created_sut_of_type" priority="13" />
+      <Item value="object" priority="6" />
+      <Item value="abstract" priority="8" />
+      <Item value="null" priority="29" />
+      <Item value="throw" priority="0" />
+      <Item value="observations_for_static_sut_with_ioc" priority="2" />
+      <Item value="protected" priority="6" />
+      <Item value="ce" priority="0" />
+      <Item value="ShellRegistry" priority="0" />
+      <Item value="bool" priority="17" />
+      <Item value="TInterfaces" priority="0" />
+      <Item value="static" priority="34" />
+      <Item value="container" priority="3" />
+      <Item value="RegistrationTypeConstraint" priority="1" />
+      <Item value="TWhat" priority="0" />
+      <Item value="_container" priority="3" />
+      <Item value="_model" priority="2" />
+      <Item value="IRegistrationTypeConstraint" priority="1" />
+      <Item value="TPluginType" priority="1" />
+      <Item value="InstanceScope" priority="1" />
+      <Item value="Application" priority="0" />
+      <Item value="PropertyChangedBase" priority="4" />
+      <Item value="CheckersBoardModel" priority="13" />
+      <Item value="Subject" priority="2" />
+      <Item value="NotifyOfPropertyChange" priority="4" />
+      <Item value="Title" priority="2" />
+      <Item value="IScreenCollection" priority="1" />
+      <Item value="IScreenSubject" priority="0" />
+      <Item value="ScreenSubject" priority="0" />
+      <Item value="CheckersBoardSubject" priority="0" />
+      <Item value="prop" priority="3" />
+      <Item value="string" priority="12" />
+      <Item value="CheckersBoardPresenter" priority="2" />
+      <Item value="screenCollection" priority="1" />
+      <Item value="presenter" priority="5" />
+      <Item value="TScreenToOpen" priority="0" />
+      <Item value="Screen" priority="1" />
+      <Item value="ItemsControl" priority="0" />
+      <Item value="IEnumerable" priority="27" />
+      <Item value="Fields" priority="15" />
+      <Item value="BindableCollection" priority="5" />
+      <Item value="FieldModel" priority="17" />
+      <Item value="Background" priority="2" />
+      <Item value="int" priority="80" />
+      <Item value="Left" priority="1" />
+      <Item value="Top" priority="1" />
+      <Item value="Width" priority="0" />
+      <Item value="Height" priority="0" />
+      <Item value="model" priority="2" />
+      <Item value="DataTemplateSelector" priority="1" />
+      <Item value="const" priority="9" />
+      <Item value="as" priority="4" />
+      <Item value="ContentPresenter" priority="0" />
+      <Item value="item" priority="1" />
+      <Item value="if" priority="46" />
+      <Item value="field" priority="63" />
+      <Item value="EMPTY_CHECKER" priority="0" />
+      <Item value="DataTemplate" priority="5" />
+      <Item value="else" priority="7" />
+      <Item value="CHECKER" priority="1" />
+      <Item value="me" priority="2" />
+      <Item value="name" priority="0" />
+      <Item value="TResourceType" priority="0" />
+      <Item value="Extensions" priority="0" />
+      <Item value="_board" priority="1" />
+      <Item value="value" priority="1" />
+      <Item value="Board" priority="9" />
+      <Item value="AsyncAction" priority="0" />
+      <Item value="_inputViewModel" priority="0" />
+      <Item value="_resolvedDataTemplate" priority="0" />
+      <Item value="FrameworkElement" priority="2" />
+      <Item value="_fakeFrameWorkElement" priority="0" />
+      <Item value="_resourceProvider" priority="1" />
+      <Item value="IResoureceProvider" priority="0" />
+      <Item value="provider" priority="0" />
+      <Item value="_expectedDataTemlate" priority="1" />
+      <Item value="resourceProvider" priority="1" />
+      <Item value="templateName" priority="0" />
+      <Item value="GetDataTemlate" priority="0" />
+      <Item value="DependencyObject" priority="0" />
+      <Item value="key" priority="1" />
+      <Item value="Arg" priority="3" />
+      <Item value="ByTypeTemplateSelector" priority="1" />
+      <Item value="mapper" priority="5" />
+      <Item value="source" priority="5" />
+      <Item value="TTargetType" priority="3" />
+      <Item value="IMapper" priority="3" />
+      <Item value="TestTargetClass" priority="3" />
+      <Item value="_source" priority="7" />
+      <Item value="_mapped" priority="5" />
+      <Item value="_expectedMappedObject" priority="1" />
+      <Item value="Mapping" priority="2" />
+      <Item value="typeof" priority="5" />
+      <Item value="AutoMapper" priority="0" />
+      <Item value="TestSourceViewModel" priority="1" />
+      <Item value="SomeProperty" priority="0" />
+      <Item value="New" priority="1" />
+      <Item value="Mapper" priority="12" />
+      <Item value="TestViewModel" priority="0" />
+      <Item value="Enumerable" priority="0" />
+      <Item value="for" priority="7" />
+      <Item value="i" priority="3" />
+      <Item value="List" priority="12" />
+      <Item value="IList" priority="5" />
+      <Item value="Random" priority="2" />
+      <Item value="random" priority="0" />
+      <Item value="switch" priority="0" />
+      <Item value="which" priority="0" />
+      <Item value="case" priority="0" />
+      <Item value="EmptyFieldModel" priority="0" />
+      <Item value="Id" priority="1" />
+      <Item value="break" priority="0" />
+      <Item value="WhiteFieldModel" priority="2" />
+      <Item value="BlackFieldModel" priority="6" />
+      <Item value="checkersGame" priority="0" />
+      <Item value="_checkersGame" priority="1" />
+      <Item value="UndirectedGraph" priority="1" />
+      <Item value="IMutableUndirectedGraph" priority="0" />
+      <Item value="IEdge" priority="0" />
+      <Item value="ICheckersField" priority="5" />
+      <Item value="Edge" priority="1" />
+      <Item value="_gameGraph" priority="3" />
+      <Item value="BoardSize" priority="8" />
+      <Item value="fieldIndex" priority="2" />
+      <Item value="FieldCount" priority="1" />
+      <Item value="Func" priority="6" />
+      <Item value="index" priority="17" />
+      <Item value="number" priority="0" />
+      <Item value="_id" priority="1" />
+      <Item value="BaseCheckerField" priority="1" />
+      <Item value="newField" priority="2" />
+      <Item value="CheckersGame" priority="12" />
+      <Item value="GameFields" priority="4" />
+      <Item value="EmptyCheckerField" priority="1" />
+      <Item value="BlackCheckerField" priority="8" />
+      <Item value="gf" priority="0" />
+      <Item value="f" priority="2" />
+      <Item value="IPlayer" priority="9" />
+      <Item value="_player1" priority="4" />
+      <Item value="IPawn" priority="0" />
+      <Item value="blackField" priority="0" />
+      <Item value="WhitePawn" priority="2" />
+      <Item value="BlackPawn" priority="5" />
+      <Item value="_player2" priority="4" />
+      <Item value="Stub" priority="0" />
+      <Item value="is" priority="5" />
+      <Item value="cf" priority="4" />
+      <Item value="Pawn" priority="3" />
+      <Item value="AllBlackFields" priority="0" />
+      <Item value="IBackgroundTask" priority="0" />
+      <Item value="ICheckerField" priority="3" />
+      <Item value="WhiteCheckerField" priority="0" />
+      <Item value="observations_for_sut" priority="0" />
+      <Item value="observations_for_static_sut" priority="3" />
+      <Item value="TTask" priority="4" />
+      <Item value="IBoostrapperTask" priority="5" />
+      <Item value="Activator" priority="1" />
+      <Item value="BoostrapperTask" priority="9" />
+      <Item value="BaseCheckerFieldToFieldModelMapping" priority="2" />
+      <Item value="TMapping" priority="0" />
+      <Item value="dst" priority="6" />
+      <Item value="opt" priority="5" />
+      <Item value="src" priority="11" />
+      <Item value="pawn" priority="0" />
+      <Item value="TestTask" priority="2" />
+      <Item value="false" priority="28" />
+      <Item value="AssemblyLoadEventArgs" priority="0" />
+      <Item value="assemblty" priority="0" />
+      <Item value="t" priority="4" />
+      <Item value="private" priority="16" />
+      <Item value="Type" priority="0" />
+      <Item value="boostrappTask" priority="0" />
+      <Item value="Run" priority="0" />
+      <Item value="WasExecuted" priority="2" />
+      <Item value="TestTask2" priority="0" />
+      <Item value="_currentAssemblty" priority="0" />
+      <Item value="Assembly" priority="0" />
+      <Item value="TSource" priority="2" />
+      <Item value="TDestination" priority="2" />
+      <Item value="IMappingExpression" priority="0" />
+      <Item value="mappingExpression" priority="1" />
+      <Item value="BuildInitialGameGraph" priority="0" />
+      <Item value="ICheckersGame" priority="4" />
+      <Item value="game" priority="1" />
+      <Item value="_expectedBoardModel" priority="0" />
+      <Item value="observations_for_mapping_defined_in" priority="0" />
+      <Item value="CheckersGameToCheckersBoardModelMapping" priority="0" />
+      <Item value="internal" priority="0" />
+      <Item value="interface" priority="6" />
+      <Item value="IObjectMapper" priority="0" />
+      <Item value="DoMapper" priority="0" />
+      <Item value="IDoMapper" priority="0" />
+      <Item value="row" priority="20" />
+      <Item value="Binding" priority="0" />
+      <Item value="Visibility" priority="3" />
+      <Item value="HasPawn" priority="0" />
+      <Item value="CheckersFieldsFactory" priority="0" />
+      <Item value="_boardSize" priority="5" />
+      <Item value="_checkersFieldFactory" priority="0" />
+      <Item value="fields" priority="13" />
+      <Item value="_fieldCount" priority="0" />
+      <Item value="_firstPlayer" priority="1" />
+      <Item value="_secondPlayer" priority="1" />
+      <Item value="Models" priority="1" />
+      <Item value="FieldModel`0" priority="8" />
+      <Item value="get" priority="1" />
+      <Item value="NotifyOfPropertyChange`1" priority="11" />
+      <Item value="PhutballBoard" priority="1" />
+      <Item value="BindableCollection&lt;FieldModel&gt;" priority="2" />
+      <Item value="Field" priority="7" />
+      <Item value="IField`0" priority="28" />
+      <Item value="IPhutballGame" priority="1" />
+      <Item value="phutballGame" priority="4" />
+      <Item value="_phutballGame" priority="22" />
+      <Item value="TSource`0" priority="7" />
+      <Item value="sources" priority="1" />
+      <Item value="GetMapper`0" priority="1" />
+      <Item value="MapFromTo`2" priority="0" />
+      <Item value="TDestination`0" priority="5" />
+      <Item value="BindableCollection&lt;TTarget&gt;" priority="0" />
+      <Item value="_fields" priority="6" />
+      <Item value="Field`0" priority="33" />
+      <Item value="options" priority="2" />
+      <Item value="Action" priority="1" />
+      <Item value="T`0" priority="4" />
+      <Item value="_args" priority="0" />
+      <Item value="work" priority="0" />
+      <Item value="Worker" priority="0" />
+      <Item value="Worker&lt;int&gt;" priority="0" />
+      <Item value="Enumerable`0" priority="0" />
+      <Item value="from" priority="7" />
+      <Item value="to" priority="1" />
+      <Item value="_options" priority="19" />
+      <Item value="col" priority="6" />
+      <Item value="ColumnCount`0" priority="5" />
+      <Item value="RowCount`0" priority="3" />
+      <Item value="WhiteStone`0" priority="4" />
+      <Item value="IBoostrapperTask`0" priority="2" />
+      <Item value="Mapper`0" priority="9" />
+      <Item value="visible" priority="0" />
+      <Item value="Visibility`0" priority="6" />
+      <Item value="HasStone" priority="2" />
+      <Item value="IStone`0" priority="1" />
+      <Item value="PropertyChangedBase`0" priority="0" />
+      <Item value="ModelWithId`0" priority="2" />
+      <Item value="IStoneModel`0" priority="2" />
+      <Item value="BlackStone`0" priority="3" />
+      <Item value="BlackStoneModel`0" priority="1" />
+      <Item value="WhiteStoneModel`0" priority="1" />
+      <Item value="Collapsed" priority="0" />
+      <Item value="fieldModel" priority="6" />
+      <Item value="GetFieldIndex`0" priority="1" />
+      <Item value="fieldId" priority="8" />
+      <Item value="_fieldMap" priority="6" />
+      <Item value="GetField`0" priority="5" />
+      <Item value="Stone" priority="9" />
+      <Item value="delegate" priority="3" />
+      <Item value="IPhutballGame`0" priority="6" />
+      <Item value="event" priority="2" />
+      <Item value="GameStateChanged`0" priority="1" />
+      <Item value="StateChanged" priority="2" />
+      <Item value="phutballgame" priority="0" />
+      <Item value="RaiseGameStateChanged`0" priority="0" />
+      <Item value="FieldStateChanged`0" priority="0" />
+      <Item value="FieldChanged" priority="1" />
+      <Item value="set" priority="1" />
+      <Item value="handlePlayerMoves" priority="0" />
+      <Item value="HandlePlayerMoves" priority="0" />
+      <Item value="IPlayerMoveState`0" priority="2" />
+      <Item value="_currentMoveState" priority="4" />
+      <Item value="_nextState" priority="2" />
+      <Item value="_handlePlayerMoves" priority="1" />
+      <Item value="Selected" priority="4" />
+      <Item value="_selectedField" priority="8" />
+      <Item value="WaitingForPlayerMoveState`0" priority="3" />
+      <Item value="NextState" priority="7" />
+      <Item value="PlayerMoveStateBase`0" priority="0" />
+      <Item value="fieldsGraph" priority="20" />
+      <Item value="_fieldsGraph" priority="30" />
+      <Item value="rowIndex" priority="5" />
+      <Item value="GetFields`0" priority="0" />
+      <Item value="IHandlePlayerMoves`0" priority="0" />
+      <Item value="_handlePlayerMovesAccessor" priority="1" />
+      <Item value="For`0" priority="2" />
+      <Item value="PhutballGame`0" priority="0" />
+      <Item value="waitingForPlayerMoveState" priority="1" />
+      <Item value="selectedField" priority="1" />
+      <Item value="destinationField" priority="0" />
+      <Item value="fromfield" priority="4" />
+      <Item value="toField" priority="3" />
+      <Item value="IEnumerator" priority="1" />
+      <Item value="IDirectedJumper`0" priority="0" />
+      <Item value="IFieldsGraph`0" priority="27" />
+      <Item value="Tuple" priority="11" />
+      <Item value="Current" priority="6" />
+      <Item value="column" priority="7" />
+      <Item value="Tuple&lt;int,int&gt;" priority="4" />
+      <Item value="cords" priority="5" />
+      <Item value="columnIndex" priority="1" />
+      <Item value="_makeMove" priority="1" />
+      <Item value="_current" priority="5" />
+      <Item value="nextCoordinates" priority="0" />
+      <Item value="coordinates" priority="1" />
+      <Item value="_start" priority="2" />
+      <Item value="IList`0" priority="1" />
+      <Item value="_jumped" priority="1" />
+      <Item value="IJumper`0" priority="3" />
+      <Item value="DirectedFieldJumper`0" priority="0" />
+      <Item value="current" priority="3" />
+      <Item value="delta" priority="3" />
+      <Item value="_jumperIterator" priority="1" />
+      <Item value="yield return" priority="3" />
+      <Item value="FieldJumperIterator`0" priority="0" />
+      <Item value="FieldJumer`0" priority="0" />
+      <Item value="_from" priority="3" />
+      <Item value="direction" priority="1" />
+      <Item value="GetJumper`0" priority="1" />
+      <Item value="jumpers" priority="0" />
+      <Item value="jumper" priority="0" />
+      <Item value="_to" priority="1" />
+      <Item value="_jumperThatCanGetFromTo" priority="0" />
+      <Item value="StoneJumper" priority="1" />
+      <Item value="IStoneJumper`0" priority="0" />
+      <Item value="_stoneJumper" priority="5" />
+      <Item value="FindValidJump`0" priority="0" />
+      <Item value="validJump" priority="1" />
+      <Item value="tofield" priority="0" />
+      <Item value="jumpedFields" priority="2" />
+      <Item value="RaiseFieldStateChanged`0" priority="0" />
+      <Item value="RaiseFieldsStateChanged`0" priority="1" />
+      <Item value="newSelectedField" priority="5" />
+      <Item value="changedFields" priority="1" />
+      <Item value="PlayerSelectedFieldStateMove`0" priority="1" />
+      <Item value="Is" priority="1" />
+      <Item value="pattern" priority="0" />
+      <Item value="expected" priority="0" />
+      <Item value="changedFieldModels" priority="1" />
+      <Item value="oldField" priority="1" />
+      <Item value="MapFrom`2" priority="0" />
+      <Item value="MapToViewModels`0" priority="0" />
+      <Item value="changedFieldMap" priority="0" />
+      <Item value="GameStarted`0" priority="1" />
+      <Item value="GameStart" priority="0" />
+      <Item value="_playerMovesHandler" priority="1" />
+      <Item value="nextField" priority="3" />
+      <Item value="VerticalLine" priority="0" />
+      <Item value="ILineModel`0" priority="0" />
+      <Item value="HorizontalLineModel" priority="0" />
+      <Item value="observations_for_static_sut`0" priority="0" />
+      <Item value="Exception" priority="0" />
+      <Item value="SpecificationExtensions`0" priority="0" />
+      <Item value="Source" priority="0" />
+      <Item value="ThrownException" priority="1" />
+      <Item value="observations_for_mapping" priority="1" />
+      <Item value="TMappingTask`0" priority="2" />
+      <Item value="IStartupTask`0" priority="4" />
+      <Item value="StartupTask`0" priority="3" />
+      <Item value="observations_for_static_sut_with_ioc`0" priority="0" />
+      <Item value="Dependency`1" priority="4" />
+      <Item value="IPhutballOptions`0" priority="12" />
+      <Item value="assert_no_exception_was_thrown_during_matching`0" priority="0" />
+      <Item value="assert_mapper_configuration_is_valid`0" priority="0" />
+      <Item value="Mapped" priority="12" />
+      <Item value="IncludeMapping`1" priority="0" />
+      <Item value="FieldToFieldModelMapping" priority="0" />
+      <Item value="LinesModel`0" priority="1" />
+      <Item value="HorizontalUp" priority="0" />
+      <Item value="Registry`0" priority="0" />
+      <Item value="Scan`0" priority="0" />
+      <Item value="IncludeRegistry`0" priority="0" />
+      <Item value="StartupTaskRegistry`0" priority="0" />
+      <Item value="startupTasks" priority="1" />
+      <Item value="task" priority="0" />
+      <Item value="ObjectFactory`0" priority="0" />
+      <Item value="isVisible" priority="0" />
+      <Item value="CreateSut`0" priority="0" />
+      <Item value="HorizontalDown" priority="0" />
+      <Item value="BoolToVisibility`0" priority="2" />
+      <Item value="VerticalLeft" priority="0" />
+      <Item value="VerticalRight" priority="0" />
+      <Item value="NotLastRow`0" priority="0" />
+      <Item value="InMiddleRows`0" priority="1" />
+      <Item value="observations_for_mapping_field_to_field_model`0" priority="1" />
+      <Item value="NotFirstRow`0" priority="1" />
+      <Item value="RowCount" priority="9" />
+      <Item value="ColumnCount" priority="10" />
+      <Item value="WaitingForPlayerMoveState" priority="0" />
+      <Item value="_emptyFieldInTheMiddle" priority="2" />
+      <Item value="observations_for_clicking_field_in_waiting_for_player_move_state`0" priority="2" />
+      <Item value="_clickedField" priority="1" />
+      <Item value="RowIndex" priority="7" />
+      <Item value="rowCount" priority="6" />
+      <Item value="IPlayer`0" priority="3" />
+      <Item value="GameEnded" priority="1" />
+      <Item value="IEventPublisher`0" priority="8" />
+      <Item value="eventPublisher" priority="3" />
+      <Item value="_eventPublisher" priority="8" />
+      <Item value="SerializableAttribute`0" priority="0" />
+      <Item value="observer" priority="1" />
+      <Item value="HandleFieldStateChanged`0" priority="0" />
+      <Item value="HandleGameFieldsChanged`0" priority="1" />
+      <Item value="HandleGameStart`0" priority="2" />
+      <Item value="PhutballGameStarted`0" priority="1" />
+      <Item value="Game" priority="0" />
+      <Item value="PhutballGameFieldsChanged`0" priority="0" />
+      <Item value="ChangedFields" priority="0" />
+      <Item value="EventPublisher`0" priority="0" />
+      <Item value="_xDirection" priority="0" />
+      <Item value="_yDirection" priority="0" />
+      <Item value="_jumpIterator" priority="4" />
+      <Item value="boardMoveSource" priority="0" />
+      <Item value="PhutballGame" priority="0" />
+      <Item value="ProvideImplementationOf`1" priority="2" />
+      <Item value="EventPublisher" priority="0" />
+      <Item value="CurrentPlayerWinEvent`0" priority="4" />
+      <Item value="cpwin" priority="1" />
+      <Item value="_playerWon" priority="1" />
+      <Item value="CurrentPlayerWinEvent" priority="0" />
+      <Item value="bindingAttr" priority="0" />
+      <Item value="BindingFlags`0" priority="0" />
+      <Item value="EnumOf" priority="3" />
+      <Item value="PhutballGameStateEnum`0" priority="8" />
+      <Item value="readonly" priority="3" />
+      <Item value="_currentState" priority="2" />
+      <Item value="Player`0" priority="0" />
+      <Item value="Player" priority="0" />
+      <Item value="_currentPlayer" priority="1" />
+      <Item value="PlayerEnum`0" priority="0" />
+      <Item value="PhutballGameState" priority="0" />
+      <Item value="_curretnState" priority="0" />
+      <Item value="PhutballGameState`0" priority="4" />
+      <Item value="phutballGameState" priority="0" />
+      <Item value="_phutballGameState" priority="2" />
+      <Item value="IPhutballGameBoard`0" priority="5" />
+      <Item value="phutballGameBoard" priority="1" />
+      <Item value="_phutballGameBoard" priority="7" />
+      <Item value="CurrentPlayerWon`0" priority="0" />
+      <Item value="phutballOptions" priority="0" />
+      <Item value="_phutballOptions" priority="0" />
+      <Item value="PhutballBoardModel`0" priority="0" />
+      <Item value="_boardCreator" priority="0" />
+      <Item value="PhutballBoardInitialized`0" priority="1" />
+      <Item value="boardInitialized" priority="0" />
+      <Item value="IsEnabled" priority="0" />
+      <Item value="PhutballBoardInitialized" priority="1" />
+      <Item value="_gameState" priority="2" />
+      <Item value="AffectsTriggers" priority="0" />
+      <Item value="GameStatePresenter`0" priority="0" />
+      <Item value="gameStatePresenter" priority="0" />
+      <Item value="PhutballBoardPresenter`0" priority="0" />
+      <Item value="boardPresenter" priority="0" />
+      <Item value="GameStatePresenter" priority="0" />
+      <Item value="GameState" priority="1" />
+      <Item value="CurrentPlayer" priority="0" />
+      <Item value="TWhere`0" priority="2" />
+      <Item value="@where" priority="0" />
+      <Item value="IMove" priority="19" />
+      <Item value="IPhutballBoardMove`0" priority="3" />
+      <Item value="board" priority="11" />
+      <Item value="_field" priority="3" />
+      <Item value="_whiteField" priority="3" />
+      <Item value="SelectWhiteFieldMove`0" priority="4" />
+      <Item value="_emptyField" priority="1" />
+      <Item value="PlaceBlackStoneMove`0" priority="0" />
+      <Item value="DeselectWhiteFIeldMove" priority="0" />
+      <Item value="PlaceBlackStone`0" priority="0" />
+      <Item value="NotifyOfFieldsStateChange`0" priority="1" />
+      <Item value="JumpWhiteStoneMove`0" priority="2" />
+      <Item value="TBoard`0" priority="4" />
+      <Item value="Moves" priority="1" />
+      <Item value="List&lt;IMove&lt;TBoard&gt;&gt;" priority="0" />
+      <Item value="move" priority="2" />
+      <Item value="Perform`0" priority="0" />
+      <Item value="_moves" priority="4" />
+      <Item value="Undo`0" priority="0" />
+      <Item value="params" priority="1" />
+      <Item value="moves" priority="2" />
+      <Item value="foreach" priority="2" />
+      <Item value="FieldJumpIterator" priority="0" />
+      <Item value="StoneMover" priority="0" />
+      <Item value="_delta" priority="0" />
+      <Item value="TValue`0" priority="1" />
+      <Item value="enumerator" priority="2" />
+      <Item value="while" priority="0" />
+      <Item value="allFieldsTouched" priority="0" />
+      <Item value="_jumpedFieldsAndLastWhite" priority="6" />
+      <Item value="_jumpedFields" priority="2" />
+      <Item value="_endField" priority="0" />
+      <Item value="virtual" priority="0" />
+      <Item value="IReadOnlyPhutballGameBoard`0" priority="0" />
+      <Item value="double" priority="1" />
+      <Item value="IValueOf" priority="0" />
+      <Item value="IReadOnlyPhutballBoard`0" priority="0" />
+      <Item value="IValueOfBoard`0" priority="0" />
+      <Item value="valueSubject" priority="2" />
+      <Item value="fieldsToUpdate" priority="0" />
+      <Item value="Dictionary&lt;int,Field&gt;" priority="0" />
+      <Item value="TargetBorder`0" priority="7" />
+      <Item value="targetBorder" priority="1" />
+      <Item value="PhutballOptions`0" priority="1" />
+      <Item value="_rowIndex" priority="0" />
+      <Item value="_rowAccessor" priority="0" />
+      <Item value="_isInitilized" priority="0" />
+      <Item value="TargetBorder" priority="2" />
+      <Item value="Math`0" priority="3" />
+      <Item value="whiteField" priority="15" />
+      <Item value="_winingBorder" priority="0" />
+      <Item value="maxValue" priority="0" />
+      <Item value="minValue" priority="0" />
+      <Item value="_distaceCounter" priority="0" />
+      <Item value="rawDistance" priority="5" />
+      <Item value="actualIndex" priority="3" />
+      <Item value="WhiteStoneToBorderDistanceValue" priority="1" />
+      <Item value="_targetBorder" priority="1" />
+      <Item value="observations_for_distance_to_border`0" priority="4" />
+      <Item value="WhiteStoneToBorderDistanceValue`0" priority="1" />
+      <Item value="Stub`1" priority="0" />
+      <Item value="TargetBorderEnum`0" priority="4" />
+      <Item value="FieldsGraph" priority="5" />
+      <Item value="_distance" priority="3" />
+      <Item value="PhutballOptions" priority="0" />
+      <Item value="TestPhutballOptions" priority="5" />
+      <Item value="whiteStone" priority="0" />
+      <Item value="TNode`0" priority="12" />
+      <Item value="Action`0" priority="0" />
+      <Item value="_onNest" priority="1" />
+      <Item value="Tree" priority="2" />
+      <Item value="tree" priority="5" />
+      <Item value="node" priority="9" />
+      <Item value="_onUnnuest" priority="1" />
+      <Item value="Run`0" priority="0" />
+      <Item value="DfsSearch" priority="1" />
+      <Item value="DfsSearch&lt;int&gt;" priority="0" />
+      <Item value="obj" priority="1" />
+      <Item value="_unnested" priority="2" />
+      <Item value="_nested" priority="2" />
+      <Item value="_tree" priority="0" />
+      <Item value="Tree&lt;int&gt;" priority="1" />
+      <Item value="List&lt;int&gt;" priority="1" />
+      <Item value="IPhutballBoardMove" priority="0" />
+      <Item value="IMoveFindingStartegy`0" priority="0" />
+      <Item value="ICloneable`0" priority="1" />
+      <Item value="ColumnIndex" priority="0" />
+      <Item value="ICloneable" priority="1" />
+      <Item value="IFieldsGraph" priority="0" />
+      <Item value="graphCopy" priority="3" />
+      <Item value="IJump`0" priority="0" />
+      <Item value="IJumpDirectly" priority="0" />
+      <Item value="IJumpDirectly`0" priority="0" />
+      <Item value="FormatException`0" priority="0" />
+      <Item value="DirectedJumpersFactory`0" priority="0" />
+      <Item value="IFieldsUpdater`0" priority="4" />
+      <Item value="CompositeMove" priority="3" />
+      <Item value="SelectWhiteFieldMove" priority="0" />
+      <Item value="ITree" priority="0" />
+      <Item value="subTree" priority="0" />
+      <Item value="JumpNode`0" priority="6" />
+      <Item value="Node" priority="4" />
+      <Item value="BoardJumpTree`0" priority="2" />
+      <Item value="JumpNode" priority="2" />
+      <Item value="ActualGraph" priority="1" />
+      <Item value="moveToApply" priority="1" />
+      <Item value="sourceGraph" priority="1" />
+      <Item value="_actualGraph" priority="2" />
+      <Item value="DirectedJumpersFactory" priority="0" />
+      <Item value="jumpDireactions" priority="1" />
+      <Item value="jump" priority="2" />
+      <Item value="actualGraph" priority="1" />
+      <Item value="treeNode" priority="3" />
+      <Item value="lastMove" priority="0" />
+      <Item value="actualNode" priority="1" />
+      <Item value="List&lt;IMove&lt;IFieldsGraph&gt;&gt;" priority="0" />
+      <Item value="IValueOfGraph`0" priority="0" />
+      <Item value="TargetBorderEnum" priority="1" />
+      <Item value="_valueOfGraph" priority="1" />
+      <Item value="Stack" priority="0" />
+      <Item value="actualValue" priority="3" />
+      <Item value="_acutalMoves" priority="3" />
+      <Item value="search" priority="0" />
+      <Item value="IDfsSearchStartegy" priority="0" />
+      <Item value="dfsSearchStartegy" priority="0" />
+      <Item value="searchStartegy" priority="0" />
+      <Item value="_searchStartegy" priority="4" />
+      <Item value="_resultMove" priority="0" />
+      <Item value="_currentMaxValue" priority="1" />
+      <Item value="TestTree&lt;int&gt;" priority="1" />
+      <Item value="DONT_GO_TO_CHILDREN" priority="2" />
+      <Item value="STOP_ON_THIS_NODE" priority="2" />
+      <Item value="in" priority="0" />
+      <Item value="_stopSearch" priority="0" />
+      <Item value="_dontSearchChildren" priority="0" />
+      <Item value="List&lt;bool&gt;" priority="0" />
+      <Item value="_skipChilren" priority="0" />
+      <Item value="_skipChildren" priority="1" />
+      <Item value="_enterChilren" priority="2" />
+      <Item value="result" priority="3" />
+      <Item value="TWHat`0" priority="2" />
+      <Item value="_valueToRetunOnlyOneTime" priority="1" />
+      <Item value="default" priority="0" />
+      <Item value="OneTimeValueThenDefault" priority="2" />
+      <Item value="OneTimeValueThenDefault&lt;bool&gt;" priority="2" />
+      <Item value="_default" priority="0" />
+      <Item value="_shouldStop" priority="0" />
+      <Item value="BruteForceMoveFindingStartegy" priority="1" />
+      <Item value="tf" priority="1" />
+      <Item value="_bestMove" priority="4" />
+      <Item value="FieldsGraph`0" priority="3" />
+      <Item value="_clonedGraph" priority="1" />
+      <Item value="Initialize`0" priority="0" />
+      <Item value="BruteForceMoveFindingStartegy`0" priority="0" />
+      <Item value="columnCount" priority="5" />
+      <Item value="FileAssert`0" priority="0" />
+      <Item value="_fieldCreator" priority="1" />
+      <Item value="TestFieldsGraph`0" priority="0" />
+      <Item value="observations_for_brute_force_searching`0" priority="0" />
+      <Item value="TestFieldsGraph" priority="0" />
+      <Item value="FT`0" priority="6" />
+      <Item value="_graphCreator" priority="0" />
+      <Item value="graphs" priority="2" />
+      <Item value="Length" priority="1" />
+      <Item value="rowCOunt" priority="1" />
+      <Item value="List`0" priority="0" />
+      <Item value="type" priority="0" />
+      <Item value="GetMoves`0" priority="1" />
+      <Item value="enum" priority="0" />
+      <Item value="Reverse`1" priority="1" />
+      <Item value="list" priority="1" />
+      <Item value="items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Configuration.PresentationFrameworkConfiguration">
+      <Item value="With" priority="1" />
+      <Item value="RegisterAllScreensWithSubjects" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@StructureMap.ObjectFactory">
+      <Item value="Initialize" priority="0" />
+      <Item value="Container" priority="1" />
+      <Item value="GetAllInstances`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.IInitializationExpression">
+      <Item value="AddRegistry" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.ApplicationModel.CaliburnApplication">
+      <Item value="CreateContainer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Practices.ServiceLocation.IServiceLocator">
+      <Item value="GetInstance" priority="4" />
+      <Item value="GetInstance`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Graph.IAssemblyScanner">
+      <Item value="TheCallingAssembly" priority="1" />
+      <Item value="WithDefaultConventions" priority="0" />
+      <Item value="AssemblyContainingType" priority="1" />
+      <Item value="AddAllTypesOf`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.MessageBox">
+      <Item value="Show" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.ShellPresenter">
+      <Item value="Open" priority="2" />
+      <Item value="IsActive" priority="0" />
+      <Item value="Activate" priority="0" />
+      <Item value="ActiveScreen" priority="0" />
+      <Item value="OpenScreen" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ArrayList">
+      <Item value="ToArray" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.HomePresenter">
+      <Item value="GoToCheckers" priority="0" />
+      <Item value="CloseApplication" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.Interfaces.IShellPresenter">
+      <Item value="Open" priority="2" />
+      <Item value="ShouldBeOfType" priority="0" />
+      <Item value="OpenScreen" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1">
+      <Item value="Use" priority="0" />
+      <Item value="Singleton" priority="0" />
+      <Item value="Singleton`0" priority="2" />
+      <Item value="Use`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Screens.IScreen">
+      <Item value="ShouldEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Practices.ServiceLocation.ServiceLocator">
+      <Item value="Current" priority="6" />
+      <Item value="SetLocatorProvider" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.AutoMocking.RhinoAutoMocker`1">
+      <Item value="Container" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.Interfaces.IHomePresenter">
+      <Item value="CanShutdown" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IMethodOptions`1">
+      <Item value="Return" priority="3" />
+      <Item value="IgnoreArguments" priority="1" />
+      <Item value="Return`0" priority="1" />
+      <Item value="Repeat" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.IContainer">
+      <Item value="Configure" priority="0" />
+      <Item value="AssertConfigurationIsValid" priority="0" />
+      <Item value="WhatDoIHave" priority="0" />
+      <Item value="Model" priority="1" />
+      <Item value="ShouldRegister" priority="2" />
+      <Item value="GetInstance`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.ConfigurationExpression">
+      <Item value="AddRegistry" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Query.IModel">
+      <Item value="HasImplementationsFor" priority="1" />
+      <Item value="For" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="ShouldBeTrue" priority="5" />
+      <Item value="ShouldBeFalse`0" priority="1" />
+      <Item value="ShouldBeTrue`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Query.IPluginTypeConfiguration">
+      <Item value="Lifecycle" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ShouldEqual" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@StructureMap.InstanceScope">
+      <Item value="Singleton" priority="0" />
+      <Item value="Transient" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.InstanceScope">
+      <Item value="ToString" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Application">
+      <Item value="Current" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Application">
+      <Item value="Shutdown" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Screens.IScreenCollection">
+      <Item value="OpenScreen" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="NewGuid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Guid">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ItemsControl">
+      <Item value="Items" priority="0" />
+      <Item value="DataTemplateKey`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.FieldModel">
+      <Item value="Background" priority="1" />
+      <Item value="Empty" priority="0" />
+      <Item value="Id" priority="4" />
+      <Item value="MapFrom`2" priority="0" />
+      <Item value="HorizontalLineModel" priority="0" />
+      <Item value="Lines" priority="11" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ContentPresenter">
+      <Item value="FindResource" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.FrameworkElement">
+      <Item value="FindResource" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading.Thread">
+      <Item value="Sleep" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.DataTemplate">
+      <Item value="ShouldNotBeNull" priority="0" />
+      <Item value="ShouldEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Utils.IResourceProvider">
+      <Item value="FindDataTemplate" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="Name" priority="0" />
+      <Item value="IsPublic" priority="0" />
+      <Item value="IsAssignableFrom" priority="0" />
+      <Item value="Assembly" priority="1" />
+      <Item value="IsClass" priority="0" />
+      <Item value="IsAbstract" priority="0" />
+      <Item value="GetFields`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.Arg">
+      <Item value="Is" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Mapping.IMapper">
+      <Item value="AssertWasCalled" priority="1" />
+      <Item value="MapTo" priority="4" />
+      <Item value="Stub" priority="1" />
+      <Item value="DoMap" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Mapping.TestTargetClass">
+      <Item value="ShouldEqual" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@AutoMapper.Mapper">
+      <Item value="Map" priority="5" />
+      <Item value="Reset" priority="1" />
+      <Item value="CreateMap" priority="7" />
+      <Item value="AssertConfigurationIsValid" priority="1" />
+      <Item value="CreateMap`0" priority="6" />
+      <Item value="AssertConfigurationIsValid`0" priority="1" />
+      <Item value="Map`0" priority="2" />
+      <Item value="ReferenceEquals`0" priority="0" />
+      <Item value="Reset`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Mapping.AutoMapper">
+      <Item value="MapTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ForTesting.New">
+      <Item value="String" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Mapping.TestViewModel">
+      <Item value="ShouldNotBeNull" priority="0" />
+      <Item value="SomeProperty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Linq.Enumerable">
+      <Item value="Range" priority="0" />
+      <Item value="Range`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Random">
+      <Item value="Next" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add" priority="0" />
+      <Item value="Each" priority="0" />
+      <Item value="Where" priority="2" />
+      <Item value="Clear`0" priority="0" />
+      <Item value="Each`0" priority="1" />
+      <Item value="AddRange`1" priority="1" />
+      <Item value="Add`0" priority="0" />
+      <Item value="AddRange`0" priority="0" />
+      <Item value="Last`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:QuickGraph.IMutableUndirectedGraph`2">
+      <Item value="Vertices" priority="0" />
+      <Item value="AddVertex" priority="0" />
+      <Item value="AddVertexRange" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.CheckersGame">
+      <Item value="GameField" priority="0" />
+      <Item value="Fields" priority="1" />
+      <Item value="Initialize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ShouldHaveCount" priority="1" />
+      <Item value="ToList" priority="0" />
+      <Item value="Each" priority="3" />
+      <Item value="Cast" priority="1" />
+      <Item value="Where" priority="1" />
+      <Item value="MapFromTo`2" priority="0" />
+      <Item value="Each`1" priority="0" />
+      <Item value="ToDictionary`2" priority="0" />
+      <Item value="MapAllFromTo`2" priority="0" />
+      <Item value="ToBindableCollection`1" priority="0" />
+      <Item value="ToDictionary`3" priority="1" />
+      <Item value="FirstOrDefault`1" priority="1" />
+      <Item value="Each`0" priority="5" />
+      <Item value="Cast`1" priority="0" />
+      <Item value="ToArray`1" priority="1" />
+      <Item value="LastOrDefault`1" priority="1" />
+      <Item value="ToList`1" priority="1" />
+      <Item value="Select`2" priority="0" />
+      <Item value="ShouldHaveCount`1" priority="0" />
+      <Item value="FirstValue`2" priority="1" />
+      <Item value="Count`1" priority="1" />
+      <Item value="SelectMany`3" priority="0" />
+      <Item value="GetEnumerator`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Games.CheckersGame">
+      <Item value="BoardSize" priority="2" />
+      <Item value="FieldCount" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.ICheckerField">
+      <Item value="ShouldBeOfType" priority="1" />
+      <Item value="Id" priority="1" />
+      <Item value="As" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.BlackCheckerField">
+      <Item value="Pawn" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPawn">
+      <Item value="ShouldBeOfType" priority="0" />
+      <Item value="Owner" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPlayer">
+      <Item value="ShouldEqual" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMappingExpression`2">
+      <Item value="Include" priority="2" />
+      <Item value="ForMember" priority="4" />
+      <Item value="CreateWpfCollectionMapping" priority="2" />
+      <Item value="ForMember`0" priority="1" />
+      <Item value="ConvertUsing`1" priority="0" />
+      <Item value="Include`2" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.BlackFieldModel">
+      <Item value="HasPawn" priority="1" />
+      <Item value="Color" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Activator">
+      <Item value="CreateInstance" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:">
+      <Item value="Execute" priority="0" />
+      <Item value="Children" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.BoostrapperTask">
+      <Item value="Run" priority="3" />
+      <Item value="RunAllFrom" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ForTesting.observations_for_static_sut">
+      <Item value="EstablishContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:AutoMapper.IMemberConfigurationExpression`1">
+      <Item value="MapFrom" priority="3" />
+      <Item value="Ignore" priority="0" />
+      <Item value="MapFrom`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Shell.Models.BlackFieldModel">
+      <Item value="BlackPawnColor" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.TestTask">
+      <Item value="WasExecuted" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.Assembly">
+      <Item value="GetTypes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.IBoostrapperTask">
+      <Item value="Execute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.TestTask2">
+      <Item value="WasExecuted" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.Assembly">
+      <Item value="GetExecutingAssembly" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ForTesting.IRegistrationTypeConstraint">
+      <Item value="AsTransient" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.CheckersBoardPresenter">
+      <Item value="Initialize" priority="0" />
+      <Item value="Activate" priority="0" />
+      <Item value="Board" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.ICheckersGame">
+      <Item value="AssertWasCalled" priority="0" />
+      <Item value="Initialize" priority="0" />
+      <Item value="MapTo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.CheckersBoardModel">
+      <Item value="ShouldEqual" priority="0" />
+      <Item value="Fields" priority="0" />
+      <Item value="Title" priority="1" />
+      <Item value="ShouldNotBeNull" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Tests.Mapping.observations_for_mapping_defined_in`1">
+      <Item value="EstablishContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="IsEven" priority="1" />
+      <Item value="Upto`0" priority="3" />
+      <Item value="ShouldEqual`0" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Visibility">
+      <Item value="Visible" priority="2" />
+      <Item value="Collapsed" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add" priority="0" />
+      <Item value="Add`0" priority="2" />
+      <Item value="SelectMany`3" priority="0" />
+      <Item value="Count" priority="2" />
+      <Item value="Any`1" priority="0" />
+      <Item value="RemoveAt`0" priority="0" />
+      <Item value="ShouldHaveTheSameElementsAs`1" priority="1" />
+      <Item value="LastOrDefault`1" priority="0" />
+      <Item value="ToArray`0" priority="0" />
+      <Item value="AddRange`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Shapes.Line">
+      <Item value="StrokeThickness" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPhutballGame">
+      <Item value="GetCurrentFields`0" priority="2" />
+      <Item value="StateChanged" priority="0" />
+      <Item value="FieldChanged" priority="0" />
+      <Item value="RaiseFieldStateChanged`0" priority="1" />
+      <Item value="RaiseFieldsStateChanged`0" priority="0" />
+      <Item value="GameStart" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Mapping.IDoMapper">
+      <Item value="DoMap`2" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IPhutballOptions">
+      <Item value="RowCount" priority="1" />
+      <Item value="ColumnCount" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Worker`1">
+      <Item value="Do`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.Field">
+      <Item value="Stone" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IField">
+      <Item value="Id" priority="5" />
+      <Item value="HasStone" priority="5" />
+      <Item value="PlaceBlackStone`0" priority="1" />
+      <Item value="CanSelect" priority="0" />
+      <Item value="Selected" priority="0" />
+      <Item value="DeSelect`0" priority="0" />
+      <Item value="Select`0" priority="0" />
+      <Item value="RemoveStone`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.BindableCollection`1">
+      <Item value="First`1" priority="1" />
+      <Item value="Where`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IHandlePlayerMoves">
+      <Item value="PlayerClickedField`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IFieldsGraph">
+      <Item value="GetFields`0" priority="2" />
+      <Item value="Initialize`0" priority="0" />
+      <Item value="GetField`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Tuple`2">
+      <Item value="Item1" priority="5" />
+      <Item value="Item2" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.FieldJumperIterator">
+      <Item value="GetJumpedFields`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IJumper">
+      <Item value="Last`1" priority="0" />
+      <Item value="GetJumpedFields`0" priority="0" />
+      <Item value="LastOrDefault`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.StoneJumper">
+      <Item value="CanFindValidJump`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Games.IStoneJumper">
+      <Item value="CanFindValidJump`0" priority="0" />
+      <Item value="FindValidJump`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Is">
+      <Item value="StringMatching`0" priority="0" />
+      <Item value="InstanceOf`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="That`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Each`0" priority="0" />
+      <Item value="Values" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Action">
+      <Item value="ThrownException`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ForTesting.SpecificationExtensions">
+      <Item value="CatchException`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="ShouldBeNull`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.StartupTask">
+      <Item value="Run`1" priority="1" />
+      <Item value="RunAll`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Field">
+      <Item value="Selected" priority="3" />
+      <Item value="PlaceBlackStone`0" priority="1" />
+      <Item value="RowIndex" priority="11" />
+      <Item value="ColumnIndex" priority="3" />
+      <Item value="Stone" priority="5" />
+      <Item value="HasStone" priority="3" />
+      <Item value="IsInMiddleRows`0" priority="0" />
+      <Item value="PlaceWhiteStone`0" priority="5" />
+      <Item value="IsWinningField`0" priority="0" />
+      <Item value="DeSelect`0" priority="1" />
+      <Item value="RemoveStone`0" priority="1" />
+      <Item value="Select`0" priority="1" />
+      <Item value="Id" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IPhutballOptions">
+      <Item value="ColumnCount" priority="4" />
+      <Item value="RowCount" priority="10" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IRepeat`1">
+      <Item value="Any`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Models.LinesModel">
+      <Item value="HorizontalUp" priority="2" />
+      <Item value="HorizontalDown" priority="2" />
+      <Item value="VerticalLeft" priority="2" />
+      <Item value="VerticalRight" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Visibility">
+      <Item value="ShouldEqual`0" priority="3" />
+      <Item value="ShouldNotBeVisible`0" priority="5" />
+      <Item value="ShouldBeVisible`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.IStartupTask">
+      <Item value="Execute`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Data.Binding">
+      <Item value="Right" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.WaitingForPlayerMoveState">
+      <Item value="PlayerClickedField`0" priority="0" />
+      <Item value="GetNextState`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IStone">
+      <Item value="ShouldBeNull`0" priority="0" />
+      <Item value="CanSelect" priority="2" />
+      <Item value="ShouldBeOfType`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IPlayerMoveState">
+      <Item value="ShouldBeOfType`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.IEventPublisher">
+      <Item value="GetEvent`1" priority="6" />
+      <Item value="Publish`1" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IObservable`1">
+      <Item value="Subscribe`0" priority="3" />
+      <Item value="Publish`2" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PhutballGameFieldsChanged">
+      <Item value="ChangedFields" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PhutballGameStarted">
+      <Item value="Game" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Jumpers.StoneMover">
+      <Item value="Next`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Jumpers.FieldJumpIterator">
+      <Item value="GetJumpedFields`0" priority="1" />
+      <Item value="ToEnumerable`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Jumpers.IJump">
+      <Item value="GetJumpedFields`0" priority="1" />
+      <Item value="EndField" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PhutballGame">
+      <Item value="CurrentPlayerWon`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.CurrentPlayerWinEvent">
+      <Item value="ShouldNotBeNull`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.BindingFlags">
+      <Item value="Public" priority="0" />
+      <Item value="Static" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.FieldInfo">
+      <Item value="GetValue`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Phutball.PhutballGameStateEnum">
+      <Item value="NotStarted" priority="1" />
+      <Item value="Started" priority="1" />
+      <Item value="CurrentPlayerWon" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Phutball.PlayerEnum">
+      <Item value="First" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PhutballGameState">
+      <Item value="CurrentState" priority="3" />
+      <Item value="CurrentPlayerClickedField`0" priority="0" />
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PhutballGameStateEnum">
+      <Item value="ShouldEqual`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IHandlePlayerMoves">
+      <Item value="PlayerClickedField`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IPhutballGameBoard">
+      <Item value="Start`0" priority="0" />
+      <Item value="Initialize`0" priority="0" />
+      <Item value="RaiseFieldsStateChanged`0" priority="0" />
+      <Item value="RaiseFieldStateChanged`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.IFieldsGraph">
+      <Item value="Initialize`0" priority="1" />
+      <Item value="GetFields`0" priority="2" />
+      <Item value="UpdateFields`0" priority="3" />
+      <Item value="GetWhiteField`0" priority="4" />
+      <Item value="RowCount" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.GameStatePresenter">
+      <Item value="Activate`0" priority="1" />
+      <Item value="Initialize`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Shell.Presenters.PhutballBoardPresenter">
+      <Item value="Initialize`0" priority="0" />
+      <Item value="Activate`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Caliburn.PresentationFramework.Screens.Screen">
+      <Item value="OnInitialize`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.SelectWhiteFieldMove">
+      <Item value="Perform`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.PlaceBlackStoneMove">
+      <Item value="Perform`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Moves.DeselectWhiteFIeldMove">
+      <Item value="Perform`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Moves.JumpWhiteStoneMove">
+      <Item value="Perform`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerator`1">
+      <Item value="MoveNext`0" priority="1" />
+      <Item value="Current" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Jumpers.FieldJump">
+      <Item value="EnusreJumpsWhereSearched`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Phutball.Player.TargetBorderEnum">
+      <Item value="Bottom" priority="1" />
+      <Item value="Upper" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Math">
+      <Item value="Abs`0" priority="0" />
+      <Item value="Min`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Player.TargetBorder">
+      <Item value="RowIndex" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.BoardValues.WhiteStoneToBorderDistanceValue">
+      <Item value="GetValue`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.FieldsGraph">
+      <Item value="Initialize`0" priority="2" />
+      <Item value="GetWhiteField`0" priority="3" />
+      <Item value="_whiteField" priority="0" />
+      <Item value="_fieldMap" priority="2" />
+      <Item value="UpdateFields`0" priority="1" />
+      <Item value="Clone`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="MaxValue" priority="4" />
+      <Item value="MinValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.DfsSearch`1">
+      <Item value="Run`0" priority="0" />
+      <Item value="Run`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2+ValueCollection">
+      <Item value="ToDictionary`2" priority="0" />
+      <Item value="Select`2" priority="0" />
+      <Item value="ToArray`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Phutball.Jumpers.DirectedJumpersFactory">
+      <Item value="All`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.JumpNode">
+      <Item value="ActualGraph" priority="4" />
+      <Item value="LastMove" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Moves.IMove`1">
+      <Item value="Perform`0" priority="2" />
+      <Item value="Undo`0" priority="0" />
+      <Item value="ShouldBeNull`0" priority="0" />
+      <Item value="ShouldBeOfType`0" priority="3" />
+      <Item value="ShouldNotBeNull`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.BoardJumpTree">
+      <Item value="Node" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Phutball.Search.BoardValues.TargetBorderEnum">
+      <Item value="Bottom" priority="0" />
+      <Item value="Upper" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.BoardValues.IValueOfGraph">
+      <Item value="GetValue`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Stack`1">
+      <Item value="Push`0" priority="0" />
+      <Item value="ToArray`0" priority="1" />
+      <Item value="Pop`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.IDfsSearchStartegy`1">
+      <Item value="OnEnter`0" priority="0" />
+      <Item value="OnLeave`0" priority="0" />
+      <Item value="ShouldEnterChildrenOf`0" priority="0" />
+      <Item value="ShouldStop`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.OneTimeValueThenDefault`1">
+      <Item value="GetHashCode`0" priority="0" />
+      <Item value="GetValue`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Search.BruteForceMoveFindingStartegy">
+      <Item value="Search`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Tests.Phutball.Search.TestFieldsGraph">
+      <Item value="GetFieldsGraph`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@EndGames.Tests.Phutball.Search.FT">
+      <Item value="Empty" priority="3" />
+      <Item value="White" priority="1" />
+      <Item value="Black" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:EndGames.Phutball.Moves.CompositeMove`1">
+      <Item value="GetMoves`0" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
