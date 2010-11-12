@@ -31,7 +31,7 @@ Endgames.Shell.Tests/[Rr]elease*/
 *.[Oo]bj
 *.exe
 *.pdb
-g*.user
+*.user
 *.aps
 *.pch
 *.vspscc
@@ -49,6 +49,7 @@ g*.user
 *.lib
 *.sbr
 *.sdf
+*.gpState
 ipch/
 obj/
 [Bb]in
