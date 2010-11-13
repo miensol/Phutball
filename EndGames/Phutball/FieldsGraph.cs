@@ -38,9 +38,9 @@ namespace EndGames.Phutball
             return new Tuple<int, int>(row, column);
         }
 
-        public bool IsValidCoordinate(Tuple<int, int> cords)
+        public bool IsValidPlaceForWhiteField(Tuple<int, int> cords)
         {
-            return IsValidRow(cords.Item1) && IsValidColumn(cords.Item2);
+            return IsValidRow(cords.Item1) && IsValidColumn(cords.Item1, cords.Item2);
         }
 
         public Field GetField(Tuple<int, int> coordinates)
@@ -67,15 +67,18 @@ namespace EndGames.Phutball
             }
         }        
 
-
         public IEnumerable<Field> GetFields()
         {
             return _fieldMap.Values;
         }
 
-        private bool IsValidColumn(int columnIndex)
+        private bool IsValidColumn(int rowIndex, int columnIndex)
         {
-            return columnIndex >= 0 && columnIndex < ColumnCount;
+            if(rowIndex == 0 || rowIndex == RowCount - 1)
+            {
+                return true;
+            }
+            return columnIndex > 0 && columnIndex < ColumnCount - 1;
         }
 
         private bool IsValidRow(int rowIndex)

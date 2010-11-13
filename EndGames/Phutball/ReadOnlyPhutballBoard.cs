@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EndGames.Phutball.Jumpers;
 
@@ -39,12 +40,17 @@ namespace EndGames.Phutball
 
         public bool CanPlaceBlackStone(Field field)
         {
-            return FieldIsEmpty(field) && FieldIsInMiddleRows(field);
+            return FieldIsEmpty(field) && FieldIsInMiddleRows(field) && FieldIsInMiddleColumns(field);
+        }
+
+        private bool FieldIsInMiddleColumns(Field field)
+        {
+            return field.IsInMiddleColumns(_fieldsGraph.ColumnCount);
         }
 
         private bool FieldIsInMiddleRows(Field field)
         {
-            return field.IsInMiddleRows(_options.RowCount);
+            return field.IsInMiddleRows(_fieldsGraph.RowCount);
         }
 
         private bool FieldIsEmpty(Field field)

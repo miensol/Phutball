@@ -28,7 +28,7 @@ namespace EndGames.Phutball.Jumpers
                 return false;
 
             Tuple<int, int> nextCoordinates = GetNextCoordinates();
-            if (InvalidCoordinates(nextCoordinates))
+            if (InvalidPlaceForWhiteStone(nextCoordinates))
                 return false;
 
             Field nextField = _fieldsGraph.GetField(nextCoordinates);
@@ -74,9 +74,9 @@ namespace EndGames.Phutball.Jumpers
             return Current.HasStone == false;
         }
 
-        private bool InvalidCoordinates(Tuple<int, int> cords)
+        private bool InvalidPlaceForWhiteStone(Tuple<int, int> cords)
         {
-            return _fieldsGraph.IsValidCoordinate(cords) == false;
+            return _fieldsGraph.IsValidPlaceForWhiteField(cords) == false;
         }
     }
 }

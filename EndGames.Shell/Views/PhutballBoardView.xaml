@@ -43,7 +43,6 @@
                     <ItemsPanelTemplate>
                         <WrapPanel Width="375" Height="500" ItemWidth="25" ItemHeight="25" 
                                    Orientation="Horizontal" Background="AliceBlue" 
-                                   Margin="25"
                                    />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>

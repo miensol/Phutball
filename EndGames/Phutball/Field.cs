@@ -84,5 +84,10 @@ namespace EndGames.Phutball
                            Stone = Stone
                        };
         }
+
+        public bool IsInMiddleColumns(int columnCount)
+        {
+            return ColumnIndex > 0 && ColumnIndex < columnCount - 1;
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using AutoMapper;
 using EndGames.Phutball;
@@ -25,12 +26,21 @@ namespace EndGames.Shell.Mapping
         {
             return new LinesModel
                        {
-                           Up =
-                               BoolToVisibility(src.RowIndex > 1 && NotLastRow(src)),
-                           Down = BoolToVisibility(NotFirstRow(src) && src.RowIndex < _options.RowCount - 2),
-                           Left = BoolToVisibility(InMiddleRows(src) && NotFirstColumn(src)),
-                                Right = BoolToVisibility(InMiddleRows(src) && NotLastColumn(src))
+                           Up = BoolToVisibility(NotTwoFirstRows(src) && NotLastRow(src) && InMiddleColumns(src)),
+                           Down = BoolToVisibility(NotFirstRow(src) && NotLastTwoRows(src) && InMiddleColumns(src)),
+                           Left = BoolToVisibility(InMiddleRows(src) && NotTwoFristColumns(src) && NotLastColumn(src)),
+                           Right = BoolToVisibility(InMiddleRows(src) && NotTwoLastColumns(src) && NotFirstColumn(src))
                             };
+        }
+
+        private bool InMiddleColumns(Field src)
+        {
+            return NotFirstColumn(src) && NotLastColumn(src);
+        }
+
+        private bool NotFirstColumn(Field src)
+        {
+            return src.ColumnIndex > 0;
         }
 
         private bool NotLastColumn(Field src)
@@ -38,14 +48,29 @@ namespace EndGames.Shell.Mapping
             return src.ColumnIndex < _options.ColumnCount - 1;
         }
 
+        private bool NotLastTwoRows(Field src)
+        {
+            return src.RowIndex < _options.RowCount - 2;
+        }
+
+        private bool NotFirstRow(Field src)
+        {
+            return src.RowIndex > 0;
+        }
+
+        private bool NotTwoLastColumns(Field src)
+        {
+            return src.ColumnIndex < _options.ColumnCount - 2;
+        }
+
         private bool InMiddleRows(Field src)
         {
             return src.IsInMiddleRows(_options.RowCount);
         }
 
-        private bool NotFirstColumn(Field src)
+        private bool NotTwoFristColumns(Field src)
         {
-            return src.ColumnIndex>0;
+            return src.ColumnIndex > 1;
         }
 
         private bool NotLastRow(Field src)
@@ -53,9 +78,9 @@ namespace EndGames.Shell.Mapping
             return src.RowIndex < _options.RowCount - 1;
         }
 
-        private bool NotFirstRow(Field src)
+        private bool NotTwoFirstRows(Field src)
         {
-            return src.RowIndex > 0;
+            return src.RowIndex > 1;
         }
 
         private Visibility BoolToVisibility(bool isVisible)

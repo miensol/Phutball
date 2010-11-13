@@ -10,7 +10,7 @@ namespace EndGames.Phutball
         int ColumnCount { get; }
         int RowCount { get; }
         Tuple<int, int> GetCoordinates(Field field);
-        bool IsValidCoordinate(Tuple<int, int> cords);
+        bool IsValidPlaceForWhiteField(Tuple<int, int> cords);
         Field GetField(Tuple<int, int> coordinates);
         Field GetWhiteField();
     }

@@ -44,7 +44,7 @@ namespace EndGames
         }
 
 
-        public static IEnumerable<TValue> ToEnumerable<TValue>(this IEnumerator<TValue> enumerator)
+        public static IEnumerable<TValue> Enumerate<TValue>(this IEnumerator<TValue> enumerator)
         {
             using(enumerator)
             {

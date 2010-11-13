@@ -114,17 +114,17 @@ namespace EndGames.Tests.Phutball.Search
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Black, Empty, White, Empty, Black },
-                        new[]{ Empty, Black, Empty, Black, Empty, Black },
-                        new[]{ Empty, Black, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
+                        new[]{ Empty, Black, Empty, White, Empty, Black, Empty },
+                        new[]{ Empty, Black, Empty, Black, Empty, Black, Empty },
+                        new[]{ Empty, Black, Empty, Empty, Black, Empty, Empty },
+                        new[]{ Empty, Black, Black, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
                     }
             );
         }
@@ -154,17 +154,17 @@ namespace EndGames.Tests.Phutball.Search
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Black, Empty, Empty, Black, Black, Empty },
-                        new[]{ Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
+                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Black, Empty, Empty, Black, Black, Empty },
+                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, White, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
                     }
             );
         }
@@ -218,7 +218,7 @@ namespace EndGames.Tests.Phutball.Search
         [Test]
         public void should_continue_searching_after_improving_position()
         {
-            AfterMoveOn(TestGraphs.ContinueSearchAfterImprovingPosition()).ShouldHaveWhiteFieldAt(0, 4);
+            AfterMoveOn(TestGraphs.ContinueSearchAfterImprovingPosition()).ShouldHaveWhiteFieldAt(0, 5);
         }
     }
 

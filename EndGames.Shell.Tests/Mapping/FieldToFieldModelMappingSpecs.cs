@@ -1,11 +1,8 @@
-using System;
-using System.Windows;
 using EndGames.Phutball;
 using EndGames.Shell.Mapping;
 using EndGames.Shell.Models;
 using NUnit.Framework;
 using Rhino.Mocks;
-using ForTesting;
 using EndGames.Shell.Tests.SpecificationExtensions;
 
 namespace EndGames.Shell.Tests.Mapping
@@ -83,9 +80,9 @@ namespace EndGames.Shell.Tests.Mapping
         }
 
         [Test]
-        public void should_map_vertical_left_line_to_not_visible()
+        public void should_map_left_line_to_not_visible()
         {
-            Mapped.Lines.Left.ShouldBeVisible();
+            Mapped.Lines.Left.ShouldNotBeVisible();
         }
 
         [Test]
@@ -111,7 +108,7 @@ namespace EndGames.Shell.Tests.Mapping
     {
         protected override Field GetSource()
         {
-            return new Field(1, RowCount - 2, ColumnCount - 1);
+            return new Field(1, RowCount - 2, ColumnCount - 2);
         }
 
         [Test]

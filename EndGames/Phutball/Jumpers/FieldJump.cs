@@ -39,8 +39,8 @@ namespace EndGames.Phutball.Jumpers
         {
             if (_jumpedFields == null)
             {
-                var jumpedFieldsAndLastWhite =
-                    new FieldJumpIterator(_from, _fieldsGraph, new StoneMover(_delta)).ToEnumerable().ToList();
+                var jumpedFieldsAndLastWhite = new FieldJumpIterator(_from, _fieldsGraph, new StoneMover(_delta))
+                    .Enumerate().ToList();
                 ExtractJumpedFieldsAndEndField(jumpedFieldsAndLastWhite);
             }
         }
