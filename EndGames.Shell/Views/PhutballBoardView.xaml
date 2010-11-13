@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-               xmlns:models="clr-namespace:EndGames.Shell.Models" 
-             xmlns:views="clr-namespace:EndGames.Shell.Views" 
+             xmlns:models="clr-namespace:EndGames.Shell.Models" 
              xmlns:cal="http://www.caliburnproject.org"
              
              mc:Ignorable="d" 
@@ -38,16 +37,14 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="100" />
-        </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" IsEnabled="{Binding Board.IsEnabled}">
             <ItemsControl ItemsSource="{Binding Board.Fields}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Width="375" Height="500" ItemWidth="25" ItemHeight="25" 
-                                   Orientation="Horizontal" Background="AliceBlue" />
+                                   Orientation="Horizontal" Background="AliceBlue" 
+                                   Margin="25"
+                                   />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>

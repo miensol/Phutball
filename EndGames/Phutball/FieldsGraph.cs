@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using EndGames.Phutball.Jumpers;
 using System.Linq;
 
 namespace EndGames.Phutball
@@ -22,20 +21,20 @@ namespace EndGames.Phutball
             return _fieldMap[fieldId];
         }
 
-        int IFieldsGraph.ColumnCount
+        public int ColumnCount
         {
             get { return _options.ColumnCount; }
         }
 
-        int IFieldsGraph.RowCount
+        public int RowCount
         {
             get { return _options.RowCount; }
         }
 
         public Tuple<int, int> GetCoordinates(Field field)
         {
-            int row = field.Id/ColumnCount();
-            int column = field.Id%ColumnCount();
+            int row = field.Id/ColumnCount;
+            int column = field.Id%ColumnCount;
             return new Tuple<int, int>(row, column);
         }
 
@@ -76,17 +75,17 @@ namespace EndGames.Phutball
 
         private bool IsValidColumn(int columnIndex)
         {
-            return columnIndex >= 0 && columnIndex < ColumnCount();
+            return columnIndex >= 0 && columnIndex < ColumnCount;
         }
 
         private bool IsValidRow(int rowIndex)
         {
-            return rowIndex >= 0 && rowIndex < RowCount();
+            return rowIndex >= 0 && rowIndex < RowCount;
         }
 
         private void BuildFields()
         {
-            for (int rowIndex = 0; rowIndex < RowCount(); ++rowIndex)
+            for (int rowIndex = 0; rowIndex < RowCount; ++rowIndex)
             {
                 AddColumnsInRow(rowIndex);
             }
@@ -94,21 +93,11 @@ namespace EndGames.Phutball
 
         private void AddColumnsInRow(int row)
         {
-            for (int col = 0; col < ColumnCount(); ++col)
+            for (int col = 0; col < ColumnCount; ++col)
             {
                 var newField = GetNewField(row, col);
                 _fieldMap[newField.Id] = newField;
             }
-        }
-
-        private int ColumnCount()
-        {
-            return _options.ColumnCount;
-        }
-
-        private int RowCount()
-        {
-            return _options.RowCount;
         }
 
         private Field GetNewField(int row, int col)
@@ -125,12 +114,12 @@ namespace EndGames.Phutball
 
         private int GetFieldIndex(int row, int col)
         {
-            return row*ColumnCount() + col;
+            return row*ColumnCount + col;
         }
 
         private bool IsCentralField(int row, int col)
         {
-            return row == RowCount()/2 && col == ColumnCount()/2;
+            return row == RowCount/2 && col == ColumnCount/2;
         }
 
         public object Clone()
