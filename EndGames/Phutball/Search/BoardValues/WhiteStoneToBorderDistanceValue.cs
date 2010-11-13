@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Search.BoardValues
+﻿using System;
+
+namespace EndGames.Phutball.Search.BoardValues
 {
     public class WhiteStoneToBorderDistanceValue : IValueOfGraph
     {
@@ -13,16 +15,21 @@
         {
             var whiteField = valueSubject.GetWhiteField();
             var rawDistance = _winingBorder.GetDistanceFrom(whiteField);
-            if(WhiteFieldIsOnLoosingRow(valueSubject, rawDistance))
+            if(rawDistance == 0)
             {
-                return 0;
+                return _winingBorder.WinValue;
             }
-            return int.MaxValue - rawDistance;
+            var distanceBetweenBorders = DistanceBetweenBorders();
+            if(rawDistance >= distanceBetweenBorders)
+            {
+                return _winingBorder.LooseValue;
+            }
+            return distanceBetweenBorders - rawDistance;                        
         }
 
-        private bool WhiteFieldIsOnLoosingRow(IFieldsGraph valueSubject, int rawDistance)
+        private int DistanceBetweenBorders()
         {
-            return rawDistance > valueSubject.RowCount - 4;
+            return Math.Abs(_winingBorder.RowIndex - _winingBorder.Oposite.RowIndex);
         }
     }
 }

@@ -79,6 +79,9 @@
   <ItemGroup>
     <Compile Include="EventPublisher.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
+    <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
+    <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Utils\EnumOf.cs" />
     <Compile Include="Phutball\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />

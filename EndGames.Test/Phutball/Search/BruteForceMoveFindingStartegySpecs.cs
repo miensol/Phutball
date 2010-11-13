@@ -223,7 +223,7 @@ namespace EndGames.Tests.Phutball.Search
     }
 
 
-    public abstract class observations_for_applying_best_move : observations_for_sut_of_type<BruteForceMoveFindingStartegy>
+    public abstract class observations_for_applying_best_move : observations_for_auto_created_sut_of_type<BruteForceMoveFindingStartegy>
     {
         protected override void Because()
         {
@@ -231,6 +231,11 @@ namespace EndGames.Tests.Phutball.Search
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
         {
             var actualGraph = graphToSearch.GetFieldsGraph();
+            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
+                                                          {
+                                                              RowCount = actualGraph.RowCount,
+                                                              ColumnCount = actualGraph.ColumnCount
+                                                          });
             var bestMove = Sut.Search(actualGraph);
             if(bestMove != null )
             {

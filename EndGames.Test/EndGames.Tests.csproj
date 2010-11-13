@@ -87,6 +87,7 @@
     <Compile Include="Phutball\FieldsGraphSpecs.cs" />
     <Compile Include="Phutball\PhutbalGameStateSpecs.cs" />
     <Compile Include="Phutball\PhutballGameSpecs.cs" />
+    <Compile Include="Phutball\Search\BoardValues\DistanceCounterSpecs.cs" />
     <Compile Include="Phutball\Search\BruteForceMoveFindingStartegySpecs.cs" />
     <Compile Include="Phutball\Search\DfsSearchSpecs.cs" />
     <Compile Include="Phutball\TestPhutballOptions.cs" />

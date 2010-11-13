@@ -39,7 +39,7 @@ namespace EndGames.Phutball.Search
             _acutalMoves.Push(lastMove);
             lastMove.Perform(node.ActualGraph);
             var actualValue = _valueOfGraph.GetValue(node.ActualGraph);
-            if(actualValue == 0)
+            if(actualValue == _targetBorder.LooseValue)
             {
                 _enterChilren = new OneTimeValueThenDefault<bool>(false, true);
             } else
@@ -50,7 +50,7 @@ namespace EndGames.Phutball.Search
 
         private void UpdateMaxValue(int actualValue)
         {
-            if (actualValue == int.MaxValue)
+            if (actualValue == _targetBorder.WinValue)
             {
                 _shouldStop = new OneTimeValueThenDefault<bool>(true, true);
             }

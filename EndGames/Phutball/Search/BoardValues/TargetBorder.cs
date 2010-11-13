@@ -5,18 +5,38 @@ namespace EndGames.Phutball.Search.BoardValues
     public class TargetBorder
     {
         private readonly Func<int> _rowAccessor;
-        private readonly Func<int, int, int> _distaceCounter;
 
-        public TargetBorder(Func<int> rowAccessor, Func<int,int,int> distaceCounter)
+        public TargetBorder(Func<int> rowAccessor)
         {
-            _rowAccessor = rowAccessor;
-            _distaceCounter = distaceCounter;
+            WinValue = int.MaxValue;
+            LooseValue = 0;
+            _rowAccessor = rowAccessor;            
+        }
+
+        
+        public TargetBorder OppositeIs(Func<TargetBorder> opositeBorder)
+        {
+            _opositeBorder = opositeBorder;
+            return this;
+        }
+
+        public TargetBorder CountDistanceUsing(IDistanceCounter distanceCounter)
+        {
+            _distanceCounter = distanceCounter;
+            return this;
+        }
+
+        public TargetBorder Oposite
+        {
+            get { return _opositeBorder(); }
         }
 
         private int _rowIndex;
         private bool _isInitilized;
+        private Func<TargetBorder> _opositeBorder;
+        private IDistanceCounter _distanceCounter;
 
-        private int RowIndex
+        public int RowIndex
         {
             get
             {
@@ -24,6 +44,10 @@ namespace EndGames.Phutball.Search.BoardValues
                 return _rowIndex;
             }
         }
+
+        public int WinValue { get; private set; }
+
+        public int LooseValue { get; private set; }
 
         private void EnsureRowIndexIsInitilized()
         {
@@ -36,8 +60,7 @@ namespace EndGames.Phutball.Search.BoardValues
 
         public int GetDistanceFrom(Field whiteField)
         {
-            var rawDistance = _distaceCounter(RowIndex, whiteField.RowIndex);
-            return Math.Max(0, rawDistance);
+            return _distanceCounter.Distance(whiteField);
         }
     }
 }
