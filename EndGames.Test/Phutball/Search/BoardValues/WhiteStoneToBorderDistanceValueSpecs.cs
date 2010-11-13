@@ -10,7 +10,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
     {
         protected override TargetBorder GetTargetBorder()
         {
-            return TargetBorderEnum.Bottom;
+            return _fieldsGraph.Borders.Bottom;
         }
 
         protected override Field WhiteField()
@@ -30,7 +30,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
     {
         protected override TargetBorder GetTargetBorder()
         {
-            return TargetBorderEnum.Upper;
+            return _fieldsGraph.Borders.Upper;
         }
 
         protected override Field WhiteField()
@@ -50,7 +50,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
     {
         protected override TargetBorder GetTargetBorder()
         {
-            return TargetBorderEnum.Bottom;
+            return _fieldsGraph.Borders.Bottom;
         }
 
         protected override Field WhiteField()
@@ -70,7 +70,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
     {
         protected override TargetBorder GetTargetBorder()
         {
-            return TargetBorderEnum.Upper;
+            return _fieldsGraph.Borders.Upper;
         }
 
         protected override Field WhiteField()
@@ -89,7 +89,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
     {
         protected override TargetBorder GetTargetBorder()
         {
-            return TargetBorderEnum.Bottom;
+            return _fieldsGraph.Borders.Bottom;
         }        
 
         protected  override Field WhiteField()

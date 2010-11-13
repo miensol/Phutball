@@ -12,8 +12,6 @@ namespace EndGames.Phutball.Search
         private readonly IValueOfGraph _valueOfGraph;
         private int _currentMaxValue;
         private IMove<IFieldsGraph> _resultMove;
-        private OneTimeValueThenDefault<bool > _enterChilren = new OneTimeValueThenDefault<bool>(true, true);
-        private OneTimeValueThenDefault<bool> _shouldStop = new OneTimeValueThenDefault<bool>(false, false);
 
         public BruteForceMoveFindingStartegy(TargetBorder targetBorder)
         {
@@ -33,48 +31,44 @@ namespace EndGames.Phutball.Search
             return _resultMove;
         }
 
-        public void OnEnter(JumpNode node)
+        public void OnEnter(JumpNode node, IDfsContinuation dfsContinuation)
+        {
+            int actualValue = CountActualValue(node);
+            if(actualValue == _targetBorder.LooseValue)
+            {
+                dfsContinuation.DontEnterChildren();
+            } else
+            {
+                UpdateMaxValue(actualValue, dfsContinuation);
+            }
+        }
+
+        private int CountActualValue(JumpNode node)
         {
             var lastMove = node.LastMove;
             _acutalMoves.Push(lastMove);
             lastMove.Perform(node.ActualGraph);
-            var actualValue = _valueOfGraph.GetValue(node.ActualGraph);
-            if(actualValue == _targetBorder.LooseValue)
-            {
-                _enterChilren = new OneTimeValueThenDefault<bool>(false, true);
-            } else
-            {
-                UpdateMaxValue(actualValue);
-            }
+            return _valueOfGraph.GetValue(node.ActualGraph);
         }
 
-        private void UpdateMaxValue(int actualValue)
+        private void UpdateMaxValue(int actualValue, IDfsContinuation dfsContinuation)
         {
+            if (actualValue <= _currentMaxValue)
+            {
+                return;
+            }
             if (actualValue == _targetBorder.WinValue)
             {
-                _shouldStop = new OneTimeValueThenDefault<bool>(true, true);
+                dfsContinuation.Stop();
             }
-            if (actualValue > _currentMaxValue)
-            {
-                _resultMove = new CompositeMove<IFieldsGraph>(_acutalMoves.ToArray().Reverse());
-                _currentMaxValue = actualValue;
-            }
+            _resultMove = new CompositeMove<IFieldsGraph>(_acutalMoves.ToArray().Reverse());
+            _currentMaxValue = actualValue;
         }
 
-        public void OnLeave(JumpNode node)
+        public void OnLeave(JumpNode node, IDfsContinuation dfsContinuation)
         {
             node.LastMove.Undo(node.ActualGraph);
             _acutalMoves.Pop();
-        }
-
-        public bool ShouldStop(JumpNode node)
-        {
-            return _shouldStop.GetValue();
-        }
-
-        public bool ShouldEnterChildrenOf(JumpNode node)
-        {
-            return _enterChilren.GetValue();
         }
     }
 }

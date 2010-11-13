@@ -223,20 +223,21 @@ namespace EndGames.Tests.Phutball.Search
     }
 
 
-    public abstract class observations_for_applying_best_move : observations_for_auto_created_sut_of_type<BruteForceMoveFindingStartegy>
+    public abstract class observations_for_applying_best_move : observations_for_static_sut_with_ioc
     {
+        private TargetBorder _targetBorder;
+        private BruteForceMoveFindingStartegy _strategy;
+
         protected override void Because()
         {
         }
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
         {
             var actualGraph = graphToSearch.GetFieldsGraph();
-            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
-                                                          {
-                                                              RowCount = actualGraph.RowCount,
-                                                              ColumnCount = actualGraph.ColumnCount
-                                                          });
-            var bestMove = Sut.Search(actualGraph);
+            _targetBorder = actualGraph.Borders.Upper;
+            _strategy = new BruteForceMoveFindingStartegy(_targetBorder);
+            ProvideImplementationOf(actualGraph);
+            var bestMove = _strategy.Search(actualGraph);
             if(bestMove != null )
             {
                 bestMove.Perform(actualGraph);    
@@ -244,10 +245,6 @@ namespace EndGames.Tests.Phutball.Search
             return actualGraph;
         }
 
-        protected override BruteForceMoveFindingStartegy CreateSut()
-        {
-            return new BruteForceMoveFindingStartegy(TargetBorderEnum.Upper);
-        }
     }
 
 
@@ -378,7 +375,7 @@ namespace EndGames.Tests.Phutball.Search
     }
 
 
-    public abstract class observations_for_brute_force_searching : observations_for_sut_of_type<BruteForceMoveFindingStartegy>
+    public abstract class observations_for_brute_force_searching : observations_for_auto_created_sut_of_type<BruteForceMoveFindingStartegy>
     {
         protected IFieldsGraph _fieldsGraph;
         protected IMove<IFieldsGraph> _bestMove;
@@ -390,12 +387,17 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override BruteForceMoveFindingStartegy CreateSut()
         {
-            return new BruteForceMoveFindingStartegy(TargetBorderEnum.Upper);
+            return new BruteForceMoveFindingStartegy(_fieldsGraph.Borders.Upper);
         }
 
         protected override void EstablishContext()
         {
             _fieldsGraph = FieldsCreator().GetFieldsGraph();
+            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
+                                                          {
+                                                              RowCount = _fieldsGraph.RowCount,
+                                                              ColumnCount = _fieldsGraph.ColumnCount
+                                                          });
 
         }
         protected abstract TestFieldsGraph FieldsCreator();

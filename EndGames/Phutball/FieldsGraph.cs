@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EndGames.Phutball.Search.BoardValues;
 
 namespace EndGames.Phutball
 {
@@ -29,6 +30,11 @@ namespace EndGames.Phutball
         public int RowCount
         {
             get { return _options.RowCount; }
+        }
+
+        public TargetBorderEnum Borders
+        {
+            get { return new TargetBorderEnum(this); }
         }
 
         public Tuple<int, int> GetCoordinates(Field field)

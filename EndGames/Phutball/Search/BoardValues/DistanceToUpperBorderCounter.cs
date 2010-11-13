@@ -2,9 +2,16 @@
 {
     public class DistanceToUpperBorderCounter : IDistanceCounter
     {
+        private readonly IFieldsGraph _fieldsGraph;
+
+        public DistanceToUpperBorderCounter(IFieldsGraph fieldsGraph)
+        {
+            _fieldsGraph = fieldsGraph;
+        }
+
         public int Distance(Field to)
         {
-            var upper = TargetBorderEnum.Upper;
+            var upper = _fieldsGraph.Borders.Upper;
             if(to.RowIndex <= upper.RowIndex)
             {
                 return 0;

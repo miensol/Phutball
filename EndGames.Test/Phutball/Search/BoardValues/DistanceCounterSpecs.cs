@@ -19,11 +19,11 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected override void EstablishContext()
         {
-            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions()
-                                                          {
-                                                              RowCount = 7,
-                                                              ColumnCount = 5
-                                                          });
+            ProvideImplementationOf<IFieldsGraph>(new FieldsGraph(new TestPhutballOptions()
+            {
+                RowCount = 7,
+                ColumnCount = 5
+            }));
             _toField = WhiteField();
         }
 

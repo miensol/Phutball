@@ -72,13 +72,21 @@ namespace EndGames.Tests.Phutball.Search
             _unnested.ShouldHaveTheSameElementsAs(2,DONT_GO_TO_CHILDREN,STOP_ON_THIS_NODE, 1);
         }
 
-        public void OnEnter(int node)
+        public void OnEnter(int node, IDfsContinuation dfsContinuation)
         {
+            if(ShouldStop(node))
+            {
+                dfsContinuation.Stop();
+            }
+            if (ShouldNotEnterChildren(node))
+            {
+                dfsContinuation.DontEnterChildren();
+            }
             _nested.Add(node);
         }
 
-        public void OnLeave(int node)
-        {
+        public void OnLeave(int node, IDfsContinuation dfsContinuation)
+        {            
             _unnested.Add(node);
         }
 
@@ -87,9 +95,9 @@ namespace EndGames.Tests.Phutball.Search
             return node == STOP_ON_THIS_NODE;
         }
 
-        public bool ShouldEnterChildrenOf(int node)
+        public bool ShouldNotEnterChildren(int node)
         {
-            return node != DONT_GO_TO_CHILDREN;
+            return node == DONT_GO_TO_CHILDREN;
         }
     }
 }
