@@ -234,7 +234,7 @@ namespace EndGames.Tests.Phutball.Search
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
         {
             var actualGraph = graphToSearch.GetFieldsGraph();
-            _targetBorder = actualGraph.Borders.Upper;
+            _targetBorder = actualGraph.Borders().Upper;
             _strategy = new BruteForceMoveFindingStartegy(_targetBorder);
             ProvideImplementationOf(actualGraph);
             var bestMove = _strategy.Search(actualGraph);
@@ -387,7 +387,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override BruteForceMoveFindingStartegy CreateSut()
         {
-            return new BruteForceMoveFindingStartegy(_fieldsGraph.Borders.Upper);
+            return new BruteForceMoveFindingStartegy(_fieldsGraph.Borders().Upper);
         }
 
         protected override void EstablishContext()

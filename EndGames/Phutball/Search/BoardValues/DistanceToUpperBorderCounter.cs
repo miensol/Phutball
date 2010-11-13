@@ -11,7 +11,7 @@
 
         public int Distance(Field to)
         {
-            var upper = _fieldsGraph.Borders.Upper;
+            var upper = _fieldsGraph.Borders().Upper;
             if(to.RowIndex <= upper.RowIndex)
             {
                 return 0;

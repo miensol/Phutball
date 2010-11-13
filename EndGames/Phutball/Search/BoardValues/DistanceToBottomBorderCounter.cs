@@ -11,7 +11,7 @@
 
         public int Distance(Field to)
         {
-            var bottom = _fieldsGraph.Borders.Bottom;
+            var bottom = _fieldsGraph.Borders().Bottom;
             if(to.RowIndex <= bottom.Oposite.RowIndex)
             {
                 return bottom.RowIndex - bottom.Oposite.RowIndex;
