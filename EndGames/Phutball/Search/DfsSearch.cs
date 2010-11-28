@@ -2,27 +2,15 @@ using System;
 
 namespace EndGames.Phutball.Search
 {
-    public interface IDfsSearchStartegy<in TNode>
+    public class DfsSearch<TNode> : ITreeSearchContinuation, ITreeSearch<TNode>
     {
-        void OnEnter(TNode node, IDfsContinuation dfsContinuation);
-        void OnLeave(TNode node, IDfsContinuation dfsContinuation);        
-    }
-
-    public interface IDfsContinuation
-    {
-        void Stop();
-        void DontEnterChildren();
-    }
-
-    public class DfsSearch<TNode> : IDfsContinuation
-    {
-        private readonly IDfsSearchStartegy<TNode> _searchStartegy;
+        private readonly ISearchNodeVisitor<TNode> _nodeVisitor;
         private bool _stopSearch;
         private bool _dontEnterChildren;
 
-        public DfsSearch(IDfsSearchStartegy<TNode> searchStartegy)
+        public DfsSearch(ISearchNodeVisitor<TNode> nodeVisitor)
         {
-            _searchStartegy = searchStartegy;
+            _nodeVisitor = nodeVisitor;
         }
 
         public void Run<TTree>(TTree tree)
@@ -39,13 +27,13 @@ namespace EndGames.Phutball.Search
             where TTree : ITree<TNode>
         {
             var node = tree.Node;
-            _searchStartegy.OnEnter(node, this);            
+            _nodeVisitor.OnEnter(node, this);            
             
             if(false == _stopSearch && false == _dontEnterChildren)
             {                
                 tree.Children.Each(subTree => Run(subTree));      
             }
-            _searchStartegy.OnLeave(node, this);
+            _nodeVisitor.OnLeave(node, this);
             _dontEnterChildren = false;
         }
 

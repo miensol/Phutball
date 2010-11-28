@@ -8,7 +8,7 @@ namespace EndGames.Shell.Presenters
 {
     public class PhutballBoardPresenter : Screen, IPhutbalBoardPresenter
     {
-         private readonly PhutballGameState _phutballGameState;
+        private readonly PhutballGameState _phutballGameState;
         private readonly Func<PhutballBoardModel> _boardCreator;
         private PhutballBoardModel _board;
 

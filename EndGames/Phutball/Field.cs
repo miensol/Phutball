@@ -89,5 +89,10 @@ namespace EndGames.Phutball
         {
             return ColumnIndex > 0 && ColumnIndex < columnCount - 1;
         }
+
+        public override string ToString()
+        {
+            return "{0},{1}".ToFormat(RowIndex, ColumnIndex);
+        }
     }
 }

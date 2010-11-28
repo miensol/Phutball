@@ -20,5 +20,10 @@
             _whiteField.DeSelect();
             board.UpdateFields(_whiteField);
         }
+
+        public override string ToString()
+        {
+            return "Select field {0}".ToFormat(_whiteField);
+        }
     }
 }

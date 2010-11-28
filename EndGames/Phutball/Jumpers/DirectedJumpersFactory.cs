@@ -4,11 +4,23 @@ using System.Linq;
 
 namespace EndGames.Phutball.Jumpers
 {
-    public static class DirectedJumpersFactory 
+    public class DirectedJumpersFactory 
     {
-        public static IEnumerable<IJump> All(IFieldsGraph fieldsGraph, Field from)
+        private readonly IFieldsGraph _fieldsGraph;
+
+        public DirectedJumpersFactory(IFieldsGraph fieldsGraph)
         {
-            return Directions().Select(direction=> GetJumper(direction, fieldsGraph, from));
+            _fieldsGraph = fieldsGraph;
+        }
+
+        public IEnumerable<IJump> All(Field from)
+        {
+            return Directions().Select(direction=> new FieldJump(_fieldsGraph, from, direction));
+        }
+
+        public IJump FromTo(Field from, Field to)
+        {
+            return new FieldJump(_fieldsGraph, from, from.GetDirectionTo(to));
         }
 
         private static IEnumerable<Tuple<int, int>> Directions()
@@ -22,10 +34,5 @@ namespace EndGames.Phutball.Jumpers
             yield return new Tuple<int, int>(0, -1);
             yield return new Tuple<int, int>(-1, -1);
         }
-
-        private static IJump GetJumper(Tuple<int, int> direction, IFieldsGraph graph, Field from)
-        {
-            return new FieldJump(graph, from, direction);
-        }    
     }
 }

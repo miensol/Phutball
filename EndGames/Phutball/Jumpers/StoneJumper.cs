@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace EndGames.Phutball.Jumpers
@@ -9,12 +8,14 @@ namespace EndGames.Phutball.Jumpers
         private readonly IFieldsGraph _fieldsGraph;
         private readonly Field _from;
         private readonly Field _to;
+        private DirectedJumpersFactory _jumpersFactory;
 
         public StoneJumper(IFieldsGraph fieldsGraph, Field from, Field to)
         {
             _fieldsGraph = fieldsGraph;
             _from = from;
             _to = to;
+            _jumpersFactory= new DirectedJumpersFactory(_fieldsGraph);
         }
 
 
@@ -31,14 +32,12 @@ namespace EndGames.Phutball.Jumpers
 
         private IJump TryFindingValidJumper()
         {
-            IEnumerable<IJump> jumpers = DirectedJumpersFactory.All(_fieldsGraph, _from);
-            return jumpers.FirstOrDefault(CanJumpToDestination());
+            var jumper = _jumpersFactory.FromTo(_from, _to);
+            if(jumper.EndField == _to)
+            {
+                return jumper;
+            }
+            return null;
         }
-
-        private Func<IJump, bool> CanJumpToDestination()
-        {
-            return jumper => jumper.EndField == _to;
-        }
-
     }
 }

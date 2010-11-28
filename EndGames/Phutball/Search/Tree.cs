@@ -6,5 +6,6 @@ namespace EndGames.Phutball.Search
     {
         TNode Node { get; }
         IEnumerable<ITree<TNode>> Children { get; }
+        ITree<TNode> Parent { get; }
     }
 }

@@ -57,6 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -79,10 +82,24 @@
   <ItemGroup>
     <Compile Include="EventPublisher.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Phutball\Jumpers\FieldExtensions.cs" />
+    <Compile Include="Phutball\Jumpers\IntExtensions.cs" />
+    <Compile Include="Phutball\Search\BfsSearch.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\FieldsGraphExtensions.cs" />
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
+    <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
+    <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\ITreeSearchContinuation.cs" />
+    <Compile Include="Phutball\Search\ISearchNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\ITreeSearch.cs" />
+    <Compile Include="Phutball\Search\PickBestValueNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\CompisiteSearchNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
+    <Compile Include="Phutball\Search\SearchExtensions.cs" />
+    <Compile Include="Phutball\Search\StopOnDepthNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\VisitedNodesCounter.cs" />
     <Compile Include="Utils\EnumOf.cs" />
     <Compile Include="Phutball\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />
@@ -142,6 +159,7 @@
     <Compile Include="Mapping\IDoMapper.cs" />
     <Compile Include="Mapping\ObjectMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Log.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -159,6 +177,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

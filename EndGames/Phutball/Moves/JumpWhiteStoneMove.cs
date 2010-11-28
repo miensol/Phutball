@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace EndGames.Phutball.Moves
 {
@@ -42,5 +43,11 @@ namespace EndGames.Phutball.Moves
             _newSelectedField.RemoveStone();
             NotifyOfFieldsStateChange(board);
         }
+
+        public override string ToString()
+        {
+            return "Jump from {0} to {1}".ToFormat(_selectedField, _newSelectedField);
+        }
+
     }
 }

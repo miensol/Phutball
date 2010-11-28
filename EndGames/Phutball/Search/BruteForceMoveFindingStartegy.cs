@@ -1,74 +1,38 @@
-﻿using System.Collections.Generic;
-using EndGames.Phutball.Moves;
+﻿using EndGames.Phutball.Moves;
 using EndGames.Phutball.Search.BoardValues;
-using System.Linq;
+using EndGames.Utils;
 
 namespace EndGames.Phutball.Search
 {
-    public class BruteForceMoveFindingStartegy : IMoveFindingStartegy, IDfsSearchStartegy<JumpNode>
+    public class BruteForceMoveFindingStartegy : IMoveFindingStartegy
     {
         private readonly TargetBorder _targetBorder;
-        private readonly Stack<IMove<IFieldsGraph>> _acutalMoves = new Stack<IMove<IFieldsGraph>>();
-        private readonly IValueOfGraph _valueOfGraph;
-        private int _currentMaxValue;
-        private IMove<IFieldsGraph> _resultMove;
+        private readonly ISearchNodeVisitor<JumpNode> _defaultNodeVistor;
 
-        public BruteForceMoveFindingStartegy(TargetBorder targetBorder)
+        public BruteForceMoveFindingStartegy(TargetBorder targetBorder):this(targetBorder, new EmptyNodeVisitor<JumpNode>())
+        {
+        }
+
+        public BruteForceMoveFindingStartegy(TargetBorder targetBorder, ISearchNodeVisitor<JumpNode> defaultNodeVistor)
         {
             _targetBorder = targetBorder;
-            _valueOfGraph = new WhiteStoneToBorderDistanceValue(_targetBorder);
+            _defaultNodeVistor = defaultNodeVistor;
         }
 
 
         public IMove<IFieldsGraph> Search(IFieldsGraph fieldsGraph)
         {
             var graphCopy = (IFieldsGraph)fieldsGraph.Clone();
-            var whiteField = graphCopy.GetWhiteField();
-            _currentMaxValue = _valueOfGraph.GetValue(graphCopy);
-            var tree = new BoardJumpTree(graphCopy, new SelectWhiteFieldMove(whiteField));
-            var search = new DfsSearch<JumpNode>(this);
+            var bestValuePicker = new PickBestValueNodeVisitor(_targetBorder, graphCopy);
+            var tree = new RootedBySelectingWhiteFieldBoardJumpTree(graphCopy);
+            var nodeCounter = new VisitedNodesCounter<JumpNode>();
+            var search = new DfsSearch<JumpNode>(_defaultNodeVistor.FollowedBy(bestValuePicker).FollowedBy(nodeCounter));
+            Log.Current.Debug("Started search");
             search.Run(tree);
-            return _resultMove;
-        }
-
-        public void OnEnter(JumpNode node, IDfsContinuation dfsContinuation)
-        {
-            int actualValue = CountActualValue(node);
-            if(actualValue == _targetBorder.LooseValue)
-            {
-                dfsContinuation.DontEnterChildren();
-            } else
-            {
-                UpdateMaxValue(actualValue, dfsContinuation);
-            }
-        }
-
-        private int CountActualValue(JumpNode node)
-        {
-            var lastMove = node.LastMove;
-            _acutalMoves.Push(lastMove);
-            lastMove.Perform(node.ActualGraph);
-            return _valueOfGraph.GetValue(node.ActualGraph);
-        }
-
-        private void UpdateMaxValue(int actualValue, IDfsContinuation dfsContinuation)
-        {
-            if (actualValue <= _currentMaxValue)
-            {
-                return;
-            }
-            if (actualValue == _targetBorder.WinValue)
-            {
-                dfsContinuation.Stop();
-            }
-            _resultMove = new CompositeMove<IFieldsGraph>(_acutalMoves.ToArray().Reverse());
-            _currentMaxValue = actualValue;
-        }
-
-        public void OnLeave(JumpNode node, IDfsContinuation dfsContinuation)
-        {
-            node.LastMove.Undo(node.ActualGraph);
-            _acutalMoves.Pop();
+            Log.Current.Debug("End search");
+            Log.Current.Debug("Node visited {0}".ToFormat(nodeCounter.Count));
+            Log.Current.Debug("Result move {0}".ToFormat(bestValuePicker.ResultMove));
+            return bestValuePicker.ResultMove;
         }
     }
 }

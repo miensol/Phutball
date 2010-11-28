@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace EndGames.Phutball.Moves
 {
@@ -29,6 +31,13 @@ namespace EndGames.Phutball.Moves
         public IEnumerable<IMove<TBoard>> GetMoves()
         {
             return _moves;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder("CompisteMove {0}\n".ToFormat(_moves.Count));
+            _moves.Each(move => sb.Append(move.ToString()).Append(Environment.NewLine));
+            return sb.ToString();
         }
     }
 }

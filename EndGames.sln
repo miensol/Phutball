@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndGames", "EndGames\EndGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndGames.Tests", "EndGames.Test\EndGames.Tests.csproj", "{B9D565CE-4AB5-4119-971D-57D54813E739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndGames.Tests.Benchmark", "EndGames.Tests.Benchmark\EndGames.Tests.Benchmark.csproj", "{E8028C25-3E76-462F-A79E-C65DBF25E385}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{B9D565CE-4AB5-4119-971D-57D54813E739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9D565CE-4AB5-4119-971D-57D54813E739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9D565CE-4AB5-4119-971D-57D54813E739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{8C4B129C-C134-4960-9746-269CABC49C8F} = {CA716FE2-9110-4EE9-AC95-B21341A72FB6}
 		{B3EFA94D-4FE1-46A7-8954-BF1B75B0ED02} = {CA716FE2-9110-4EE9-AC95-B21341A72FB6}
 		{B9D565CE-4AB5-4119-971D-57D54813E739} = {CA716FE2-9110-4EE9-AC95-B21341A72FB6}
+		{E8028C25-3E76-462F-A79E-C65DBF25E385} = {CA716FE2-9110-4EE9-AC95-B21341A72FB6}
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
 		Project = ".\EndGames.ndproj"

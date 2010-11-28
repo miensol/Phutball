@@ -168,6 +168,68 @@ namespace EndGames.Tests.Phutball.Search
                     }
             );
         }
+
+        private static readonly Random _random = new Random();
+        public static TestFieldsGraph Random(int rowCount, int columnCount, double blackProbability)
+        {
+            rowCount = rowCount + 4;
+            columnCount = columnCount + 2;
+            var input = new FieldType[rowCount][];
+          
+            for(int row = 0; row < rowCount; ++row)
+            {
+                input[row] = new FieldType[columnCount];
+                for(int column = 0; column< columnCount; ++column)
+                {
+                    input[row][column] = FieldType.Empty;
+                    if(row < 2 || column < 1 || row >= rowCount - 2 || column >= columnCount -1)
+                    {
+                        continue;
+                    }
+                    var placeBlack = _random.NextDouble() < blackProbability;
+                    if(placeBlack)
+                    {
+                        input[row][column] = FieldType.Black;
+                    }
+                }
+            }
+            bool whiteWasPlaced = false;
+            do
+            {
+                for (int row = rowCount / 2, row2 = rowCount / 2 + 1;
+                row >= 2 && row2 < rowCount - 2 && !whiteWasPlaced;
+                --row, ++row2)
+                {
+                    for(int col = 1; col < columnCount - 1; ++col)
+                    {
+                        if(input[row][col] == FieldType.Empty)
+                        {
+                            var placeWhite = _random.NextDouble() < 0.3;    
+                            if(placeWhite)
+                            {
+                                input[row][col] = FieldType.White;
+                                whiteWasPlaced = true;
+                                break;
+                            }
+                        }
+                        if (input[row2][col] == FieldType.Empty)
+                        {
+                            var placeWhite = _random.NextDouble() < 0.3;
+                            if (placeWhite)
+                            {
+                                input[row2][col] = FieldType.White;
+                                whiteWasPlaced = true;
+                                break;
+                            }
+                        }
+                       
+                    }
+                    
+                }
+            } while (whiteWasPlaced == false);
+            
+            return new TestFieldsGraph(input);
+        }
     }
 
 
@@ -372,6 +434,9 @@ namespace EndGames.Tests.Phutball.Search
         {
             return _graphCreator();
         }
+
+
+        
     }
 
 

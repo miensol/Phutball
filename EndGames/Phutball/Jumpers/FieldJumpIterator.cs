@@ -32,12 +32,17 @@ namespace EndGames.Phutball.Jumpers
                 return false;
 
             Field nextField = _fieldsGraph.GetField(nextCoordinates);
-            if (ThereIsNoStoneToJumpOver(nextField))
+            if (ThereIsNoStoneToJumpOver(nextField) || CantJumpAtAll(nextField))
                 return false;
 
             PerformMove(nextField);
 
             return true;
+        }
+
+        private bool CantJumpAtAll(Field nextField)
+        {
+            return nextField == Current;
         }
 
         public void Reset()
@@ -55,7 +60,7 @@ namespace EndGames.Phutball.Jumpers
 
         private bool ThereIsNoStoneToJumpOver(Field nextField)
         {
-            return Current == _start && nextField.HasStone == false;
+            return (Current == _start && nextField.HasStone == false);
         }
 
         private void PerformMove(Field nextField)
