@@ -1,12 +1,13 @@
 ﻿using System;
 using EndGames.Phutball.Moves;
 using EndGames.Phutball.PlayerMoves;
-using EndGames.Utils;
-
+using log4net;
 namespace EndGames.Phutball.Search
 {
     public class BruteForceMoveFindingStartegy : IMoveFindingStartegy
     {
+        private static readonly ILog Logger = LogManager.GetLogger(typeof(BruteForceMoveFindingStartegy));
+
         private readonly ISearchNodeVisitor<JumpNode> _defaultNodeVistor;
         private readonly Func<ISearchNodeVisitor<JumpNode>, ITreeSearch<JumpNode>> _searchFactory;
         private readonly IPlayersState _playersState;
@@ -33,11 +34,11 @@ namespace EndGames.Phutball.Search
             var bestValuePicker = new PickBestValueNodeVisitor(targetBorder, graphCopy, new PerformMoves(graphCopy, _playersState));
             var nodeCounter = new VisitedNodesCounter<JumpNode>();
             var search = _searchFactory(_defaultNodeVistor.FollowedBy(bestValuePicker).FollowedBy(nodeCounter));
-            Log.Current.Debug("Started search");
+            Logger.Debug("Started search");
             search.Run(tree);
-            Log.Current.Debug("End search");
-            Log.Current.Debug("Node visited {0}".ToFormat(nodeCounter.Count));
-            Log.Current.Debug("Result move {0}".ToFormat(bestValuePicker.ResultMove));
+            Logger.Debug("End search");
+            Logger.DebugFormat("Node visited {0}", nodeCounter.Count);
+            Logger.DebugFormat("Result move {0}", bestValuePicker.ResultMove);
             return bestValuePicker.ResultMove;
         }
     }
