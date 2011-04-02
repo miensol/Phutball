@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Practices.ServiceLocation;
 
@@ -24,6 +25,29 @@ namespace EndGames.Mapping
         public static void MapFrom<TSource, TDestination>(this TDestination to, TSource from)
         {
             GetMapper().DoMap(from, to);
+        }
+
+        public static MappingExpression<TSource> Map<TSource>(this TSource tsource)
+        {
+            return new MappingExpression<TSource>(GetMapper(), tsource);
+        }
+
+    }
+
+    public class MappingExpression<T>
+    {
+        private readonly IDoMapper _getMapper;
+        private readonly T _tsource;
+
+        public MappingExpression(IDoMapper getMapper, T tsource)
+        {
+            _getMapper = getMapper;
+            _tsource = tsource;
+        }
+
+        public TDest To<TDest>()
+        {
+            return _getMapper.DoMap<T, TDest>(_tsource);
         }
     }
 }

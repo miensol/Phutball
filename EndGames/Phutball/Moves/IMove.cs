@@ -1,5 +1,3 @@
-using System;
-
 namespace EndGames.Phutball.Moves
 {
     public interface IMove<in TWhere>

@@ -1,5 +1,5 @@
-﻿using EndGames.Phutball.Events;
-using EndGames.Phutball.Player;
+﻿using System.Collections.Generic;
+using EndGames.Phutball.Events;
 using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball
@@ -7,17 +7,21 @@ namespace EndGames.Phutball
     public class PhutballGameState
     {
         private PhutballGameStateEnum _currentState;
-        private readonly IPlayer _currentPlayer;
         private readonly IEventPublisher _eventPublisher;
         private readonly IPhutballBoard _phutballBoard;
+        private readonly IPlayersState _playersState;
         private readonly IHandlePlayerMoves _handlePlayerMoves;
 
-        public PhutballGameState(IEventPublisher eventPublisher, IPhutballBoard phutballBoard, IHandlePlayerMoves handlePlayerMoves)
+        public PhutballGameState(
+            IEventPublisher eventPublisher, 
+            IPhutballBoard phutballBoard, 
+            IPlayersState playersState,
+            IHandlePlayerMoves handlePlayerMoves)
         {
             _currentState = PhutballGameStateEnum.NotStarted;
-            _currentPlayer = PlayerEnum.First;
             _eventPublisher = eventPublisher;
             _phutballBoard = phutballBoard;
+            _playersState = playersState;
             _handlePlayerMoves = handlePlayerMoves;
         }
 
@@ -27,26 +31,47 @@ namespace EndGames.Phutball
             get { return _currentState; }
         }
 
+        public IEnumerable<PlayerOnBoardInfo> Players
+        {
+            get { return new[]{ _playersState.First, _playersState.Second }; }
+        }
+
         public void CurrentPlayerWon()
         {
-            _eventPublisher.Publish(new CurrentPlayerWonEvent{Player = _currentPlayer});
+            _playersState.Stop();
+            _eventPublisher.Publish(new PhutballGameEnded());
+            _eventPublisher.Publish(new CurrentPlayerWonEvent { Player = _playersState.CurrentPlayer });            
+            _eventPublisher.Publish(new PlayersStateChanged());
         }
 
         public void Start()
-        {
+        {            
+            _phutballBoard.Initialize();
+            _playersState.Start();
+            _handlePlayerMoves.WaitForPlayerMove();
             _currentState = PhutballGameStateEnum.Started;
             _eventPublisher.Publish(new PhutballGameStarted());
+            _eventPublisher.Publish(new PlayersStateChanged());
         }
 
         public void CurrentPlayerClickedField(int fieldId)
         {
             var field = _phutballBoard.GetField(fieldId);
             _handlePlayerMoves.PlayerClickedField(field);
+            _eventPublisher.Publish(new PlayersStateChanged());
             if(_phutballBoard.IsEndingConfiguration())
             {
                 _currentState = PhutballGameStateEnum.CurrentPlayerWon;
                 CurrentPlayerWon();
             }
+        }
+
+        public void Restart()
+        {
+            _currentState = PhutballGameStateEnum.NotStarted;
+            _playersState.Stop();
+            _eventPublisher.Publish(new PlayersStateChanged());
+            _eventPublisher.Publish(new PhutballGameEnded());
         }
     }
 }

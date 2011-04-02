@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace EndGames.Phutball.Moves
 {
-    public class JumpWhiteStoneMove : IMove<IFieldsUpdater>
+    public class JumpWhiteStoneMove : IPhutballMove
     {
         private Field _selectedField;
         private readonly IEnumerable<Field> _jumpedFields;
@@ -18,8 +16,9 @@ namespace EndGames.Phutball.Moves
             _newSelectedField = newSelectedField;
         }
 
-        public void Perform(IFieldsUpdater board)
+        public void Perform(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _selectedField.DeSelect();
             _jumpedFields.Each(field => field.RemoveStone());
             _newSelectedField.Select();
@@ -34,8 +33,9 @@ namespace EndGames.Phutball.Moves
             board.UpdateFields(changedFields.ToArray());
         }
 
-        public void Undo(IFieldsUpdater board)
+        public void Undo(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _selectedField.Select();
             _jumpedFields.Each(field => field.PlaceBlackStone());
             _newSelectedField.DeSelect();

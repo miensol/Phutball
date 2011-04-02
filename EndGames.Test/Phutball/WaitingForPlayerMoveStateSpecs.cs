@@ -25,6 +25,7 @@ namespace EndGames.Tests.Phutball
             ColumnCount = 5;
             Dependency<IPhutballOptions>().Stub(options => options.RowCount).Return(RowCount).Repeat.Any();
             Dependency<IPhutballOptions>().Stub(options => options.ColumnCount).Return(ColumnCount).Repeat.Any();
+            ProvideImplementationOf<IPerformMoves>(new PerformMoves(Dependency<IPhutballBoard>(), Dependency<IPlayersState>()));
             _clickedField = GetClickedField();
         }
 

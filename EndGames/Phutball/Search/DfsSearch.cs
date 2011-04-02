@@ -7,6 +7,7 @@ namespace EndGames.Phutball.Search
         private readonly ISearchNodeVisitor<TNode> _nodeVisitor;
         private bool _stopSearch;
         private bool _dontEnterChildren;
+        private bool _dontEnterNeighbours;
 
         public DfsSearch(ISearchNodeVisitor<TNode> nodeVisitor)
         {
@@ -26,14 +27,21 @@ namespace EndGames.Phutball.Search
         private void ContinueSearch<TTree>(TTree tree)
             where TTree : ITree<TNode>
         {
-            var node = tree.Node;
-            _nodeVisitor.OnEnter(node, this);            
+            _nodeVisitor.OnEnter(tree, this);            
             
             if(false == _stopSearch && false == _dontEnterChildren)
-            {                
-                tree.Children.Each(subTree => Run(subTree));      
+            {
+                foreach (var child in tree.Children)
+                {
+                    if(_dontEnterNeighbours)
+                    {
+                        break;
+                    }
+                    Run(child);
+                }
+                _dontEnterNeighbours = false;
             }
-            _nodeVisitor.OnLeave(node, this);
+            _nodeVisitor.OnLeave(tree, this);
             _dontEnterChildren = false;
         }
 
@@ -45,6 +53,11 @@ namespace EndGames.Phutball.Search
         public void DontEnterChildren()
         {
             _dontEnterChildren = true;
+        }
+
+        public void DontEnterNeighbours()
+        {
+            _dontEnterNeighbours = true;
         }
     }
 }

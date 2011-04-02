@@ -54,6 +54,10 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>games.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -75,7 +79,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Caliburn.StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -102,17 +106,10 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -124,6 +121,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Resources\Custom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ExpressionDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\NumericUpDown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GameOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\GameStateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +167,8 @@
     </Compile>
     <Compile Include="Extensions\WpfExtensions.cs" />
     <Compile Include="Mapping\FieldToFieldModelMapping.cs" />
+    <Compile Include="Mapping\PlayerOnBoardModel.cs" />
+    <Compile Include="Mapping\PlayerToPlayerModelMapping.cs" />
     <Compile Include="Mapping\StoneToStoneModelMapping.cs" />
     <Compile Include="Mapping\SystemToWpfTypeMapping.cs" />
     <Compile Include="Models\BlackStoneModel.cs" />
@@ -161,14 +176,21 @@
     <Compile Include="Mapping\AutoMapperExtensions.cs" />
     <Compile Include="Models\IStoneModel.cs" />
     <Compile Include="Models\ModelWithId.cs" />
+    <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\WhiteStoneModel.cs" />
+    <Compile Include="Presenters\GameOptionsPresenter.cs" />
     <Compile Include="Presenters\GameStatePresenter.cs" />
+    <Compile Include="Presenters\Interfaces\IGameOptionsPresenter.cs" />
     <Compile Include="Presenters\Interfaces\IGameStatePresenter.cs" />
     <Compile Include="Presenters\Interfaces\IPhutbalBoardPresenter.cs" />
     <Compile Include="Presenters\Interfaces\IPhutballPresenter.cs" />
     <Compile Include="Models\PhutballBoardModel.cs" />
     <Compile Include="Presenters\PhutballBoardPresenter.cs" />
     <Compile Include="Presenters\PhutballPresenter.cs" />
+    <Compile Include="Utils\NumericUpDown.cs" />
+    <Compile Include="Views\GameOptionsView.xaml.cs">
+      <DependentUpon>GameOptionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GameStateView.xaml.cs">
       <DependentUpon>GameStateView.xaml</DependentUpon>
     </Compile>
@@ -213,6 +235,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +265,12 @@
       <Project>{8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD}</Project>
       <Name>EndGames</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="games.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\games.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

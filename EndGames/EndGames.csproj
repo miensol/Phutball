@@ -57,7 +57,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,36 +70,44 @@
     </Reference>
     <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventPublisher.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Phutball\Events\MovePerfomed.cs" />
+    <Compile Include="Phutball\Events\PhutballGameEnded.cs" />
+    <Compile Include="Phutball\Events\PlayersStateChanged.cs" />
+    <Compile Include="Phutball\IPlayersState.cs" />
     <Compile Include="Phutball\Jumpers\FieldExtensions.cs" />
     <Compile Include="Phutball\Jumpers\IntExtensions.cs" />
+    <Compile Include="Phutball\Moves\IPhutballMove.cs" />
+    <Compile Include="Phutball\Moves\PhutballMoveContext.cs" />
+    <Compile Include="Phutball\Player.cs" />
+    <Compile Include="Phutball\PlayerEnum.cs" />
+    <Compile Include="Phutball\PlayerMoves\IPerformMoves.cs" />
+    <Compile Include="Phutball\PlayerMoves\PerformMoves.cs" />
+    <Compile Include="Phutball\PlayerOnBoardInfo.cs" />
+    <Compile Include="Phutball\Search\AndOrSearch.cs" />
     <Compile Include="Phutball\Search\BfsSearch.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\FieldsGraphExtensions.cs" />
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
+    <Compile Include="Phutball\Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />
     <Compile Include="Phutball\Search\ITreeSearchContinuation.cs" />
     <Compile Include="Phutball\Search\ISearchNodeVisitor.cs" />
     <Compile Include="Phutball\Search\ITreeSearch.cs" />
+    <Compile Include="Phutball\Search\MoveFinders.cs" />
     <Compile Include="Phutball\Search\PickBestValueNodeVisitor.cs" />
     <Compile Include="Phutball\Search\CompisiteSearchNodeVisitor.cs" />
     <Compile Include="Phutball\Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
     <Compile Include="Phutball\Search\SearchExtensions.cs" />
     <Compile Include="Phutball\Search\StopOnDepthNodeVisitor.cs" />
     <Compile Include="Phutball\Search\VisitedNodesCounter.cs" />
+    <Compile Include="Phutball\PlayersState.cs" />
+    <Compile Include="Switch.cs" />
     <Compile Include="Utils\EnumOf.cs" />
     <Compile Include="Phutball\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />
@@ -113,7 +121,6 @@
     <Compile Include="Phutball\Events\PhutballBoardInitialized.cs" />
     <Compile Include="Phutball\Events\PhutballGameFieldsChanged.cs" />
     <Compile Include="Phutball\Events\PhutballGameStarted.cs" />
-    <Compile Include="Phutball\Moves\IPhutballBoardMove.cs" />
     <Compile Include="Phutball\Moves\JumpWhiteStoneMove.cs" />
     <Compile Include="Phutball\Moves\PlaceBlackStoneMove.cs" />
     <Compile Include="Phutball\Moves\SelectWhiteFieldMove.cs" />
@@ -131,8 +138,6 @@
     <Compile Include="Phutball\PhutballGameState.cs" />
     <Compile Include="Phutball\PhutballGameStateEnum.cs" />
     <Compile Include="Phutball\PhutballOptions.cs" />
-    <Compile Include="Phutball\Player\Player.cs" />
-    <Compile Include="Phutball\Player\PlayerEnum.cs" />
     <Compile Include="Phutball\PlayerMoves\PlayerMoveStateBase.cs" />
     <Compile Include="Phutball\PlayerMoves\PlayerSelectedFieldStateMove.cs" />
     <Compile Include="Phutball\Jumpers\StoneJumper.cs" />
@@ -152,7 +157,6 @@
     <Compile Include="Phutball\Search\Tree.cs" />
     <Compile Include="Phutball\WhiteStone.cs" />
     <Compile Include="Phutball\IStone.cs" />
-    <Compile Include="Phutball\Player\IPlayer.cs" />
     <Compile Include="Utils\IStartupTask.cs" />
     <Compile Include="Mapping\AutoMapperExtensions.cs" />
     <Compile Include="BasicExtensions.cs" />
@@ -177,6 +181,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Phutball\Player\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

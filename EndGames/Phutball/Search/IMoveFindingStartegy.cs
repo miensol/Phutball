@@ -4,6 +4,6 @@ namespace EndGames.Phutball.Search
 {
     public interface IMoveFindingStartegy
     {
-        IMove<IFieldsGraph> Search(IFieldsGraph fieldsGraph);
+        IPhutballMove Search(IFieldsGraph fieldsGraph);
     }
 }

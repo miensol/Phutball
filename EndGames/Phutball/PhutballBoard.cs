@@ -6,7 +6,10 @@ namespace EndGames.Phutball
     {
         private readonly IEventPublisher _eventPublisher;
 
-        public PhutballBoard(IFieldsGraph fieldsGraph, IEventPublisher eventPublisher, IPhutballOptions options) : base(fieldsGraph, options)
+        public PhutballBoard(
+            IFieldsGraph fieldsGraph, 
+            IEventPublisher eventPublisher, 
+            IPhutballOptions options) : base(fieldsGraph, options)
         {
             _eventPublisher = eventPublisher;
         }
@@ -19,6 +22,7 @@ namespace EndGames.Phutball
 
         public void Initialize()
         {
+            _fieldsGraph.Initialize();
             _eventPublisher.Publish(new PhutballBoardInitialized());
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EndGames.Phutball.Search
@@ -23,32 +24,43 @@ namespace EndGames.Phutball.Search
             {
                 var current = _toVisit.Dequeue();
                 Enter(current);
-                if(_dontEnterChildren == false && _stopSearch == false)
-                {
-                    current.Children.Each(node => _toVisit.Enqueue(node));                    
-                } else
-                {
-                    _dontEnterChildren = false;
-                }
+                FollowChildrenIfNeeded(current);
             }
             while(_lastEntered != default(ITree<TNode>))
             {
-                _nodeVisitor.OnLeave(_lastEntered.Node, this);
+                _nodeVisitor.OnLeave(_lastEntered, this);
                 _lastEntered = _lastEntered.Parent;
+            }
+        }
+
+        private void FollowChildrenIfNeeded(ITree<TNode> current)
+        {
+            if(_dontEnterChildren == false && _stopSearch == false)
+            {
+                current.Children.Each(node => _toVisit.Enqueue(node));                    
+            } else
+            {
+                _dontEnterChildren = false;
             }
         }
 
         private void Enter(ITree<TNode> current)
         {
-            if (current.Parent == _lastEntered)
+            if (IsChildOfLastEnteredNode(current))
             {
-                _nodeVisitor.OnEnter(current.Node, this);
+                _nodeVisitor.OnEnter(current, this);
             }
             else
             {
                 TraverseTreeTo(current);
             }
             _lastEntered = current;    
+        }
+
+        private bool IsChildOfLastEnteredNode(ITree<TNode> current)
+        {
+            // TODO: this is hacky, _lastEntered ma by decorator of BoardJumpTree, but may also be null
+            return _lastEntered == current.Parent || (_lastEntered != null && _lastEntered.Equals(current.Parent));
         }
 
         private void TraverseTreeTo(ITree<TNode> current)
@@ -62,13 +74,13 @@ namespace EndGames.Phutball.Search
                 actual = actual.Parent;
                 if(actual != last)
                 {
-                    _nodeVisitor.OnLeave(last.Node, this);
+                    _nodeVisitor.OnLeave(last, this);
                     last = last.Parent ?? last;
                 }
             }
             while (toEnter.Any())
             {
-                _nodeVisitor.OnEnter(toEnter.Pop().Node, this);
+                _nodeVisitor.OnEnter(toEnter.Pop(), this);
             }
         }
 
@@ -80,6 +92,10 @@ namespace EndGames.Phutball.Search
         public void DontEnterChildren()
         {
             _dontEnterChildren = true;
+        }
+
+        public void DontEnterNeighbours()
+        {
         }
     }
 }

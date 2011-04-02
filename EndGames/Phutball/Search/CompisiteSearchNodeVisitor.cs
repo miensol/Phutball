@@ -11,13 +11,13 @@
             _second = second;
         }
 
-        public void OnEnter(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnEnter(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
             _first.OnEnter(node, treeSearchContinuation);
             _second.OnEnter(node, treeSearchContinuation);
         }
 
-        public void OnLeave(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnLeave(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
             _second.OnLeave(node, treeSearchContinuation);
             _first.OnLeave(node, treeSearchContinuation);

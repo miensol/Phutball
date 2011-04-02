@@ -1,6 +1,6 @@
 ﻿namespace EndGames.Phutball.Moves
 {
-    public class PlaceBlackStoneMove : IMove<IFieldsUpdater>
+    public class PlaceBlackStoneMove : IPhutballMove
     {
         private readonly Field _field;
 
@@ -9,16 +9,20 @@
             _field = field;
         }
 
-        public void Perform(IFieldsUpdater board)
+        public void Perform(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _field.PlaceBlackStone();
             board.UpdateFields(_field);
+            context.SwitchPlayer.Next();
         }
 
-        public void Undo(IFieldsUpdater board)
+        public void Undo(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _field.RemoveStone();
             board.UpdateFields(_field);
+            context.SwitchPlayer.Next();
         }
     }
 }

@@ -3,9 +3,11 @@
     public class HandlePlayerMoves : IHandlePlayerMoves
     {
         private IPlayerMoveState _currentMoveState;
+        private WaitingForPlayerMoveState _waitForPlayerMoveState;
 
         public HandlePlayerMoves(WaitingForPlayerMoveState waitingForPlayerMoveState)
         {
+            _waitForPlayerMoveState = waitingForPlayerMoveState;
             _currentMoveState = waitingForPlayerMoveState;
         }
 
@@ -16,5 +18,9 @@
             _currentMoveState = _currentMoveState.GetNextState();
         }
 
+        public void WaitForPlayerMove()
+        {
+            _currentMoveState = _waitForPlayerMoveState;
+        }
     }
 }

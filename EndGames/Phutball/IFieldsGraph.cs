@@ -13,5 +13,6 @@ namespace EndGames.Phutball
         bool IsValidPlaceForWhiteField(Tuple<int, int> cords);
         Field GetField(Tuple<int, int> coordinates);
         Field GetWhiteField();
+        void Initialize();
     }
 }

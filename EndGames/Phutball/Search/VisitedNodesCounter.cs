@@ -9,12 +9,12 @@
             get { return _counter; }
         }
 
-        public void OnEnter(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnEnter(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
             ++_counter;
         }
 
-        public void OnLeave(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnLeave(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {            
         }
     }

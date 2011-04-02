@@ -13,11 +13,17 @@ namespace EndGames.Shell.Models
     {
         private readonly IPhutballBoard _phutballBoard;
         private readonly IEventPublisher _eventPublisher;
+        private readonly IPhutballOptions _phutballOptions;
 
-        public PhutballBoardModel(IPhutballBoard phutballBoard, IEventPublisher eventPublisher)
+        public PhutballBoardModel(IPhutballBoard phutballBoard, IEventPublisher eventPublisher, IPhutballOptions phutballOptions)
         {
             _phutballBoard = phutballBoard;
             _eventPublisher = eventPublisher;
+            _phutballOptions = phutballOptions;
+            _eventPublisher.GetEvent<PhutballBoardInitialized>().Subscribe(HandleGameInitialized);
+            _eventPublisher.GetEvent<PhutballGameStarted>().Subscribe(HandleGameStart);
+            _eventPublisher.GetEvent<PhutballGameEnded>().Subscribe(HandleGameEnded);
+            _eventPublisher.GetEvent<PhutballGameFieldsChanged>().Subscribe(HandleGameFieldsChanged);
         }
 
         private void HandleGameFieldsChanged(PhutballGameFieldsChanged phutballGameFieldsChanged)
@@ -41,16 +47,34 @@ namespace EndGames.Shell.Models
             }
         }
 
+        private int _width;
+        public int Width
+        {
+            get { return _width; }
+            set { _width = value; 
+                NotifyOfPropertyChange(()=> Width);
+            }
+        }
+
+        private int _height;
+        public int Height
+        {
+            get { return _height; }
+            set { _height = value; 
+                NotifyOfPropertyChange(()=> Height);
+            }
+        }
+
         public void Initialize()
         {
-            _eventPublisher.GetEvent<PhutballBoardInitialized>().Subscribe(HandleGameInitialized);
-            _eventPublisher.GetEvent<PhutballGameStarted>().Subscribe(HandleGameStart);
-            _eventPublisher.GetEvent<PhutballGameFieldsChanged>().Subscribe(HandleGameFieldsChanged);
+        
             _phutballBoard.Initialize();
         }
 
         private void HandleGameInitialized(PhutballBoardInitialized boardInitialized)
         {
+            Width = (_phutballOptions.ColumnCount )*25;
+            Height = (_phutballOptions.RowCount ) * 25;
             Fields = MapToViewModels(_phutballBoard.GetCurrentFields());
         }
 
@@ -58,6 +82,11 @@ namespace EndGames.Shell.Models
         private void HandleGameStart(PhutballGameStarted phutballGameStarted)
         {
             IsEnabled = true;
+        }
+
+        private void HandleGameEnded(PhutballGameEnded phutballGameStarted)
+        {
+            IsEnabled = false;
         }
 
         public bool IsEnabled

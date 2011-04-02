@@ -1,32 +1,35 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EndGames.Phutball.Moves;
+using EndGames.Phutball.PlayerMoves;
 using EndGames.Phutball.Search.BoardValues;
 
 namespace EndGames.Phutball.Search
 {
     public class PickBestValueNodeVisitor : ISearchNodeVisitor<JumpNode>
     {
-        private readonly Stack<IMove<IFieldsGraph>> _acutalMoves = new Stack<IMove<IFieldsGraph>>();
+        private readonly Stack<IPhutballMove> _acutalMoves = new Stack<IPhutballMove>();
         private readonly TargetBorder _targetBorder;
         private readonly IValueOfGraph _valueOfGraph;
         private readonly IFieldsGraph _graphCopy;
+        private readonly IPerformMoves _performMoves;
 
-        public IMove<IFieldsGraph> ResultMove { get; private set; }
+        public IPhutballMove ResultMove { get; private set; }
 
         private int CurrentMaxValue { get; set; }
 
-        public PickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph graphCopy)
+        public PickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph graphCopy, IPerformMoves performMoves)
         {
             _targetBorder = targetBorder;
             _valueOfGraph = new WhiteStoneToBorderDistanceValue(targetBorder);
             _graphCopy = graphCopy;
+            _performMoves = performMoves;
             CurrentMaxValue = _valueOfGraph.GetValue(_graphCopy);
         }
 
-        public void OnEnter(JumpNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnEnter(ITree<JumpNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            int actualValue = CountActualValue(node);
+            int actualValue = CountActualValue(node.Node);
             if (actualValue == _targetBorder.LooseValue)
             {
                 treeSearchContinuation.DontEnterChildren();
@@ -41,7 +44,7 @@ namespace EndGames.Phutball.Search
         {
             var lastMove = node.LastMove;
             _acutalMoves.Push(lastMove);
-            lastMove.Perform(node.ActualGraph);
+            _performMoves.Perform(lastMove);
             return _valueOfGraph.GetValue(node.ActualGraph);
         }
 
@@ -55,14 +58,14 @@ namespace EndGames.Phutball.Search
             {
                 treeSearchContinuation.Stop();
             }
-            ResultMove = new CompositeMove<IFieldsGraph>(_acutalMoves.ToArray().Reverse());
+            ResultMove = new CompositeMove(_acutalMoves.ToArray().Reverse());
             CurrentMaxValue = actualValue;
         }
 
 
-        public void OnLeave(JumpNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnLeave(ITree<JumpNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            node.LastMove.Undo(node.ActualGraph);
+            _performMoves.Undo(node.Node.LastMove);
             _acutalMoves.Pop();
         }
     }

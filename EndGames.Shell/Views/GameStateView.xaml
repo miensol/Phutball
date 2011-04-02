@@ -7,16 +7,13 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Orientation="Vertical" x:Name="LayoutRoot">
-    	
-    	<StackPanel Orientation="Horizontal">
-            <TextBlock>
-    		    Now: 
-            </TextBlock>
-            <TextBlock Text="{Binding CurrentPlayer.Name}" /> 
-        </StackPanel>
+    <StackPanel Orientation="Horizontal" x:Name="LayoutRoot" >
         <Button x:Name="StartGame">
             Start
         </Button>
+        <Button x:Name="RestartGame">
+            End
+        </Button>
+        
     </StackPanel>
 </UserControl>

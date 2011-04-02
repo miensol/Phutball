@@ -2,7 +2,7 @@
 {
     public interface IPhutballOptions
     {
-        int RowCount { get; }
-        int ColumnCount { get; }
+        int RowCount { get; set; }
+        int ColumnCount { get; set; }
     }
 }

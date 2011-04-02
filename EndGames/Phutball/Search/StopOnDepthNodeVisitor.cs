@@ -3,25 +3,26 @@
     public class StopOnDepthNodeVisitor<TNode> : ISearchNodeVisitor<TNode>
     {
         private readonly int _maxDepth;
-        private int _currentDepth;
+        private DepthCounterNodeVisitor<TNode> _depthCounter;
 
         public StopOnDepthNodeVisitor(int maxDepth)
         {
             _maxDepth = maxDepth;
+            _depthCounter = new DepthCounterNodeVisitor<TNode>();
         }
 
-        public void OnEnter(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnEnter(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            _currentDepth++;
-            if(_currentDepth >= _maxDepth)
+            _depthCounter.OnEnter(node, treeSearchContinuation);
+            if (_depthCounter.CurrentDepth >= _maxDepth)
             {
                 treeSearchContinuation.DontEnterChildren();
             }
         }
 
-        public void OnLeave(TNode node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnLeave(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            _currentDepth--;
+            _depthCounter.OnLeave(node, treeSearchContinuation);
         }
     }
 }

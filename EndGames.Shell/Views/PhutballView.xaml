@@ -7,10 +7,50 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:cal="http://www.caliburnproject.org"
              >
-    <StackPanel Orientation="Horizontal">
-        <ContentControl cal:View.Model="{Binding Board}" />
-        <ContentControl cal:View.Model="{Binding GameState}" />
+	<UserControl.Resources>
+        <DataTemplate x:Key="PlayerOnBoardTemplate" >            
+            <Border                                         
+                    CornerRadius="3" BorderThickness="2" >
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Player.IsOnTheMove}" Value="true">
+                                <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Player.IsOnTheMove}" Value="false">
+                                <Setter Property="BorderBrush" Value="{DynamicResource WindowBackgroundBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>                        
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Player.Name}" Margin="0 0 5 0" />                    
+                    <TextBlock Text="{Binding TimeOnMoves}" />
+                </StackPanel>
+                
+            </Border>            
+        </DataTemplate>
+    </UserControl.Resources>
+	<StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
+            <ContentControl cal:View.Model="{Binding GameState}" />
+            <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch">
+            
+                <ContentControl Content="{Binding GameState.FirstPlayer}"
+                                ContentTemplate="{StaticResource PlayerOnBoardTemplate}"
+                                />
+                
+                <ContentControl cal:View.Model="{Binding Board}" />
+
+                <ContentControl Content="{Binding GameState.SecondPlayer}"
+                                ContentTemplate="{StaticResource PlayerOnBoardTemplate}"
+                                />
+
+            </StackPanel>            
+        </StackPanel>
+        <ContentControl cal:View.Model="{Binding GameOptions}" />
     </StackPanel>
+    
 
 
 

@@ -4,71 +4,13 @@
                      xmlns:cal="http://www.caliburnproject.org">
                     
     <Application.Resources>
-
-
-        <SolidColorBrush x:Key="brownBrush"
-                         Color="#FF513100" />
-
-        <SolidColorBrush x:Key="redBrush"
-                         Color="#FFAA2C27" />
-
-        <SolidColorBrush x:Key="greenBrush"
-                         Color="#FF656A03" />
-
-        <SolidColorBrush x:Key="lightBlueBrush"
-                         Color="#FF145E9D" />
-
-        <SolidColorBrush x:Key="darkBlueBrush"
-                         Color="#FF022D51" />
-
-        <Style x:Key="openButton"
-               TargetType="Button">
-            <Setter Property="Content"
-                    Value="+" />
-            <Setter Property="Background"
-                    Value="Transparent" />
-            <Setter Property="BorderBrush"
-                    Value="Transparent" />
-            <Setter Property="VerticalAlignment"
-                    Value="Top" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Right" />
-            <Setter Property="Margin"
-                    Value="0 5 10 0" />
-            <Setter Property="Padding"
-                    Value="0" />
-            <Setter Property="FontWeight"
-                    Value="Bold" />
-        </Style>
-
-        <Style x:Key="label"
-               TargetType="TextBlock">
-            <Setter Property="FontWeight"
-                    Value="Bold" />
-            <Setter Property="FontSize"
-                    Value="12" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Right" />
-            <Setter Property="Margin"
-                    Value="6 6 4 0" />
-        </Style>
-
-        <Style x:Key="textBox"
-               TargetType="TextBox">
-            <Setter Property="Margin"
-                    Value="2" />
-        </Style>
-
-        <Style x:Key="comboBox"
-               TargetType="ComboBox">
-            <Setter Property="Margin"
-                    Value="2" />
-        </Style>
-
-        <Style x:Key="button"
-               TargetType="Button">
-            <Setter Property="Margin"
-                    Value="2" />
-        </Style>
-    </Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                
+                <ResourceDictionary Source="Resources/ExpressionDark.xaml"/>
+                <ResourceDictionary Source="Resources/NumericUpDown.xaml"/>
+                <ResourceDictionary Source="Resources/Custom.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+                
+    </Application.Resources>        
 </cal:CaliburnApplication>

@@ -2,7 +2,7 @@
 {
     public interface ISearchNodeVisitor<in TNode>
     {
-        void OnEnter(TNode node, ITreeSearchContinuation treeSearchContinuation);
-        void OnLeave(TNode node, ITreeSearchContinuation treeSearchContinuation);        
+        void OnEnter(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation);
+        void OnLeave(ITree<TNode> node, ITreeSearchContinuation treeSearchContinuation);        
     }
 }

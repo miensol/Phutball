@@ -4,13 +4,13 @@ namespace EndGames.Phutball.Search
 {
     public class JumpNode
     {
-        public JumpNode(IFieldsGraph sourceGraph, IMove<IFieldsGraph> moveToApply)
+        public JumpNode(IFieldsGraph sourceGraph, IPhutballMove moveToApply)
         {
             ActualGraph = sourceGraph;
             LastMove = moveToApply;
         }
 
         public IFieldsGraph ActualGraph { get; private set; }
-        public IMove<IFieldsGraph> LastMove { get; private set; }
+        public IPhutballMove LastMove { get; private set; }
     }
 }

@@ -11,229 +11,7 @@ using NUnit.Framework;
 
 namespace EndGames.Tests.Phutball.Search
 {
-    public static class TestGraphs
-    {
-        private const FieldType Empty = FieldType.Empty;
-        private const FieldType Black = FieldType.Black;
-        private const FieldType White = FieldType.White;
-        
-
-        public static TestFieldsGraph BlackStonToJumpToWinningBorder()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        }
-
-        public static TestFieldsGraph BlackStoneToJumpToLoosingBorder()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        }
-
-        public static TestFieldsGraph OneBackwardJumpToFindWinningPath()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        } 
-        
-        
-        public static TestFieldsGraph TwoBackWardJumpsToImprovePosition()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        } 
-        
-        public static TestFieldsGraph TwoWaysToJumpBackwardsOneWillLose()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Black, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        } 
-        
-        public static TestFieldsGraph TwoWaysToJumpBackwardsOneWins()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        }
-        
-        public static TestFieldsGraph WinningWayPassingThoughLossingField()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Black, Empty, White, Empty, Black },
-                        new[]{ Empty, Black, Empty, Black, Empty, Black },
-                        new[]{ Empty, Black, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        } 
-        
-        public static TestFieldsGraph ContinueSearchAfterImprovingPosition()
-        {
-            return new TestFieldsGraph(
-                new[]
-                    {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                    }
-            );
-        }
-
-        private static readonly Random _random = new Random();
-        public static TestFieldsGraph Random(int rowCount, int columnCount, double blackProbability)
-        {
-            rowCount = rowCount + 4;
-            columnCount = columnCount + 2;
-            var input = new FieldType[rowCount][];
-          
-            for(int row = 0; row < rowCount; ++row)
-            {
-                input[row] = new FieldType[columnCount];
-                for(int column = 0; column< columnCount; ++column)
-                {
-                    input[row][column] = FieldType.Empty;
-                    if(row < 2 || column < 1 || row >= rowCount - 2 || column >= columnCount -1)
-                    {
-                        continue;
-                    }
-                    var placeBlack = _random.NextDouble() < blackProbability;
-                    if(placeBlack)
-                    {
-                        input[row][column] = FieldType.Black;
-                    }
-                }
-            }
-            bool whiteWasPlaced = false;
-            do
-            {
-                for (int row = rowCount / 2, row2 = rowCount / 2 + 1;
-                row >= 2 && row2 < rowCount - 2 && !whiteWasPlaced;
-                --row, ++row2)
-                {
-                    for(int col = 1; col < columnCount - 1; ++col)
-                    {
-                        if(input[row][col] == FieldType.Empty)
-                        {
-                            var placeWhite = _random.NextDouble() < 0.3;    
-                            if(placeWhite)
-                            {
-                                input[row][col] = FieldType.White;
-                                whiteWasPlaced = true;
-                                break;
-                            }
-                        }
-                        if (input[row2][col] == FieldType.Empty)
-                        {
-                            var placeWhite = _random.NextDouble() < 0.3;
-                            if (placeWhite)
-                            {
-                                input[row2][col] = FieldType.White;
-                                whiteWasPlaced = true;
-                                break;
-                            }
-                        }
-                       
-                    }
-                    
-                }
-            } while (whiteWasPlaced == false);
-            
-            return new TestFieldsGraph(input);
-        }
-    }
-
-
-    public class when_applying_best_move_on_board : observations_for_applying_best_move
+    public class when_applying_best_move_with_dfs : observations_for_applying_best_move_with_dfs
     {
         [Test]
         public void should_jump_over_one_black_stone_to_winning_border()
@@ -285,26 +63,101 @@ namespace EndGames.Tests.Phutball.Search
     }
 
 
+    public class when_applying_best_move_with_bfs : observations_for_applying_best_move_with_bfs
+    {
+        [Test]
+        public void should_jump_over_one_black_stone_to_winning_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStonToJumpToWinningBorder()).ShouldHaveWhiteFieldAt(1, 2);
+        }
+
+        [Test]
+        public void should_not_jump_over_black_stone_to_loosing_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStoneToJumpToLoosingBorder()).ShouldHaveWhiteFieldAt(3, 2);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_find_winning_move()
+        {
+            AfterMoveOn(TestGraphs.OneBackwardJumpToFindWinningPath()).ShouldHaveWhiteFieldAt(1, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_postion()
+        {
+            AfterMoveOn(TestGraphs.TwoBackWardJumpsToImprovePosition()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_position_but_avoid_loosing()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWillLose()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_picking_best_way()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWins()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+
+        [Test]
+        public void should_not_pick_move_passing_though_losing_fields()
+        {
+            AfterMoveOn(TestGraphs.WinningWayPassingThoughLossingField()).ShouldHaveWhiteFieldAt(3, 3);
+        }
+
+        [Test]
+        public void should_continue_searching_after_improving_position()
+        {
+            AfterMoveOn(TestGraphs.ContinueSearchAfterImprovingPosition()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+    }
+
+
     public abstract class observations_for_applying_best_move : observations_for_static_sut_with_ioc
     {
-        private TargetBorder _targetBorder;
-        private BruteForceMoveFindingStartegy _strategy;
-
         protected override void Because()
         {
         }
+
+        protected IPlayersState _playersState;
+        private IMoveFindingStartegy _strategy;
+        protected MoveFinders _moveFinders = new MoveFinders(new MovesFactory());
+        protected abstract IMoveFindingStartegy GetSearchStrategy();
+
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
         {
-            var actualGraph = graphToSearch.GetFieldsGraph();
-            _targetBorder = actualGraph.Borders().Upper;
-            _strategy = new BruteForceMoveFindingStartegy(_targetBorder);
+            var actualGraph = graphToSearch.Build();
+            _playersState = PlayersState.SecondIsOnTheMove();
+            _strategy = GetSearchStrategy();
             ProvideImplementationOf(actualGraph);
             var bestMove = _strategy.Search(actualGraph);
             if(bestMove != null )
             {
-                bestMove.Perform(actualGraph);    
+                bestMove.Perform(new PhutballMoveContext
+                                     {
+                                         SwitchPlayer = Dependency<IPlayersState>(),
+                                         FieldsUpdater = actualGraph
+                                     });    
             }
             return actualGraph;
+        }
+    }
+
+    public abstract class observations_for_applying_best_move_with_dfs : observations_for_applying_best_move
+    {
+        protected override IMoveFindingStartegy GetSearchStrategy()
+        {
+            return _moveFinders.DfsUnbounded(_playersState);
+        }
+    }
+
+    public abstract class observations_for_applying_best_move_with_bfs : observations_for_applying_best_move
+    {
+        protected override IMoveFindingStartegy GetSearchStrategy()
+        {
+            return _moveFinders.BfsUnbounded(_playersState);
         }
 
     }
@@ -312,7 +165,7 @@ namespace EndGames.Tests.Phutball.Search
 
     public class when_searching_on_board_with_one_black_stone_to_jump : observations_for_brute_force_searching
     {
-        protected override TestFieldsGraph FieldsCreator()
+        protected override TestFieldsGraph GraphBuilder()
         {
             return TestGraphs.BlackStonToJumpToWinningBorder();
         }
@@ -323,9 +176,9 @@ namespace EndGames.Tests.Phutball.Search
             _bestMove.ShouldNotBeNull();
         }
 
-        private IList<IMove<IFieldsGraph>> GetMoves()
+        private IList<IPhutballMove> GetMoves()
         {
-            return _bestMove.ShouldBeOfType<CompositeMove<IFieldsGraph>>().GetMoves().ToList();
+            return _bestMove.ShouldBeOfType<CompositeMove>().GetMoves().ToList();
         }
 
         [Test]
@@ -343,7 +196,11 @@ namespace EndGames.Tests.Phutball.Search
         [Test]
         public void should_put_white_field_behind_black()
         {
-            _bestMove.Perform(_fieldsGraph);
+            _bestMove.Perform(new PhutballMoveContext
+                                  {
+                                      FieldsUpdater =_fieldsGraph,
+                                      SwitchPlayer = Dependency<IPlayersState>()
+                                  });
             _fieldsGraph.GetWhiteField().RowIndex.ShouldEqual(1);
             _fieldsGraph.GetWhiteField().ColumnIndex.ShouldEqual(2);
         }
@@ -365,13 +222,13 @@ namespace EndGames.Tests.Phutball.Search
         }
 
 
-        protected override TestFieldsGraph FieldsCreator()
+        protected override TestFieldsGraph GraphBuilder()
         {
             return new TestFieldsGraph(7,6);
         }
     }
 
-    public class TestFieldsGraph 
+    public class TestFieldsGraph : IGraphBuilder
     {
         private readonly int _rowCount;
         private readonly int _columnCount;
@@ -430,20 +287,17 @@ namespace EndGames.Tests.Phutball.Search
             return new FieldsGraph(new TestPhutballOptions {RowCount = rowCount, ColumnCount = columnCount});
         }
 
-        public IFieldsGraph GetFieldsGraph()
+        public IFieldsGraph Build()
         {
             return _graphCreator();
         }
-
-
-        
     }
 
 
     public abstract class observations_for_brute_force_searching : observations_for_auto_created_sut_of_type<BruteForceMoveFindingStartegy>
     {
         protected IFieldsGraph _fieldsGraph;
-        protected IMove<IFieldsGraph> _bestMove;
+        protected IPhutballMove _bestMove;
 
         protected override void Because()
         {
@@ -452,12 +306,13 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override BruteForceMoveFindingStartegy CreateSut()
         {
-            return new BruteForceMoveFindingStartegy(_fieldsGraph.Borders().Upper);
+            var moveFinders = new MoveFinders(new MovesFactory());
+            return (BruteForceMoveFindingStartegy) moveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
         }
 
         protected override void EstablishContext()
         {
-            _fieldsGraph = FieldsCreator().GetFieldsGraph();
+            _fieldsGraph = GraphBuilder().Build();
             ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
                                                           {
                                                               RowCount = _fieldsGraph.RowCount,
@@ -465,7 +320,7 @@ namespace EndGames.Tests.Phutball.Search
                                                           });
 
         }
-        protected abstract TestFieldsGraph FieldsCreator();
+        protected abstract TestFieldsGraph GraphBuilder();
     
     }
 

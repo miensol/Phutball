@@ -5,10 +5,14 @@ namespace EndGames.Phutball.PlayerMoves
     public class WaitingForPlayerMoveState : PlayerMoveStateBase
     {
         private readonly IPhutballBoard _phutballBoard;
+        private readonly IPlayersState _playersState;
+        private readonly IPerformMoves _performMoves;
 
-        public WaitingForPlayerMoveState(IPhutballBoard phutballBoard)
+        public WaitingForPlayerMoveState(IPhutballBoard phutballBoard, IPlayersState playersState)
         {
             _phutballBoard = phutballBoard;
+            _playersState = playersState;
+            _performMoves = new PerformMoves(phutballBoard, playersState);
         }
 
         public override void PlayerClickedField(Field field)
@@ -37,14 +41,14 @@ namespace EndGames.Phutball.PlayerMoves
 
         private void SelectField(Field field)
         {
-            new SelectWhiteFieldMove(field).Perform(_phutballBoard);
-            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, field);
+            _performMoves.Perform(new SelectWhiteFieldMove(field));
+            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState, field);
         }
 
 
         private void PlaceBlackStoneOnField(Field field)
         {
-            new PlaceBlackStoneMove(field).Perform(_phutballBoard);
+            _performMoves.Perform(new PlaceBlackStoneMove(field));
             NextState = this;
         }
 

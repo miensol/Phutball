@@ -70,14 +70,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicExtensionsTester.cs" />
@@ -87,10 +79,14 @@
     <Compile Include="Phutball\FieldsGraphSpecs.cs" />
     <Compile Include="Phutball\PhutbalGameStateSpecs.cs" />
     <Compile Include="Phutball\PhutballGameSpecs.cs" />
+    <Compile Include="Phutball\Search\AndOrSearchSpecs.cs" />
     <Compile Include="Phutball\Search\BfsSearchSpecs.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceCounterSpecs.cs" />
     <Compile Include="Phutball\Search\BruteForceMoveFindingStartegySpecs.cs" />
     <Compile Include="Phutball\Search\DfsSearchSpecs.cs" />
+    <Compile Include="Phutball\Search\IGraphBuilder.cs" />
+    <Compile Include="Phutball\Search\RandomGraphBuilder.cs" />
+    <Compile Include="Phutball\Search\TestGraphs.cs" />
     <Compile Include="Phutball\Search\TestTree.cs" />
     <Compile Include="Phutball\TestPhutballOptions.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToBorderDistanceValueSpecs.cs" />

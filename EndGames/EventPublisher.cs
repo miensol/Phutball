@@ -8,6 +8,7 @@ namespace EndGames
     public interface IEventPublisher
     {
         void Publish<TEvent>(TEvent sampleEvent);
+        void Subscribe<TEvent>(Action<TEvent> handler);
         IObservable<TEvent> GetEvent<TEvent>();
     }
 
@@ -17,6 +18,11 @@ namespace EndGames
             = new ConcurrentDictionary<Type, object>();
 
         #region IEventPublisher Members
+
+        public void Subscribe<TEvent>(Action<TEvent> handler)
+        {
+            GetEvent<TEvent>().Subscribe(handler);
+        }
 
         public IObservable<TEvent> GetEvent<TEvent>()
         {

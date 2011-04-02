@@ -10,8 +10,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type models:BlackStoneModel}" >
-            <Ellipse Stroke="Brown" Width="22" Height="22"
-                         Fill="Brown"
+            <Ellipse Stroke="Brown" Width="22" Height="22" Fill="Brown" 
                          />
         </DataTemplate>
         <DataTemplate DataType="{x:Type models:WhiteStoneModel}" >
@@ -41,7 +40,7 @@
             <ItemsControl ItemsSource="{Binding Board.Fields}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Width="375" Height="500" ItemWidth="25" ItemHeight="25" 
+                        <WrapPanel Width="{Binding Board.Width}" Height="{Binding Board.Height}" ItemWidth="25" ItemHeight="25" 
                                    Orientation="Horizontal" Background="AliceBlue" 
                                    />
                     </ItemsPanelTemplate>

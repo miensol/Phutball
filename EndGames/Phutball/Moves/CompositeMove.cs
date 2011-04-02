@@ -1,34 +1,30 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Moves
 {
-    public class CompositeMove<TBoard> : IMove<TBoard>
+    public class CompositeMove : IPhutballMove
     {
-        private readonly List<IMove<TBoard>> _moves = new List<IMove<TBoard>>();
+        private readonly List<IPhutballMove> _moves = new List<IPhutballMove>();
 
-        public CompositeMove(IEnumerable<IMove<TBoard>> moves)
+        public CompositeMove(IEnumerable<IPhutballMove> moves)
         {
-            _moves.AddRange<IMove<TBoard>>(moves);
+            _moves.AddRange(moves);
         }
 
-        public void Perform(TBoard board)
+        public void Perform(PhutballMoveContext board)
         {
             _moves.Each(move => move.Perform(board));
         }
 
-        public void Undo(TBoard board)
+        public void Undo(PhutballMoveContext board)
         {
             _moves.Each(move => move.Undo(board));
         }
 
-        public void Add(params IMove<TBoard>[] move)
-        {
-            _moves.AddRange(move);
-        }
-
-        public IEnumerable<IMove<TBoard>> GetMoves()
+        public IEnumerable<IPhutballMove> GetMoves()
         {
             return _moves;
         }

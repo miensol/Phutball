@@ -13,7 +13,7 @@ namespace EndGames.Phutball
         public FieldsGraph(IPhutballOptions options)
         {
             _options = options;
-            BuildFields();
+            Initialize();
         }
         
         public Field GetField(int fieldId)
@@ -86,7 +86,7 @@ namespace EndGames.Phutball
             return rowIndex >= 0 && rowIndex < RowCount;
         }
 
-        private void BuildFields()
+        public void Initialize()
         {
             for (int rowIndex = 0; rowIndex < RowCount; ++rowIndex)
             {

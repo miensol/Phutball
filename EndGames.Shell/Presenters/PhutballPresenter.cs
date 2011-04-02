@@ -5,26 +5,46 @@ namespace EndGames.Shell.Presenters
 {
     public class PhutballPresenter : Screen, IPhutballPresenter
     {
+        private GameOptionsPresenter _gameOptions;
         private GameStatePresenter _gameState;
+
         public GameStatePresenter GameState
         {
             get { return _gameState; }
-            set { _gameState = value; 
-                NotifyOfPropertyChange(()=> GameState);
+            set
+            {
+                _gameState = value;
+                NotifyOfPropertyChange(() => GameState);
             }
         }
 
         private PhutballBoardPresenter _board;
+
         public PhutballBoardPresenter Board
         {
             get { return _board; }
-            set { _board = value; 
+            set
+            {
+                _board = value;
                 NotifyOfPropertyChange(() => Board);
             }
         }
 
-        public PhutballPresenter(GameStatePresenter gameStatePresenter, PhutballBoardPresenter boardPresenter)
+        public GameOptionsPresenter GameOptions
         {
+            get { return _gameOptions; }
+            set
+            {
+                _gameOptions = value;
+                NotifyOfPropertyChange(() => GameOptions);
+            }
+        }
+
+        public PhutballPresenter(GameStatePresenter gameStatePresenter,
+                                 GameOptionsPresenter gameOptions,
+                                 PhutballBoardPresenter boardPresenter)
+        {
+            GameOptions = gameOptions;
             GameState = gameStatePresenter;
             Board = boardPresenter;
         }
@@ -33,6 +53,7 @@ namespace EndGames.Shell.Presenters
         {
             GameState.Initialize();
             Board.Initialize();
+            GameOptions.Initialize();
             base.OnInitialize();
         }
 
@@ -40,6 +61,7 @@ namespace EndGames.Shell.Presenters
         {
             GameState.Activate();
             Board.Activate();
+            GameOptions.Activate();
             base.OnActivate();
         }
     }

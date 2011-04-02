@@ -4,5 +4,6 @@
     {
         void Stop();
         void DontEnterChildren();
+        void DontEnterNeighbours();
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
@@ -18,7 +17,7 @@ namespace EndGames.Phutball.Search
         private BoardJumpTree SelectWhiteFieldNode()
         {
             var whiteField = _fieldsGraph.GetWhiteField();
-            return new BoardJumpTree(_fieldsGraph, new SelectWhiteFieldMove(whiteField), this);
+            return new BoardJumpTree(_fieldsGraph, new SelectWhiteFieldMove(whiteField), null);
         }
 
         public JumpNode Node { get { return _realBoard.Node; } }
@@ -31,6 +30,11 @@ namespace EndGames.Phutball.Search
         public ITree<JumpNode> Parent
         {
             get { return null; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return _realBoard == obj;
         }
     }
 }

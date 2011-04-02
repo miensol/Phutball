@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using EndGames.Phutball;
 using EndGames.Phutball.Search;
-using EndGames.Phutball.Search.BoardValues;
 using EndGames.Tests.Phutball.Search;
 using ForTesting;
+using log4net.Config;
 using NUnit.Framework;
 
 namespace EndGames.Tests.Benchmark
@@ -16,10 +16,12 @@ namespace EndGames.Tests.Benchmark
     {
         static observations_for_search_strategy_speed()
         {
-            log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
+            XmlConfigurator.Configure(new FileInfo("log4net.config"));
         }
 
-        private Stopwatch _timer = new Stopwatch(); 
+        private Stopwatch _timer = new Stopwatch();
+        protected MoveFinders _moveFinders = new MoveFinders(new MovesFactory());
+
         protected TimeSpan MessureTime(Action work)
         {
             _timer.Reset();
@@ -31,7 +33,7 @@ namespace EndGames.Tests.Benchmark
 
         protected IFieldsGraph RandomGraph(int rowCount, int columnCount, double blackDencity)
         {
-            return TestGraphs.Random(rowCount, columnCount, blackDencity).GetFieldsGraph();
+            return TestGraphs.Random(rowCount, columnCount, blackDencity);
         }
 
         protected override void Because()
@@ -156,15 +158,16 @@ namespace EndGames.Tests.Benchmark
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return new BruteForceMoveFindingStartegy(graph.Borders().Upper);
+            return _moveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
         }
     } 
     
+    [TestFixture]
     public class when_searching_with_brute_force_with_limited_search_depth : observations_for_searching_with_brute_force
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return new BoundedDepthMoveFindingStrategy(graph.Borders().Upper, Math.Max(graph.RowCount/10, 5));
+            return _moveFinders.DfsBounded(PlayersState.SecondIsOnTheMove(), Math.Max(graph.RowCount/10, 5));
         }
     }
 }

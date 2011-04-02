@@ -10,7 +10,7 @@ namespace EndGames.Phutball.Search
     {
         private readonly DirectedJumpersFactory _jumpersFactory;
 
-        public BoardJumpTree(IFieldsGraph actualGraph, IMove<IFieldsGraph> moveToApply, ITree<JumpNode> parent)
+        public BoardJumpTree(IFieldsGraph actualGraph, IPhutballMove moveToApply, ITree<JumpNode> parent)
         {
             Parent = parent;
             Node = new JumpNode(actualGraph, moveToApply);

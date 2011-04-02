@@ -7,7 +7,7 @@ namespace EndGames.Phutball
     public class ReadOnlyPhutballBoard 
     {
         protected IPhutballOptions _options;
-        private IFieldsGraph _fieldsGraph;
+        protected readonly IFieldsGraph _fieldsGraph;
 
         public ReadOnlyPhutballBoard(IFieldsGraph fieldsGraph, IPhutballOptions options)
         {

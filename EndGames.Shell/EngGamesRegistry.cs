@@ -14,6 +14,8 @@ namespace EndGames.Shell
             For<IPhutballBoard>().Singleton().Use<PhutballBoard>();
             For<PhutballGameState>().Singleton().Use<PhutballGameState>();
             For<IEventPublisher>().Singleton().Use<EventPublisher>();
+            For<IPhutballOptions>().Singleton().Use<PhutballOptions>();
+            For<IPlayersState>().Singleton().Use(new PlayersState());
             For<Log>().Singleton().Use<Log>();
             Scan(scanner=>
                      {

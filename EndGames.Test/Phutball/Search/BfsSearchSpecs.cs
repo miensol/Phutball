@@ -7,7 +7,20 @@ using NUnit.Framework;
 
 namespace EndGames.Tests.Phutball.Search
 {
-    public abstract class observations_for_searching_with_bfs : observations_for_sut_of_type<BfsSearch<int>>, ISearchNodeVisitor<int>
+    public abstract class osbservations_for_tree_search<TSearch> : observations_for_sut_of_type<TSearch>
+    {
+        protected static TestTree<int> Tree(int i)
+        {
+            return new TestTree<int>(i);
+        }
+
+        protected static TestTree<int> Tree(int i, IEnumerable<TestTree<int>> children)
+        {
+            return new TestTree<int>(i, children);
+        }
+    }
+
+    public abstract class observations_for_searching_with_bfs : osbservations_for_tree_search<BfsSearch<int>>, ISearchNodeVisitor<int>
     {
         protected TestTree<int> _tree;
         protected List<int> _visted;
@@ -29,24 +42,14 @@ namespace EndGames.Tests.Phutball.Search
             return new BfsSearch<int>(this);
         }
 
-        protected TestTree<int> Tree(int i)
+        public virtual void OnEnter(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            return new TestTree<int>(i);
+            _visted.Add(node.Node);
         }
 
-        protected TestTree<int> Tree(int i, IEnumerable<TestTree<int>> children)
+        public virtual void OnLeave(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            return new TestTree<int>(i, children);
-        }
-
-        public virtual void OnEnter(int node, ITreeSearchContinuation treeSearchContinuation)
-        {
-            _visted.Add(node);
-        }
-
-        public virtual void OnLeave(int node, ITreeSearchContinuation treeSearchContinuation)
-        {
-            _leaved.Add(node);
+            _leaved.Add(node.Node);
         }
     }
 
@@ -84,14 +87,14 @@ namespace EndGames.Tests.Phutball.Search
             _leaved.ShouldHaveTheSameElementsAs(new[]{2,4,3,1});
         }
 
-        public override void OnEnter(int node, ITreeSearchContinuation treeSearchContinuation)
+        public override void OnEnter(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {
             base.OnEnter(node, treeSearchContinuation);
-            if(node == STOP_ON_THIS)
+            if(node.Node == STOP_ON_THIS)
             {
                 treeSearchContinuation.Stop();
             }
-            if(node == DONT_ENTER_CHILDREN)
+            if(node.Node == DONT_ENTER_CHILDREN)
             {
                 treeSearchContinuation.DontEnterChildren();
             }

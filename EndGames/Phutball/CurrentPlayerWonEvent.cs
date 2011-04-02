@@ -1,9 +1,7 @@
-﻿using EndGames.Phutball.Player;
-
-namespace EndGames.Phutball
+﻿namespace EndGames.Phutball
 {
     public class CurrentPlayerWonEvent
     {
-        public IPlayer Player { get; set; }
+        public Player Player { get; set; }
     }
 }

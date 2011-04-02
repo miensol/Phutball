@@ -64,22 +64,22 @@ namespace EndGames.Tests.Phutball.Search
             _unnested.ShouldHaveTheSameElementsAs(new[]{2,DONT_GO_TO_CHILDREN,STOP_ON_THIS_NODE, 1}.Select(i => i));
         }
 
-        public void OnEnter(int node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnEnter(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {
-            if(ShouldStop(node))
+            if(ShouldStop(node.Node))
             {
                 treeSearchContinuation.Stop();
             }
-            if (ShouldNotEnterChildren(node))
+            if (ShouldNotEnterChildren(node.Node))
             {
                 treeSearchContinuation.DontEnterChildren();
             }
-            _nested.Add(node);
+            _nested.Add(node.Node);
         }
 
-        public void OnLeave(int node, ITreeSearchContinuation treeSearchContinuation)
+        public void OnLeave(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {            
-            _unnested.Add(node);
+            _unnested.Add(node.Node);
         }
 
         public bool ShouldStop(int node)

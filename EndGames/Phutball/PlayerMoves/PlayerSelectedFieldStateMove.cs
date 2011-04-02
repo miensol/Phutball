@@ -7,11 +7,18 @@ namespace EndGames.Phutball.PlayerMoves
     public class PlayerSelectedFieldStateMove : PlayerMoveStateBase
     {
         private readonly IPhutballBoard _phutballBoard;
+        private readonly IPlayersState _playersState;
+        private readonly IPerformMoves _performMoves;
         private readonly Field _selectedField;
 
-        public PlayerSelectedFieldStateMove(IPhutballBoard phutballBoard, Field selectedField)
+        public PlayerSelectedFieldStateMove(
+            IPhutballBoard phutballBoard, 
+            IPlayersState playersState,
+            Field selectedField)
         {
             _phutballBoard = phutballBoard;
+            _playersState = playersState;
+            _performMoves = new PerformMoves(phutballBoard, _playersState);
             _selectedField = selectedField;
         }
 
@@ -43,14 +50,14 @@ namespace EndGames.Phutball.PlayerMoves
 
         private void PerformJump(Field newSelectedField, IEnumerable<Field> jumpedFields)
         {
-            new JumpWhiteStoneMove(_selectedField, jumpedFields, newSelectedField).Perform(_phutballBoard);
-            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, newSelectedField);
+            _performMoves.Perform(new JumpWhiteStoneMove(_selectedField, jumpedFields, newSelectedField));
+            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState ,newSelectedField);
         }
 
         private void DeselectSelectedField(Field field)
         {
-            new DeselectWhiteFieldMove(field).Perform(_phutballBoard);
-            NextState = new WaitingForPlayerMoveState(_phutballBoard);
+            _performMoves.Perform(new DeselectWhiteFieldMove(field));
+            NextState = new WaitingForPlayerMoveState(_phutballBoard, _playersState);
         }
 
         private bool ClickedSelectedField(Field field)

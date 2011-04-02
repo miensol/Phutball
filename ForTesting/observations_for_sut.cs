@@ -12,7 +12,6 @@ namespace ForTesting
     /// <summary>
     /// Bazowa klasa dla testow zgodna z AAA
     /// </summary>
-    [TestFixture]
     public abstract class observations_for_sut
     {
         [SetUp]

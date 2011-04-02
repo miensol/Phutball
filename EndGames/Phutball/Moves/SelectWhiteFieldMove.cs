@@ -1,6 +1,6 @@
 ﻿namespace EndGames.Phutball.Moves
 {
-    public class SelectWhiteFieldMove : IMove<IFieldsUpdater>
+    public class SelectWhiteFieldMove : IPhutballMove
     {
         private readonly Field _whiteField;
 
@@ -9,14 +9,16 @@
             _whiteField = whiteField;
         }
 
-        public void Perform(IFieldsUpdater board)
+        public void Perform(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _whiteField.Select();
             board.UpdateFields(_whiteField);
         }
 
-        public void Undo(IFieldsUpdater board)
+        public void Undo(PhutballMoveContext context)
         {
+            var board = context.FieldsUpdater;
             _whiteField.DeSelect();
             board.UpdateFields(_whiteField);
         }

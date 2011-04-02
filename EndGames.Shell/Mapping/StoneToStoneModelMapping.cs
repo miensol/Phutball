@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Windows.Threading;
+using AutoMapper;
 using EndGames.Phutball;
 using EndGames.Shell.Models;
 using EndGames.Utils;
