@@ -1,6 +1,13 @@
 ﻿namespace EndGames.Phutball.Search
 {
-    public class MoveFinders
+    public interface IMoveFinders
+    {
+        IMoveFindingStartegy DfsUnbounded(IPlayersState playersState);
+        IMoveFindingStartegy BfsUnbounded(IPlayersState playersState);
+        IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth);
+    }
+
+    public class MoveFinders : IMoveFinders
     {
         private MovesFactory _movesFactory;
 

@@ -23,6 +23,7 @@ namespace EndGames.Phutball
             _phutballBoard = phutballBoard;
             _playersState = playersState;
             _handlePlayerMoves = handlePlayerMoves;
+            _eventPublisher.Subscribe<CurrentPlayerWonEvent>((e)=> CurrentPlayerWon());
         }
 
 
@@ -38,9 +39,9 @@ namespace EndGames.Phutball
 
         public void CurrentPlayerWon()
         {
+            _currentState = PhutballGameStateEnum.CurrentPlayerWon;
             _playersState.Stop();
             _eventPublisher.Publish(new PhutballGameEnded());
-            _eventPublisher.Publish(new CurrentPlayerWonEvent { Player = _playersState.CurrentPlayer });            
             _eventPublisher.Publish(new PlayersStateChanged());
         }
 
@@ -58,12 +59,7 @@ namespace EndGames.Phutball
         {
             var field = _phutballBoard.GetField(fieldId);
             _handlePlayerMoves.PlayerClickedField(field);
-            _eventPublisher.Publish(new PlayersStateChanged());
-            if(_phutballBoard.IsEndingConfiguration())
-            {
-                _currentState = PhutballGameStateEnum.CurrentPlayerWon;
-                CurrentPlayerWon();
-            }
+            _eventPublisher.Publish(new PlayersStateChanged());            
         }
 
         public void Restart()

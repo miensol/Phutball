@@ -133,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CheatsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GameOptionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,8 +182,10 @@
     <Compile Include="Models\ModelWithId.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\WhiteStoneModel.cs" />
+    <Compile Include="Presenters\CheatsPresenter.cs" />
     <Compile Include="Presenters\GameOptionsPresenter.cs" />
     <Compile Include="Presenters\GameStatePresenter.cs" />
+    <Compile Include="Presenters\Interfaces\ICheatsPresenter.cs" />
     <Compile Include="Presenters\Interfaces\IGameOptionsPresenter.cs" />
     <Compile Include="Presenters\Interfaces\IGameStatePresenter.cs" />
     <Compile Include="Presenters\Interfaces\IPhutbalBoardPresenter.cs" />
@@ -188,6 +194,9 @@
     <Compile Include="Presenters\PhutballBoardPresenter.cs" />
     <Compile Include="Presenters\PhutballPresenter.cs" />
     <Compile Include="Utils\NumericUpDown.cs" />
+    <Compile Include="Views\CheatsView.xaml.cs">
+      <DependentUpon>CheatsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GameOptionsView.xaml.cs">
       <DependentUpon>GameOptionsView.xaml</DependentUpon>
     </Compile>

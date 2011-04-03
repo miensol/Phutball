@@ -88,6 +88,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style TargetType="{x:Type ToolTip}" BasedOn="{x:Null}">
+        <Setter Property="Background" Value="{DynamicResource NormalBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+    </Style>
+    
     <Style TargetType="{x:Type Button}" BasedOn="{x:Null}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource NuclearButtonFocusVisual}" />
         <Setter Property="Background" Value="{DynamicResource NormalBrush}" />

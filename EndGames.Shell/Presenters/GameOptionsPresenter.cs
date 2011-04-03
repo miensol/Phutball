@@ -24,6 +24,7 @@ namespace EndGames.Shell.Presenters
 
         public decimal Width { get; set; }
         public decimal Height { get; set; }
+        public decimal DfsDepth { get; set; }
 
         public void UpdateBoardSize()
         {

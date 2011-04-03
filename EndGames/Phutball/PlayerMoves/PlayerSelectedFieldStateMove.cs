@@ -51,7 +51,7 @@ namespace EndGames.Phutball.PlayerMoves
         private void PerformJump(Field newSelectedField, IEnumerable<Field> jumpedFields)
         {
             _performMoves.Perform(new JumpWhiteStoneMove(_selectedField, jumpedFields, newSelectedField));
-            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState ,newSelectedField);
+            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState , newSelectedField);
         }
 
         private void DeselectSelectedField(Field field)

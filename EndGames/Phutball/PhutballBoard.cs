@@ -17,7 +17,12 @@ namespace EndGames.Phutball
 
         public void UpdateFields(params Field[] fields)
         {
+            _fieldsGraph.UpdateFields(fields);
             _eventPublisher.Publish(new PhutballGameFieldsChanged {ChangedFields = fields});
+            if(IsEndingConfiguration())
+            {
+                _eventPublisher.Publish(new CurrentPlayerWonEvent());
+            }
         }
 
         public void Initialize()

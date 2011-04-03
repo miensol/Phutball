@@ -2,6 +2,5 @@
 {
     public class CurrentPlayerWonEvent
     {
-        public Player Player { get; set; }
     }
 }

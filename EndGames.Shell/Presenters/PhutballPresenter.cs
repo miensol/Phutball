@@ -30,6 +30,15 @@ namespace EndGames.Shell.Presenters
             }
         }
 
+        private CheatsPresenter _cheats;
+        public CheatsPresenter Cheats
+        {
+            get { return _cheats; }
+            set { _cheats = value; 
+                NotifyOfPropertyChange(()=> Cheats);
+            }
+        }
+
         public GameOptionsPresenter GameOptions
         {
             get { return _gameOptions; }
@@ -42,11 +51,14 @@ namespace EndGames.Shell.Presenters
 
         public PhutballPresenter(GameStatePresenter gameStatePresenter,
                                  GameOptionsPresenter gameOptions,
-                                 PhutballBoardPresenter boardPresenter)
+                                 PhutballBoardPresenter boardPresenter,
+                                 CheatsPresenter cheatsPresenter
+            )
         {
             GameOptions = gameOptions;
             GameState = gameStatePresenter;
             Board = boardPresenter;
+            Cheats = cheatsPresenter;
         }
 
         protected override void OnInitialize()
@@ -54,6 +66,7 @@ namespace EndGames.Shell.Presenters
             GameState.Initialize();
             Board.Initialize();
             GameOptions.Initialize();
+            Cheats.Initialize();
             base.OnInitialize();
         }
 
@@ -62,6 +75,7 @@ namespace EndGames.Shell.Presenters
             GameState.Activate();
             Board.Activate();
             GameOptions.Activate();
+            Cheats.Activate();
             base.OnActivate();
         }
     }
