@@ -13,7 +13,7 @@
         {
             var board = context.FieldsUpdater;
             _whiteField.Select();
-            board.UpdateFields(_whiteField);
+            board.UpdateFields(_whiteField);   
         }
 
         public void Undo(PhutballMoveContext context)

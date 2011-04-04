@@ -14,7 +14,7 @@
             var board = context.FieldsUpdater;
             _field.PlaceBlackStone();
             board.UpdateFields(_field);
-            context.SwitchPlayer.Next();
+            context.SwitchPlayer.SwapMovingPlayers();
         }
 
         public void Undo(PhutballMoveContext context)
@@ -22,7 +22,7 @@
             var board = context.FieldsUpdater;
             _field.RemoveStone();
             board.UpdateFields(_field);
-            context.SwitchPlayer.Next();
+            context.SwitchPlayer.SwapMovingPlayers();
         }
     }
 }

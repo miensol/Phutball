@@ -1,4 +1,4 @@
-﻿namespace EndGames.Phutball
+﻿namespace EndGames.Phutball.Events
 {
     public class CurrentPlayerWonEvent
     {

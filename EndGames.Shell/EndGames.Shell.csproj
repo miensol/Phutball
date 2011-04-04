@@ -193,6 +193,7 @@
     <Compile Include="Models\PhutballBoardModel.cs" />
     <Compile Include="Presenters\PhutballBoardPresenter.cs" />
     <Compile Include="Presenters\PhutballPresenter.cs" />
+    <Compile Include="Utils\Consts.cs" />
     <Compile Include="Utils\NumericUpDown.cs" />
     <Compile Include="Views\CheatsView.xaml.cs">
       <DependentUpon>CheatsView.xaml</DependentUpon>

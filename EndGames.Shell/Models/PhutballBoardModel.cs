@@ -6,6 +6,7 @@ using EndGames.Mapping;
 using EndGames.Phutball;
 using EndGames.Phutball.Events;
 using EndGames.Shell.Extensions;
+using EndGames.Shell.Utils;
 
 namespace EndGames.Shell.Models
 {
@@ -47,8 +48,8 @@ namespace EndGames.Shell.Models
             }
         }
 
-        private int _width;
-        public int Width
+        private double _width;
+        public double Width
         {
             get { return _width; }
             set { _width = value; 
@@ -56,8 +57,8 @@ namespace EndGames.Shell.Models
             }
         }
 
-        private int _height;
-        public int Height
+        private double _height;
+        public double Height
         {
             get { return _height; }
             set { _height = value; 
@@ -73,8 +74,8 @@ namespace EndGames.Shell.Models
 
         private void HandleGameInitialized(PhutballBoardInitialized boardInitialized)
         {
-            Width = (_phutballOptions.ColumnCount )*25;
-            Height = (_phutballOptions.RowCount ) * 25;
+            Width = (_phutballOptions.ColumnCount ) * Consts.BoardElementSize;
+            Height = (_phutballOptions.RowCount ) * Consts.BoardElementSize;
             Fields = MapToViewModels(_phutballBoard.GetCurrentFields());
         }
 

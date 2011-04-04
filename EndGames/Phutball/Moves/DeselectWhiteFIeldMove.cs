@@ -14,7 +14,7 @@ namespace EndGames.Phutball.Moves
             var board = context.FieldsUpdater;
             _field.DeSelect();
             board.UpdateFields(_field);
-            context.SwitchPlayer.Next();
+            context.SwitchPlayer.SwapMovingPlayers();
         }
 
         public void Undo(PhutballMoveContext context)
@@ -22,7 +22,7 @@ namespace EndGames.Phutball.Moves
             var board = context.FieldsUpdater;
             _field.Select();
             board.UpdateFields(_field);
-            context.SwitchPlayer.Next();
+            context.SwitchPlayer.SwapMovingPlayers();
         }
     }
 }

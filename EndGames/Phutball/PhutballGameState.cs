@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EndGames.Phutball.Events;
 using EndGames.Phutball.PlayerMoves;
 
@@ -10,20 +11,21 @@ namespace EndGames.Phutball
         private readonly IEventPublisher _eventPublisher;
         private readonly IPhutballBoard _phutballBoard;
         private readonly IPlayersState _playersState;
-        private readonly IHandlePlayerMoves _handlePlayerMoves;
+        private IHandlePlayerMoves _handlePlayerMoves;
 
         public PhutballGameState(
             IEventPublisher eventPublisher, 
             IPhutballBoard phutballBoard, 
             IPlayersState playersState,
-            IHandlePlayerMoves handlePlayerMoves)
+            Func<IHandlePlayerMoves> handlePlayerMoves)
         {
             _currentState = PhutballGameStateEnum.NotStarted;
             _eventPublisher = eventPublisher;
             _phutballBoard = phutballBoard;
             _playersState = playersState;
-            _handlePlayerMoves = handlePlayerMoves;
+            _handlePlayerMoves = handlePlayerMoves();
             _eventPublisher.Subscribe<CurrentPlayerWonEvent>((e)=> CurrentPlayerWon());
+            _eventPublisher.Subscribe<PlayerOnTheMoveChanged>(change => _handlePlayerMoves = handlePlayerMoves());
         }
 
 

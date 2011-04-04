@@ -12,7 +12,6 @@ namespace EndGames.Phutball
         Tuple<int, int> GetCoordinates(Field field);
         bool IsValidPlaceForWhiteField(Tuple<int, int> cords);
         Field GetField(Tuple<int, int> coordinates);
-        Field GetWhiteField();
         void Initialize();
     }
 }

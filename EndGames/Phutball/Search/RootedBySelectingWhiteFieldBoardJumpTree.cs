@@ -17,7 +17,11 @@ namespace EndGames.Phutball.Search
         private BoardJumpTree SelectWhiteFieldNode()
         {
             var whiteField = _fieldsGraph.GetWhiteField();
-            return new BoardJumpTree(_fieldsGraph, new SelectWhiteFieldMove(whiteField), null);
+            if(whiteField.Selected == false)
+            {
+                return new BoardJumpTree(_fieldsGraph, new SelectWhiteFieldMove(whiteField), null);    
+            }
+            return new BoardJumpTree(_fieldsGraph, new EmptyPhutballMove(), null);
         }
 
         public JumpNode Node { get { return _realBoard.Node; } }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Moves
 {
@@ -14,14 +13,14 @@ namespace EndGames.Phutball.Moves
             _moves.AddRange(moves);
         }
 
-        public void Perform(PhutballMoveContext board)
+        public void Perform(PhutballMoveContext context)
         {
-            _moves.Each(move => move.Perform(board));
+            _moves.Each(move => move.Perform(context));
         }
 
-        public void Undo(PhutballMoveContext board)
+        public void Undo(PhutballMoveContext context)
         {
-            _moves.Each(move => move.Undo(board));
+            _moves.Each(move => move.Undo(context));
         }
 
         public IEnumerable<IPhutballMove> GetMoves()

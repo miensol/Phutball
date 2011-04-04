@@ -74,12 +74,17 @@
   <ItemGroup>
     <Compile Include="EventPublisher.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Phutball\Events\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Events\MovePerfomed.cs" />
     <Compile Include="Phutball\Events\PhutballGameEnded.cs" />
+    <Compile Include="Phutball\Events\PlayerOnTheMoveChanged.cs" />
     <Compile Include="Phutball\Events\PlayersStateChanged.cs" />
+    <Compile Include="Phutball\IFieldsUpdater.cs" />
     <Compile Include="Phutball\IPlayersState.cs" />
     <Compile Include="Phutball\Jumpers\FieldExtensions.cs" />
     <Compile Include="Phutball\Jumpers\IntExtensions.cs" />
+    <Compile Include="Phutball\Moves\DeselectWhiteFieldIfSelectedMove.cs" />
+    <Compile Include="Phutball\Moves\EmptyPhutballMove.cs" />
     <Compile Include="Phutball\Moves\IPhutballMove.cs" />
     <Compile Include="Phutball\Moves\PhutballMoveContext.cs" />
     <Compile Include="Phutball\Player.cs" />
@@ -96,10 +101,14 @@
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
     <Compile Include="Phutball\Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\EnsureMoveIsValid.cs" />
+    <Compile Include="Phutball\Search\Extensions.cs" />
+    <Compile Include="Phutball\Search\IMoveFinders.cs" />
     <Compile Include="Phutball\Search\ITreeSearchContinuation.cs" />
     <Compile Include="Phutball\Search\ISearchNodeVisitor.cs" />
     <Compile Include="Phutball\Search\ITreeSearch.cs" />
     <Compile Include="Phutball\Search\MoveFinders.cs" />
+    <Compile Include="Phutball\Search\RawMoveFinders.cs" />
     <Compile Include="Phutball\Search\PickBestValueNodeVisitor.cs" />
     <Compile Include="Phutball\Search\CompisiteSearchNodeVisitor.cs" />
     <Compile Include="Phutball\Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
@@ -109,7 +118,6 @@
     <Compile Include="Phutball\PlayersState.cs" />
     <Compile Include="Switch.cs" />
     <Compile Include="Utils\EnumOf.cs" />
-    <Compile Include="Phutball\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />
     <Compile Include="Phutball\Moves\CompositeMove.cs" />
     <Compile Include="Phutball\Moves\DeselectWhiteFIeldMove.cs" />
@@ -181,9 +189,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Phutball\Player\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -1,4 +1,6 @@
+using System;
 using EndGames.Phutball;
+using EndGames.Phutball.PlayerMoves;
 using EndGames.Shell.Presenters;
 using EndGames.Shell.Presenters.Interfaces;
 using EndGames.Utils;
@@ -17,8 +19,9 @@ namespace EndGames.Shell
             For<PlayersState>().Singleton();
             For<IEventPublisher>().Singleton().Use<EventPublisher>();
             For<IPhutballOptions>().Singleton().Use<PhutballOptions>();
-            For<IPlayersState>().Singleton().Use(new PlayersState());
+            For<IPlayersState>().Singleton();
             For<IFieldsGraph>().Singleton();
+            For<Func<IHandlePlayerMoves>>().Use(ctx => ctx.GetInstance<HandlePlayerMoves>);
             Scan(scanner=>
                      {
                          scanner.AssemblyContainingType<ShellPresenter>();

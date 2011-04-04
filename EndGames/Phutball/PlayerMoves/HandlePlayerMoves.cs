@@ -8,7 +8,7 @@
         public HandlePlayerMoves(WaitingForPlayerMoveState waitingForPlayerMoveState)
         {
             _waitForPlayerMoveState = waitingForPlayerMoveState;
-            _currentMoveState = waitingForPlayerMoveState;
+            _currentMoveState = _waitForPlayerMoveState;
         }
 
 

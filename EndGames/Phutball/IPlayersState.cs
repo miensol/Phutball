@@ -5,8 +5,7 @@
         Player CurrentPlayer { get; }
         PlayerOnBoardInfo First { get; }
         PlayerOnBoardInfo Second { get; }
-        void Next();
-        void Initialize();
+        void SwapMovingPlayers();
         void Start();
         void Stop();
     }

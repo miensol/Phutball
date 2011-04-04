@@ -1,16 +1,20 @@
-﻿namespace EndGames.Phutball
+﻿using EndGames.Phutball.Events;
+
+namespace EndGames.Phutball
 {
     public class PlayersState : IPlayersState
     {
+        private readonly IEventPublisher _eventPublisher;
         private Switch<PlayerOnBoardInfo> _switch;
 
-        public PlayersState()
+        public PlayersState(IEventPublisher eventPublisher)
+            : this(eventPublisher,PlayerEnum.First, PlayerEnum.Second)
         {
-            Initialize();
         }
 
-        public PlayersState(Player first, Player second)
+        private PlayersState(IEventPublisher eventPublisher, Player first, Player second)
         {
+            _eventPublisher = eventPublisher;
             Initialize(first, second);
         }
 
@@ -32,17 +36,20 @@
 
         public PlayerOnBoardInfo Second { get; set; }
 
-        public void Next()
+        public void SwapMovingPlayers()
         {
-            _switch.Value.StopMoving();
-            _switch = _switch.Swap();
-            _switch.Value.StartMoving();
-
+            if(AnyPlayerIsMoving())
+            {
+                _switch.Value.StopMoving();
+                _switch = _switch.Swap();
+                _switch.Value.StartMoving();   
+                _eventPublisher.Publish(new PlayerOnTheMoveChanged());
+            }
         }
 
-        public void Initialize()
+        private bool AnyPlayerIsMoving()
         {
-            Initialize(PlayerEnum.First, PlayerEnum.Second);
+            return First.Player.IsOnTheMove || Second.Player.IsOnTheMove;
         }
 
         public void Start()
@@ -61,7 +68,7 @@
 
         public static IPlayersState SecondIsOnTheMove()
         {
-            return new PlayersState(PlayerEnum.Second, PlayerEnum.First);
+            return new PlayersState(new EventPublisher(), PlayerEnum.Second, PlayerEnum.First);
         }
     }
 }

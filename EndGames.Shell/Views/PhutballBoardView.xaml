@@ -4,48 +4,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:models="clr-namespace:EndGames.Shell.Models" 
-             xmlns:cal="http://www.caliburnproject.org"
-             
-             mc:Ignorable="d" 
+             xmlns:cal="http://www.caliburnproject.org" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type models:BlackStoneModel}" >
-            <Ellipse Stroke="Brown" Width="22" Height="22" Fill="Brown" 
-                         />
+            <Ellipse Style="{StaticResource BlackStone}"/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type models:WhiteStoneModel}" >
-            <Ellipse Stroke="White" Width="23" Height="23"
-                         Fill="White"
-                         />
+            <Ellipse Style="{StaticResource WhiteStone}" />
         </DataTemplate>
 
 
         <DataTemplate DataType="{x:Type models:FieldModel}">
-            <Canvas Background="BlanchedAlmond"  
-                    cal:Message.Attach="[Event  MouseLeftButtonDown] = [Action FieldClicked($dataContext)]" >
-                <Rectangle Margin="0" Stretch="Fill" Width="25" Height="25" 
-                           Stroke="Aqua" Visibility="{Binding Selected}"
-                           />
-                <Line Stroke="Black" X1="12" Y1="0" X2="12" Y2="13" Visibility="{Binding Lines.Up}"/>
-                <Line Stroke="Black" X1="12" Y1="12" X2="12" Y2="25" Visibility="{Binding Lines.Down}"/>
-                <Line Stroke="Black" X1="0" Y1="12" X2="13" Y2="12" Visibility="{Binding Lines.Left}"/>
-                <Line Stroke="Black" X1="12" Y1="12" X2="25" Y2="12" Visibility="{Binding Lines.Right}"/>
-
+            <Canvas cal:Message.Attach="[Event  MouseLeftButtonDown] = [Action FieldClicked($dataContext)]" >                                
+                <Canvas.Style>
+                    <Style TargetType="{x:Type Canvas}">
+                        <Setter Property="Background" Value="BlanchedAlmond" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasStone}" Value="Visible">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <ColorAnimation From="Red" To="BlanchedAlmond" Duration="0:0:1"
+                                                Storyboard.TargetProperty="Background.Color" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Canvas.Style>
+                <Line Style="{StaticResource LineUp}" Visibility="{Binding Lines.Up}"/>
+                <Line Style="{StaticResource LineDown}" Visibility="{Binding Lines.Down}"/>
+                <Line Style="{StaticResource LineLeft}" Visibility="{Binding Lines.Left}"/>
+                <Line Style="{StaticResource LineRight}"  Visibility="{Binding Lines.Right}"/>
+                <Ellipse Style="{StaticResource SelectedField}" Visibility="{Binding Selected}"  />
                 <ContentControl Content="{Binding Stone}" />
             </Canvas>
         </DataTemplate>
     </UserControl.Resources>
-    <Grid >
-        <StackPanel Orientation="Vertical" IsEnabled="{Binding Board.IsEnabled}">
-            <ItemsControl ItemsSource="{Binding Board.Fields}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Width="{Binding Board.Width}" Height="{Binding Board.Height}" ItemWidth="25" ItemHeight="25" 
-                                   Orientation="Horizontal" Background="AliceBlue" 
-                                   />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </StackPanel>
-    </Grid>
+    <StackPanel Orientation="Vertical" IsEnabled="{Binding Board.IsEnabled}">
+        <ItemsControl ItemsSource="{Binding Board.Fields}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel 
+                        Style="{StaticResource PhutballBoard}"
+                        Width="{Binding Board.Width}" Height="{Binding Board.Height}"                                                                                                      
+                        Orientation="Horizontal" 
+                                />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
 </UserControl>

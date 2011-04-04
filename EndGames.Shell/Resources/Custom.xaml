@@ -3,7 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views="clr-namespace:EndGames.Shell.Views">
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views="clr-namespace:EndGames.Shell.Views" xmlns:Utils="clr-namespace:EndGames.Shell.Utils">
    
     <Style x:Key="{x:Type Button}"  TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="Height" Value="30" />
@@ -32,6 +32,82 @@
     <Style x:Key="{x:Type TextBlock}" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="13" />
+    </Style>
+    
+    <Style x:Key="PhutballBoard" TargetType="{x:Type WrapPanel}">
+        <Setter Property="ItemWidth" Value="{x:Static Utils:Consts.BoardElementSize}" />
+        <Setter Property="ItemHeight" Value="{x:Static Utils:Consts.BoardElementSize}" />
+        <Setter Property="Background" Value="AliceBlue" />
+    </Style>
+
+    <Style x:Key="BoardBackground" TargetType="{x:Type Canvas}">
+        <Setter Property="Background" Value="BlanchedAlmond" />
+    </Style>
+    <Style x:Key="BaseLine" TargetType="{x:Type Line}">
+        <Setter Property="Stroke" Value="Black" />
+    </Style>
+    
+    <Style x:Key="LineUp" TargetType="{x:Type Line}" BasedOn="{StaticResource BaseLine}" >
+        <Setter Property="X1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y1" Value="0" />
+        <Setter Property="X2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+    </Style>
+    
+    <Style x:Key="LineDown" TargetType="{x:Type Line}" BasedOn="{StaticResource BaseLine}" >
+        <Setter Property="X1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="X2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y2" Value="{x:Static Utils:Consts.BoardElementSize}" />
+    </Style>
+    
+    
+    <Style x:Key="LineLeft" TargetType="{x:Type Line}" BasedOn="{StaticResource BaseLine}" >
+        <Setter Property="X1" Value="0" />
+        <Setter Property="Y1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="X2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+    </Style>
+    
+    
+    <Style x:Key="LineRight" TargetType="{x:Type Line}" BasedOn="{StaticResource BaseLine}" >
+        <Setter Property="X1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="Y1" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+        <Setter Property="X2" Value="{x:Static Utils:Consts.BoardElementSize}" />
+        <Setter Property="Y2" Value="{x:Static Utils:Consts.BoardElementSizeHalf}" />
+    </Style>
+    
+    <Style x:Key="BlackStone" TargetType="{x:Type Ellipse}">
+        <Setter Property="Stroke" Value="Brown" />
+        <Setter Property="Fill" Value="Brown" />
+        <Setter Property="Margin" Value="1.5 1.5 0 0" />
+        <Setter Property="Width" Value="22" />
+        <Setter Property="Height" Value="22" />
+    </Style>
+    
+    <Style x:Key="WhiteStone" TargetType="{x:Type Ellipse}">
+        <Setter Property="Stroke" Value="White" />
+        <Setter Property="Fill" Value="White" />
+        <Setter Property="Margin" Value="1 1 0 0" />
+        <Setter Property="Width" Value="23" />
+        <Setter Property="Height" Value="23" />
+    </Style>
+<!--    -->
+<!--    <Style x:Key="SelectedField" TargetType="{x:Type Rectangle}">-->
+<!--        <Setter Property="Margin" Value="0" />-->
+<!--        <Setter Property="Stretch" Value="Fill" />-->
+<!--        <Setter Property="Stroke" Value="Aqua" />-->
+<!--        <Setter Property="Width" Value="{x:Static Utils:Consts.BoardElementSize}" />-->
+<!--        <Setter Property="Height" Value="{x:Static Utils:Consts.BoardElementSize}" />-->
+<!---->
+<!--    </Style>-->
+    
+    <Style x:Key="SelectedField" TargetType="{x:Type Ellipse}">
+        <Setter Property="Fill" Value="White" />
+        <Setter Property="Stroke" Value="Aqua" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="Width" Value="25" />
+        <Setter Property="Height" Value="25" />
     </Style>
     
 

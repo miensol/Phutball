@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EndGames.Phutball
+﻿namespace EndGames.Phutball
 {
     public interface IStone
     {

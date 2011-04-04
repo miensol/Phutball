@@ -9,5 +9,7 @@ namespace EndGames.Tests.Phutball
         public int ColumnCount { get; set; }
 
         public int DfsSearchDepth { get; set; }
+        public int BfsSearchDepth { get; set; }
+        public int AlphaBetaSearchDepth { get; set; }
     }
 }

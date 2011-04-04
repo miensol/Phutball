@@ -123,7 +123,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected IPlayersState _playersState;
         private IMoveFindingStartegy _strategy;
-        protected MoveFinders _moveFinders = new MoveFinders(new MovesFactory());
+        protected RawMoveFinders RawMoveFinders = new RawMoveFinders(new MovesFactory());
         protected abstract IMoveFindingStartegy GetSearchStrategy();
 
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
@@ -149,7 +149,7 @@ namespace EndGames.Tests.Phutball.Search
     {
         protected override IMoveFindingStartegy GetSearchStrategy()
         {
-            return _moveFinders.DfsUnbounded(_playersState);
+            return RawMoveFinders.DfsUnbounded(_playersState);
         }
     }
 
@@ -157,7 +157,7 @@ namespace EndGames.Tests.Phutball.Search
     {
         protected override IMoveFindingStartegy GetSearchStrategy()
         {
-            return _moveFinders.BfsUnbounded(_playersState);
+            return RawMoveFinders.BfsUnbounded(_playersState);
         }
 
     }
@@ -306,7 +306,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override BruteForceMoveFindingStartegy CreateSut()
         {
-            var moveFinders = new MoveFinders(new MovesFactory());
+            var moveFinders = new RawMoveFinders(new MovesFactory());
             return (BruteForceMoveFindingStartegy) moveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
         }
 

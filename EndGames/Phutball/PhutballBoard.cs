@@ -25,6 +25,11 @@ namespace EndGames.Phutball
             }
         }
 
+        public Field GetWhiteField()
+        {
+            return _fieldsGraph.GetWhiteField();
+        }
+
         public void Initialize()
         {
             _fieldsGraph.Initialize();

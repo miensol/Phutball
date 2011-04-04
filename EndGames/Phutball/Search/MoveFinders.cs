@@ -1,39 +1,32 @@
 ﻿namespace EndGames.Phutball.Search
 {
-    public interface IMoveFinders
-    {
-        IMoveFindingStartegy DfsUnbounded(IPlayersState playersState);
-        IMoveFindingStartegy BfsUnbounded(IPlayersState playersState);
-        IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth);
-    }
-
     public class MoveFinders : IMoveFinders
     {
-        private MovesFactory _movesFactory;
+        private readonly RawMoveFinders _rawMoveFinders;
 
-        public MoveFinders(MovesFactory movesFactory)
+        public MoveFinders(RawMoveFinders rawMoveFinders)
         {
-            _movesFactory = movesFactory;
+            _rawMoveFinders = rawMoveFinders;
         }
 
         public IMoveFindingStartegy DfsUnbounded(IPlayersState playersState)
         {
-            return new BruteForceMoveFindingStartegy(new EmptyNodeVisitor<JumpNode>(), 
-                (visitor)=> new DfsSearch<JumpNode>(visitor), playersState,
-                _movesFactory);
+            return _rawMoveFinders.DfsUnbounded(playersState).EnsureMoveIsValid();
         }
 
         public IMoveFindingStartegy BfsUnbounded(IPlayersState playersState)
         {
-            return new BruteForceMoveFindingStartegy(new EmptyNodeVisitor<JumpNode>(),
-                                                     (vistor) => new BfsSearch<JumpNode>(vistor),
-                                                     playersState,
-                                                     _movesFactory);
+            return _rawMoveFinders.BfsUnbounded(playersState).EnsureMoveIsValid();
         }
 
         public IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth)
         {
-            return new BoundedDepthMoveFindingStrategy(playersState, maxDepth, _movesFactory);
+            return _rawMoveFinders.DfsBounded(playersState, maxDepth).EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy BfsBounded(IPlayersState playersState, int bfsSearchDepth)
+        {
+            return _rawMoveFinders.BfsBounded(playersState, bfsSearchDepth).EnsureMoveIsValid();
         }
     }
 }

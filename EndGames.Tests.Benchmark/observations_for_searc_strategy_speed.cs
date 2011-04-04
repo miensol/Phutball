@@ -20,7 +20,7 @@ namespace EndGames.Tests.Benchmark
         }
 
         private Stopwatch _timer = new Stopwatch();
-        protected MoveFinders _moveFinders = new MoveFinders(new MovesFactory());
+        protected RawMoveFinders RawMoveFinders = new RawMoveFinders(new MovesFactory());
 
         protected TimeSpan MessureTime(Action work)
         {
@@ -158,7 +158,7 @@ namespace EndGames.Tests.Benchmark
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return _moveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
+            return RawMoveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
         }
     } 
     
@@ -167,7 +167,7 @@ namespace EndGames.Tests.Benchmark
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return _moveFinders.DfsBounded(PlayersState.SecondIsOnTheMove(), Math.Max(graph.RowCount/10, 5));
+            return RawMoveFinders.DfsBounded(PlayersState.SecondIsOnTheMove(), Math.Max(graph.RowCount/10, 5));
         }
     }
 }

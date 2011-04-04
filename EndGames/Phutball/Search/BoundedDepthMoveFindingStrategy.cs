@@ -1,14 +1,15 @@
-﻿using EndGames.Phutball.Moves;
+﻿using System;
+using EndGames.Phutball.Moves;
 namespace EndGames.Phutball.Search
 {
     public class BoundedDepthMoveFindingStrategy : IMoveFindingStartegy
     {
         private readonly BruteForceMoveFindingStartegy _bruteForceSearch;
 
-        public BoundedDepthMoveFindingStrategy(IPlayersState playersState, int maxDepth, MovesFactory movesFactory)
+        public BoundedDepthMoveFindingStrategy(IPlayersState playersState, int maxDepth, MovesFactory movesFactory, Func<ISearchNodeVisitor<JumpNode>, ITreeSearch<JumpNode>> searchFactory)
         {
             _bruteForceSearch = new BruteForceMoveFindingStartegy(new StopOnDepthNodeVisitor<JumpNode>(maxDepth), 
-                (vistor)=> new DfsSearch<JumpNode>(vistor),
+                searchFactory,
                 playersState,
                 movesFactory);
         }
