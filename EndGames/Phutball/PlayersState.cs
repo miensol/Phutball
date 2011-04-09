@@ -1,4 +1,5 @@
-﻿using EndGames.Phutball.Events;
+﻿using System;
+using EndGames.Phutball.Events;
 
 namespace EndGames.Phutball
 {
@@ -36,6 +37,11 @@ namespace EndGames.Phutball
 
         public PlayerOnBoardInfo Second { get; set; }
 
+        public Player NextPlayer
+        {
+            get { return _switch.Swap().Value.Player; }
+        }
+
         public void SwapMovingPlayers()
         {
             if(AnyPlayerIsMoving())
@@ -68,7 +74,7 @@ namespace EndGames.Phutball
 
         public static IPlayersState SecondIsOnTheMove()
         {
-            return new PlayersState(new EventPublisher(), PlayerEnum.Second, PlayerEnum.First);
+            return new PlayersState(EventPublisher.Empty(), PlayerEnum.Second, PlayerEnum.First);
         }
     }
 }

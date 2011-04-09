@@ -25,6 +25,11 @@ namespace EndGames.Phutball.Search
 
         public ITree<JumpNode> Parent { get; private set; }
 
+        public bool IsLeaf
+        {
+            get { return GetPossibleMoves().IsEmpty(); }
+        }
+
         private IEnumerable<ITree<JumpNode>> GetPossibleMoves()
         {
             var actualGraph = Node.ActualGraph;

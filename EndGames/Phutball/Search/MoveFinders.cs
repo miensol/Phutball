@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Search
+﻿using System;
+
+namespace EndGames.Phutball.Search
 {
     public class MoveFinders : IMoveFinders
     {
@@ -27,6 +29,11 @@
         public IMoveFindingStartegy BfsBounded(IPlayersState playersState, int bfsSearchDepth)
         {
             return _rawMoveFinders.BfsBounded(playersState, bfsSearchDepth).EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
+        {
+            throw new NotImplementedException();
         }
     }
 }

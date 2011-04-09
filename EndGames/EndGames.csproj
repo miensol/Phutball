@@ -92,12 +92,16 @@
     <Compile Include="Phutball\PlayerMoves\IPerformMoves.cs" />
     <Compile Include="Phutball\PlayerMoves\PerformMoves.cs" />
     <Compile Include="Phutball\PlayerOnBoardInfo.cs" />
+    <Compile Include="Phutball\Search\AllAlternatigJumpsTreeCollection.cs" />
+    <Compile Include="Phutball\Search\AlphaBetaMoveFindingStrategy.cs" />
+    <Compile Include="Phutball\Search\AlternatingAllJumpsMovesTree.cs" />
     <Compile Include="Phutball\Search\AndOrSearch.cs" />
     <Compile Include="Phutball\Search\BfsSearch.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\FieldsGraphExtensions.cs" />
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
+    <Compile Include="Phutball\Search\BoardValues\WhiteStoneToPlayersBorderDistance.cs" />
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
     <Compile Include="Phutball\Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />
@@ -114,6 +118,7 @@
     <Compile Include="Phutball\Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
     <Compile Include="Phutball\Search\SearchExtensions.cs" />
     <Compile Include="Phutball\Search\StopOnDepthNodeVisitor.cs" />
+    <Compile Include="Phutball\Search\TreeExtensions.cs" />
     <Compile Include="Phutball\Search\VisitedNodesCounter.cs" />
     <Compile Include="Phutball\PlayersState.cs" />
     <Compile Include="Switch.cs" />

@@ -18,7 +18,7 @@ namespace EndGames.Tests.Phutball
         protected override void EstablishContext()
         {
             ProvideImplementationOf<IEventPublisher>(new EventPublisher());
-            Dependency<IEventPublisher>().GetEvent<PhutballGameEnded>().Subscribe(cpwin => _gameEnded = cpwin);
+            Dependency<IEventPublisher>().Subscribe<PhutballGameEnded>(cpwin => _gameEnded = cpwin);
         }
 
         [Test]

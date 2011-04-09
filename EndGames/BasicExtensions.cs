@@ -94,9 +94,19 @@ namespace EndGames
             return string.Join(separator, array);
         }
 
+        public static bool IsEmpty<T>(this IEnumerable<T> sequence)
+        {
+            return sequence.Any() == false;
+        }        
+
         public static bool IsEmpty(this string stringValue)
         {
             return string.IsNullOrEmpty(stringValue);
+        }
+
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> sequence)
+        {
+            return sequence == null || sequence.IsEmpty();
         }
 
         public static bool IsNotEmpty(this string stringValue)

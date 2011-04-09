@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
@@ -34,6 +35,11 @@ namespace EndGames.Phutball.Search
         public ITree<JumpNode> Parent
         {
             get { return null; }
+        }
+
+        public bool IsLeaf
+        {
+            get { return _realBoard.IsLeaf; }
         }
 
         public override bool Equals(object obj)

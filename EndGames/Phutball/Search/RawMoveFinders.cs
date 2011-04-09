@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Search
+﻿using EndGames.Phutball.PlayerMoves;
+
+namespace EndGames.Phutball.Search
 {
     public class RawMoveFinders : IMoveFinders
     {
@@ -33,6 +35,11 @@
         {
             return new BoundedDepthMoveFindingStrategy(playersState, bfsSearchDepth, _movesFactory,
                                                        (vistor) => new BfsSearch<JumpNode>(vistor));
+        }
+
+        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
+        {
+            return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth);
         }
     }
 }

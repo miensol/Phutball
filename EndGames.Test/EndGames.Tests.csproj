@@ -88,6 +88,7 @@
     <Compile Include="Phutball\Search\RandomGraphBuilder.cs" />
     <Compile Include="Phutball\Search\TestGraphs.cs" />
     <Compile Include="Phutball\Search\TestTree.cs" />
+    <Compile Include="Phutball\Search\TreeExtensionsSpecs.cs" />
     <Compile Include="Phutball\TestPhutballOptions.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToBorderDistanceValueSpecs.cs" />
     <Compile Include="Phutball\WaitingForPlayerMoveStateSpecs.cs" />

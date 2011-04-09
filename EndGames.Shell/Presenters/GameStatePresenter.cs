@@ -106,9 +106,9 @@ namespace EndGames.Shell.Presenters
 
         protected override void OnInitialize()
         {
-            _eventPublisher.GetEvent<PhutballGameEnded>().Subscribe(OnPhutballGameEnded);
-            _eventPublisher.GetEvent<PlayersStateChanged>().Subscribe(OnPlayersStateChanged);
-            _eventPublisher.GetEvent<GameOptionsChanged>().Subscribe(OnGameOptionsChanged);
+            _eventPublisher.Subscribe<PhutballGameEnded>(OnPhutballGameEnded);
+            _eventPublisher.Subscribe < PlayersStateChanged>(OnPlayersStateChanged);
+            _eventPublisher.Subscribe < GameOptionsChanged>(OnGameOptionsChanged);
             UpdatePlayers();
         }
 

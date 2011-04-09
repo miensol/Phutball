@@ -465,4 +465,12 @@ namespace ForTesting
 
 
     }
+
+    public static class Catch
+    {
+        public static Exception Exception(Action thrower)
+        {
+            return thrower.ThrownException();
+        }
+    }
 }

@@ -12,11 +12,17 @@
     <StackPanel x:Name="LayoutRoot" Orientation="Vertical">
         <TextBlock>Make move using</TextBlock>
         <Button x:Name="MakeMoveDfs" >
-            Depth first search
+            Bounded Depth first search
         </Button>        
         <Button x:Name="MakeMoveBfs" >
-            Breadth first search
-        </Button>        
+            Bounded Depth Breadth First Search
+        </Button> 
+        <Button x:Name="UnboundedMoveDfs">
+            Unbounded Depth First Search
+        </Button> 
+        <Button x:Name="UnboundedMoveBfs">
+            Unbounded Breadth First Search
+        </Button>
         <Button x:Name="MakeMoveAlphaBeta" >
             Alpha Beta 
         </Button>

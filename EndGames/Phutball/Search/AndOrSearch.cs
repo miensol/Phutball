@@ -33,7 +33,7 @@ namespace EndGames.Phutball.Search
         {
             Enter(tree);
             MoveScore<int> result;
-            if(_depthCounter.CurrentDepth == _maxDepth)
+            if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf)
             {
                 result = new MoveScore<int> {Score = _valuer.GetValue(tree.Node), Move = tree.Node};
             } else

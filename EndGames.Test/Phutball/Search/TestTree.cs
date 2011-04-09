@@ -6,11 +6,12 @@ namespace EndGames.Tests.Phutball.Search
 {
     public class TestTree<TNode> : ITree<TNode>
     {
+        private IEnumerable<TestTree<TNode>> _children;
+
         public TestTree(TNode node, IEnumerable<TestTree<TNode>> children)
         {
             Node = node;
-            children.Each(child => child.Parent = this);
-            Children = children;            
+            _children  = children;            
         }
 
         public TestTree(TNode node)
@@ -20,8 +21,23 @@ namespace EndGames.Tests.Phutball.Search
 
         public TNode Node { get; private set; }
 
-        public IEnumerable<ITree<TNode>> Children { get; private set; }
+        public IEnumerable<ITree<TNode>> Children
+        {
+            get
+            {
+                foreach (var child in _children)
+                {
+                    child.Parent = this;
+                    yield return child;
+                }
+            }
+        }
 
         public ITree<TNode> Parent { get; set; }
+
+        public bool IsLeaf
+        {
+            get { return Children.IsEmpty(); }
+        }
     }
 }

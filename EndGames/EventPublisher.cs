@@ -9,7 +9,6 @@ namespace EndGames
     {
         void Publish<TEvent>(TEvent sampleEvent);
         void Subscribe<TEvent>(Action<TEvent> handler);
-        IObservable<TEvent> GetEvent<TEvent>();
     }
 
     public class EventPublisher : IEventPublisher
@@ -17,14 +16,13 @@ namespace EndGames
         private readonly ConcurrentDictionary<Type, object> _subjects
             = new ConcurrentDictionary<Type, object>();
 
-        #region IEventPublisher Members
 
         public void Subscribe<TEvent>(Action<TEvent> handler)
         {
             GetEvent<TEvent>().Subscribe(handler);
         }
 
-        public IObservable<TEvent> GetEvent<TEvent>()
+        private IObservable<TEvent> GetEvent<TEvent>()
         {
             var subject =
                 (ISubject<TEvent>) _subjects.GetOrAdd(typeof (TEvent),
@@ -42,6 +40,20 @@ namespace EndGames
             }
         }
 
-        #endregion
-    }
+        public static IEventPublisher Empty()
+        {
+            return new FakeEventPublisher();
+        }
+
+        private class FakeEventPublisher : IEventPublisher
+        {
+            public void Publish<TEvent>(TEvent sampleEvent)
+            {
+            }
+
+            public void Subscribe<TEvent>(Action<TEvent> handler)
+            {
+            }
+        }
+    }    
 }

@@ -47,15 +47,38 @@ namespace EndGames.Shell.Presenters
         [AsyncAction(BlockInteraction = true)]
         public void MakeMoveDfs()
         {
-            var finder = _moveFinders.DfsBounded(_playersState, _phutballOptions.DfsSearchDepth);
-            var bestMove = finder.Search(_fieldsGraph);
-            _performMoves.Perform(bestMove);
+            PerformBestMove(_moveFinders.DfsBounded(_playersState, _phutballOptions.DfsSearchDepth));
         }
 
+        [AsyncAction(BlockInteraction = true)]
         public void MakeMoveBfs()
         {
-            var finder = _moveFinders.BfsBounded(_playersState, _phutballOptions.BfsSearchDepth);
-            var bestMove = finder.Search(_fieldsGraph);
+            PerformBestMove(_moveFinders.BfsBounded(_playersState, _phutballOptions.BfsSearchDepth));            
+        }
+
+        [AsyncAction(BlockInteraction = true)]
+        public void UnboundedMoveDfs()
+        {
+            PerformBestMove(_moveFinders.DfsUnbounded(_playersState));            
+        }
+        
+        [AsyncAction(BlockInteraction = true)]
+        public void UnboundedMoveBfs()
+        {
+            PerformBestMove(_moveFinders.BfsUnbounded(_playersState));            
+        }
+
+        [AsyncAction(BlockInteraction = true)]
+        public void MakeMoveAlphaBeta()
+        {
+            PerformBestMove(_moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth) );            
+        }
+
+
+
+        private void PerformBestMove(IMoveFindingStartegy findingStrategy)
+        {
+            var bestMove = findingStrategy.Search(_fieldsGraph);
             _performMoves.Perform(bestMove);
         }
     }

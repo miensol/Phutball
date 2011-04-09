@@ -4,11 +4,30 @@ using System.Text;
 
 namespace EndGames.Phutball.Moves
 {
+    public static class MoveExtnensions
+    {
+        public static IPhutballMove ToComposite(this IEnumerable<IPhutballMove> sequence)
+        {
+            return new CompositeMove(sequence);
+        }
+
+        public static IPhutballMove FollowedBy(this IPhutballMove left, IPhutballMove right)
+        {
+            return new CompositeMove(left, right);
+        }
+    }
+
+
     public class CompositeMove : IPhutballMove
     {
         private readonly List<IPhutballMove> _moves = new List<IPhutballMove>();
 
         public CompositeMove(IEnumerable<IPhutballMove> moves)
+        {
+            _moves.AddRange(moves);
+        }
+
+        public CompositeMove(params IPhutballMove[] moves)
         {
             _moves.AddRange(moves);
         }

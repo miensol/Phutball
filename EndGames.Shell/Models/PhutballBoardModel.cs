@@ -21,10 +21,10 @@ namespace EndGames.Shell.Models
             _phutballBoard = phutballBoard;
             _eventPublisher = eventPublisher;
             _phutballOptions = phutballOptions;
-            _eventPublisher.GetEvent<PhutballBoardInitialized>().Subscribe(HandleGameInitialized);
-            _eventPublisher.GetEvent<PhutballGameStarted>().Subscribe(HandleGameStart);
-            _eventPublisher.GetEvent<PhutballGameEnded>().Subscribe(HandleGameEnded);
-            _eventPublisher.GetEvent<PhutballGameFieldsChanged>().Subscribe(HandleGameFieldsChanged);
+            _eventPublisher.Subscribe<PhutballBoardInitialized>(HandleGameInitialized);
+            _eventPublisher.Subscribe<PhutballGameStarted>(HandleGameStart);
+            _eventPublisher.Subscribe<PhutballGameEnded>(HandleGameEnded);
+            _eventPublisher.Subscribe<PhutballGameFieldsChanged>(HandleGameFieldsChanged);
         }
 
         private void HandleGameFieldsChanged(PhutballGameFieldsChanged phutballGameFieldsChanged)
