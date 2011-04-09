@@ -8,7 +8,7 @@
             ColumnCount = 15;
             DfsSearchDepth = 10;
             BfsSearchDepth = 10;
-            AlphaBetaSearchDepth = 10;
+            AlphaBetaSearchDepth = 5;
         }
 
         public int RowCount { get; set; }

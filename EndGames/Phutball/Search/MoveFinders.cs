@@ -33,7 +33,7 @@ namespace EndGames.Phutball.Search
 
         public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
         {
-            throw new NotImplementedException();
+            return _rawMoveFinders.AlphaBeta(playersState, alphaBetaSearchDepth).EnsureMoveIsValid();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EndGames.Phutball
 {
-    public interface IPlayersState
+    public interface IPlayersState 
     {
         Player CurrentPlayer { get; }
         PlayerOnBoardInfo First { get; }
@@ -9,5 +9,6 @@
         void SwapMovingPlayers();
         void Start();
         void Stop();
+        IPlayersState TempCopy();
     }
 }

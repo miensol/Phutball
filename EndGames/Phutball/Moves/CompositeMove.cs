@@ -4,20 +4,6 @@ using System.Text;
 
 namespace EndGames.Phutball.Moves
 {
-    public static class MoveExtnensions
-    {
-        public static IPhutballMove ToComposite(this IEnumerable<IPhutballMove> sequence)
-        {
-            return new CompositeMove(sequence);
-        }
-
-        public static IPhutballMove FollowedBy(this IPhutballMove left, IPhutballMove right)
-        {
-            return new CompositeMove(left, right);
-        }
-    }
-
-
     public class CompositeMove : IPhutballMove
     {
         private readonly List<IPhutballMove> _moves = new List<IPhutballMove>();
@@ -34,12 +20,12 @@ namespace EndGames.Phutball.Moves
 
         public void Perform(PhutballMoveContext context)
         {
-            _moves.Each(move => move.Perform(context));
+            _moves.Each(move => context.PerformMoves.Perform(move));
         }
 
         public void Undo(PhutballMoveContext context)
         {
-            _moves.Each(move => move.Undo(context));
+            _moves.Each(move => context.PerformMoves.Undo(move));
         }
 
         public IEnumerable<IPhutballMove> GetMoves()
@@ -49,7 +35,7 @@ namespace EndGames.Phutball.Moves
 
         public override string ToString()
         {
-            var sb = new StringBuilder("CompisteMove {0}\n".ToFormat(_moves.Count));
+            var sb = new StringBuilder("CompisteMove {0} \n".ToFormat(_moves.Count));
             _moves.Each(move => sb.Append(move.ToString()).Append(Environment.NewLine));
             return sb.ToString();
         }

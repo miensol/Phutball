@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using EndGames.Phutball;
 using EndGames.Phutball.Moves;
+using EndGames.Phutball.PlayerMoves;
 using EndGames.Phutball.Search;
 using EndGames.Phutball.Search.BoardValues;
 using ForTesting;
@@ -124,22 +125,20 @@ namespace EndGames.Tests.Phutball.Search
         protected IPlayersState _playersState;
         private IMoveFindingStartegy _strategy;
         protected RawMoveFinders RawMoveFinders = new RawMoveFinders(new MovesFactory());
+        private PerformMoves _performMoves;
         protected abstract IMoveFindingStartegy GetSearchStrategy();
 
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
         {
             var actualGraph = graphToSearch.Build();
             _playersState = PlayersState.SecondIsOnTheMove();
+            _performMoves = new PerformMoves(actualGraph, Dependency<IPlayersState>());
             _strategy = GetSearchStrategy();
             ProvideImplementationOf(actualGraph);
             var bestMove = _strategy.Search(actualGraph);
             if(bestMove != null )
             {
-                bestMove.Perform(new PhutballMoveContext
-                                     {
-                                         SwitchPlayer = Dependency<IPlayersState>(),
-                                         FieldsUpdater = actualGraph
-                                     });    
+                _performMoves.Perform(bestMove);                
             }
             return actualGraph;
         }
@@ -165,6 +164,7 @@ namespace EndGames.Tests.Phutball.Search
 
     public class when_searching_on_board_with_one_black_stone_to_jump : observations_for_brute_force_searching
     {
+
         protected override TestFieldsGraph GraphBuilder()
         {
             return TestGraphs.BlackStonToJumpToWinningBorder();
@@ -196,11 +196,7 @@ namespace EndGames.Tests.Phutball.Search
         [Test]
         public void should_put_white_field_behind_black()
         {
-            _bestMove.Perform(new PhutballMoveContext
-                                  {
-                                      FieldsUpdater =_fieldsGraph,
-                                      SwitchPlayer = Dependency<IPlayersState>()
-                                  });
+            _performMoves.Perform(_bestMove);            
             _fieldsGraph.GetWhiteField().RowIndex.ShouldEqual(1);
             _fieldsGraph.GetWhiteField().ColumnIndex.ShouldEqual(2);
         }
@@ -298,7 +294,7 @@ namespace EndGames.Tests.Phutball.Search
     {
         protected IFieldsGraph _fieldsGraph;
         protected IPhutballMove _bestMove;
-
+        protected IPerformMoves _performMoves;
         protected override void Because()
         {
             _bestMove = Sut.Search(_fieldsGraph);
@@ -313,6 +309,7 @@ namespace EndGames.Tests.Phutball.Search
         protected override void EstablishContext()
         {
             _fieldsGraph = GraphBuilder().Build();
+            _performMoves = new PerformMoves(_fieldsGraph, Dependency<IPlayersState>());
             ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
                                                           {
                                                               RowCount = _fieldsGraph.RowCount,

@@ -15,7 +15,7 @@ namespace EndGames.Phutball.PlayerMoves
 
         public void Perform(IPhutballMove moveToPerform)
         {
-            moveToPerform.Perform(new PhutballMoveContext
+            moveToPerform.Perform(new PhutballMoveContext(this)
                                       {
                                           FieldsUpdater = _fieldsUpdater,
                                           SwitchPlayer = _playersState
@@ -24,7 +24,7 @@ namespace EndGames.Phutball.PlayerMoves
 
         public void Undo(IPhutballMove moveToUndo)
         {
-            moveToUndo.Undo(new PhutballMoveContext
+            moveToUndo.Undo(new PhutballMoveContext(this)
                                 {
                                     FieldsUpdater = _fieldsUpdater,
                                     SwitchPlayer = _playersState

@@ -8,12 +8,20 @@ namespace EndGames.Phutball
         private readonly IEventPublisher _eventPublisher;
         private Switch<PlayerOnBoardInfo> _switch;
 
+        public PlayersState():this(EventPublisher.Empty())
+        {
+            
+        }
+
         public PlayersState(IEventPublisher eventPublisher)
             : this(eventPublisher,PlayerEnum.First, PlayerEnum.Second)
         {
         }
 
-        private PlayersState(IEventPublisher eventPublisher, Player first, Player second)
+        public PlayersState(Player first, Player second):this(EventPublisher.Empty(), first, second)
+        {}
+
+        public PlayersState(IEventPublisher eventPublisher, Player first, Player second)
         {
             _eventPublisher = eventPublisher;
             Initialize(first, second);
@@ -70,6 +78,11 @@ namespace EndGames.Phutball
         {
             First.StopMoving();
             Second.StopMoving();
+        }
+
+        public IPlayersState TempCopy()
+        {
+            return new PlayersState(CurrentPlayer, NextPlayer);
         }
 
         public static IPlayersState SecondIsOnTheMove()

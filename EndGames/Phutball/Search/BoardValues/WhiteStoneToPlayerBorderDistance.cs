@@ -1,10 +1,10 @@
 ﻿namespace EndGames.Phutball.Search.BoardValues
 {
-    public class WhiteStoneToPlayersBorderDistance : IValueOf<JumpNode>
+    public class WhiteStoneToPlayerBorderDistance : IValueOf<JumpNode>
     {
         private readonly IPlayersState _playersState;
 
-        public WhiteStoneToPlayersBorderDistance(IPlayersState playersState)
+        public WhiteStoneToPlayerBorderDistance(IPlayersState playersState)
         {
             _playersState = playersState;
         }

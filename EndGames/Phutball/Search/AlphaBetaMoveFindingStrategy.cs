@@ -11,14 +11,15 @@ namespace EndGames.Phutball.Search
 
         public AlphaBetaMoveFindingStrategy(IPlayersState playersState, int alphaBetaSearchDepth)
         {
-            _playersState = playersState;            
+            _playersState = playersState.TempCopy();            
             _alphaBetaSearchDepth = alphaBetaSearchDepth;
         }
 
         public IPhutballMove Search(IFieldsGraph fieldsGraph)
         {
             var andOrSearch = new AndOrSearch<JumpNode>(
-                new WhiteStoneToPlayersBorderDistance(_playersState), _alphaBetaSearchDepth
+                new WhiteStoneToPlayerBorderDistance(_playersState),
+                _alphaBetaSearchDepth
             );
             var actualGraph = (IFieldsGraph)fieldsGraph.Clone();
             var performMoves = new PerformMoves(actualGraph, _playersState);
