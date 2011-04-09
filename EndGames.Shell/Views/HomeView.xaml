@@ -3,13 +3,50 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     >
     <Grid x:Name="LayoutRoot">
-        <StackPanel Orientation="Vertical">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="GoToPhutball" >
-                Phutball
+                Play
             </Button>
             <Button x:Name="CloseApplication" >
                 Exit
             </Button>
         </StackPanel>
+        
+        <FlowDocumentScrollViewer Grid.Row="1" Height="500">
+            <FlowDocument>
+                <Paragraph TextAlignment="Center">
+                    <Bold>Phutball - Philosopher's football</Bold>
+                </Paragraph>
+                <Paragraph>
+                    Zasady gry
+                </Paragraph>
+                <List>
+                    <ListItem>
+                        <Paragraph>Gracze wykonują ruchy naprzemian</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Ruch może polagać na dostawianiu na planszy jednego piłkarza (czarny kamień)</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Lub na wykonaniu skoku piłką (biały kamień) zbijając z planszy piłkarzy.
+                        Skok można wykonywać w każdym kierunku i przerwać w dowolnym momencie</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Jeśli dotkniemy białego kamienia musimy wykonać skok, nie zależnie od tego czy jest taka możliwość</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Grę zwycięża ten z graczy, któremu uda się dotrzeć piłką na lub za końcową linie przeciwnika
+                        </Paragraph>
+                    </ListItem>
+                </List>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+        
     </Grid>
 </UserControl>
