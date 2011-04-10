@@ -9,5 +9,10 @@
         public void Undo(PhutballMoveContext context)
         {
         }
+
+        public override string ToString()
+        {
+            return "";
+        }
     }
 }

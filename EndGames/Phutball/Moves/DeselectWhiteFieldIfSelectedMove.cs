@@ -26,5 +26,10 @@
                 context.SwitchPlayer.SwapMovingPlayers();
             }
         }
+
+        public override string ToString()
+        {
+            return "Deslect White Field";
+        }
     }
 }

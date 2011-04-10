@@ -4,10 +4,12 @@ namespace EndGames.Phutball.Search.BoardValues
 {
     public class TargetBorder
     {
+        public string Name { get; set; }
         private readonly Func<int> _rowAccessor;
 
-        public TargetBorder(Func<int> rowAccessor)
+        public TargetBorder(Func<int> rowAccessor, string name)
         {
+            Name = name;
             WinValue = int.MaxValue;
             LooseValue = 0;
             _rowAccessor = rowAccessor;            
@@ -61,6 +63,11 @@ namespace EndGames.Phutball.Search.BoardValues
         public int GetDistanceFrom(Field whiteField)
         {
             return _distanceCounter.Distance(whiteField);
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

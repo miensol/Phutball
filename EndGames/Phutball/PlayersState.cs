@@ -79,9 +79,11 @@ namespace EndGames.Phutball
             Second.StopMoving();
         }
 
-        public IPlayersState TempCopy()
+        public IPlayersState CopyRestarted()
         {
-            return new PlayersState(CurrentPlayer, NextPlayer);
+            var copyRestarted = new PlayersState(CurrentPlayer, NextPlayer);
+            copyRestarted.Start();
+            return copyRestarted;
         }
 
         public static IPlayersState SecondIsOnTheMove()

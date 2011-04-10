@@ -10,7 +10,7 @@ namespace EndGames.Phutball.Search
     {
         private readonly IPerformMoves _performMoves;
         private RootedBySelectingWhiteFieldBoardJumpTree _current;
-        private IPhutballMove _previousMove = new EmptyPhutballMove();
+        private IPhutballMove _previousMove;
         private JumpNode _parentJumpNode;
 
         public AllAlternatigJumpsTreeCollection(IPerformMoves performMoves, ITree<JumpNode> parent)
@@ -25,19 +25,16 @@ namespace EndGames.Phutball.Search
 
         public IEnumerator<ITree<JumpNode>> GetEnumerator()
         {
-            var currentMoves = _current.TraverseWithDfs();
+            RevertPrevious();
+            var currentMoves = _current.TraverseWithDfs().Skip(1);
             foreach (var currentMove in currentMoves)
             {
                 RevertPrevious();
-
                 var newMove = PerformNewMove(currentMove);
-
-                yield return new AlternatingAllJumpsMovesTree(_performMoves)
-                                 {
-                                     Node = new JumpNode(_parentJumpNode.ActualGraph, _parentJumpNode.LastMove.FollowedBy(newMove))
-                                 };
-                                
+                var jumpNode = new JumpNode(_parentJumpNode.ActualGraph, _parentJumpNode.LastMove.FollowedBy(newMove));
+                yield return new AlternatingAllJumpsMovesTree(_performMoves, jumpNode);                
             }
+            RevertPrevious();
         }
 
         private IPhutballMove PerformNewMove(ITree<JumpNode> currentMove)
@@ -54,7 +51,11 @@ namespace EndGames.Phutball.Search
 
         private void RevertPrevious()
         {                
-            _performMoves.Undo(_previousMove);
+            if(_previousMove != null)
+            {
+                _performMoves.Undo(_previousMove);
+                _previousMove = null;
+            }            
         }
 
         IEnumerator IEnumerable.GetEnumerator()

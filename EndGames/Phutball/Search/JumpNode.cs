@@ -12,5 +12,10 @@ namespace EndGames.Phutball.Search
 
         public IFieldsGraph ActualGraph { get; private set; }
         public IPhutballMove LastMove { get; private set; }
+
+        public override string ToString()
+        {
+            return LastMove.ToString();
+        }
     }
 }

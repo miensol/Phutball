@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace EndGames.Phutball.Moves
 {
@@ -25,7 +26,7 @@ namespace EndGames.Phutball.Moves
 
         public void Undo(PhutballMoveContext context)
         {
-            _moves.Each(move => context.PerformMoves.Undo(move));
+            _moves.AsEnumerable().Reverse().Each(move => context.PerformMoves.Undo(move));
         }
 
         public IEnumerable<IPhutballMove> GetMoves()
@@ -35,8 +36,8 @@ namespace EndGames.Phutball.Moves
 
         public override string ToString()
         {
-            var sb = new StringBuilder("CompisteMove {0} \n".ToFormat(_moves.Count));
-            _moves.Each(move => sb.Append(move.ToString()).Append(Environment.NewLine));
+            var sb = new StringBuilder();
+            _moves.Each(move => sb.AppendFormat("{0} \n", move));
             return sb.ToString();
         }
     }

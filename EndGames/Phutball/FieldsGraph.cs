@@ -131,5 +131,10 @@ namespace EndGames.Phutball
             fieldsGraph.UpdateFields(_fieldMap.Values.ToArray());
             return fieldsGraph;
         }
+
+        public override string ToString()
+        {
+            return _whiteField.ToString();
+        }
     }
 }

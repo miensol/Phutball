@@ -102,7 +102,7 @@
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\FieldsGraphExtensions.cs" />
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
-    <Compile Include="Phutball\Search\BoardValues\WhiteStoneToPlayerBorderDistance.cs" />
+    <Compile Include="Phutball\Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
     <Compile Include="Phutball\Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />

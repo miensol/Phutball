@@ -35,13 +35,14 @@ namespace EndGames.Phutball.Search
             MoveScore<int> result;
             if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf)
             {
-                result = new MoveScore<int> {Score = _valuer.GetValue(tree.Node), Move = tree.Node};
+                result = new MoveScore<int> {Score = _valuer.GetValue(tree.Node), Move = tree.Node, Tree = tree};
             } else
             {
                 if (player.Is(MAX_PLAYER))
                 {
                     foreach (var child in tree.Children)
                     {
+                        var graph = child.Node;
                         alpha = Max(alpha, AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {
@@ -54,6 +55,7 @@ namespace EndGames.Phutball.Search
                 {
                     foreach (var child in tree.Children)
                     {
+                        var graph = child.Node;
                         beta = Min(beta, AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {
@@ -64,7 +66,6 @@ namespace EndGames.Phutball.Search
                 }
             }
             Leave(tree);
-            result.Move = tree.Node;
             return result;
         }
 
@@ -82,6 +83,13 @@ namespace EndGames.Phutball.Search
         {
             public T Move { get; set; }
             public TScore Score { get; set; }
+
+            public ITree<T> Tree { get; set; }
+
+            public override string ToString()
+            {
+                return "Score: {0}, Move: {1}".ToFormat(Score, Move);
+            }
         }
 
         private void Leave(ITree<T> tree)

@@ -90,5 +90,12 @@ namespace EndGames.Tests.Phutball.Search
             Catch.Exception(() => traverLazyly.ToList()).ShouldBeOfType<NullReferenceException>();
         }
 
+        [Test]
+        public void should_be_able_to_skip_nodes()
+        {
+            _tree = Tree(1, Tree(2));
+            _tree.TraverseWithDfs().Skip(1).ShouldHaveCount(1);
+        }
+
     }
 }

@@ -21,6 +21,10 @@ namespace EndGames.Phutball
             return _targetBorderAccessor(fieldsGraph);
         }
 
+        public override string ToString()
+        {
+            return "{0} moves: {1}".ToFormat(Name, IsOnTheMove);
+        }
        
     }
 }

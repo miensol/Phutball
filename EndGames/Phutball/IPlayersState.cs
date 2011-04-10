@@ -9,6 +9,6 @@
         void SwapMovingPlayers();
         void Start();
         void Stop();
-        IPlayersState TempCopy();
+        IPlayersState CopyRestarted();
     }
 }

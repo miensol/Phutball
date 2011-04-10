@@ -18,6 +18,7 @@ namespace EndGames.Phutball.Search
         }
 
         public JumpNode Node { get; private set; }
+
         public IEnumerable<ITree<JumpNode>> Children
         {
             get { return GetPossibleMoves(); }
@@ -40,6 +41,11 @@ namespace EndGames.Phutball.Search
                     jump => new BoardJumpTree(actualGraph, 
                                               new JumpWhiteStoneMove(whiteField, jump.GetJumpedFields(),  jump.EndField), 
                                               this));
+        }
+
+        public override string ToString()
+        {
+            return Node.ToString();
         }
     }
 }

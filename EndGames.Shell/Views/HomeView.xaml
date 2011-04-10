@@ -22,7 +22,8 @@
                 <Paragraph TextAlignment="Center">
                     <Bold>Phutball - Philosopher's football</Bold>
                 </Paragraph>
-                <Paragraph>
+                
+                <Paragraph TextAlignment="Center">
                     Zasady gry
                 </Paragraph>
                 <List>
@@ -37,7 +38,7 @@
                         Skok można wykonywać w każdym kierunku i przerwać w dowolnym momencie</Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>Jeśli dotkniemy białego kamienia musimy wykonać skok, nie zależnie od tego czy jest taka możliwość</Paragraph>
+                        <Paragraph>Jeśli dotkniemy białego kamienia musimy wykonać nim ruch, jeśli nie ma możliwości skoku odznaczamy piłkę i ruch ma przeciwnik</Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
@@ -45,6 +46,12 @@
                         </Paragraph>
                     </ListItem>
                 </List>
+
+
+                <Paragraph FontStyle="Italic" FontSize="10">
+                    Program stworzony w ramach pracy magisterskiej pod tytułem "Algorytm testowania końca gry" 
+                    pod kierunkiem dr inż. Dariusza Dereniowskiego na wydziale Elektroniki Telekomunikacji i Informatki Politechniki Gdańskiej
+                </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>
         

@@ -1,4 +1,6 @@
-﻿namespace EndGames
+﻿using System.Diagnostics;
+
+namespace EndGames
 {
     public class Switch<T>
     {
@@ -13,6 +15,7 @@
 
         public T Value {get { return _first; }}
 
+        [DebuggerStepThrough]
         public Switch<T> Swap()
         {
             return new Switch<T>(_second, _first);
