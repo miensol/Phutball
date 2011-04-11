@@ -94,7 +94,6 @@
     <Compile Include="Phutball\PlayerMoves\NullPerformMoves.cs" />
     <Compile Include="Phutball\PlayerMoves\PerformMoves.cs" />
     <Compile Include="Phutball\PlayerMoves\PerformMovesUntilPlayerOnMoveChange.cs" />
-    <Compile Include="Phutball\PlayerMoves\PlayerMovesExtensions.cs" />
     <Compile Include="Phutball\PlayerOnBoardInfo.cs" />
     <Compile Include="Phutball\Search\AllAlternatigJumpsTreeCollection.cs" />
     <Compile Include="Phutball\Search\AlphaBetaMoveFindingStrategy.cs" />
