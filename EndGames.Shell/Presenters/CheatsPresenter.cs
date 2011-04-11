@@ -15,6 +15,7 @@ namespace EndGames.Shell.Presenters
         private readonly IPhutballOptions _phutballOptions;
         private readonly IEventPublisher _eventPublisher;
         private readonly IFieldsGraph _fieldsGraph;
+        private readonly IPhutballBoard _phutballBoard;
         private readonly IPerformMoves _performMoves;
 
         public CheatsPresenter(
@@ -23,13 +24,15 @@ namespace EndGames.Shell.Presenters
             IPhutballOptions phutballOptions,
             IEventPublisher eventPublisher,
             IFieldsGraph fieldsGraph,
+            IPhutballBoard phutballBoard,
             IPerformMoves performMoves)
         {
             _moveFinders = moveFinders;
             _playersState = playersState;
             _phutballOptions = phutballOptions;
             _eventPublisher = eventPublisher;
-            _fieldsGraph = fieldsGraph;
+            _fieldsGraph = fieldsGraph;            
+            _phutballBoard = phutballBoard;
             _performMoves = performMoves;
             _eventPublisher.Subscribe<PhutballGameStarted>((e) => IsEnabled = true);
             _eventPublisher.Subscribe<PhutballGameEnded>((e) => IsEnabled = false);
@@ -71,10 +74,10 @@ namespace EndGames.Shell.Presenters
         [AsyncAction(BlockInteraction = true)]
         public void MakeMoveAlphaBeta()
         {
-            PerformBestMove(_moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth) );            
+            var startegy = _moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth);
+            var bestMove = startegy.Search(_fieldsGraph);
+            new PerformMovesUntilPlayerOnMoveChange(_eventPublisher, _phutballBoard, _playersState).Perform(bestMove);           
         }
-
-
 
         private void PerformBestMove(IMoveFindingStartegy findingStrategy)
         {

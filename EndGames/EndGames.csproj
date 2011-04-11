@@ -91,7 +91,10 @@
     <Compile Include="Phutball\Player.cs" />
     <Compile Include="Phutball\PlayerEnum.cs" />
     <Compile Include="Phutball\PlayerMoves\IPerformMoves.cs" />
+    <Compile Include="Phutball\PlayerMoves\NullPerformMoves.cs" />
     <Compile Include="Phutball\PlayerMoves\PerformMoves.cs" />
+    <Compile Include="Phutball\PlayerMoves\PerformMovesUntilPlayerOnMoveChange.cs" />
+    <Compile Include="Phutball\PlayerMoves\PlayerMovesExtensions.cs" />
     <Compile Include="Phutball\PlayerOnBoardInfo.cs" />
     <Compile Include="Phutball\Search\AllAlternatigJumpsTreeCollection.cs" />
     <Compile Include="Phutball\Search\AlphaBetaMoveFindingStrategy.cs" />
@@ -113,6 +116,7 @@
     <Compile Include="Phutball\Search\ISearchNodeVisitor.cs" />
     <Compile Include="Phutball\Search\ITreeSearch.cs" />
     <Compile Include="Phutball\Search\MoveFinders.cs" />
+    <Compile Include="Phutball\Search\MoveScore.cs" />
     <Compile Include="Phutball\Search\RawMoveFinders.cs" />
     <Compile Include="Phutball\Search\PickBestValueNodeVisitor.cs" />
     <Compile Include="Phutball\Search\CompisiteSearchNodeVisitor.cs" />

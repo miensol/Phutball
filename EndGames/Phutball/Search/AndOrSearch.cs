@@ -21,45 +21,60 @@ namespace EndGames.Phutball.Search
 
         public void Run<TTree>(TTree tree) where TTree : ITree<T>
         {
-            var alpha = new MoveScore<int>{Score = int.MinValue};
-            var beta = new MoveScore<int>{Score = int.MaxValue};
+            var alpha = new MoveScore<T,int>{Score = int.MinValue};
+            var beta = new MoveScore<T,int>{Score = int.MaxValue};
             var currentPlayer = new Switch<int>(MIN_PLAYER, MAX_PLAYER);
             BestMove =  AlphaBeta(tree, alpha, beta, currentPlayer.Swap());
         }
 
-        public MoveScore<int> BestMove { get; set; }
+        public MoveScore<T,int> BestMove { get; set; }
 
-        private MoveScore<int> AlphaBeta(ITree<T> tree, MoveScore<int> alpha, MoveScore<int> beta, Switch<int> player)
+        private MoveScore<T,int> AlphaBeta(ITree<T> tree, MoveScore<T,int> alpha, MoveScore<T,int> beta, Switch<int> player)
         {
             Enter(tree);
-            MoveScore<int> result;
+            MoveScore<T,int> result;
             if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf)
             {
-                result = new MoveScore<int> {Score = _valuer.GetValue(tree.Node), Move = tree.Node, Tree = tree};
+                result = new MoveScore<T,int>
+                             {
+                                 Score = _valuer.GetValue(tree.Node), 
+                                 Move = tree.Node, 
+                                 Depth = _depthCounter.CurrentDepth
+                             };
             } else
             {
                 if (player.Is(MAX_PLAYER))
                 {
+                    var skipNext = false;
                     foreach (var child in tree.Children)
                     {
+                        if(skipNext)
+                        {
+                            continue;
+                        }
                         var graph = child.Node;
-                        alpha = Max(alpha, AlphaBeta(child, alpha, beta, player.Swap()));
+                        alpha = alpha.Max( AlphaBeta(child, alpha, beta, player.Swap()) );
                         if (beta.Score <= alpha.Score)
                         {
-                            break;
+                            skipNext = true;
                         }
                     }
                     result = alpha;
                 }
                 else
                 {
+                    var skipNext = false;
                     foreach (var child in tree.Children)
                     {
+                        if(skipNext)
+                        {
+                            continue;
+                        }
                         var graph = child.Node;
-                        beta = Min(beta, AlphaBeta(child, alpha, beta, player.Swap()));
+                        beta = beta.Min(AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {
-                            break;
+                            skipNext = true;
                         }
                     }
                     result = beta;
@@ -69,28 +84,6 @@ namespace EndGames.Phutball.Search
             return result;
         }
 
-        private static MoveScore<int> Min(MoveScore<int> arg1, MoveScore<int> arg2)
-        {
-            return arg1.Score < arg2.Score ? arg1 : arg2;
-        }
-
-        private static MoveScore<int> Max(MoveScore<int> arg1, MoveScore<int> arg2)
-        {
-            return arg1.Score > arg2.Score ? arg1 : arg2;
-        }
-
-        public class MoveScore<TScore>
-        {
-            public T Move { get; set; }
-            public TScore Score { get; set; }
-
-            public ITree<T> Tree { get; set; }
-
-            public override string ToString()
-            {
-                return "Score: {0}, Move: {1}".ToFormat(Score, Move);
-            }
-        }
 
         private void Leave(ITree<T> tree)
         {
