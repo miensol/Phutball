@@ -7,11 +7,6 @@ namespace EndGames.Phutball
         private readonly IEventPublisher _eventPublisher;
         private Switch<PlayerOnBoardInfo> _switch;
 
-        public PlayersState():this(EventPublisher.Empty())
-        {
-            
-        }
-
         public PlayersState(IEventPublisher eventPublisher)
             : this(eventPublisher,PlayerEnum.First, PlayerEnum.Second)
         {

@@ -5,12 +5,14 @@ namespace EndGames.Phutball.PlayerMoves
     public class WaitingForPlayerMoveState : PlayerMoveStateBase
     {
         private readonly IPhutballBoard _phutballBoard;
+        private readonly MovesHistory _movesHistory;
         private readonly IPlayersState _playersState;
         private readonly IPerformMoves _performMoves;
 
-        public WaitingForPlayerMoveState(IPhutballBoard phutballBoard, IPlayersState playersState)
+        public WaitingForPlayerMoveState(IPhutballBoard phutballBoard, MovesHistory movesHistory, IPlayersState playersState)
         {
             _phutballBoard = phutballBoard;
+            _movesHistory = movesHistory;
             _playersState = playersState;
             _performMoves = new PerformMoves(phutballBoard, playersState);
         }
@@ -41,14 +43,14 @@ namespace EndGames.Phutball.PlayerMoves
 
         private void SelectField(Field field)
         {
-            _performMoves.Perform(new SelectWhiteFieldMove(field));
-            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState, field);
+            _movesHistory.PerformAndStore(() => _performMoves, new SelectWhiteFieldMove(field));
+            NextState = new PlayerSelectedFieldStateMove(_phutballBoard, _playersState, field, _movesHistory);
         }
 
 
         private void PlaceBlackStoneOnField(Field field)
         {
-            _performMoves.Perform(new PlaceBlackStoneMove(field));
+            _movesHistory.PerformAndStore(() => _performMoves, new PlaceBlackStoneMove(field));
             NextState = this;
         }
 

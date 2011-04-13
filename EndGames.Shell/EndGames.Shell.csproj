@@ -151,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\MovesHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PhutballBoardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +195,7 @@
     <Compile Include="Presenters\Interfaces\IPhutbalBoardPresenter.cs" />
     <Compile Include="Presenters\Interfaces\IPhutballPresenter.cs" />
     <Compile Include="Models\PhutballBoardModel.cs" />
+    <Compile Include="Presenters\MovesHistoryPresenter.cs" />
     <Compile Include="Presenters\PhutballBoardPresenter.cs" />
     <Compile Include="Presenters\PhutballPresenter.cs" />
     <Compile Include="Utils\Consts.cs" />
@@ -203,6 +208,9 @@
     </Compile>
     <Compile Include="Views\GameStateView.xaml.cs">
       <DependentUpon>GameStateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MovesHistoryView.xaml.cs">
+      <DependentUpon>MovesHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PhutballBoardView.xaml.cs">
       <DependentUpon>PhutballBoardView.xaml</DependentUpon>

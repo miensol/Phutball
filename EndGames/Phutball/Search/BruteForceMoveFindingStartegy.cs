@@ -21,7 +21,7 @@ namespace EndGames.Phutball.Search
             _defaultNodeVistor = defaultNodeVistor;
             _movesFactory = movesFactory;
             _searchFactory = searchFactory;
-            _playersState = playersState;
+            _playersState = playersState.CopyRestarted();
         }
         
 

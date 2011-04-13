@@ -1,7 +1,9 @@
-﻿using Caliburn.PresentationFramework.Actions;
+﻿using System;
+using Caliburn.PresentationFramework.Actions;
 using Caliburn.PresentationFramework.Screens;
 using EndGames.Phutball;
 using EndGames.Phutball.Events;
+using EndGames.Phutball.Moves;
 using EndGames.Phutball.PlayerMoves;
 using EndGames.Phutball.Search;
 using EndGames.Shell.Presenters.Interfaces;
@@ -17,6 +19,7 @@ namespace EndGames.Shell.Presenters
         private readonly IFieldsGraph _fieldsGraph;
         private readonly IPhutballBoard _phutballBoard;
         private readonly IPerformMoves _performMoves;
+        private readonly MovesHistory _movesHistory;
 
         public CheatsPresenter(
             IMoveFinders moveFinders,
@@ -25,7 +28,9 @@ namespace EndGames.Shell.Presenters
             IEventPublisher eventPublisher,
             IFieldsGraph fieldsGraph,
             IPhutballBoard phutballBoard,
-            IPerformMoves performMoves)
+            IPerformMoves performMoves,
+            MovesHistory movesHistory
+            )
         {
             _moveFinders = moveFinders;
             _playersState = playersState;
@@ -34,6 +39,7 @@ namespace EndGames.Shell.Presenters
             _fieldsGraph = fieldsGraph;            
             _phutballBoard = phutballBoard;
             _performMoves = performMoves;
+            _movesHistory = movesHistory;
             _eventPublisher.Subscribe<PhutballGameStarted>((e) => IsEnabled = true);
             _eventPublisher.Subscribe<PhutballGameEnded>((e) => IsEnabled = false);
         }
@@ -76,13 +82,18 @@ namespace EndGames.Shell.Presenters
         {
             var startegy = _moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth);
             var bestMove = startegy.Search(_fieldsGraph);
-            new PerformMovesUntilPlayerOnMoveChange(_eventPublisher, _phutballBoard, _playersState).Perform(bestMove);           
+            PerformMove(() => new PerformMovesUntilPlayerOnMoveChange(_eventPublisher, _phutballBoard, _playersState), bestMove);           
+        }
+
+        void PerformMove(Func<IPerformMoves> movePerfomer, IPhutballMove moveToPerform)
+        {
+            _movesHistory.PerformAndStore(movePerfomer, moveToPerform);
         }
 
         private void PerformBestMove(IMoveFindingStartegy findingStrategy)
         {
             var bestMove = findingStrategy.Search(_fieldsGraph);
-            _performMoves.Perform(bestMove);
+            PerformMove(()=> _performMoves, bestMove);
         }
     }
 }

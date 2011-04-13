@@ -34,6 +34,7 @@
 				<ContentControl Content="{Binding GameState.SecondPlayer}" ContentTemplate="{StaticResource PlayerOnBoardTemplate}" />
 
 			</StackPanel>
+            <ContentControl cal:View.Model="{Binding MovesHistory}" />
 		</StackPanel>
 		<Expander ExpandDirection="Right" IsExpanded="True" Header="Options &amp; Cheats">
 			<StackPanel Orientation="Vertical">

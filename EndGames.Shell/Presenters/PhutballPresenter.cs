@@ -1,4 +1,5 @@
-﻿using Caliburn.PresentationFramework.Screens;
+﻿using System.Collections.Generic;
+using Caliburn.PresentationFramework.Screens;
 using EndGames.Shell.Presenters.Interfaces;
 
 namespace EndGames.Shell.Presenters
@@ -39,6 +40,17 @@ namespace EndGames.Shell.Presenters
             }
         }
 
+        private MovesHistoryPresenter _movesHistory;
+        private IEnumerable<Screen> _screenCollection;
+
+        public MovesHistoryPresenter MovesHistory
+        {
+            get { return _movesHistory; }
+            set { _movesHistory = value; 
+                NotifyOfPropertyChange(()=> MovesHistory);
+            }
+        }
+
         public GameOptionsPresenter GameOptions
         {
             get { return _gameOptions; }
@@ -52,30 +64,27 @@ namespace EndGames.Shell.Presenters
         public PhutballPresenter(GameStatePresenter gameStatePresenter,
                                  GameOptionsPresenter gameOptions,
                                  PhutballBoardPresenter boardPresenter,
-                                 CheatsPresenter cheatsPresenter
+                                 CheatsPresenter cheatsPresenter,
+                                 MovesHistoryPresenter movesHistory
             )
         {
             GameOptions = gameOptions;
             GameState = gameStatePresenter;
             Board = boardPresenter;
             Cheats = cheatsPresenter;
+            MovesHistory = movesHistory;
+            _screenCollection = new Screen[] {GameOptions, GameState, Board, Cheats, MovesHistory};
         }
 
         protected override void OnInitialize()
         {
-            GameState.Initialize();
-            Board.Initialize();
-            GameOptions.Initialize();
-            Cheats.Initialize();
+            _screenCollection.Each(s => s.Initialize());
             base.OnInitialize();
         }
 
         protected override void OnActivate()
         {
-            GameState.Activate();
-            Board.Activate();
-            GameOptions.Activate();
-            Cheats.Activate();
+            _screenCollection.Each(s => s.Activate());
             base.OnActivate();
         }
     }

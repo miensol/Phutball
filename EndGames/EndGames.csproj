@@ -76,6 +76,7 @@
     <Compile Include="Phutball\BlackStone.cs" />
     <Compile Include="Phutball\Events\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Events\MovePerfomed.cs" />
+    <Compile Include="Phutball\Events\MovesHistoryChanged.cs" />
     <Compile Include="Phutball\Events\PhutballGameEnded.cs" />
     <Compile Include="Phutball\Events\PlayerOnTheMoveChanged.cs" />
     <Compile Include="Phutball\Events\PlayersStateChanged.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="Phutball\Moves\EmptyPhutballMove.cs" />
     <Compile Include="Phutball\Moves\IPhutballMove.cs" />
     <Compile Include="Phutball\Moves\MoveExtnensions.cs" />
+    <Compile Include="Phutball\Moves\MoveHistoryItem.cs" />
+    <Compile Include="Phutball\Moves\MovesHistory.cs" />
     <Compile Include="Phutball\Moves\PhutballMoveContext.cs" />
     <Compile Include="Phutball\Player.cs" />
     <Compile Include="Phutball\PlayerEnum.cs" />

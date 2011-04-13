@@ -23,7 +23,7 @@ namespace EndGames.Shell.Presenters
             _eventPublisher = eventPublisher;
             _timer = new DispatcherTimer()
                          {
-                             Interval = TimeSpan.FromSeconds(1),
+                             Interval = TimeSpan.FromMilliseconds(200),
                              IsEnabled = false
                          };
             _timer.Tick += UpdatePlayers;
@@ -107,8 +107,8 @@ namespace EndGames.Shell.Presenters
         protected override void OnInitialize()
         {
             _eventPublisher.Subscribe<PhutballGameEnded>(OnPhutballGameEnded);
-            _eventPublisher.Subscribe < PlayersStateChanged>(OnPlayersStateChanged);
-            _eventPublisher.Subscribe < GameOptionsChanged>(OnGameOptionsChanged);
+            _eventPublisher.Subscribe<PlayersStateChanged>(OnPlayersStateChanged);
+            _eventPublisher.Subscribe<GameOptionsChanged>(OnGameOptionsChanged);
             UpdatePlayers();
         }
 

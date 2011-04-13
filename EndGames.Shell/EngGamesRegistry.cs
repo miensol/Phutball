@@ -1,5 +1,6 @@
 using System;
 using EndGames.Phutball;
+using EndGames.Phutball.Moves;
 using EndGames.Phutball.PlayerMoves;
 using EndGames.Shell.Presenters;
 using EndGames.Shell.Presenters.Interfaces;
@@ -23,6 +24,7 @@ namespace EndGames.Shell
             For<IPhutballOptions>().Singleton().Use<PhutballOptions>();
             For<IPlayersState>().Singleton();
             For<IFieldsGraph>().Singleton();
+            For<MovesHistory>().Singleton();
             For<Func<IHandlePlayerMoves>>().Use(ctx => ctx.GetInstance<HandlePlayerMoves>);
             Scan(scanner=>
                      {

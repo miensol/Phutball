@@ -21,6 +21,7 @@
             var board = context.FieldsUpdater;
             _whiteField.DeSelect();
             board.UpdateFields(_whiteField);
+            context.SwitchPlayer.SwapMovingPlayers();
         }
 
         public override string ToString()

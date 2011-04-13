@@ -22,8 +22,7 @@
             if(_deselectedField != null)
             {
                 _deselectedField.Select();
-                context.FieldsUpdater.UpdateFields(_deselectedField);
-                context.SwitchPlayer.SwapMovingPlayers();
+                context.FieldsUpdater.UpdateFields(_deselectedField);                
             }
         }
 

@@ -21,8 +21,7 @@ namespace EndGames.Phutball.Moves
         {
             var board = context.FieldsUpdater;
             _field.Select();
-            board.UpdateFields(_field);
-            context.SwitchPlayer.SwapMovingPlayers();
+            board.UpdateFields(_field);            
         }
     }
 }
