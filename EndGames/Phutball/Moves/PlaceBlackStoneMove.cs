@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Moves
+﻿using System;
+
+namespace EndGames.Phutball.Moves
 {
     public class PlaceBlackStoneMove : IPhutballMove
     {
@@ -23,6 +25,12 @@
             _field.RemoveStone();
             board.UpdateFields(_field);
             context.SwitchPlayer.SwapMovingPlayers();
+        }
+
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            resultMove.Add(this);
+            return true;
         }
     }
 }

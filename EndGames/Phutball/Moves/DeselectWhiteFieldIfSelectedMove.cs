@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Moves
+﻿using System;
+
+namespace EndGames.Phutball.Moves
 {
     public class DeselectWhiteFieldIfSelectedMove : IPhutballMove
     {
@@ -24,6 +26,12 @@
                 _deselectedField.Select();
                 context.FieldsUpdater.UpdateFields(_deselectedField);                
             }
+        }
+
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            resultMove.Add(this);
+            return true;
         }
 
         public override string ToString()

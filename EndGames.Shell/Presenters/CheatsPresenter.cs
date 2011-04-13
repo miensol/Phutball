@@ -80,9 +80,7 @@ namespace EndGames.Shell.Presenters
         [AsyncAction(BlockInteraction = true)]
         public void MakeMoveAlphaBeta()
         {
-            var startegy = _moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth);
-            var bestMove = startegy.Search(_fieldsGraph);
-            PerformMove(() => new PerformMovesUntilPlayerOnMoveChange(_eventPublisher, _phutballBoard, _playersState), bestMove);           
+            PerformBestMove(_moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth));
         }
 
         void PerformMove(Func<IPerformMoves> movePerfomer, IPhutballMove moveToPerform)

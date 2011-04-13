@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -29,6 +28,17 @@ namespace EndGames.Phutball.Moves
             _moves.AsEnumerable().Reverse().Each(move => context.PerformMoves.Undo(move));
         }
 
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            bool stopCollecting = false;
+            _moves.TakeWhile(move =>
+                                 {
+                                     stopCollecting = move.CollectToPlayerSwitch(resultMove);
+                                     return stopCollecting == false;
+                                 }).ToList();
+            return stopCollecting;
+        }
+
         public IEnumerable<IPhutballMove> GetMoves()
         {
             return _moves;
@@ -39,6 +49,11 @@ namespace EndGames.Phutball.Moves
             var sb = new StringBuilder();
             _moves.Each(move => sb.AppendFormat("{0} \n", move));
             return sb.ToString();
+        }
+
+        public void Add(IPhutballMove move)
+        {
+            _moves.Add(move);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace EndGames.Phutball.Search
         public IEnumerator<ITree<JumpNode>> GetEnumerator()
         {
             RevertPrevious();
-            var currentMoves = _current.TraverseWithDfs();
+            var currentMoves = _current.TraverseWithDfs().Skip(1);
             foreach (var currentMove in currentMoves)
             {
                 RevertPrevious();

@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Moves
+﻿using System;
+
+namespace EndGames.Phutball.Moves
 {
     public class EmptyPhutballMove : IPhutballMove
     {
@@ -8,6 +10,11 @@
 
         public void Undo(PhutballMoveContext context)
         {
+        }
+
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            return false;
         }
 
         public override string ToString()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,6 +43,12 @@ namespace EndGames.Phutball.Moves
             _selectedField.PlaceWhiteStone();
             _newSelectedField.RemoveStone();
             NotifyOfFieldsStateChange(board);
+        }
+
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            resultMove.Add(this);
+            return false;
         }
 
         public override string ToString()

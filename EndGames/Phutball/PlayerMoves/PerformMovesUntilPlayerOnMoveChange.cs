@@ -1,5 +1,4 @@
-﻿using System;
-using EndGames.Phutball.Events;
+﻿using EndGames.Phutball.Events;
 using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.PlayerMoves

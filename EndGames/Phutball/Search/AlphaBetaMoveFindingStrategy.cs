@@ -25,7 +25,9 @@ namespace EndGames.Phutball.Search
             var performMoves = new PerformMoves(actualGraph, _playersState);
             var movesTree = new AlternatingAllJumpsMovesTree(performMoves, new JumpNode(actualGraph, new EmptyPhutballMove()));
             andOrSearch.Run(movesTree);
-            return andOrSearch.BestMove.Move.LastMove;
+            var result = new CompositeMove();
+            andOrSearch.BestMove.Move.LastMove.CollectToPlayerSwitch(result);
+            return result;
         }
     }
 }

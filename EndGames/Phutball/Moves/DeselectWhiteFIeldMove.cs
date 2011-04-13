@@ -1,3 +1,5 @@
+using System;
+
 namespace EndGames.Phutball.Moves
 {
     public class DeselectWhiteFieldMove : IPhutballMove
@@ -22,6 +24,12 @@ namespace EndGames.Phutball.Moves
             var board = context.FieldsUpdater;
             _field.Select();
             board.UpdateFields(_field);            
+        }
+
+        public bool CollectToPlayerSwitch(CompositeMove resultMove)
+        {
+            resultMove.Add(this);
+            return true;
         }
     }
 }
