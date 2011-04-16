@@ -8,12 +8,12 @@ namespace EndGames.Phutball.Search
     public class AlphaBetaMoveFindingStrategy : IMoveFindingStartegy
     {
         private readonly IPlayersState _playersState;
-        private readonly int _alphaBetaSearchDepth;
+        private readonly IAlphaBetaOptions _alphaBetaSearchDepth;
         private readonly Func<IFieldsGraph, IJumpNodeTree> _movesFactory;
         private AndOrSearch<JumpNode> _andOrSearch;
 
         public AlphaBetaMoveFindingStrategy(IPlayersState playersState, 
-            int alphaBetaSearchDepth,
+            IAlphaBetaOptions alphaBetaSearchDepth,
             Func< IFieldsGraph,IJumpNodeTree> movesFactory
             )
         {

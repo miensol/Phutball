@@ -39,21 +39,21 @@ namespace EndGames.Phutball.Search
                                                        (vistor) => new BfsSearch<JumpNode>(vistor));
         }
 
-        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, int alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
         {
             return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth,
-                    (graph)=> new AlternatingAllJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()))
+                    (graph)=> new AlternatingJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()))
                 );
         }
 
-        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
         {
             return new AlphaBetaMoveFindingStrategy(
                 playersState, 
                 alphaBetaSearchDepth,
-                (graph) => new AlternatingAllJumpsMovesTree( JumpNode.Empty(graph),
-                                    (parent) => new AllAlternatigJumpsTreeCollection(parent).Concat(
-                                                        new PlaceBlackStonesAroundWhite(parent))
+                (graph) => new AlternatingJumpsMovesTree( JumpNode.Empty(graph),
+                                    (parent) => new AllAlternatigJumpsTreeCollection(parent)
+                                                    .Concat(new PlaceBlackStonesAroundWhite(parent))
                                     )
             );
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using EndGames.Phutball.Moves;
@@ -7,11 +6,9 @@ using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Search
 {
-    public class AllAlternatigJumpsTreeCollection : IEnumerable<IJumpNodeTreeWithFactory>, ISearchNodeVisitor<JumpNode>
+    public class AllAlternatigJumpsTreeCollection : IEnumerable<IJumpNodeTreeWithFactory>
     {
-        private RootedBySelectingWhiteFieldBoardJumpTree _current;
         private JumpNode _parentJumpNode;
-        private IPerformMoves _localMovePerformer;
 
         public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent)
         {
@@ -24,14 +21,14 @@ namespace EndGames.Phutball.Search
         public IEnumerator<IJumpNodeTreeWithFactory> GetEnumerator()
         {            
             var actualGraph = (IFieldsGraph) _parentJumpNode.ActualGraph.Clone();
-            _localMovePerformer = PerformMoves.DontCareAboutPlayerStateChange(actualGraph);
-            _current = new RootedBySelectingWhiteFieldBoardJumpTree(actualGraph);            
-            var currentMoves = _current.TraverseDfs(this).Skip(1);
+            var localMovePerformer = PerformMoves.DontCareAboutPlayerStateChange(actualGraph);
+            var current = new RootedBySelectingWhiteFieldBoardJumpTree(actualGraph);
+            var currentMoves = current.TraverseDfs(new PerformMovesNodeVisitor(localMovePerformer)).Skip(1);
             foreach (var currentMove in currentMoves)
             {
                 var newMove = CreateNewMove(currentMove);
                 var jumpNode = _parentJumpNode.FollowedBy(newMove);                
-                yield return new AlternatingAllJumpsMovesTree(jumpNode, Parent.ChildFactory);                
+                yield return new AlternatingJumpsMovesTree(jumpNode, Parent.ChildFactory);                
             }
         }
 
@@ -47,14 +44,5 @@ namespace EndGames.Phutball.Search
             return GetEnumerator();
         }
 
-        public void OnEnter(ITree<JumpNode> node, ITreeSearchContinuation treeSearchContinuation)
-        {
-            _localMovePerformer.Perform(node.Node.LastMove);
-        }
-
-        public void OnLeave(ITree<JumpNode> node, ITreeSearchContinuation treeSearchContinuation)
-        {
-            _localMovePerformer.Undo(node.Node.LastMove);
-        }
     }
 }

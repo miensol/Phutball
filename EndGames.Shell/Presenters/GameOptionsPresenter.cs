@@ -1,3 +1,4 @@
+using System;
 using Caliburn.PresentationFramework.Screens;
 using EndGames.Phutball;
 using EndGames.Shell.Presenters.Interfaces;
@@ -16,7 +17,7 @@ namespace EndGames.Shell.Presenters
             _eventPublisher = eventPublisher;
             _phutballOptions = phutballOptions;
             InitializeOptionValues();
-        }
+        }        
 
         private void InitializeOptionValues()
         {
@@ -24,7 +25,16 @@ namespace EndGames.Shell.Presenters
             Width = _phutballOptions.ColumnCount - BORDER_FIELDS_COUNT;
             _dfsDepth = _phutballOptions.DfsSearchDepth;
             _bfsDepth = _phutballOptions.BfsSearchDepth;
-            _alphaBetaDepth = _phutballOptions.AlphaBetaSearchDepth;
+            AlphaBeta = _phutballOptions.AlphaBeta;
+        }
+
+        private AlphaBetaOptions _alphaBeta;
+        public AlphaBetaOptions AlphaBeta
+        {
+            get { return _alphaBeta; }
+            set { _alphaBeta = value; 
+                NotifyOfPropertyChange(()=> AlphaBeta);
+            }
         }
 
         public decimal Width { get; set; }
@@ -48,15 +58,7 @@ namespace EndGames.Shell.Presenters
             }
         }
 
-        private decimal _alphaBetaDepth;
-        public decimal AlphaBetaDepth
-        {
-            get { return _alphaBetaDepth; }
-            set { _alphaBetaDepth = value;
-                _phutballOptions.AlphaBetaSearchDepth = (int) value;
-            }
-        }
-
+     
         public void UpdateBoardSize()
         {
             _phutballOptions.RowCount = (int)Height + BORDER_FIELDS_COUNT;

@@ -157,6 +157,22 @@ namespace EndGames.Tests.Phutball.Search
             _entered.ShouldHaveTheSameElementsAs(1,2); 
         }
 
+        [Test]
+        public void should_enter_nodes_up_to_max_depth()
+        {
+            _tree = Tree(1, Tree(2, Tree(3)), Tree(4));
+            _tree.TraverseDfs(this, 2).ToList();
+            _entered.ShouldHaveTheSameElementsAs(1,2,4);
+        }
+
+        [Test]
+        public void should_leave_nodes_up_to_max_depth()
+        {
+            _tree = Tree(1, Tree(2, Tree(3)), Tree(4));
+            _tree.TraverseDfs(this, 2).ToList();
+            _leaved.ShouldHaveTheSameElementsAs(2,4,1);
+        }
+
 
         public void OnEnter(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
         {

@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball
+﻿using System;
+
+namespace EndGames.Phutball
 {
     public class PhutballOptions : IPhutballOptions
     {
@@ -8,8 +10,10 @@
             ColumnCount = 15;
             DfsSearchDepth = 10;
             BfsSearchDepth = 10;
-            AlphaBetaSearchDepth = 5;
+            AlphaBeta = AlphaBetaOptions.Defaults();       
         }
+
+        public AlphaBetaOptions AlphaBeta { get; set; }
 
         public int RowCount { get; set; }
 
@@ -17,6 +21,5 @@
 
         public int DfsSearchDepth { get; set; }
         public int BfsSearchDepth { get; set; }
-        public int AlphaBetaSearchDepth { get; set; }
     }
 }

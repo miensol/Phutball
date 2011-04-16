@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball
+﻿using System;
+
+namespace EndGames.Phutball
 {
     public interface IPhutballOptions
     {
@@ -6,6 +8,7 @@
         int ColumnCount { get; set; }
         int DfsSearchDepth { get; set; }
         int BfsSearchDepth { get; set; }
-        int AlphaBetaSearchDepth { get; set; }
+        AlphaBetaOptions AlphaBeta { get; set; }
+        
     }
 }

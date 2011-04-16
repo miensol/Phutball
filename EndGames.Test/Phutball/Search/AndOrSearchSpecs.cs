@@ -1,3 +1,4 @@
+using EndGames.Phutball;
 using EndGames.Phutball.Search;
 using EndGames.Phutball.Search.BoardValues;
 using ForTesting;
@@ -176,7 +177,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override AndOrSearch<int> CreateSut()
         {
-            return new AndOrSearch<int>(_intTreeValuer, 5, new EmptyNodeVisitor<int>());
+            return new AndOrSearch<int>(_intTreeValuer, AlphaBetaOptions.Defaults(), new EmptyNodeVisitor<int>());
         }
 
     }

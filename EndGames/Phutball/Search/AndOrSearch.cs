@@ -13,10 +13,10 @@ namespace EndGames.Phutball.Search
         private DepthCounterNodeVisitor<T> _depthCounter;
         private ISearchNodeVisitor<T> _nodeVisitor;
 
-        public AndOrSearch(IValueOf<T> valuer, int maxDepth, ISearchNodeVisitor<T> nodeVisitor)
+        public AndOrSearch(IValueOf<T> valuer, IAlphaBetaOptions maxDepth, ISearchNodeVisitor<T> nodeVisitor)
         {
             _valuer = valuer;
-            _maxDepth = maxDepth;
+            _maxDepth = maxDepth.SearchDepth;
             _depthCounter = new DepthCounterNodeVisitor<T>();
             _nodeVisitor = _depthCounter.FollowedBy(nodeVisitor);
         }
@@ -24,8 +24,8 @@ namespace EndGames.Phutball.Search
 
         public void Run<TTree>(TTree tree) where TTree : ITree<T>
         {
-            var alpha = new MoveScore<T,int>{Score = int.MinValue};
-            var beta = new MoveScore<T,int>{Score = int.MaxValue};
+            var alpha = new MoveScore<T,int>{Score = int.MinValue, Depth=int.MaxValue};
+            var beta = new MoveScore<T,int>{Score = int.MaxValue, Depth=int.MaxValue};
             var currentPlayer = new Switch<int>(MIN_PLAYER, MAX_PLAYER);
             BestMove =  AlphaBeta(tree, alpha, beta, currentPlayer.Swap());
         }
@@ -48,38 +48,28 @@ namespace EndGames.Phutball.Search
             {
                 if (player.Is(MAX_PLAYER))
                 {
-                    var skipNext = false;
                     var children = tree.Children;
                     foreach (var child in children)
                     {
-                        if(skipNext)
-                        {
-                            continue;
-                        }
                         var graph = child.Node;
                         alpha = alpha.Max( AlphaBeta(child, alpha, beta, player.Swap()) );
                         if (beta.Score <= alpha.Score)
                         {
-                            skipNext = true;
+                            break;
                         }
                     }
                     result = alpha;
                 }
                 else
                 {
-                    var skipNext = false;
                     var children = tree.Children;
                     foreach (var child in children)
                     {
-                        if(skipNext)
-                        {
-                            continue;
-                        }
                         var graph = child.Node;
                         beta = beta.Min(AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {
-                            skipNext = true;
+                            break;
                         }
                     }
                     result = beta;

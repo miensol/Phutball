@@ -15,7 +15,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected override Field WhiteField()
         {
-            return new Field(0,1,0);
+            return _fieldsGraph.GetField(Tuple.Create(1,0));
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected override Field WhiteField()
         {
-            return new Field(0,2,2);
+            return _fieldsGraph.GetField(Tuple.Create(2,3));
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected override Field WhiteField()
         {
-            return new Field(0,2,3);
+            return _fieldsGraph.GetField(Tuple.Create(2,3));
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected override Field WhiteField()
         {
-            return new Field(0, 0, 0);
+            return _fieldsGraph.GetField(Tuple.Create(0,0));
         }
 
         [Test]
@@ -94,7 +94,7 @@ namespace EndGames.Tests.Phutball.Search.BoardValues
 
         protected  override Field WhiteField()
         {
-            return new Field(34, 5, 0);
+            return _fieldsGraph.GetField(Tuple.Create(5,0));
         }
 
         [Test]

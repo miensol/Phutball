@@ -19,6 +19,12 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="10" />
 			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 
 		<TextBlock>
@@ -44,21 +50,46 @@
                              Maximum="100" />
 
 		<TextBlock Grid.Row="6">
-			Alpha-Beta
+			Alpha-Beta 
 		</TextBlock>
         <utils:NumericUpDown Grid.Row="6" Grid.Column="2" 
-                             Value="{Binding AlphaBetaDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Value="{Binding AlphaBeta.SearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                              Minimum="2" Maximum="20" 
                              Change="1"
                              />
+		<TextBlock Grid.Row="8">
+			Alpha-Beta Jumps Tree Max Depth
+		</TextBlock>
+        <utils:NumericUpDown Grid.Row="8" Grid.Column="2" 
+                             Value="{Binding AlphaBeta.JumpsMaxDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Minimum="2" Maximum="20" 
+                             Change="1"
+                             />
+        
+		<TextBlock Grid.Row="10">
+			Alpha-Beta Jumps Tree Min Depth
+		</TextBlock>
+        <utils:NumericUpDown Grid.Row="10" Grid.Column="2" 
+                             Value="{Binding AlphaBeta.JumpsMinDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Minimum="2" Maximum="20" 
+                             Change="1"
+                             />
+		<TextBlock Grid.Row="12">
+			Alpha-Beta Stone Radius
+		</TextBlock>
+        <utils:NumericUpDown Grid.Row="12" Grid.Column="2" 
+                             Value="{Binding AlphaBeta.StoneRadius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Minimum="1" Maximum="10" 
+                             Change="1"
+                             />
 
-		<Grid Grid.Row="8" Grid.ColumnSpan="3">
+		<Grid Grid.Row="14" Grid.ColumnSpan="3">
 			<StackPanel Orientation="Horizontal">
 				<TextBlock VerticalAlignment="Center">Width</TextBlock>
 				<utils:NumericUpDown Minimum="7" Maximum="21" Change="2" Value="{Binding Width, Mode=TwoWay}" />
 				<TextBlock VerticalAlignment="Center">Height</TextBlock>
 				<utils:NumericUpDown Minimum="7" Maximum="23" Change="2" Value="{Binding Height, Mode=TwoWay}" />
-				<Button x:Name="UpdateBoardSize" ToolTip="This will restart the game">Update</Button>
+				<Button x:Name="UpdateBoardSize" ToolTip="This will reset the game">Update</Button>
 			</StackPanel>
 		</Grid>
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using EndGames.Phutball.Jumpers;
 using EndGames.Phutball.Moves;
-using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Search
 {
@@ -31,7 +30,7 @@ namespace EndGames.Phutball.Search
             {
                 var newMove = new PlaceBlackStoneMove(fieldToPlaceStoneAt);
                 var jumpNode = _parentJumpNode.FollowedBy(newMove);
-                yield return new AlternatingAllJumpsMovesTree(jumpNode, _parent.ChildFactory);                
+                yield return new AlternatingJumpsMovesTree(jumpNode, _parent.ChildFactory);                
             }
             
         }

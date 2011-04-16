@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace EndGames.Phutball.Search
 {
-    public class AlternatingAllJumpsMovesTree : IJumpNodeTreeWithFactory
+    public class AlternatingJumpsMovesTree : IJumpNodeTreeWithFactory
     {
         private readonly IEnumerable<IJumpNodeTree> _children;
 
-        public AlternatingAllJumpsMovesTree(JumpNode jumpNode)
+        public AlternatingJumpsMovesTree(JumpNode jumpNode)
             :this(jumpNode, (parent)=> new AllAlternatigJumpsTreeCollection(parent))
         {
         }
 
-        public AlternatingAllJumpsMovesTree(
+        public AlternatingJumpsMovesTree(
             JumpNode jumpNode,
             Func<IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> childFactory)
         {

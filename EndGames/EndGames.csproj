@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventPublisher.cs" />
+    <Compile Include="Phutball\AlphaBetaOptions.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
     <Compile Include="Phutball\Events\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Events\MovePerfomed.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="Phutball\PlayerOnBoardInfo.cs" />
     <Compile Include="Phutball\Search\AllAlternatigJumpsTreeCollection.cs" />
     <Compile Include="Phutball\Search\AlphaBetaMoveFindingStrategy.cs" />
-    <Compile Include="Phutball\Search\AlternatingAllJumpsMovesTree.cs" />
+    <Compile Include="Phutball\Search\AlternatingJumpsMovesTree.cs" />
     <Compile Include="Phutball\Search\AndOrSearch.cs" />
     <Compile Include="Phutball\Search\BfsSearch.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />

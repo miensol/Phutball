@@ -1,4 +1,5 @@
-﻿using EndGames.Phutball;
+﻿using System;
+using EndGames.Phutball;
 
 namespace EndGames.Tests.Phutball
 {
@@ -10,6 +11,7 @@ namespace EndGames.Tests.Phutball
 
         public int DfsSearchDepth { get; set; }
         public int BfsSearchDepth { get; set; }
-        public int AlphaBetaSearchDepth { get; set; }
+
+        public AlphaBetaOptions AlphaBeta { get; set; }
     }
 }
