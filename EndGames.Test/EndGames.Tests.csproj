@@ -69,6 +69,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +92,7 @@
     <Compile Include="Phutball\Search\TreeExtensionsSpecs.cs" />
     <Compile Include="Phutball\TestPhutballOptions.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToBorderDistanceValueSpecs.cs" />
+    <Compile Include="Phutball\TraversingJumpsSpecs.cs" />
     <Compile Include="Phutball\WaitingForPlayerMoveStateSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

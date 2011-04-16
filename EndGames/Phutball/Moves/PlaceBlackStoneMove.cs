@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EndGames.Phutball.Moves
+﻿namespace EndGames.Phutball.Moves
 {
     public class PlaceBlackStoneMove : IPhutballMove
     {

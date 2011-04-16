@@ -27,7 +27,7 @@ namespace EndGames.Phutball
 
         public Field GetField(int fieldId)
         {
-            return _fieldsGraph.GetField(fieldId);
+            return _fieldsGraph.GetFieldCloned(fieldId);
         }
         
         public bool IsEndingConfiguration()

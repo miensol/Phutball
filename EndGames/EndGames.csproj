@@ -82,6 +82,7 @@
     <Compile Include="Phutball\Events\PlayersStateChanged.cs" />
     <Compile Include="Phutball\IFieldsUpdater.cs" />
     <Compile Include="Phutball\IPlayersState.cs" />
+    <Compile Include="Phutball\IPlayersSwapper.cs" />
     <Compile Include="Phutball\Jumpers\FieldExtensions.cs" />
     <Compile Include="Phutball\Jumpers\IntExtensions.cs" />
     <Compile Include="Phutball\Moves\DeselectWhiteFieldIfSelectedMove.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Phutball\Moves\MoveHistoryItem.cs" />
     <Compile Include="Phutball\Moves\MovesHistory.cs" />
     <Compile Include="Phutball\Moves\PhutballMoveContext.cs" />
+    <Compile Include="Phutball\NulloPlayersSwapper.cs" />
     <Compile Include="Phutball\Player.cs" />
     <Compile Include="Phutball\PlayerEnum.cs" />
     <Compile Include="Phutball\PlayerMoves\IPerformMoves.cs" />
@@ -109,7 +111,6 @@
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
-    <Compile Include="Phutball\Search\ConcatenateRevertibleMoves.cs" />
     <Compile Include="Phutball\Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EmptyNodeVisitor.cs" />
     <Compile Include="Phutball\Search\EnsureMoveIsValid.cs" />

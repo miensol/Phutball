@@ -34,11 +34,16 @@ namespace EndGames.Phutball
             get { return HasStone && Stone.CanSelect; }
         }
 
-        public bool Selected { get; private set; }
+        public bool Selected { get; set; }
 
         public bool HasWhiteStone   
         {
             get { return HasStone && Stone.CanSelect; }
+        }
+
+        public bool HasBlackStone
+        {
+            get { return HasStone && Stone.CanSelect == false; }
         }
 
         public bool IsEmpty

@@ -1,5 +1,4 @@
-﻿using System;
-using EndGames.Phutball.Moves;
+﻿using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
 {
@@ -9,14 +8,16 @@ namespace EndGames.Phutball.Search
         {
             ActualGraph = sourceGraph;
             LastMove = moveToApply;
+            MovesFromRoot = new EmptyPhutballMove();
         }
 
         public IFieldsGraph ActualGraph { get; private set; }
         public IPhutballMove LastMove { get; private set; }
+        public IPhutballMove MovesFromRoot { get; set; }
 
         public override string ToString()
         {
-            return LastMove.ToString();
+            return "FromRoot : {0}, LastMove: {1}".ToFormat(MovesFromRoot.ToString(), LastMove.ToString());
         }
 
         public static JumpNode Empty(IFieldsGraph graph)
@@ -26,7 +27,10 @@ namespace EndGames.Phutball.Search
 
         public JumpNode FollowedBy(IPhutballMove newMove)
         {
-            return new JumpNode(ActualGraph, LastMove.FollowedBy(newMove));
+            return new JumpNode(ActualGraph, newMove)
+                       {
+                           MovesFromRoot = MovesFromRoot.FollowedBy(newMove)
+                       };
         }
     }
 }

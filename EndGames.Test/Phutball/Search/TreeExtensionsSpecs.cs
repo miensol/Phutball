@@ -98,4 +98,74 @@ namespace EndGames.Tests.Phutball.Search
         }
 
     }
+
+
+    public class when_traversing_dfs : observations_for_tree, ISearchNodeVisitor<int>
+    {
+        private List<int> _entered;
+        private List<int> _leaved;
+
+        [SetUp]
+        public void BuildContext()
+        {
+            _entered = new List<int>();
+            _leaved = new List<int>();
+        }
+
+        [Test]
+        public void should_return_nodes_in_correct_order()
+        {
+            _tree = Tree(1, Tree(2, Tree(3), Tree(4)), Tree(5));
+            _tree.TraverseDfs(new EmptyNodeVisitor<int>()).Select(t=> t.Node).ShouldHaveTheSameElementsAs(1,2,3,4,5);
+        }
+
+        [Test]
+        public void should_enter_nodes_in_correct_orderd()
+        {
+            _tree = Tree(1, Tree(2, Tree(3), Tree(4)), Tree(5));
+            _tree.TraverseDfs(this).ToList();
+            _entered.ShouldHaveTheSameElementsAs(1,2,3,4,5);
+        }
+        
+        [Test]
+        public void should_leave_nodes_in_correct_orderd()
+        {
+            _tree = Tree(1, Tree(2, Tree(3), Tree(4)), Tree(5));
+            _tree.TraverseDfs(this).ToList();
+            _leaved.ShouldHaveTheSameElementsAs(3,4,2,5,1);
+        }
+
+        [Test]
+        public void should_traverse_properly_even_when_skipping()
+        {
+            _tree = Tree(1, 
+                            Tree(2), 
+                            Tree(3, 
+                                Tree(4, 
+                                    Tree(5)), 
+                                Tree(6)));
+            _tree.TraverseDfs(this).Skip(1).ToList();
+            _entered.ShouldHaveTheSameElementsAs(1,2,3,4,5,6);
+            _leaved.ShouldHaveTheSameElementsAs(2,5,4,6,3,1);
+        }
+
+        [Test]
+        public void should_evalute_nodes_lazyly()
+        {
+            _tree = Tree(1, Tree(2, null, null));
+            _tree.TraverseDfs(this).Take(2).ToList();
+            _entered.ShouldHaveTheSameElementsAs(1,2); 
+        }
+
+
+        public void OnEnter(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
+        {
+            _entered.Add(node.Node);
+        }
+
+        public void OnLeave(ITree<int> node, ITreeSearchContinuation treeSearchContinuation)
+        {
+            _leaved.Add(node.Node);
+        }
+    }
 }

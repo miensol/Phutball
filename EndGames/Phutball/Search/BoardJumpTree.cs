@@ -51,7 +51,12 @@ namespace EndGames.Phutball.Search
 
         public override string ToString()
         {
-            return Node.ToString();
-        }
+            if(Parent != null)
+            {
+                return "Parent: {0}, Node: {1}".ToFormat(Parent.Node.ToString(), Node.ToString());    
+            }
+            return "Parent: null, Node: {0}".ToFormat(Node.ToString());
+
+        }        
     }
 }

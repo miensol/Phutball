@@ -23,15 +23,28 @@ namespace EndGames.Phutball.Search
             return result;
         }
 
+        public static IEnumerable<ITree<T>> TraverseDfs<T>(this ITree<T> tree, ISearchNodeVisitor<T> visitor)
+        {
+            visitor.OnEnter(tree, null);
+            yield return tree;
+            foreach (var child in tree.Children.SelectMany(child=> child.TraverseDfs(visitor)))
+            {
+                yield return child;
+            }
+            visitor.OnLeave(tree, null);
+        }
+
+
 
         public static IEnumerable<ITree<T>> TraverseWithDfs<T>(this ITree<T> tree)
         {
-            var  stack = new Stack<ITree<T>>(new[]{tree});
+            var stack = new Stack<ITree<T>>(new[]{tree});
             do
             {
                 var current = stack.Pop();
-                yield return current;                
-                foreach (var child in current.Children.Reverse())
+                yield return current;
+                var children = current.Children.Reverse().ToList();
+                foreach (var child in children)
                 {
                     stack.Push(child);
                 }

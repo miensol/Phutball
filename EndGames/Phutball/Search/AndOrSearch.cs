@@ -1,4 +1,5 @@
-﻿using EndGames.Phutball.Search.BoardValues;
+﻿using System.Linq;
+using EndGames.Phutball.Search.BoardValues;
 
 namespace EndGames.Phutball.Search
 {
@@ -10,12 +11,14 @@ namespace EndGames.Phutball.Search
         private readonly IValueOf<T> _valuer;
         private readonly int _maxDepth;
         private DepthCounterNodeVisitor<T> _depthCounter;
+        private ISearchNodeVisitor<T> _nodeVisitor;
 
-        public AndOrSearch(IValueOf<T> valuer, int maxDepth)
+        public AndOrSearch(IValueOf<T> valuer, int maxDepth, ISearchNodeVisitor<T> nodeVisitor)
         {
             _valuer = valuer;
             _maxDepth = maxDepth;
             _depthCounter = new DepthCounterNodeVisitor<T>();
+            _nodeVisitor = _depthCounter.FollowedBy(nodeVisitor);
         }
 
 
@@ -46,7 +49,8 @@ namespace EndGames.Phutball.Search
                 if (player.Is(MAX_PLAYER))
                 {
                     var skipNext = false;
-                    foreach (var child in tree.Children)
+                    var children = tree.Children;
+                    foreach (var child in children)
                     {
                         if(skipNext)
                         {
@@ -64,7 +68,8 @@ namespace EndGames.Phutball.Search
                 else
                 {
                     var skipNext = false;
-                    foreach (var child in tree.Children)
+                    var children = tree.Children;
+                    foreach (var child in children)
                     {
                         if(skipNext)
                         {
@@ -87,12 +92,12 @@ namespace EndGames.Phutball.Search
 
         private void Leave(ITree<T> tree)
         {
-            _depthCounter.OnLeave(tree,null);
+            _nodeVisitor.OnLeave(tree, null);
         }
 
         private void Enter(ITree<T> tree)
         {
-            _depthCounter.OnEnter(tree, null);
+            _nodeVisitor.OnEnter(tree, null);
         }
     }
 }

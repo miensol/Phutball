@@ -42,7 +42,7 @@ namespace EndGames.Phutball.Search
         public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, int alphaBetaSearchDepth)
         {
             return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth,
-                    (performer,graph)=> new AlternatingAllJumpsMovesTree(performer, new JumpNode(graph, new EmptyPhutballMove()))
+                    (graph)=> new AlternatingAllJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()))
                 );
         }
 
@@ -51,10 +51,9 @@ namespace EndGames.Phutball.Search
             return new AlphaBetaMoveFindingStrategy(
                 playersState, 
                 alphaBetaSearchDepth,
-                (performer, graph) => new AlternatingAllJumpsMovesTree(performer, JumpNode.Empty(graph),
-                                    (perform, parent) => new ConcatenateRevertibleMoves(
-                                                        new AllAlternatigJumpsTreeCollection(perform, parent),
-                                                        new PlaceBlackStonesAroundWhite(perform, parent))
+                (graph) => new AlternatingAllJumpsMovesTree( JumpNode.Empty(graph),
+                                    (parent) => new AllAlternatigJumpsTreeCollection(parent).Concat(
+                                                        new PlaceBlackStonesAroundWhite(parent))
                                     )
             );
         }

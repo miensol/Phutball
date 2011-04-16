@@ -176,7 +176,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override AndOrSearch<int> CreateSut()
         {
-            return new AndOrSearch<int>(_intTreeValuer, 5);
+            return new AndOrSearch<int>(_intTreeValuer, 5, new EmptyNodeVisitor<int>());
         }
 
     }

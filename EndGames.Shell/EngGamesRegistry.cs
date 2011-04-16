@@ -23,6 +23,7 @@ namespace EndGames.Shell
             For<IEventPublisher>().Singleton().Use<EventPublisher>();
             For<IPhutballOptions>().Singleton().Use<PhutballOptions>();
             For<IPlayersState>().Singleton();
+            For<IPlayersSwapper>().Use(ctx => ctx.GetInstance<IPlayersState>());
             For<IFieldsGraph>().Singleton();
             For<MovesHistory>().Singleton();
             For<Func<IHandlePlayerMoves>>().Use(ctx => ctx.GetInstance<HandlePlayerMoves>);

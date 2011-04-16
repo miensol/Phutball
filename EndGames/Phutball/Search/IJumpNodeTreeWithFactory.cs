@@ -6,6 +6,6 @@ namespace EndGames.Phutball.Search
 {
     public interface IJumpNodeTreeWithFactory : IJumpNodeTree
     {
-        Func<IPerformMoves, IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> ChildFactory { get; }
+        Func<IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> ChildFactory { get; }
     }
 }

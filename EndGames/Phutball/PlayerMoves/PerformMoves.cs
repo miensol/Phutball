@@ -5,22 +5,15 @@ namespace EndGames.Phutball.PlayerMoves
     public class PerformMoves : IPerformMoves
     {
         private readonly IFieldsUpdater _fieldsUpdater;
-        private readonly IPlayersState _playersState;
+        private readonly IPlayersSwapper _playersState;
         private readonly IPerformMoves _callbackPerformer;
-
-        public PerformMoves(IFieldsUpdater fieldsUpdater, IPlayersState playersState)
+        
+        public PerformMoves(IFieldsUpdater fieldsUpdater, IPlayersSwapper playersState)
         {
             _fieldsUpdater = fieldsUpdater;
             _playersState = playersState;
             _callbackPerformer = this;
         }
-
-        public PerformMoves(IFieldsUpdater fieldsUpdater, IPlayersState playersState, IPerformMoves callbackPerformer)
-            :this(fieldsUpdater, playersState)
-        {
-            _callbackPerformer = callbackPerformer;
-        }
-
 
         public void Perform(IPhutballMove moveToPerform)
         {
@@ -38,6 +31,11 @@ namespace EndGames.Phutball.PlayerMoves
                                     FieldsUpdater = _fieldsUpdater,
                                     SwitchPlayer = _playersState
                                 });
+        }
+
+        public static IPerformMoves DontCareAboutPlayerStateChange(IFieldsUpdater  actualGraph)
+        {
+            return new PerformMoves(actualGraph, new NulloPlayersSwapper());
         }
     }
 }

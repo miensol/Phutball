@@ -6,7 +6,7 @@ namespace EndGames.Phutball
 {
     public class FieldsGraph : IFieldsGraph
     {
-        private readonly IPhutballOptions _options;
+        private IPhutballOptions _options;
         private Dictionary<int, Field> _fieldMap = new Dictionary<int, Field>();
         private Field _whiteField;
 
@@ -15,10 +15,14 @@ namespace EndGames.Phutball
             _options = options;
             Initialize();
         }
-        
-        public Field GetField(int fieldId)
+
+        private FieldsGraph()
         {
-            return _fieldMap[fieldId];
+        }
+
+        public Field GetFieldCloned(int fieldId)
+        {
+            return (Field) _fieldMap[fieldId].Clone();
         }
 
         public int ColumnCount
@@ -45,23 +49,33 @@ namespace EndGames.Phutball
 
         public Field GetField(Tuple<int, int> coordinates)
         {
-            return GetField(GetFieldIndex(coordinates.Item1, coordinates.Item2));
+            return GetFieldCloned(GetFieldIndex(coordinates.Item1, coordinates.Item2));
         }
 
         public Field GetWhiteField()
         {
-            return _whiteField;
+            return GetFieldCloned(_whiteField.Id);
         }
 
         public void UpdateFields(params Field[] fieldsToUpdate)
         {
             fieldsToUpdate.Each(UpdateField);
+            if(_whiteField.RowIndex ==4)
+            {
+                var blackField = GetFields().Where(field => field.HasBlackStone).ToList();
+                if(blackField.Count == 2 && blackField[0].RowIndex == 5 && blackField[1].RowIndex == 6)
+                {
+                    var a = 1;
+                }
+            }
         }
 
         private void UpdateField(Field field)
         {
-            _fieldMap[field.Id] = field;
-            if(field.HasWhiteStone)
+            var fieldToUpdate = _fieldMap[field.Id];
+            fieldToUpdate.Stone = field.Stone;
+            fieldToUpdate.Selected = field.Selected;
+            if (fieldToUpdate.HasWhiteStone)
             {
                 _whiteField = field;
             }
@@ -69,7 +83,7 @@ namespace EndGames.Phutball
 
         public IEnumerable<Field> GetFields()
         {
-            return _fieldMap.Values;
+            return _fieldMap.Values.Select(field=> (Field)field.Clone());
         }
 
         private bool IsValidColumnForWhiteField(int rowIndex, int columnIndex)
@@ -163,14 +177,18 @@ namespace EndGames.Phutball
 
         public object Clone()
         {
-            var fieldsGraph = new FieldsGraph(_options);
-            fieldsGraph.UpdateFields(_fieldMap.Values.ToArray());
-            return fieldsGraph;
+            return new FieldsGraph
+                       {
+                           _options = _options,
+                           _fieldMap = _fieldMap.ToDictionary(kv => kv.Key, kv => (Field) kv.Value.Clone()),
+                           _whiteField = (Field) _whiteField.Clone()
+                       };
         }
 
         public override string ToString()
         {
-            return _whiteField.ToString();
+            return "White: {0}, Black: [{1}]".ToFormat(_whiteField.ToString(), _fieldMap.Values.Where(v=> v.HasStone && v.HasWhiteStone == false)
+                .Aggregate("", (agg,cur)=> agg + "(" + cur.ToString() +"), "));
         }
     }
 }

@@ -6,7 +6,7 @@ namespace EndGames.Phutball
     public interface IFieldsGraph : ICloneable, IFieldsUpdater
     {
         IEnumerable<Field> GetFields();
-        Field GetField(int fieldId);
+        Field GetFieldCloned(int fieldId);
         int ColumnCount { get; }
         int RowCount { get; }
         Tuple<int, int> GetCoordinates(Field field);
