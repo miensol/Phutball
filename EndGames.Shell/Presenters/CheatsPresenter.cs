@@ -78,9 +78,15 @@ namespace EndGames.Shell.Presenters
         }
 
         [AsyncAction(BlockInteraction = true)]
+        public void MakeMoveAlphaBetaJumps()
+        {
+            PerformBestMove(_moveFinders.AlphaBetaJumps(_playersState, _phutballOptions.AlphaBetaSearchDepth));
+        }
+        
+        [AsyncAction(BlockInteraction = true)]
         public void MakeMoveAlphaBeta()
         {
-            PerformBestMove(_moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth));
+            PerformBestMove(_moveFinders.AlphaBeta(_playersState, _phutballOptions.AlphaBetaSearchDepth));    
         }
 
         void PerformMove(Func<IPerformMoves> movePerfomer, IPhutballMove moveToPerform)

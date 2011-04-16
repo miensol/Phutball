@@ -41,6 +41,11 @@ namespace EndGames.Phutball
             get { return HasStone && Stone.CanSelect; }
         }
 
+        public bool IsEmpty
+        {
+            get { return HasStone == false; }
+        }
+
         public void PlaceBlackStone()
         {
             Stone = new BlackStone();
@@ -94,5 +99,6 @@ namespace EndGames.Phutball
         {
             return "{0},{1}".ToFormat(RowIndex, ColumnIndex);
         }
+
     }
 }

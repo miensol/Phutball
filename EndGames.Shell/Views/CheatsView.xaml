@@ -23,6 +23,9 @@
         <Button x:Name="UnboundedMoveBfs">
             Unbounded Breadth First Search
         </Button>
+        <Button x:Name="MakeMoveAlphaBetaJumps" >
+            Alpha Beta Jumps
+        </Button>
         <Button x:Name="MakeMoveAlphaBeta" >
             Alpha Beta 
         </Button>

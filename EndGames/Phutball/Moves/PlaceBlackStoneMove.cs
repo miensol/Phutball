@@ -32,5 +32,10 @@ namespace EndGames.Phutball.Moves
             resultMove.Add(this);
             return true;
         }
+
+        public override string ToString()
+        {
+            return "Black at: {0}".ToFormat(_field);
+        }
     }
 }

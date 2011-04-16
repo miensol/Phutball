@@ -1,4 +1,5 @@
-﻿using EndGames.Phutball.Moves;
+﻿using System;
+using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
 {
@@ -16,6 +17,16 @@ namespace EndGames.Phutball.Search
         public override string ToString()
         {
             return LastMove.ToString();
+        }
+
+        public static JumpNode Empty(IFieldsGraph graph)
+        {
+            return new JumpNode(graph, new EmptyPhutballMove());
+        }
+
+        public JumpNode FollowedBy(IPhutballMove newMove)
+        {
+            return new JumpNode(ActualGraph, LastMove.FollowedBy(newMove));
         }
     }
 }

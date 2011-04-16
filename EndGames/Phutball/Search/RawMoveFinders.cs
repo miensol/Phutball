@@ -1,4 +1,6 @@
-﻿using EndGames.Phutball.PlayerMoves;
+﻿using System;
+using System.Linq;
+using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
 {
@@ -37,9 +39,24 @@ namespace EndGames.Phutball.Search
                                                        (vistor) => new BfsSearch<JumpNode>(vistor));
         }
 
+        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, int alphaBetaSearchDepth)
+        {
+            return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth,
+                    (performer,graph)=> new AlternatingAllJumpsMovesTree(performer, new JumpNode(graph, new EmptyPhutballMove()))
+                );
+        }
+
         public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
         {
-            return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth);
+            return new AlphaBetaMoveFindingStrategy(
+                playersState, 
+                alphaBetaSearchDepth,
+                (performer, graph) => new AlternatingAllJumpsMovesTree(performer, JumpNode.Empty(graph),
+                                    (perform, parent) => new ConcatenateRevertibleMoves(
+                                                        new AllAlternatigJumpsTreeCollection(perform, parent),
+                                                        new PlaceBlackStonesAroundWhite(perform, parent))
+                                    )
+            );
         }
     }
 }

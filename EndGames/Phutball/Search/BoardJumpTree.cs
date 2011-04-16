@@ -35,6 +35,12 @@ namespace EndGames.Phutball.Search
         {
             var actualGraph = Node.ActualGraph;
             var whiteField = actualGraph.GetWhiteField();
+
+            if(whiteField.IsWinningField(actualGraph.RowCount))
+            {
+                return new List<ITree<JumpNode>>();
+            }
+
             var jumpDireactions = _jumpersFactory.All(whiteField);
             return jumpDireactions.Where(jump => jump.EndField != null)
                 .Select(

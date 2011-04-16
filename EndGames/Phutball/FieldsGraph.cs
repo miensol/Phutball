@@ -40,8 +40,8 @@ namespace EndGames.Phutball
 
         public bool IsValidPlaceForWhiteField(Tuple<int, int> cords)
         {
-            return IsValidRow(cords.Item1) && IsValidColumn(cords.Item1, cords.Item2);
-        }
+            return IsValidRow(cords.Item1) && IsValidColumnForWhiteField(cords.Item1, cords.Item2);
+        }        
 
         public Field GetField(Tuple<int, int> coordinates)
         {
@@ -72,19 +72,24 @@ namespace EndGames.Phutball
             return _fieldMap.Values;
         }
 
-        private bool IsValidColumn(int rowIndex, int columnIndex)
+        private bool IsValidColumnForWhiteField(int rowIndex, int columnIndex)
         {
             if(rowIndex == 0 || rowIndex == RowCount - 1)
             {
                 return true;
             }
+            return IsValidColumnForBlackField(columnIndex);
+        }
+
+        private bool IsValidColumnForBlackField(int columnIndex)
+        {
             return columnIndex > 0 && columnIndex < ColumnCount - 1;
         }
 
         private bool IsValidRow(int rowIndex)
         {
             return rowIndex >= 0 && rowIndex < RowCount;
-        }
+        }        
 
         public void Initialize()
         {
@@ -92,6 +97,37 @@ namespace EndGames.Phutball
             {
                 AddColumnsInRow(rowIndex);
             }
+        }
+
+        public bool CanPlaceBlackStone(Tuple<int,int> coords)
+        {
+            return IsValidRowForBlackField(coords.Item1) && IsValidColumnForBlackField(coords.Item2)
+                   && GetField(coords).IsEmpty;
+        }
+
+        private bool IsValidRowForBlackField(int rowIndex)
+        {
+            return rowIndex > 0 && rowIndex < RowCount - 1;
+        }
+
+        public bool CanPlaceBlackStone(Field field)
+        {
+            return FieldIsEmpty(field) && FieldIsInMiddleRows(field) && FieldIsInMiddleColumns(field);
+        }
+
+        private bool FieldIsInMiddleColumns(Field field)
+        {
+            return field.IsInMiddleColumns(ColumnCount);
+        }
+
+        private bool FieldIsInMiddleRows(Field field)
+        {
+            return field.IsInMiddleRows(RowCount);
+        }
+
+        private bool FieldIsEmpty(Field field)
+        {
+            return field.HasStone == false;
         }
 
         private void AddColumnsInRow(int row)

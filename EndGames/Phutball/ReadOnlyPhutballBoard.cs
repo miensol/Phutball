@@ -39,22 +39,9 @@ namespace EndGames.Phutball
 
         public bool CanPlaceBlackStone(Field field)
         {
-            return FieldIsEmpty(field) && FieldIsInMiddleRows(field) && FieldIsInMiddleColumns(field);
+            return _fieldsGraph.CanPlaceBlackStone(field);
         }
 
-        private bool FieldIsInMiddleColumns(Field field)
-        {
-            return field.IsInMiddleColumns(_fieldsGraph.ColumnCount);
-        }
 
-        private bool FieldIsInMiddleRows(Field field)
-        {
-            return field.IsInMiddleRows(_fieldsGraph.RowCount);
-        }
-
-        private bool FieldIsEmpty(Field field)
-        {
-            return field.HasStone == false;
-        }
     }
 }

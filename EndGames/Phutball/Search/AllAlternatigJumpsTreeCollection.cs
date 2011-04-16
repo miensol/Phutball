@@ -6,14 +6,20 @@ using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Search
 {
-    public class AllAlternatigJumpsTreeCollection<T> : IEnumerable<ITree<JumpNode>>
+    public interface IRevertibleMovesCollection : IEnumerable<IJumpNodeTreeWithFactory>
+    {
+        void RevertPrevious();
+    }
+
+
+    public class AllAlternatigJumpsTreeCollection : IRevertibleMovesCollection
     {
         private readonly IPerformMoves _performMoves;
         private RootedBySelectingWhiteFieldBoardJumpTree _current;
         private IPhutballMove _previousMove;
         private JumpNode _parentJumpNode;
 
-        public AllAlternatigJumpsTreeCollection(IPerformMoves performMoves, ITree<JumpNode> parent)
+        public AllAlternatigJumpsTreeCollection(IPerformMoves performMoves, IJumpNodeTreeWithFactory parent)
         {
             _performMoves = performMoves;
             Parent = parent;
@@ -21,9 +27,9 @@ namespace EndGames.Phutball.Search
             _current = new RootedBySelectingWhiteFieldBoardJumpTree(_parentJumpNode.ActualGraph);            
         }
 
-        public ITree<JumpNode> Parent { get; private set; }
+        private IJumpNodeTreeWithFactory Parent { get; set; }
 
-        public IEnumerator<ITree<JumpNode>> GetEnumerator()
+        public IEnumerator<IJumpNodeTreeWithFactory> GetEnumerator()
         {
             RevertPrevious();
             var currentMoves = _current.TraverseWithDfs().Skip(1);
@@ -31,8 +37,8 @@ namespace EndGames.Phutball.Search
             {
                 RevertPrevious();
                 var newMove = PerformNewMove(currentMove);
-                var jumpNode = new JumpNode(_parentJumpNode.ActualGraph, _parentJumpNode.LastMove.FollowedBy(newMove));
-                yield return new AlternatingAllJumpsMovesTree(_performMoves, jumpNode);                
+                var jumpNode = _parentJumpNode.FollowedBy(newMove);                
+                yield return new AlternatingAllJumpsMovesTree(_performMoves, jumpNode, Parent.ChildFactory);                
             }
             RevertPrevious();
         }
@@ -49,7 +55,7 @@ namespace EndGames.Phutball.Search
             return newMove;
         }
 
-        private void RevertPrevious()
+        public void RevertPrevious()
         {                
             if(_previousMove != null)
             {

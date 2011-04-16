@@ -31,6 +31,11 @@ namespace EndGames.Phutball.Search
             return _rawMoveFinders.BfsBounded(playersState, bfsSearchDepth).EnsureMoveIsValid();
         }
 
+        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, int alphaBetaSearchDepth)
+        {
+            return _rawMoveFinders.AlphaBetaJumps(playersState, alphaBetaSearchDepth).EnsureMoveIsValid();
+        }
+
         public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, int alphaBetaSearchDepth)
         {
             return _rawMoveFinders.AlphaBeta(playersState, alphaBetaSearchDepth).EnsureMoveIsValid();

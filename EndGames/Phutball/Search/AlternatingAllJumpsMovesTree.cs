@@ -1,21 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Search
 {
-    public class AlternatingAllJumpsMovesTree : ITree<JumpNode>
+    public class AlternatingAllJumpsMovesTree : IJumpNodeTreeWithFactory
     {
         private readonly IPerformMoves _performMoves;
-        private AllAlternatigJumpsTreeCollection<JumpNode> _children;
+        private readonly IEnumerable<IJumpNodeTree> _children;
 
         public AlternatingAllJumpsMovesTree(IPerformMoves performMoves, JumpNode jumpNode)
+            :this(performMoves, jumpNode, (perform,parent)=> new AllAlternatigJumpsTreeCollection(perform, parent))
+        {
+        }
+
+        public AlternatingAllJumpsMovesTree(IPerformMoves performMoves, 
+            JumpNode jumpNode,
+            Func<IPerformMoves, IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> childFactory)
         {
             _performMoves = performMoves;
             Node = jumpNode;
-            _children = new AllAlternatigJumpsTreeCollection<JumpNode>(_performMoves, this);
+            ChildFactory = childFactory;
+            _children = childFactory(_performMoves, this);
         }
 
         public JumpNode Node { get; private set; }
+        public Func<IPerformMoves, IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> ChildFactory { get; set; }
 
         public ITree<JumpNode> Parent { get; set; }
 
