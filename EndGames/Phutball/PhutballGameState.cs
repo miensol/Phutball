@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using EndGames.Phutball.Events;
 using EndGames.Phutball.PlayerMoves;
 
@@ -11,21 +12,35 @@ namespace EndGames.Phutball
         private readonly IEventPublisher _eventPublisher;
         private readonly IPhutballBoard _phutballBoard;
         private readonly IPlayersState _playersState;
+        private readonly BestMoveApplier _bestMoveApplier;
         private IHandlePlayerMoves _handlePlayerMoves;
+        private Func<IHandlePlayerMoves> _handlePlayerMovesFactory;
 
         public PhutballGameState(
             IEventPublisher eventPublisher, 
             IPhutballBoard phutballBoard, 
             IPlayersState playersState,
-            Func<IHandlePlayerMoves> handlePlayerMoves)
+            BestMoveApplier bestMoveApplier,
+            Func<IHandlePlayerMoves> handlePlayerMovesFactory)
         {
             _currentState = PhutballGameStateEnum.NotStarted;
             _eventPublisher = eventPublisher;
             _phutballBoard = phutballBoard;
             _playersState = playersState;
-            _handlePlayerMoves = handlePlayerMoves();
+            _bestMoveApplier = bestMoveApplier;
+            _handlePlayerMovesFactory = handlePlayerMovesFactory;
+            _handlePlayerMoves = handlePlayerMovesFactory();
             _eventPublisher.Subscribe<CurrentPlayerWonEvent>((e)=> CurrentPlayerWon());
-            _eventPublisher.Subscribe<PlayerOnTheMoveChanged>(change => _handlePlayerMoves = handlePlayerMoves());
+            _eventPublisher.Subscribe<PlayerOnTheMoveChanged>(OnPlayerOnTheMoveChanged);
+        }
+
+        private void OnPlayerOnTheMoveChanged(PlayerOnTheMoveChanged change)
+        {
+            _handlePlayerMoves = _handlePlayerMovesFactory();
+            if(_playersState.CurrentPlayer.IsAComputer)
+            {
+                Task.Factory.StartNew(()=> _bestMoveApplier.ChoosePerformAndStore());
+            }
         }
 
 
@@ -47,10 +62,21 @@ namespace EndGames.Phutball
             _eventPublisher.Publish(new PlayersStateChanged());
         }
 
-        public void Start()
-        {            
+        public void StartWithComputer()
+        {
+            _playersState.StartVsComputer();
+            StartBoardAndPlayers();
+        }
+
+        public void StartVsHuman()
+        {
+            _playersState.StartVsHuman();
+            StartBoardAndPlayers();
+        }
+
+        private void StartBoardAndPlayers()
+        {
             _phutballBoard.Initialize();
-            _playersState.Start();
             _handlePlayerMoves.WaitForPlayerMove();
             _currentState = PhutballGameStateEnum.Started;
             _eventPublisher.Publish(new PhutballGameStarted());

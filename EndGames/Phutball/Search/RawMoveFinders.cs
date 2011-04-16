@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using EndGames.Phutball.Moves;
 
 namespace EndGames.Phutball.Search
@@ -7,52 +6,61 @@ namespace EndGames.Phutball.Search
     public class RawMoveFinders : IMoveFinders
     {
         private readonly MovesFactory _movesFactory;
+        private readonly IPlayersState _playersState;
+        private readonly IPhutballOptions _phutballOptions;
 
-        public RawMoveFinders(MovesFactory movesFactory)
+        public RawMoveFinders(MovesFactory movesFactory, IPlayersState playersState, IPhutballOptions phutballOptions)
         {
             _movesFactory = movesFactory;
+            _playersState = playersState;
+            _phutballOptions = phutballOptions;
         }
 
-        public IMoveFindingStartegy DfsUnbounded(IPlayersState playersState)
+        public IMoveFindingStartegy DfsUnbounded()
         {
-            return new BruteForceMoveFindingStartegy(new EmptyNodeVisitor<JumpNode>(), 
-                (visitor)=> new DfsSearch<JumpNode>(visitor), playersState,
+            return new BruteForceMoveFindingStartegy(
+                new EmptyNodeVisitor<JumpNode>(), 
+                (visitor)=> new DfsSearch<JumpNode>(visitor), _playersState,
                 _movesFactory);
         }
 
-        public IMoveFindingStartegy BfsUnbounded(IPlayersState playersState)
+        public IMoveFindingStartegy BfsUnbounded()
         {
-            return new BruteForceMoveFindingStartegy(new EmptyNodeVisitor<JumpNode>(),
-                                                     (vistor) => new BfsSearch<JumpNode>(vistor),
-                                                     playersState,
-                                                     _movesFactory);
+            return new BruteForceMoveFindingStartegy(
+                new EmptyNodeVisitor<JumpNode>(),
+                (vistor) => new BfsSearch<JumpNode>(vistor),
+                _playersState,
+                _movesFactory);
         }
 
-        public IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth)
+        public IMoveFindingStartegy DfsBounded()
         {
-            return new BoundedDepthMoveFindingStrategy(playersState, maxDepth, _movesFactory, (vistor)=> new DfsSearch<JumpNode>(vistor));
+            return new BoundedDepthMoveFindingStrategy(
+                _playersState, 
+                _phutballOptions.DfsSearchDepth, 
+                _movesFactory, (vistor)=> new DfsSearch<JumpNode>(vistor));
         }
 
-        public IMoveFindingStartegy BfsBounded(IPlayersState playersState, int bfsSearchDepth)
+        public IMoveFindingStartegy BfsBounded()
         {
-            return new BoundedDepthMoveFindingStrategy(playersState, bfsSearchDepth, _movesFactory,
+            return new BoundedDepthMoveFindingStrategy(_playersState, _phutballOptions.BfsSearchDepth, _movesFactory,
                                                        (vistor) => new BfsSearch<JumpNode>(vistor));
         }
 
-        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBetaJumps()
         {
-            return new AlphaBetaMoveFindingStrategy(playersState, alphaBetaSearchDepth,
-                    (graph)=> new AlternatingJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()))
+            return new AlphaBetaMoveFindingStrategy(_playersState, _phutballOptions.AlphaBeta,
+                    (graph)=> new AlternatingJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()),
+                        (parent) => new AllAlternatigJumpsTreeCollection(parent, _phutballOptions.AlphaBeta))
                 );
         }
 
-        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBeta()
         {
             return new AlphaBetaMoveFindingStrategy(
-                playersState, 
-                alphaBetaSearchDepth,
+                _playersState, _phutballOptions.AlphaBeta,
                 (graph) => new AlternatingJumpsMovesTree( JumpNode.Empty(graph),
-                                    (parent) => new AllAlternatigJumpsTreeCollection(parent)
+                                    (parent) => new AllAlternatigJumpsTreeCollection(parent, _phutballOptions.AlphaBeta)
                                                     .Concat(new PlaceBlackStonesAroundWhite(parent))
                                     )
             );

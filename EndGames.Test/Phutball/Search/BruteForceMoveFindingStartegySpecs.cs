@@ -124,14 +124,20 @@ namespace EndGames.Tests.Phutball.Search
 
         protected IPlayersState _playersState;
         private IMoveFindingStartegy _strategy;
-        protected RawMoveFinders RawMoveFinders = new RawMoveFinders(new MovesFactory());
+        protected RawMoveFinders RawMoveFinders;
         private PerformMoves _performMoves;
         protected abstract IMoveFindingStartegy GetSearchStrategy();
 
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
-        {
+        {            
             var actualGraph = graphToSearch.Build();
             _playersState = PlayersState.SecondIsOnTheMove();
+            var phutballOptions = new PhutballOptions()
+                                      {
+                                          RowCount = actualGraph.RowCount,
+                                          ColumnCount = actualGraph.ColumnCount
+                                      };
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), _playersState,  phutballOptions);
             _performMoves = new PerformMoves(actualGraph, Dependency<IPlayersState>());
             _strategy = GetSearchStrategy();
             ProvideImplementationOf(actualGraph);
@@ -148,7 +154,7 @@ namespace EndGames.Tests.Phutball.Search
     {
         protected override IMoveFindingStartegy GetSearchStrategy()
         {
-            return RawMoveFinders.DfsUnbounded(_playersState);
+            return RawMoveFinders.DfsUnbounded();
         }
     }
 
@@ -156,7 +162,7 @@ namespace EndGames.Tests.Phutball.Search
     {
         protected override IMoveFindingStartegy GetSearchStrategy()
         {
-            return RawMoveFinders.BfsUnbounded(_playersState);
+            return RawMoveFinders.BfsUnbounded();
         }
 
     }
@@ -295,26 +301,31 @@ namespace EndGames.Tests.Phutball.Search
         protected IFieldsGraph _fieldsGraph;
         protected IPhutballMove _bestMove;
         protected IPerformMoves _performMoves;
+        private IPlayersState _playersState;
+        private RawMoveFinders _moveFinders;
+
         protected override void Because()
         {
             _bestMove = Sut.Search(_fieldsGraph);
         }
 
         protected override BruteForceMoveFindingStartegy CreateSut()
-        {
-            var moveFinders = new RawMoveFinders(new MovesFactory());
-            return (BruteForceMoveFindingStartegy) moveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
+        {            
+            return (BruteForceMoveFindingStartegy) _moveFinders.DfsUnbounded();
         }
 
         protected override void EstablishContext()
         {
             _fieldsGraph = GraphBuilder().Build();
+            _playersState = PlayersState.SecondIsOnTheMove();
             _performMoves = new PerformMoves(_fieldsGraph, Dependency<IPlayersState>());
-            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
-                                                          {
-                                                              RowCount = _fieldsGraph.RowCount,
-                                                              ColumnCount = _fieldsGraph.ColumnCount
-                                                          });
+            var testPhutballOptions = new TestPhutballOptions
+                                          {
+                                              RowCount = _fieldsGraph.RowCount,
+                                              ColumnCount = _fieldsGraph.ColumnCount
+                                          };
+            _moveFinders = new RawMoveFinders(new MovesFactory(), _playersState, testPhutballOptions);
+            ProvideImplementationOf<IPhutballOptions>(testPhutballOptions);
 
         }
         protected abstract TestFieldsGraph GraphBuilder();

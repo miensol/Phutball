@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using EndGames.Phutball.Events;
 
 namespace EndGames
 {
@@ -22,6 +23,7 @@ namespace EndGames
             GetEvent<TEvent>().Subscribe(handler);
         }
 
+
         private IObservable<TEvent> GetEvent<TEvent>()
         {
             var subject =
@@ -32,11 +34,15 @@ namespace EndGames
 
         public void Publish<TEvent>(TEvent sampleEvent)
         {
+            OnSubjectDo<TEvent>(sub=> (sub).OnNext(sampleEvent));
+        }
+
+        private void OnSubjectDo<TEvent>(Action<ISubject<TEvent>> whenFound)
+        {
             object subject;
             if (_subjects.TryGetValue(typeof (TEvent), out subject))
             {
-                ((ISubject<TEvent>) subject)
-                    .OnNext(sampleEvent);
+                whenFound((ISubject<TEvent>) subject);
             }
         }
 
@@ -53,6 +59,10 @@ namespace EndGames
 
             public void Subscribe<TEvent>(Action<TEvent> handler)
             {
+            }
+
+            public void PublishAsync<TEvent>(TEvent @event)
+            {                
             }
         }
     }    

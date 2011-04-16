@@ -63,12 +63,12 @@ namespace EndGames.Shell.Presenters
         {
             _phutballOptions.RowCount = (int)Height + BORDER_FIELDS_COUNT;
             _phutballOptions.ColumnCount = (int)Width + BORDER_FIELDS_COUNT;
-            _eventPublisher.Publish(new GameOptionsChanged());
+            _eventPublisher.Publish(new CriticalGameOptionsChanged());
         }
 
     }
 
-    public class GameOptionsChanged
+    public class CriticalGameOptionsChanged
     {
     }
 }

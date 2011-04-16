@@ -33,7 +33,7 @@ namespace EndGames.Phutball.Jumpers
         private IJump TryFindingValidJumper()
         {
             var jumper = _jumpersFactory.FromTo(_from, _to);
-            if(jumper.EndField == _to)
+            if(_to.Equals(jumper.EndField))
             {
                 return jumper;
             }

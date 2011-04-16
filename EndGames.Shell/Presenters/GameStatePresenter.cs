@@ -74,10 +74,19 @@ namespace EndGames.Shell.Presenters
         [Preview("CanStartGame", AffectsTriggers = true)]
         public void StartGame()
         {
-            _gameState.Start();
+            _gameState.StartVsHuman();
             _timer.Start();
             NotifyStateChanged();
         }
+
+        [Preview("CanStartGame", AffectsTriggers = true)]
+        public void StartWithComputer()
+        {
+            _gameState.StartWithComputer();
+            _timer.Start();
+            NotifyStateChanged();
+        }
+
 
         private void NotifyStateChanged()
         {
@@ -109,11 +118,11 @@ namespace EndGames.Shell.Presenters
         {
             _eventPublisher.Subscribe<PhutballGameEnded>(OnPhutballGameEnded);
             _eventPublisher.Subscribe<PlayersStateChanged>(OnPlayersStateChanged);
-            _eventPublisher.Subscribe<GameOptionsChanged>(OnGameOptionsChanged);
+            _eventPublisher.Subscribe<CriticalGameOptionsChanged>(OnGameOptionsChanged);
             UpdatePlayers();
         }
 
-        public void OnGameOptionsChanged(GameOptionsChanged @event)
+        public void OnGameOptionsChanged(CriticalGameOptionsChanged @event)
         {
             RestartGame();
         }

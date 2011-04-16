@@ -5,9 +5,9 @@
         Player CurrentPlayer { get; }
         PlayerOnBoardInfo First { get; }
         PlayerOnBoardInfo Second { get; }
-        Player NextPlayer { get; }
-        void Start();
         void Stop();
         IPlayersState CopyRestarted();
+        void StartVsComputer();
+        void StartVsHuman();
     }
 }

@@ -2,11 +2,11 @@
 {
     public interface IMoveFinders
     {
-        IMoveFindingStartegy DfsUnbounded(IPlayersState playersState);
-        IMoveFindingStartegy BfsUnbounded(IPlayersState playersState);
-        IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth);
-        IMoveFindingStartegy BfsBounded(IPlayersState playersState, int bfsSearchDepth);
-        IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth);
-        IMoveFindingStartegy AlphaBeta(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth);
+        IMoveFindingStartegy DfsUnbounded();
+        IMoveFindingStartegy BfsUnbounded();
+        IMoveFindingStartegy DfsBounded();
+        IMoveFindingStartegy BfsBounded();
+        IMoveFindingStartegy AlphaBetaJumps();
+        IMoveFindingStartegy AlphaBeta();
     }
 }

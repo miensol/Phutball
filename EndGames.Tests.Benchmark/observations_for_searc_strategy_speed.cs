@@ -20,8 +20,8 @@ namespace EndGames.Tests.Benchmark
         }
 
         private Stopwatch _timer = new Stopwatch();
-        protected RawMoveFinders RawMoveFinders = new RawMoveFinders(new MovesFactory());
-
+        protected RawMoveFinders RawMoveFinders ;
+        protected IPhutballOptions options = new PhutballOptions();
         protected TimeSpan MessureTime(Action work)
         {
             _timer.Reset();
@@ -33,6 +33,8 @@ namespace EndGames.Tests.Benchmark
 
         protected IFieldsGraph RandomGraph(int rowCount, int columnCount, double blackDencity)
         {
+            options.RowCount = rowCount;
+            options.ColumnCount = columnCount;
             return TestGraphs.Random(rowCount, columnCount, blackDencity);
         }
 
@@ -158,7 +160,8 @@ namespace EndGames.Tests.Benchmark
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return RawMoveFinders.DfsUnbounded(PlayersState.SecondIsOnTheMove());
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.DfsUnbounded();
         }
     } 
     
@@ -167,7 +170,8 @@ namespace EndGames.Tests.Benchmark
     {
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
-            return RawMoveFinders.DfsBounded(PlayersState.SecondIsOnTheMove(), Math.Max(graph.RowCount/10, 5));
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.DfsBounded();
         }
     }
 }

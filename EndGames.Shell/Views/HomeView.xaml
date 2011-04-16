@@ -8,14 +8,18 @@
             <RowDefinition  />
         </Grid.RowDefinitions>
         
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="GoToPhutball" >
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="GoToPhutball"  >
                 Play
             </Button>
-            <Button x:Name="CloseApplication" >
+            <Button x:Name="CloseApplication"  Grid.Column="1">
                 Exit
             </Button>
-        </StackPanel>
+        </Grid >
         
         <FlowDocumentScrollViewer Grid.Row="1" Height="500">
             <FlowDocument>

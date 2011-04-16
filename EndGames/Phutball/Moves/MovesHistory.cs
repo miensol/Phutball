@@ -6,7 +6,7 @@ using EndGames.Phutball.Events;
 using EndGames.Phutball.PlayerMoves;
 
 namespace EndGames.Phutball.Moves
-{
+{            
     public class MovesHistory
     {
         private ObservableCollection<MoveHistoryItem> _done = new ObservableCollection<MoveHistoryItem>();

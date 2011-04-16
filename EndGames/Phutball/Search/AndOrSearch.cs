@@ -51,7 +51,7 @@ namespace EndGames.Phutball.Search
                     var children = tree.Children;
                     foreach (var child in children)
                     {
-                        var graph = child.Node;
+                     //   var graph = child.Node;
                         alpha = alpha.Max( AlphaBeta(child, alpha, beta, player.Swap()) );
                         if (beta.Score <= alpha.Score)
                         {
@@ -65,7 +65,7 @@ namespace EndGames.Phutball.Search
                     var children = tree.Children;
                     foreach (var child in children)
                     {
-                        var graph = child.Node;
+                       // var graph = child.Node;
                         beta = beta.Min(AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {

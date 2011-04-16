@@ -51,8 +51,8 @@ namespace EndGames.Phutball
                 _switch.Value.StopMoving();
                 _switch = _switch.Swap();
                 _switch.Value.StartMoving();
-                _eventPublisher.Publish(new PlayerOnTheMoveChanged());
                 _eventPublisher.Publish(new PlayersStateChanged());
+                _eventPublisher.Publish(new PlayerOnTheMoveChanged());
             }
         }
 
@@ -61,7 +61,7 @@ namespace EndGames.Phutball
             return First.Player.IsOnTheMove || Second.Player.IsOnTheMove;
         }
 
-        public void Start()
+        private void Start()
         {
             First.ClearTime();
             Second.ClearTime();
@@ -80,6 +80,18 @@ namespace EndGames.Phutball
             var copyRestarted = new PlayersState(CurrentPlayer, NextPlayer);
             copyRestarted.Start();
             return copyRestarted;
+        }
+
+        public void StartVsComputer()
+        {
+            Second.Player.IsComputer();
+            Start();
+        }
+
+        public void StartVsHuman()
+        {
+            Second.Player.IsHuman();
+            Start();
         }
 
         public static IPlayersState SecondIsOnTheMove()

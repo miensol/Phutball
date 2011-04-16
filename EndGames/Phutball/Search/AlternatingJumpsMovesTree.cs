@@ -7,11 +7,6 @@ namespace EndGames.Phutball.Search
     {
         private readonly IEnumerable<IJumpNodeTree> _children;
 
-        public AlternatingJumpsMovesTree(JumpNode jumpNode)
-            :this(jumpNode, (parent)=> new AllAlternatigJumpsTreeCollection(parent))
-        {
-        }
-
         public AlternatingJumpsMovesTree(
             JumpNode jumpNode,
             Func<IJumpNodeTreeWithFactory, IEnumerable<IJumpNodeTreeWithFactory>> childFactory)

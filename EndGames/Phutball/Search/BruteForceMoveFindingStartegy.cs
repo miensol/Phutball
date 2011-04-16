@@ -16,7 +16,8 @@ namespace EndGames.Phutball.Search
         public BruteForceMoveFindingStartegy(
             ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
             Func<ISearchNodeVisitor<JumpNode>,ITreeSearch<JumpNode>> searchFactory,
-            IPlayersState playersState, MovesFactory movesFactory)
+            IPlayersState playersState, 
+            MovesFactory movesFactory)
         {
             _defaultNodeVistor = defaultNodeVistor;
             _movesFactory = movesFactory;

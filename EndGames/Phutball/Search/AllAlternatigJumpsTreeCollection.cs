@@ -8,10 +8,12 @@ namespace EndGames.Phutball.Search
 {
     public class AllAlternatigJumpsTreeCollection : IEnumerable<IJumpNodeTreeWithFactory>
     {
+        private readonly IAlphaBetaOptions _alphaBetaOptions;
         private JumpNode _parentJumpNode;
 
-        public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent)
+        public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent, IAlphaBetaOptions alphaBetaOptions)
         {
+            _alphaBetaOptions = alphaBetaOptions;
             Parent = parent;
             _parentJumpNode = Parent.Node;            
         }
@@ -23,7 +25,8 @@ namespace EndGames.Phutball.Search
             var actualGraph = (IFieldsGraph) _parentJumpNode.ActualGraph.Clone();
             var localMovePerformer = PerformMoves.DontCareAboutPlayerStateChange(actualGraph);
             var current = new RootedBySelectingWhiteFieldBoardJumpTree(actualGraph);
-            var currentMoves = current.TraverseDfs(new PerformMovesNodeVisitor(localMovePerformer)).Skip(1);
+            var currentMoves = current.TraverseDfs(new PerformMovesNodeVisitor(localMovePerformer), _alphaBetaOptions.JumpsMaxDepth)
+                .Skip(1);
             foreach (var currentMove in currentMoves)
             {
                 var newMove = CreateNewMove(currentMove);

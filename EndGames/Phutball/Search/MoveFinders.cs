@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EndGames.Phutball.Search
+﻿namespace EndGames.Phutball.Search
 {
     public class MoveFinders : IMoveFinders
     {
@@ -11,34 +9,34 @@ namespace EndGames.Phutball.Search
             _rawMoveFinders = rawMoveFinders;
         }
 
-        public IMoveFindingStartegy DfsUnbounded(IPlayersState playersState)
+        public IMoveFindingStartegy DfsUnbounded()
         {
-            return _rawMoveFinders.DfsUnbounded(playersState).EnsureMoveIsValid();
+            return _rawMoveFinders.DfsUnbounded().EnsureMoveIsValid();
         }
 
-        public IMoveFindingStartegy BfsUnbounded(IPlayersState playersState)
+        public IMoveFindingStartegy BfsUnbounded()
         {
-            return _rawMoveFinders.BfsUnbounded(playersState).EnsureMoveIsValid();
+            return _rawMoveFinders.BfsUnbounded().EnsureMoveIsValid();
         }
 
-        public IMoveFindingStartegy DfsBounded(IPlayersState playersState, int maxDepth)
+        public IMoveFindingStartegy DfsBounded()
         {
-            return _rawMoveFinders.DfsBounded(playersState, maxDepth).EnsureMoveIsValid();
+            return _rawMoveFinders.DfsBounded().EnsureMoveIsValid();
         }
 
-        public IMoveFindingStartegy BfsBounded(IPlayersState playersState, int bfsSearchDepth)
+        public IMoveFindingStartegy BfsBounded()
         {
-            return _rawMoveFinders.BfsBounded(playersState, bfsSearchDepth).EnsureMoveIsValid();
+            return _rawMoveFinders.BfsBounded().EnsureMoveIsValid();
         }
 
-        public IMoveFindingStartegy AlphaBetaJumps(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBetaJumps()
         {
-            return _rawMoveFinders.AlphaBetaJumps(playersState, alphaBetaSearchDepth).EnsureMoveIsValid();
+            return _rawMoveFinders.AlphaBetaJumps().EnsureMoveIsValid();
         }
 
-        public IMoveFindingStartegy AlphaBeta(IPlayersState playersState, IAlphaBetaOptions alphaBetaSearchDepth)
+        public IMoveFindingStartegy AlphaBeta()
         {
-            return _rawMoveFinders.AlphaBeta(playersState, alphaBetaSearchDepth).EnsureMoveIsValid();
+            return _rawMoveFinders.AlphaBeta().EnsureMoveIsValid();
         }
     }
 }
