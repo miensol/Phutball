@@ -48,8 +48,8 @@
 		</TextBlock>
         <utils:NumericUpDown Grid.Row="6" Grid.Column="2" 
                              Value="{Binding AlphaBetaDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                             Minimum="2" Maximum="100" 
-                             Change="2"
+                             Minimum="2" Maximum="20" 
+                             Change="1"
                              />
 
 		<Grid Grid.Row="8" Grid.ColumnSpan="3">

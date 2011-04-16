@@ -13,7 +13,7 @@ namespace EndGames.Shell.Mapping
             Mapper.CreateMap<Player, PlayerModel>();
             Mapper.CreateMap<PlayerOnBoardInfo, PlayerOnBoardModel>();
             Mapper.CreateMap<TimeSpan, string>()
-                .ConvertUsing(ts=> "{0}:{1}".ToFormat(ts.Minutes, ts.Seconds));
+                .ConvertUsing(ts=> ts.ToMinutesAndSeconds());
         }
     }
 }

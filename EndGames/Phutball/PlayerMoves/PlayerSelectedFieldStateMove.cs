@@ -27,7 +27,7 @@ namespace EndGames.Phutball.PlayerMoves
 
         public override void PlayerClickedField(Field field)
         {
-            if (ClickedSelectedField(field))
+            if (field.Selected)
             {
                 DeselectSelectedField(field);
             }
@@ -61,11 +61,6 @@ namespace EndGames.Phutball.PlayerMoves
         {
             _movesHistory.PerformAndStore(() => _performMoves, new DeselectWhiteFieldMove(field));
             NextState = new WaitingForPlayerMoveState(_phutballBoard, _movesHistory, _playersState);
-        }
-
-        private bool ClickedSelectedField(Field field)
-        {
-            return _selectedField == field;
         }
     }
 }

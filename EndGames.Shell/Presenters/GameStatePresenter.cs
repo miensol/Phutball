@@ -26,12 +26,13 @@ namespace EndGames.Shell.Presenters
                              Interval = TimeSpan.FromMilliseconds(200),
                              IsEnabled = false
                          };
-            _timer.Tick += UpdatePlayers;
+            _timer.Tick += UpdatePlayersTimes;
         }
 
-        private void UpdatePlayers(object sender, EventArgs e)
+        private void UpdatePlayersTimes(object sender, EventArgs e)
         {
-            UpdatePlayers();
+            FirstPlayer.TimeOnMoves = _gameState.Players.First().TimeOnMoves.ToMinutesAndSeconds();
+            SecondPlayer.TimeOnMoves = _gameState.Players.Last().TimeOnMoves.ToMinutesAndSeconds();
         }
 
         private void OnPhutballGameEnded(PhutballGameEnded @event)

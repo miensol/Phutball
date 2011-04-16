@@ -38,6 +38,11 @@ namespace EndGames
         public const string XRequestedWithHeader = "X-Requested-With";
 
 
+        public static string ToMinutesAndSeconds(this TimeSpan ts)
+        {
+            return "{0}:{1}".ToFormat(ts.Minutes, ts.Seconds);
+        }
+
         public static bool IsEven(this int number)
         {
             return number%2 == 0;

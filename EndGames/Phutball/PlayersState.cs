@@ -50,8 +50,9 @@ namespace EndGames.Phutball
             {
                 _switch.Value.StopMoving();
                 _switch = _switch.Swap();
-                _switch.Value.StartMoving();   
+                _switch.Value.StartMoving();
                 _eventPublisher.Publish(new PlayerOnTheMoveChanged());
+                _eventPublisher.Publish(new PlayersStateChanged());
             }
         }
 
