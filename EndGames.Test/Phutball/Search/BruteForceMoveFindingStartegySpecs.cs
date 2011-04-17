@@ -142,9 +142,9 @@ namespace EndGames.Tests.Phutball.Search
             _strategy = GetSearchStrategy();
             ProvideImplementationOf(actualGraph);
             var bestMove = _strategy.Search(actualGraph);
-            if(bestMove != null )
+            if(bestMove != null)
             {
-                _performMoves.Perform(bestMove);                
+                _performMoves.Perform(bestMove.Move);                
             }
             return actualGraph;
         }
@@ -306,7 +306,7 @@ namespace EndGames.Tests.Phutball.Search
 
         protected override void Because()
         {
-            _bestMove = Sut.Search(_fieldsGraph);
+            _bestMove = Sut.Search(_fieldsGraph).Move;
         }
 
         protected override BruteForceMoveFindingStartegy CreateSut()

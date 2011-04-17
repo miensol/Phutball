@@ -17,17 +17,19 @@ namespace EndGames.Phutball.Search
             Func< IFieldsGraph,IJumpNodeTree> movesFactory
             )
         {
-            _playersState = playersState.CopyRestarted();            
+            _playersState = playersState;            
             _alphaBetaSearchDepth = alphaBetaSearchDepth;
             _movesFactory = movesFactory;
         }
 
-        public IPhutballMove Search(IFieldsGraph fieldsGraph)
+        public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
             var actualGraph = (IFieldsGraph)fieldsGraph.Clone();
             var performMoves = new PerformMoves(actualGraph, _playersState);
             _andOrSearch = new AndOrSearch<JumpNode>(
-                new WhiteStoneToCurrentPlayerBorderDistance(_playersState),
+                new WhiteStoneToCurrentPlayerBorderDistance(_playersState, actualGraph, _alphaBetaSearchDepth.DistanceToBorderWeight)
+                .Add(new BlackStonesToTargetBorderCount(_playersState, actualGraph, _alphaBetaSearchDepth.BlackStonesToBorderWeight))
+                ,
                 _alphaBetaSearchDepth,
                 new PerformMovesNodeVisitor(performMoves)
             );
@@ -36,7 +38,7 @@ namespace EndGames.Phutball.Search
             _andOrSearch.Run(movesTree);
             var result = new CompositeMove();
             _andOrSearch.BestMove.Move.MovesFromRoot.CollectToPlayerSwitch(result);
-            return result;
+            return new PhutballMoveScore(result, _andOrSearch.BestMove.Score);
         }
     }
 }

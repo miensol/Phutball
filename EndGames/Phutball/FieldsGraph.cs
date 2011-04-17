@@ -9,6 +9,8 @@ namespace EndGames.Phutball
         private IPhutballOptions _options;
         private Dictionary<int, Field> _fieldMap = new Dictionary<int, Field>();
         private Field _whiteField;
+        private HashSet<Field> _blackFields = new HashSet<Field>();
+        private Lazy<TargetBorderEnum> _targetBorders;
 
         public FieldsGraph(IPhutballOptions options)
         {
@@ -60,14 +62,6 @@ namespace EndGames.Phutball
         public void UpdateFields(params Field[] fieldsToUpdate)
         {
             fieldsToUpdate.Each(UpdateField);
-            if(_whiteField.RowIndex ==4)
-            {
-                var blackField = GetFields().Where(field => field.HasBlackStone).ToList();
-                if(blackField.Count == 2 && blackField[0].RowIndex == 5 && blackField[1].RowIndex == 6)
-                {
-                    var a = 1;
-                }
-            }
         }
 
         private void UpdateField(Field field)
@@ -75,15 +69,27 @@ namespace EndGames.Phutball
             var fieldToUpdate = _fieldMap[field.Id];
             fieldToUpdate.Stone = field.Stone;
             fieldToUpdate.Selected = field.Selected;
-            if (fieldToUpdate.HasWhiteStone)
+            _blackFields.Remove(fieldToUpdate);
+            if(fieldToUpdate.HasWhiteStone)
             {
-                _whiteField = field;
+                _whiteField = fieldToUpdate;    
+            }else
+            {
+                if(fieldToUpdate.HasBlackStone)
+                {
+                    _blackFields.Add(fieldToUpdate);    
+                }                
             }
         }        
 
         public IEnumerable<Field> GetFields()
         {
             return _fieldMap.Values.Select(field=> (Field)field.Clone());
+        }
+
+        public IEnumerable<Field> GetBlackFields()
+        {
+            return _blackFields.ToList();
         }
 
         private bool IsValidColumnForWhiteField(int rowIndex, int columnIndex)
@@ -107,16 +113,25 @@ namespace EndGames.Phutball
 
         public void Initialize()
         {
+            _blackFields = new HashSet<Field>();
+            
             for (int rowIndex = 0; rowIndex < RowCount; ++rowIndex)
             {
                 AddColumnsInRow(rowIndex);
             }
+
+            _targetBorders = new Lazy<TargetBorderEnum>(()=> new TargetBorderEnum(this));
         }
 
         public bool CanPlaceBlackStone(Tuple<int,int> coords)
         {
             return IsValidRowForBlackField(coords.Item1) && IsValidColumnForBlackField(coords.Item2)
                    && GetField(coords).IsEmpty;
+        }
+
+        public TargetBorderEnum Borders()
+        {
+            return _targetBorders.Value;
         }
 
         private bool IsValidRowForBlackField(int rowIndex)
@@ -126,7 +141,7 @@ namespace EndGames.Phutball
 
         public bool CanPlaceBlackStone(Field field)
         {
-            return FieldIsEmpty(field) && FieldIsInMiddleRows(field) && FieldIsInMiddleColumns(field);
+            return field.IsEmpty && FieldIsInMiddleRows(field) && FieldIsInMiddleColumns(field);
         }
 
         private bool FieldIsInMiddleColumns(Field field)
@@ -137,11 +152,6 @@ namespace EndGames.Phutball
         private bool FieldIsInMiddleRows(Field field)
         {
             return field.IsInMiddleRows(RowCount);
-        }
-
-        private bool FieldIsEmpty(Field field)
-        {
-            return field.HasStone == false;
         }
 
         private void AddColumnsInRow(int row)
@@ -181,7 +191,9 @@ namespace EndGames.Phutball
                        {
                            _options = _options,
                            _fieldMap = _fieldMap.ToDictionary(kv => kv.Key, kv => (Field) kv.Value.Clone()),
-                           _whiteField = (Field) _whiteField.Clone()
+                           _whiteField = (Field) _whiteField.Clone(),
+                           _targetBorders = _targetBorders,
+                           _blackFields = _blackFields.ToHashSet()
                        };
         }
 

@@ -14,7 +14,7 @@ namespace EndGames.Phutball.Search
                 movesFactory);
         }
 
-        public IPhutballMove Search(IFieldsGraph fieldsGraph)
+        public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
             return _bruteForceSearch.Search(fieldsGraph);
         }

@@ -1,12 +1,8 @@
-﻿namespace EndGames.Phutball
-{
-    public interface IAlphaBetaOptions
-    {
-        int JumpsMaxDepth { get; set; }
-        int StoneRadius { get; set; }
-        int SearchDepth { get; set; }
-    }
+﻿using System;
 
+namespace EndGames.Phutball
+{
+    [Serializable]
     public class AlphaBetaOptions : IAlphaBetaOptions
     {
         public int JumpsMaxDepth { get; set; }
@@ -19,8 +15,28 @@
                        {
                            SearchDepth = 5,
                            JumpsMaxDepth = 8,
-                           StoneRadius = 1
+                           StoneRadius = 1,
+                           SkipShortMoves = 1,
+                           DistanceToBorderWeight = 1
                        };
         }
+
+        public IAlphaBetaOptions AllowNoMoveToBeTaken()
+        {
+            return new AlphaBetaOptions
+                       {
+                           SearchDepth = SearchDepth,
+                           BlackStonesToBorderWeight = BlackStonesToBorderWeight,
+                           DistanceToBorderWeight = DistanceToBorderWeight,
+                           JumpsMaxDepth = JumpsMaxDepth,
+                           SkipShortMoves = 0,
+                           StoneRadius = StoneRadius
+                       };
+        }
+
+        public int SkipShortMoves { get; set; }
+
+        public int BlackStonesToBorderWeight { get; set; }
+        public int DistanceToBorderWeight { get; set; }
     }
 }

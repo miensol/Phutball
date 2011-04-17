@@ -2,18 +2,28 @@
 {
     public class WhiteStoneToCurrentPlayerBorderDistance : IValueOf<JumpNode>
     {
-        private readonly Player _currentPlayer;
+        private readonly IPlayersState _playersState;
+        private readonly int _distanceToBorderWeight;
+        private WhiteStoneToBorderDistanceValue _whiteStoneToBorderDistance;
+        private TargetBorder _targetBorder;
 
-        public WhiteStoneToCurrentPlayerBorderDistance(IPlayersState playersState)
+        public WhiteStoneToCurrentPlayerBorderDistance(IPlayersState playersState, IFieldsGraph fieldsGraph, int distanceToBorderWeight)
         {
-            _currentPlayer = playersState.CurrentPlayer;
+            _playersState = playersState;
+            _distanceToBorderWeight = distanceToBorderWeight;
+            var currentPlayer = playersState.CurrentPlayer;
+            _targetBorder = currentPlayer.GetTargetBorder(fieldsGraph);
+            _whiteStoneToBorderDistance = new WhiteStoneToBorderDistanceValue(_targetBorder);
         }
 
         public int GetValue(JumpNode valueSubject)
         {
-            var targetBorder = _currentPlayer.GetTargetBorder(valueSubject.ActualGraph);
-            var whiteStoneToBorderDistance = new WhiteStoneToBorderDistanceValue(targetBorder);
-            return whiteStoneToBorderDistance.GetValue(valueSubject.ActualGraph);
+            var rawValue = _whiteStoneToBorderDistance.GetValue(valueSubject.ActualGraph);
+            if(rawValue == _targetBorder.WinValue || rawValue == _targetBorder.LooseValue)
+            {
+                return rawValue;
+            }
+            return rawValue * _distanceToBorderWeight;
         }
     }
 }

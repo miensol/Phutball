@@ -36,11 +36,7 @@ namespace EndGames.Phutball
 
         private void OnPlayerOnTheMoveChanged(PlayerOnTheMoveChanged change)
         {
-            _handlePlayerMoves = _handlePlayerMovesFactory();
-            if(_playersState.CurrentPlayer.IsAComputer)
-            {
-                Task.Factory.StartNew(()=> _bestMoveApplier.ChoosePerformAndStore());
-            }
+            _handlePlayerMoves = _handlePlayerMovesFactory();          
         }
 
 
@@ -87,7 +83,11 @@ namespace EndGames.Phutball
         {
             var field = _phutballBoard.GetField(fieldId);
             _handlePlayerMoves.PlayerClickedField(field);
-            _eventPublisher.Publish(new PlayersStateChanged());            
+            _eventPublisher.Publish(new PlayersStateChanged());
+            if (_playersState.CurrentPlayer.IsAComputer)
+            {
+                Task.Factory.StartNew(() => _bestMoveApplier.ChoosePerformAndStore());
+            }
         }
 
         public void Restart()

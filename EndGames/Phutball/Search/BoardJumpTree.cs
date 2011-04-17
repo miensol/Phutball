@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using EndGames.Phutball.Jumpers;
 using EndGames.Phutball.Moves;
@@ -8,13 +7,13 @@ namespace EndGames.Phutball.Search
 {
     public class BoardJumpTree : ITree<JumpNode>
     {
-        private readonly DirectedJumpersFactory _jumpersFactory;
+        private readonly JumpersFactory _jumpersFactory;
 
         public BoardJumpTree(IFieldsGraph actualGraph, IPhutballMove moveToApply, ITree<JumpNode> parent)
         {
             Parent = parent;
             Node = new JumpNode(actualGraph, moveToApply);
-            _jumpersFactory = new DirectedJumpersFactory(actualGraph);
+            _jumpersFactory = new JumpersFactory(actualGraph);
         }
 
         public JumpNode Node { get; private set; }
@@ -41,7 +40,7 @@ namespace EndGames.Phutball.Search
                 return new List<ITree<JumpNode>>();
             }
 
-            var jumpDireactions = _jumpersFactory.All(whiteField);
+            var jumpDireactions = _jumpersFactory.AllJumps(whiteField);
             return jumpDireactions.Where(jump => jump.EndField != null)
                 .Select(
                     jump => new BoardJumpTree(actualGraph, 

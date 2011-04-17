@@ -23,6 +23,10 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="10" />
 			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 
 		<TextBlock>
@@ -84,5 +88,25 @@
 			</StackPanel>
 		</Grid>
 
-	</Grid>
+
+        <TextBlock Grid.Row="14">
+			Distance to winnig border wieght
+        </TextBlock>
+        <utils:NumericUpDown Grid.Row="14" Grid.Column="2" 
+                             Value="{Binding AlphaBeta.DistanceToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Minimum="1" Maximum="100" 
+                             Change="1"
+                             />
+
+        <TextBlock Grid.Row="16" TextWrapping="Wrap">
+			Number of black stones between white and border
+        </TextBlock>
+        <utils:NumericUpDown Grid.Row="16" Grid.Column="2" 
+                             Value="{Binding AlphaBeta.BlackStonesToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             Minimum="0" Maximum="100" 
+                             Change="1"
+                             />
+
+
+    </Grid>
 </UserControl>

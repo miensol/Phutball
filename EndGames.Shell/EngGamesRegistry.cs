@@ -21,7 +21,8 @@ namespace EndGames.Shell
             SelectConstructor(()=> new PlayersState(null));
             SelectConstructor(()=> new PerformMoves(null, null));
             For<IEventPublisher>().Singleton().Use<EventPublisher>();
-            For<IPhutballOptions>().Singleton().Use<PhutballOptions>();
+            For<PhutballOptions>().Singleton();
+            For<IPhutballOptions>().Singleton().Use(ctx => ctx.GetInstance<PhutballOptions>());
             For<IPlayersState>().Singleton();
             For<IPlayersSwapper>().Use(ctx => ctx.GetInstance<IPlayersState>());
             For<IFieldsGraph>().Singleton();

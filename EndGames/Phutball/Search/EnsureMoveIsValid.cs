@@ -11,14 +11,14 @@ namespace EndGames.Phutball.Search
             _realStrategy = realStrategy;
         }
 
-        public IPhutballMove Search(IFieldsGraph fieldsGraph)
+        public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
             var result = _realStrategy.Search(fieldsGraph);
-            if(result == null)
+            if(result == null || result.Move == null)
             {
-                return new EmptyPhutballMove();
+                return PhutballMoveScore.Empty();
             }
-            return new CompositeMove(new[] {result, new DeselectWhiteFieldIfSelectedMove()});
+            return result.FollowedBy(new DeselectWhiteFieldIfSelectedMove());
         }
     }
 }

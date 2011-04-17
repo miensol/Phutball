@@ -26,8 +26,14 @@
         <Button x:Name="MakeMoveAlphaBetaJumps" >
             Alpha Beta Jumps
         </Button>
+        <Button x:Name="MakeMoveAlphaBetaJumpsOrStay" >
+            Alpha Beta Jump Or Stay
+        </Button>
         <Button x:Name="MakeMoveAlphaBeta" >
             Alpha Beta 
+        </Button>
+        <Button x:Name="MakeMoveLikeComputer" >
+            Alpha Beta Like Computer
         </Button>
     </StackPanel>
 </UserControl>

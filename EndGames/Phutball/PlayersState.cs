@@ -8,14 +8,14 @@ namespace EndGames.Phutball
         private Switch<PlayerOnBoardInfo> _switch;
 
         public PlayersState(IEventPublisher eventPublisher)
-            : this(eventPublisher,PlayerEnum.First, PlayerEnum.Second)
+            : this(eventPublisher,PlayerEnum.First(), PlayerEnum.Second())
         {
         }
 
-        public PlayersState(Player first, Player second):this(EventPublisher.Empty(), first, second)
+        private PlayersState(Player first, Player second):this(EventPublisher.Empty(), first, second)
         {}
 
-        public PlayersState(IEventPublisher eventPublisher, Player first, Player second)
+        private PlayersState(IEventPublisher eventPublisher, Player first, Player second)
         {
             _eventPublisher = eventPublisher;
             Initialize(first, second);
@@ -84,19 +84,19 @@ namespace EndGames.Phutball
 
         public void StartVsComputer()
         {
-            Second.Player.IsComputer();
+            Initialize(PlayerEnum.First(), PlayerEnum.Computer());
             Start();
         }
 
         public void StartVsHuman()
         {
-            Second.Player.IsHuman();
+            Initialize(PlayerEnum.First(), PlayerEnum.Second());
             Start();
         }
 
         public static IPlayersState SecondIsOnTheMove()
         {
-            return new PlayersState(EventPublisher.Empty(), PlayerEnum.Second, PlayerEnum.First);
+            return new PlayersState(EventPublisher.Empty(), PlayerEnum.Second(), PlayerEnum.First());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace EndGames.Phutball.Search
+﻿using System;
+
+namespace EndGames.Phutball.Search
 {
     public class MoveFinders : IMoveFinders
     {
@@ -37,6 +39,11 @@
         public IMoveFindingStartegy AlphaBeta()
         {
             return _rawMoveFinders.AlphaBeta().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy AlphaBetaJumpsOrStay()
+        {
+            return _rawMoveFinders.AlphaBetaJumpsOrStay().EnsureMoveIsValid();
         }
     }
 }

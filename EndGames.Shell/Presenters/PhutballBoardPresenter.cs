@@ -25,7 +25,7 @@ namespace EndGames.Shell.Presenters
         protected override void OnInitialize()
         {
             Board = _boardCreator();
-            _eventPublisher.Subscribe < CriticalGameOptionsChanged>(OnGameOptionsChanged);
+            _eventPublisher.Subscribe<CriticalGameOptionsChanged>(OnGameOptionsChanged);
             base.OnInitialize();
         }
 

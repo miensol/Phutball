@@ -1,5 +1,4 @@
 ﻿using System;
-using EndGames.Phutball.Moves;
 using EndGames.Phutball.PlayerMoves;
 using log4net;
 namespace EndGames.Phutball.Search
@@ -22,12 +21,12 @@ namespace EndGames.Phutball.Search
             _defaultNodeVistor = defaultNodeVistor;
             _movesFactory = movesFactory;
             _searchFactory = searchFactory;
-            _playersState = playersState.CopyRestarted();
+            _playersState = playersState;
         }
         
 
 
-        public IPhutballMove Search(IFieldsGraph fieldsGraph)
+        public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
             var graphCopy = (IFieldsGraph)fieldsGraph.Clone();
             var tree = _movesFactory.GetMovesTree(graphCopy);
@@ -40,7 +39,7 @@ namespace EndGames.Phutball.Search
             Logger.Debug("End search");
             Logger.DebugFormat("Node visited {0}", nodeCounter.Count);
             Logger.DebugFormat("Result move {0}", bestValuePicker.ResultMove);
-            return bestValuePicker.ResultMove;
+            return new PhutballMoveScore( bestValuePicker.ResultMove, bestValuePicker.CurrentMaxValue);
         }
     }
     public class MovesFactory

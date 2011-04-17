@@ -6,7 +6,6 @@ namespace EndGames.Phutball
     public class Player
     {
         private readonly Func<IFieldsGraph, TargetBorder> _targetBorderAccessor;
-        private bool _isComputer;
         public string Name { get; private set; }
 
         public bool IsOnTheMove { get; set; }
@@ -14,20 +13,15 @@ namespace EndGames.Phutball
         public bool IsAHuman
         {
             get {
-                return _isComputer == false;
+                return IsAComputer == false;
             }
         }
 
-        public bool IsAComputer
-        {
-            get {
-                return _isComputer;
-            }
-        }
+        public bool IsAComputer { get; private set; }
 
         public void IsComputer()
         {
-            _isComputer = true;
+            IsAComputer = true;
         }
 
         public Player(string name, Func<IFieldsGraph,TargetBorder> targetBorderAccessor)
@@ -48,7 +42,7 @@ namespace EndGames.Phutball
 
         public void IsHuman()
         {
-            _isComputer = false;
+            IsAComputer = false;
         }
     }
 }

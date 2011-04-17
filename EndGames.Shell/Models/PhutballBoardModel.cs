@@ -68,7 +68,6 @@ namespace EndGames.Shell.Models
 
         public void Initialize()
         {
-        
             _phutballBoard.Initialize();
         }
 

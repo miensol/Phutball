@@ -8,14 +8,14 @@ namespace EndGames.Phutball.Jumpers
         private readonly IFieldsGraph _fieldsGraph;
         private readonly Field _from;
         private readonly Field _to;
-        private DirectedJumpersFactory _jumpersFactory;
+        private JumpersFactory _jumpersFactory;
 
         public StoneJumper(IFieldsGraph fieldsGraph, Field from, Field to)
         {
             _fieldsGraph = fieldsGraph;
             _from = from;
             _to = to;
-            _jumpersFactory= new DirectedJumpersFactory(_fieldsGraph);
+            _jumpersFactory= new JumpersFactory(_fieldsGraph);
         }
 
 

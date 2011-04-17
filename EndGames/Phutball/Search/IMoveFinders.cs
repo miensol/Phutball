@@ -8,5 +8,6 @@
         IMoveFindingStartegy BfsBounded();
         IMoveFindingStartegy AlphaBetaJumps();
         IMoveFindingStartegy AlphaBeta();
+        IMoveFindingStartegy AlphaBetaJumpsOrStay();
     }
 }

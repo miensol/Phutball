@@ -35,6 +35,7 @@ namespace EndGames.Shell
         protected override Microsoft.Practices.ServiceLocation.IServiceLocator CreateContainer()
         {
             ObjectFactory.Initialize(ie => ie.AddRegistry<EngGamesRegistry>());
+            ObjectFactory.Configure(ce=> ce.For<App>().Use(this));
             return new StructureMapAdapter(ObjectFactory.Container);
         }
 

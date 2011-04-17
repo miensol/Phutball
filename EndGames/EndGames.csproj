@@ -82,9 +82,11 @@
     <Compile Include="Phutball\Events\PhutballGameEnded.cs" />
     <Compile Include="Phutball\Events\PlayerOnTheMoveChanged.cs" />
     <Compile Include="Phutball\Events\PlayersStateChanged.cs" />
+    <Compile Include="Phutball\IAlphaBetaOptions.cs" />
     <Compile Include="Phutball\IFieldsUpdater.cs" />
     <Compile Include="Phutball\IPlayersState.cs" />
     <Compile Include="Phutball\IPlayersSwapper.cs" />
+    <Compile Include="Phutball\Jumpers\Extensions.cs" />
     <Compile Include="Phutball\Jumpers\FieldExtensions.cs" />
     <Compile Include="Phutball\Jumpers\IntExtensions.cs" />
     <Compile Include="Phutball\Moves\DeselectWhiteFieldIfSelectedMove.cs" />
@@ -107,9 +109,11 @@
     <Compile Include="Phutball\Search\AlternatingJumpsMovesTree.cs" />
     <Compile Include="Phutball\Search\AndOrSearch.cs" />
     <Compile Include="Phutball\Search\BfsSearch.cs" />
+    <Compile Include="Phutball\Search\BoardValues\AddValues.cs" />
+    <Compile Include="Phutball\Search\BoardValues\BlackStonesToTargetBorderCount.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
-    <Compile Include="Phutball\Search\BoardValues\FieldsGraphExtensions.cs" />
+    <Compile Include="Phutball\Search\BoardValues\Extensions.cs" />
     <Compile Include="Phutball\Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
     <Compile Include="Phutball\Search\BoundedDepthMoveFindingStrategy.cs" />
@@ -135,9 +139,10 @@
     <Compile Include="Phutball\Search\TreeExtensions.cs" />
     <Compile Include="Phutball\Search\VisitedNodesCounter.cs" />
     <Compile Include="Phutball\PlayersState.cs" />
+    <Compile Include="Phutball\TargetBorderEnum.cs" />
     <Compile Include="Switch.cs" />
     <Compile Include="Utils\EnumOf.cs" />
-    <Compile Include="Phutball\Jumpers\DirectedJumpersFactory.cs" />
+    <Compile Include="Phutball\Jumpers\JumpersFactory.cs" />
     <Compile Include="Phutball\Moves\CompositeMove.cs" />
     <Compile Include="Phutball\Moves\DeselectWhiteFIeldMove.cs" />
     <Compile Include="Phutball\Moves\IMove.cs" />
@@ -172,7 +177,6 @@
     <Compile Include="Phutball\Search\BoardJumpTree.cs" />
     <Compile Include="Phutball\Search\BoardValues\IValueOfGraph.cs" />
     <Compile Include="Phutball\Search\BoardValues\TargetBorder.cs" />
-    <Compile Include="Phutball\Search\BoardValues\TargetBorderEnum.cs" />
     <Compile Include="Phutball\ReadOnlyPhutballBoard.cs" />
     <Compile Include="Phutball\Search\BoardValues\IValueOf.cs" />
     <Compile Include="Phutball\Search\BoardValues\WhiteStoneToBorderDistanceValue.cs" />

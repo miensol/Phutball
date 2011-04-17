@@ -16,7 +16,7 @@ namespace EndGames.Phutball.Search
 
         public IPhutballMove ResultMove { get; private set; }
 
-        private int CurrentMaxValue { get; set; }
+        public int CurrentMaxValue { get; set; }
 
         public PickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph graphCopy, IPerformMoves performMoves)
         {

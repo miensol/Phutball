@@ -62,9 +62,21 @@ namespace EndGames.Shell.Presenters
         }
         
         [AsyncAction(BlockInteraction = true)]
+        public void MakeMoveAlphaBetaJumpsOrStay()
+        {
+            _bestMoveApplier.PerformAndStore((f) => f.AlphaBetaJumpsOrStay());            
+        }
+        
+        [AsyncAction(BlockInteraction = true)]
         public void MakeMoveAlphaBeta()
         {
             _bestMoveApplier.PerformAndStore((f) => f.AlphaBeta());            
+        }
+        
+        [AsyncAction(BlockInteraction = true)]
+        public void MakeMoveLikeComputer()
+        {
+            _bestMoveApplier.ChoosePerformAndStore();            
         }
     }
 }

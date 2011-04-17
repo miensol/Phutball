@@ -2,6 +2,7 @@
 
 namespace EndGames.Phutball
 {
+    [Serializable]
     public class PhutballOptions : IPhutballOptions
     {
         public PhutballOptions()
@@ -21,5 +22,14 @@ namespace EndGames.Phutball
 
         public int DfsSearchDepth { get; set; }
         public int BfsSearchDepth { get; set; }
+
+        public void Update(IPhutballOptions options)
+        {
+            RowCount = options.RowCount;
+            ColumnCount = options.ColumnCount;
+            DfsSearchDepth = options.DfsSearchDepth;
+            BfsSearchDepth = options.BfsSearchDepth;
+            AlphaBeta = options.AlphaBeta;
+        }
     }
 }

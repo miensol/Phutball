@@ -15,7 +15,7 @@
             }
             if(arg1.Score == arg2.Score)
             {
-                return arg1.Depth < arg2.Depth ? arg1 : arg2;
+                return arg1.Depth <= arg2.Depth ? arg1 : arg2;
             }
             return arg2;
         }
@@ -28,7 +28,7 @@
             }
             if (arg1.Score == arg2.Score)
             {
-                return arg1.Depth < arg2.Depth ? arg1 : arg2;
+                return arg1.Depth <= arg2.Depth ? arg1 : arg2;
             }
             return arg2;
         }

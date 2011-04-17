@@ -15,5 +15,7 @@ namespace EndGames.Phutball
         void Initialize();
         bool CanPlaceBlackStone(Field field);
         bool CanPlaceBlackStone(Tuple<int,int> coords);
+        TargetBorderEnum Borders();
+        IEnumerable<Field> GetBlackFields();
     }
 }

@@ -26,7 +26,7 @@ namespace EndGames.Phutball.Search
             var localMovePerformer = PerformMoves.DontCareAboutPlayerStateChange(actualGraph);
             var current = new RootedBySelectingWhiteFieldBoardJumpTree(actualGraph);
             var currentMoves = current.TraverseDfs(new PerformMovesNodeVisitor(localMovePerformer), _alphaBetaOptions.JumpsMaxDepth)
-                .Skip(1);
+                .Skip(_alphaBetaOptions.SkipShortMoves);
             foreach (var currentMove in currentMoves)
             {
                 var newMove = CreateNewMove(currentMove);
