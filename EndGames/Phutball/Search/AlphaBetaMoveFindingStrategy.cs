@@ -28,7 +28,7 @@ namespace EndGames.Phutball.Search
             var performMoves = new PerformMoves(actualGraph, _playersState);
             _andOrSearch = new AndOrSearch<JumpNode>(
                 new WhiteStoneToCurrentPlayerBorderDistance(_playersState, actualGraph, _alphaBetaSearchDepth.DistanceToBorderWeight)
-                .Add(new AverageBlackStoneToTargetBorderDistance(_playersState, actualGraph, _alphaBetaSearchDepth.BlackStonesToBorderWeight))
+                .Add(new BlackkStoneToTargetBorderCount(_playersState, actualGraph, _alphaBetaSearchDepth.BlackStonesToBorderWeight))
                 ,
                 _alphaBetaSearchDepth,
                 new PerformMovesNodeVisitor(performMoves)

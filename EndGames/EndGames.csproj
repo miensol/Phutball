@@ -110,7 +110,7 @@
     <Compile Include="Phutball\Search\AndOrSearch.cs" />
     <Compile Include="Phutball\Search\BfsSearch.cs" />
     <Compile Include="Phutball\Search\BoardValues\AddValues.cs" />
-    <Compile Include="Phutball\Search\BoardValues\AverageBlackStoneToTargetBorderDistance.cs" />
+    <Compile Include="Phutball\Search\BoardValues\BlackkStoneToTargetBorderCount.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Phutball\Search\BoardValues\Extensions.cs" />
