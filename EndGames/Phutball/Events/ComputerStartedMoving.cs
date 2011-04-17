@@ -1,6 +1,6 @@
 ﻿namespace EndGames.Phutball.Events
 {
-    public class PhutballGameStarted : IEventMarker
+    public class ComputerStartedMoving:  IEventMarker
     {
     }
 }

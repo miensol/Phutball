@@ -76,6 +76,8 @@
     <Compile Include="Phutball\AlphaBetaOptions.cs" />
     <Compile Include="Phutball\BestMoveApplier.cs" />
     <Compile Include="Phutball\BlackStone.cs" />
+    <Compile Include="Phutball\Events\ComputerStartedMoving.cs" />
+    <Compile Include="Phutball\Events\ComputerStopedMoving.cs" />
     <Compile Include="Phutball\Events\CurrentPlayerWonEvent.cs" />
     <Compile Include="Phutball\Events\MovePerfomed.cs" />
     <Compile Include="Phutball\Events\MovesHistoryChanged.cs" />

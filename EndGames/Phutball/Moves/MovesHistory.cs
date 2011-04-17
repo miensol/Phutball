@@ -76,5 +76,11 @@ namespace EndGames.Phutball.Moves
             moveToDo.Perform();
             _done.Add(moveToDo);
         }
+
+        public void Clear()
+        {
+            _done.Clear();
+            _undone.Clear();
+        }
     }
 }

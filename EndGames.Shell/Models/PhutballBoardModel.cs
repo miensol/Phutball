@@ -24,6 +24,8 @@ namespace EndGames.Shell.Models
             _eventPublisher.Subscribe<PhutballBoardInitialized>(HandleGameInitialized);
             _eventPublisher.Subscribe<PhutballGameStarted>(HandleGameStart);
             _eventPublisher.Subscribe<PhutballGameEnded>(HandleGameEnded);
+            _eventPublisher.Subscribe<ComputerStartedMoving>(m=> IsEnabled = false);
+            _eventPublisher.Subscribe<ComputerStopedMoving>(m=> IsEnabled = true);
             _eventPublisher.Subscribe<PhutballGameFieldsChanged>(HandleGameFieldsChanged);
         }
 

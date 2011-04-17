@@ -16,6 +16,18 @@ namespace EndGames.Phutball.Jumpers
         private static readonly Tuple<int, int> W = new Tuple<int, int>(0, -1);
         private static readonly Tuple<int, int> NW = new Tuple<int, int>(-1, -1);
 
+        private static readonly Tuple<int, int>[] AllDirections = new[]
+                                                            {
+                                                                N,
+                                                                NE,
+                                                                NW,
+                                                                W,
+                                                                E,
+                                                                SW,
+                                                                SE,
+                                                                S
+                                                            };
+
         public JumpersFactory(IFieldsGraph fieldsGraph)
         {
             _fieldsGraph = fieldsGraph;
@@ -23,7 +35,7 @@ namespace EndGames.Phutball.Jumpers
 
         public IEnumerable<IJump> AllJumps(Field from)
         {
-            return Directions().Select(direction=> new FieldJump(_fieldsGraph, from, direction));
+            return AllDirections.ToList().Shuffle().Select(direction=> new FieldJump(_fieldsGraph, from, direction));
         }
 
         public IJump FromTo(Field from, Field to)
@@ -33,17 +45,7 @@ namespace EndGames.Phutball.Jumpers
 
         public static IEnumerable<Tuple<int, int>> Directions()
         {
-            return new[]
-                       {
-                           N,
-                           NE,
-                           NW,
-                           W,
-                           E,
-                           SW,
-                           SE,
-                           S
-                       };
+            return AllDirections;
         }
 
         public IEnumerable<Field> AllPlaces(Field whiteField)

@@ -1,4 +1,5 @@
-﻿using Caliburn.PresentationFramework.Actions;
+﻿using System;
+using Caliburn.PresentationFramework.Actions;
 using Caliburn.PresentationFramework.Screens;
 using EndGames.Phutball;
 using EndGames.Phutball.Events;
@@ -18,8 +19,20 @@ namespace EndGames.Shell.Presenters
         {
             _eventPublisher = eventPublisher;
             _bestMoveApplier = bestMoveApplier;
-            _eventPublisher.Subscribe<PhutballGameStarted>((e) => IsEnabled = true);
-            _eventPublisher.Subscribe<PhutballGameEnded>((e) => IsEnabled = false);
+            _eventPublisher.Subscribe<PhutballGameStarted>(Enable);
+            _eventPublisher.Subscribe<PhutballGameEnded>(Disable);
+            _eventPublisher.Subscribe<ComputerStartedMoving>(Disable);
+            _eventPublisher.Subscribe<ComputerStopedMoving>(Enable);
+        }
+
+        private void Disable(IEventMarker obj)
+        {
+            IsEnabled = false;
+        }
+
+        private void Enable(IEventMarker obj)
+        {
+            IsEnabled = true;
         }
 
         private bool _isEnabled;

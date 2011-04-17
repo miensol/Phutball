@@ -2,16 +2,7 @@
 {
     public class MoveScore<T,TScore>
     {
-        private T _move;
-
-        public T Move
-        {
-            get { return _move; }
-            set {                 
-                _move = value; 
-                
-            }
-        }
+        public T Move { get; set; }
 
         public TScore Score { get; set; }
         public int Depth { get; set; }

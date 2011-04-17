@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using EndGames.Phutball.Events;
 using EndGames.Phutball.PlayerMoves;
@@ -15,6 +16,8 @@ namespace EndGames.Phutball
         private readonly BestMoveApplier _bestMoveApplier;
         private IHandlePlayerMoves _handlePlayerMoves;
         private Func<IHandlePlayerMoves> _handlePlayerMovesFactory;
+        private CancellationTokenSource _cancenTokenSource ;
+        private Task _moveTask;
 
         public PhutballGameState(
             IEventPublisher eventPublisher, 
@@ -32,6 +35,7 @@ namespace EndGames.Phutball
             _handlePlayerMoves = handlePlayerMovesFactory();
             _eventPublisher.Subscribe<CurrentPlayerWonEvent>((e)=> CurrentPlayerWon());
             _eventPublisher.Subscribe<PlayerOnTheMoveChanged>(OnPlayerOnTheMoveChanged);
+            _eventPublisher.Subscribe<ComputerStartedMoving>((e)=> LongRunningProcess.Clear());
         }
 
         private void OnPlayerOnTheMoveChanged(PlayerOnTheMoveChanged change)
@@ -86,16 +90,38 @@ namespace EndGames.Phutball
             _eventPublisher.Publish(new PlayersStateChanged());
             if (_playersState.CurrentPlayer.IsAComputer)
             {
-                Task.Factory.StartNew(() => _bestMoveApplier.ChoosePerformAndStore());
+                _cancenTokenSource = LongRunningProcess.StartNew();
+                var token = _cancenTokenSource.Token;
+                _moveTask = Task.Factory.StartNew(() => _bestMoveApplier.ChooseAndPerform(token), token);
             }
         }
 
         public void Restart()
         {
+            CancelComputerMove();
             _currentState = PhutballGameStateEnum.NotStarted;
             _playersState.Stop();
             _eventPublisher.Publish(new PlayersStateChanged());
             _eventPublisher.Publish(new PhutballGameEnded());
+        }
+
+        private void CancelComputerMove()
+        {
+            if(_moveTask != null)
+            {
+                _cancenTokenSource.Cancel();
+                try
+                {
+                    _moveTask.Wait(_cancenTokenSource.Token);
+                }
+                catch(OperationCanceledException)
+                {
+                    _moveTask.Wait();
+                }
+                _moveTask = null;
+                LongRunningProcess.Clear();
+                _eventPublisher.Publish(new ComputerStartedMoving());
+            }
         }
     }
 }

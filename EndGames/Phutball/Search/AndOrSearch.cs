@@ -36,7 +36,7 @@ namespace EndGames.Phutball.Search
         {
             Enter(tree);
             MoveScore<T,int> result;
-            if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf)
+            if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf || LongRunningProcess.Current.IsCancellationRequested)
             {
                 result = new MoveScore<T,int>
                              {
@@ -57,6 +57,10 @@ namespace EndGames.Phutball.Search
                         {
                             break;
                         }
+                        if(LongRunningProcess.Current.IsCancellationRequested)
+                        {
+                            break;
+                        }
                     }
                     result = alpha;
                 }
@@ -68,6 +72,10 @@ namespace EndGames.Phutball.Search
                        // var graph = child.Node;
                         beta = beta.Min(AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
+                        {
+                            break;
+                        }
+                        if (LongRunningProcess.Current.IsCancellationRequested)
                         {
                             break;
                         }

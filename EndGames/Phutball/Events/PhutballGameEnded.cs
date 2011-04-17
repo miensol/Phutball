@@ -1,6 +1,10 @@
 ﻿namespace EndGames.Phutball.Events
 {
-    public class PhutballGameEnded
+    public class PhutballGameEnded : IEventMarker
+    {
+    }
+
+    public interface IEventMarker
     {
     }
 }
