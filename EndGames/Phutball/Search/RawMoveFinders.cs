@@ -74,7 +74,7 @@ namespace EndGames.Phutball.Search
                 playersStateCopy, _phutballOptions.AlphaBeta,
                 (graph) => new AlternatingJumpsMovesTree( JumpNode.Empty(graph),
                                     (parent) => new AllAlternatigJumpsTreeCollection(parent, _phutballOptions.AlphaBeta)
-                                                    .Concat(new PlaceBlackStonesAroundWhite(parent, playersStateCopy))
+                                            .Concat(new PlaceBlackStonesAroundWhite(parent, playersStateCopy, _phutballOptions.AlphaBeta))
                                     )
             );
         }

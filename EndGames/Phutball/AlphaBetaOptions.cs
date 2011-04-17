@@ -13,11 +13,12 @@ namespace EndGames.Phutball
         {
             return new AlphaBetaOptions
                        {
-                           SearchDepth = 5,
-                           JumpsMaxDepth = 8,
+                           SearchDepth = 6,
+                           JumpsMaxDepth = 9,
                            StoneRadius = 1,
                            SkipShortMoves = 1,
-                           DistanceToBorderWeight = 1
+                           DistanceToBorderWeight = 7,
+                           BlackStonesToBorderWeight = 2
                        };
         }
 

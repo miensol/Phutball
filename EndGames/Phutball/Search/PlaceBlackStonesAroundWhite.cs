@@ -9,13 +9,15 @@ namespace EndGames.Phutball.Search
     {
         private readonly IFieldsGraph _fieldsGraph;
         private readonly IPlayersState _playersState;
+        private readonly IAlphaBetaOptions _alphaBetaOptions;
         private JumpersFactory _jumpersFactory;
 
-        public PlayerJumpersFactory(IFieldsGraph fieldsGraph, IPlayersState playersState)
+        public PlayerJumpersFactory(IFieldsGraph fieldsGraph, IPlayersState playersState, IAlphaBetaOptions alphaBetaOptions)
         {
             _fieldsGraph = fieldsGraph;
             _playersState = playersState;
-            _jumpersFactory = new JumpersFactory(_fieldsGraph);
+            _alphaBetaOptions = alphaBetaOptions;
+            _jumpersFactory = new JumpersFactory(_fieldsGraph, _alphaBetaOptions.StoneRadius);
         }
 
         public IEnumerable<Field> PlacesAround(Field whiteField)
@@ -31,15 +33,17 @@ namespace EndGames.Phutball.Search
     {
         private readonly IJumpNodeTreeWithFactory _parent;
         private readonly IPlayersState _playersState;
+        private readonly IAlphaBetaOptions _alphaBetaOptions;
         private JumpNode _parentJumpNode;
         private PlayerJumpersFactory _placersFactory;
 
-        public PlaceBlackStonesAroundWhite(IJumpNodeTreeWithFactory parent, IPlayersState playersState)
+        public PlaceBlackStonesAroundWhite(IJumpNodeTreeWithFactory parent, IPlayersState playersState, IAlphaBetaOptions alphaBetaOptions)
         {
             _parent = parent;
             _playersState = playersState;
+            _alphaBetaOptions = alphaBetaOptions;
             _parentJumpNode = _parent.Node;
-            _placersFactory = new PlayerJumpersFactory(_parentJumpNode.ActualGraph, _playersState);
+            _placersFactory = new PlayerJumpersFactory(_parentJumpNode.ActualGraph, _playersState, _alphaBetaOptions);
         }
 
         public IEnumerator<IJumpNodeTreeWithFactory> GetEnumerator()

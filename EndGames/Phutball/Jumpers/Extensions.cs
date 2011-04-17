@@ -13,6 +13,11 @@ namespace EndGames.Phutball.Jumpers
             return Tuple.Create(current.Item1*mul, current.Item2*mul);
         }
 
+        public static Tuple<int, int> Add(this Tuple<int, int> current, Tuple<int, int> right)
+        {
+            return Tuple.Create(current.Item1 + right.Item1, current.Item2 + right.Item2);
+        }
+
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> sequence)
         {
             var all = sequence.ToList();
