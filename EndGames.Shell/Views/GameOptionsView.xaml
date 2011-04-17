@@ -99,7 +99,7 @@
                              />
 
         <TextBlock Grid.Row="16" TextWrapping="Wrap">
-			Number of black stones between white and border
+			Black stones to target border weight
         </TextBlock>
         <utils:NumericUpDown Grid.Row="16" Grid.Column="2" 
                              Value="{Binding AlphaBeta.BlackStonesToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 

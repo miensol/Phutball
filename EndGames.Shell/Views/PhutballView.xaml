@@ -23,6 +23,9 @@
 		</DataTemplate>
 	</UserControl.Resources>
 	<StackPanel Orientation="Horizontal">
+        <Expander ExpandDirection="Left" IsExpanded="True" Header="Options">
+            <ContentControl cal:View.Model="{Binding GameOptions}" />            
+        </Expander>
 		<StackPanel Orientation="Vertical">
 			<ContentControl cal:View.Model="{Binding GameState}" />
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
@@ -36,11 +39,8 @@
 			</StackPanel>
             <ContentControl cal:View.Model="{Binding MovesHistory}" />
 		</StackPanel>
-		<Expander ExpandDirection="Right" IsExpanded="True" Header="Options &amp; Cheats">
-			<StackPanel Orientation="Vertical">
-				<ContentControl cal:View.Model="{Binding GameOptions}" />
-				<ContentControl cal:View.Model="{Binding Cheats}" />
-			</StackPanel>
+		<Expander ExpandDirection="Right" IsExpanded="True" Header="Cheats">							
+            <ContentControl cal:View.Model="{Binding Cheats}" />
 		</Expander>
 
 	</StackPanel>

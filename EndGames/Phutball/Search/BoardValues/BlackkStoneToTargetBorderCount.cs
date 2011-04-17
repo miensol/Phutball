@@ -2,25 +2,27 @@
 
 namespace EndGames.Phutball.Search.BoardValues
 {
-    public class BlackStonesToTargetBorderCount : IValueOf<JumpNode>
+    public class BlackkStoneToTargetBorderCount : IValueOf<JumpNode>
     {
         private TargetBorder _targetBorder;
         private int _goodBlackFieldsWeight;
+        private int _originalDistance;
 
-        public BlackStonesToTargetBorderCount(IPlayersState playersState, IFieldsGraph actualGraph, int goodBlackFieldsWeight)
+        public BlackkStoneToTargetBorderCount(IPlayersState playersState, IFieldsGraph actualGraph, int goodBlackFieldsWeight)
         {
             _targetBorder = playersState.CurrentPlayer.GetTargetBorder(actualGraph);
+            _originalDistance = _targetBorder.GetDistanceFrom(actualGraph.GetWhiteField());
             _goodBlackFieldsWeight = goodBlackFieldsWeight;
         }
 
         public int GetValue(JumpNode valueSubject)
         {
-            var whiteField = valueSubject.ActualGraph.GetWhiteField();
-            var whiteDistance = _targetBorder.GetDistanceFrom(whiteField);
-
-
             var blackFields = valueSubject.ActualGraph.GetBlackFields();
-            var goodBlackFields = blackFields.Count(field => _targetBorder.GetDistanceFrom(field) < whiteDistance);
+            if(blackFields.Count() == 0)
+            {
+                return 0;
+            }
+            var goodBlackFields = blackFields.Count(field => _targetBorder.GetDistanceFrom(field) < _originalDistance);
             return goodBlackFields*_goodBlackFieldsWeight;
         }
     }
