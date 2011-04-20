@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using EndGames.Phutball;
 
-namespace EndGames.Utils
+namespace Phutball.Utils
 {
     public interface IStartupTask
     {

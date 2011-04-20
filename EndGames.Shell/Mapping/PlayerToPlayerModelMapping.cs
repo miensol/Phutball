@@ -1,10 +1,9 @@
 ﻿using System;
 using AutoMapper;
-using EndGames.Phutball;
-using EndGames.Shell.Models;
-using EndGames.Utils;
+using Phutball.Shell.Models;
+using Phutball.Utils;
 
-namespace EndGames.Shell.Mapping
+namespace Phutball.Shell.Mapping
 {
     public class PlayerToPlayerModelMapping : IStartupTask
     {

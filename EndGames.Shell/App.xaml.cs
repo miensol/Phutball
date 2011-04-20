@@ -2,11 +2,11 @@
 using Caliburn.PresentationFramework.ApplicationModel;
 using Caliburn.PresentationFramework.Configuration;
 using Caliburn.StructureMap;
-using EndGames.Shell.Presenters.Interfaces;
-using EndGames.Utils;
+using Phutball.Shell.Presenters.Interfaces;
+using Phutball.Utils;
 using StructureMap;
 
-namespace EndGames.Shell
+namespace Phutball.Shell
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,10 +1,9 @@
 ﻿using System;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Phutball;
-using EndGames.Shell.Models;
-using EndGames.Shell.Presenters.Interfaces;
+using Phutball.Shell.Models;
+using Phutball.Shell.Presenters.Interfaces;
 
-namespace EndGames.Shell.Presenters
+namespace Phutball.Shell.Presenters
 {
     public class PhutballBoardPresenter : Screen, IPhutbalBoardPresenter
     {

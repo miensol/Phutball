@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace EndGames.Shell.Extensions
+namespace Phutball.Shell.Extensions
 {
     public static class WpfExtensions
     {

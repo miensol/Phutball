@@ -1,21 +1,19 @@
-﻿<UserControl x:Class="EndGames.Shell.Views.PhutballBoardView"
+﻿<UserControl x:Class="Phutball.Shell.Views.PhutballBoardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:models="clr-namespace:EndGames.Shell.Models" 
-             xmlns:cal="http://www.caliburnproject.org" mc:Ignorable="d" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:cal="http://www.caliburnproject.org" xmlns:Models="clr-namespace:Phutball.Shell.Models" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type models:BlackStoneModel}" >
+        <DataTemplate DataType="{x:Type Models:BlackStoneModel}" >
             <Ellipse Style="{StaticResource BlackStone}"/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type models:WhiteStoneModel}" >
+        <DataTemplate DataType="{x:Type Models:WhiteStoneModel}" >
             <Ellipse Style="{StaticResource WhiteStone}" />
         </DataTemplate>
 
 
-        <DataTemplate DataType="{x:Type models:FieldModel}">
+        <DataTemplate DataType="{x:Type Models:FieldModel}">
             <Canvas cal:Message.Attach="[Event  MouseLeftButtonDown] = [Action FieldClicked($dataContext)]" >                                
                 <Canvas.Style>
                     <Style TargetType="{x:Type Canvas}">

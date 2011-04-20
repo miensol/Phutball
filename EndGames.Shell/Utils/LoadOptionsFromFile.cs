@@ -1,10 +1,9 @@
 using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
-using EndGames.Phutball;
-using EndGames.Utils;
+using Phutball.Utils;
 
-namespace EndGames.Shell.Utils
+namespace Phutball.Shell.Utils
 {
     public class SaveOptionsToFileOnExit : IStartupTask
     {

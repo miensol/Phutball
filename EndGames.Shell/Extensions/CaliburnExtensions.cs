@@ -3,7 +3,7 @@ using Caliburn.PresentationFramework;
 using Caliburn.PresentationFramework.Screens;
 using Microsoft.Practices.ServiceLocation;
 
-namespace EndGames.Shell.Extensions
+namespace Phutball.Shell.Extensions
 {
     public static class CaliburnExtensions
     {

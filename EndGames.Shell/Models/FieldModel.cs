@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace EndGames.Shell.Models
+namespace Phutball.Shell.Models
 {
     public class FieldModel : ModelWithId
     {

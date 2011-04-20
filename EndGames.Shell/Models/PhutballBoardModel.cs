@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Caliburn.PresentationFramework;
-using EndGames.Mapping;
-using EndGames.Phutball;
-using EndGames.Phutball.Events;
-using EndGames.Shell.Extensions;
-using EndGames.Shell.Utils;
+using Phutball.Events;
+using Phutball.Mapping;
+using Phutball.Shell.Extensions;
+using Phutball.Shell.Utils;
 
-namespace EndGames.Shell.Models
+namespace Phutball.Shell.Models
 {
     public class PhutballBoardModel : PropertyChangedBase
     {

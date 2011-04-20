@@ -1,11 +1,9 @@
-﻿using System;
-using Caliburn.PresentationFramework.Actions;
+﻿using Caliburn.PresentationFramework.Actions;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Phutball;
-using EndGames.Phutball.Events;
-using EndGames.Shell.Presenters.Interfaces;
+using Phutball.Events;
+using Phutball.Shell.Presenters.Interfaces;
 
-namespace EndGames.Shell.Presenters
+namespace Phutball.Shell.Presenters
 {
     public class CheatsPresenter : Screen, ICheatsPresenter
     {

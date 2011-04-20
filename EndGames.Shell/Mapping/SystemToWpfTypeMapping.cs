@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using AutoMapper;
-using EndGames.Utils;
+using Phutball.Utils;
 
-namespace EndGames.Shell.Mapping
+namespace Phutball.Shell.Mapping
 {
     public class SystemToWpfTypeMapping : IStartupTask
     {

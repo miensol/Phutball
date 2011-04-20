@@ -1,10 +1,9 @@
-using System;
-using EndGames.Mapping;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Mapping;
 using Rhino.Mocks;
 
-namespace EndGames.Tests.Mapping
+namespace Phutball.Tests.Mapping
 {
     public class when_mapping_object_to_target_type : observations_for_static_sut_with_ioc
     {

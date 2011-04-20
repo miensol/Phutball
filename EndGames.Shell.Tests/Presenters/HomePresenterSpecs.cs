@@ -1,11 +1,10 @@
-using System;
-using EndGames.Shell.Presenters;
-using EndGames.Shell.Presenters.Interfaces;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Shell.Presenters;
+using Phutball.Shell.Presenters.Interfaces;
 using Rhino.Mocks;
 
-namespace EndGames.Shell.Tests.Presenters
+namespace Phutball.Shell.Tests.Presenters
 {
     public class when_clicking_go_to_phutball : observations_for_auto_created_sut_of_type<HomePresenter>
     {

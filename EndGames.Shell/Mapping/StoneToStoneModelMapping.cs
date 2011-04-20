@@ -1,10 +1,8 @@
-﻿using System.Windows.Threading;
-using AutoMapper;
-using EndGames.Phutball;
-using EndGames.Shell.Models;
-using EndGames.Utils;
+﻿using AutoMapper;
+using Phutball.Shell.Models;
+using Phutball.Utils;
 
-namespace EndGames.Shell.Mapping
+namespace Phutball.Shell.Mapping
 {
     public class StoneToStoneModelMapping : IStartupTask
     {

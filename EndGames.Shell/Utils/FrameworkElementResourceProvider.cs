@@ -1,7 +1,7 @@
 using System.Windows;
-using EndGames.Shell.Extensions;
+using Phutball.Shell.Extensions;
 
-namespace EndGames.Shell.Utils
+namespace Phutball.Shell.Utils
 {
     public class FrameworkElementResourceProvider : IResourceProvider
     {

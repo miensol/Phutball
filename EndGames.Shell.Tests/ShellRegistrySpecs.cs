@@ -1,9 +1,9 @@
-using EndGames.Mapping;
-using EndGames.Shell.Presenters.Interfaces;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Mapping;
+using Phutball.Shell.Presenters.Interfaces;
 
-namespace EndGames.Shell.Tests
+namespace Phutball.Shell.Tests
 {
     public class when_adding_shell_registry_to_container : observations_for_static_sut_with_ioc
     {

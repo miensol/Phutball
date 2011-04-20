@@ -8,7 +8,7 @@ using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace EndGames.Shell.Utils
+namespace Phutball.Shell.Utils
 {
     public class NumericUpDown : Control
     {

@@ -1,7 +1,7 @@
 using System.Windows;
 using ForTesting;
 
-namespace EndGames.Shell.Tests.SpecificationExtensions
+namespace Phutball.Shell.Tests.SpecificationExtensions
 {
     public static class WpfExtensions
     {

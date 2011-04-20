@@ -10,7 +10,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Class="Phutball.Shell.Resources.d__users_piotr_dev_c__moje_endgames_endgames_shell_resources_expressiondark_xaml">
 
     <!-- Main Colors -->
 

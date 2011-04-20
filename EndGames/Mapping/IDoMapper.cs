@@ -1,4 +1,4 @@
-namespace EndGames.Mapping
+namespace Phutball.Mapping
 {
     public interface IDoMapper
     {

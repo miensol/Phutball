@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace EndGames.Shell.Views
+namespace Phutball.Shell.Views
 {
     /// <summary>
     /// Interaction logic for PhutballView.xaml

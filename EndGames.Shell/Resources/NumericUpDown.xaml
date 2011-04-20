@@ -1,7 +1,6 @@
 <ResourceDictionary
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:Utils="clr-namespace:EndGames.Shell.Utils">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Utils="clr-namespace:Phutball.Shell.Utils" x:Class="Phutball.Shell.Resources.d__users_piotr_dev_c__moje_endgames_endgames_shell_resources_numericupdown_xaml">
 
     <Style TargetType="{x:Type Utils:NumericUpDown}">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>

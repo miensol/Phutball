@@ -2,7 +2,7 @@ using System;
 using ForTesting;
 using NUnit.Framework;
 
-namespace EndGames.Tests
+namespace Phutball.Tests
 {
     [TestFixture]
     public class BasicExtensionsTester
@@ -18,20 +18,20 @@ namespace EndGames.Tests
         public void FirstValue()
         {
             var objects = new TestObject[] {new TestObject(), new TestObject(), new TestObject()};
-            objects.FirstValue(x => x.Child).ShouldBeNull();
+            SpecificationExtensions.ShouldBeNull(objects.FirstValue(x => x.Child));
 
             var theChild = new TestObject();
             objects[1].Child = theChild;
             objects[2].Child = new TestObject();
 
-            objects.FirstValue(x => x.Child).ShouldBeTheSameAs(theChild);
+            SpecificationExtensions.ShouldBeTheSameAs(objects.FirstValue(x => x.Child), theChild);
         }
 
         public void UrlEncode_should_encode_string()
         {
             string test = "encode test";
 
-            test.UrlEncoded().ShouldEqual("encode%20test");
+            SpecificationExtensions.ShouldEqual(test.UrlEncoded(), "encode%20test");
         }
 
         [Test]

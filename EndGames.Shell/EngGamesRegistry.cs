@@ -1,13 +1,12 @@
 using System;
-using EndGames.Phutball;
-using EndGames.Phutball.Moves;
-using EndGames.Phutball.PlayerMoves;
-using EndGames.Shell.Presenters;
-using EndGames.Shell.Presenters.Interfaces;
-using EndGames.Utils;
+using Phutball.Moves;
+using Phutball.PlayerMoves;
+using Phutball.Shell.Presenters;
+using Phutball.Shell.Presenters.Interfaces;
+using Phutball.Utils;
 using StructureMap.Configuration.DSL;
 
-namespace EndGames.Shell
+namespace Phutball.Shell
 {
     public class EngGamesRegistry : Registry
     {

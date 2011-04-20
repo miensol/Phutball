@@ -2,14 +2,13 @@ using System.Linq;
 using System.Windows.Threading;
 using Caliburn.PresentationFramework.Filters;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Mapping;
-using EndGames.Phutball;
-using EndGames.Phutball.Events;
-using EndGames.Shell.Mapping;
-using EndGames.Shell.Presenters.Interfaces;
 using System;
+using Phutball.Events;
+using Phutball.Mapping;
+using Phutball.Shell.Mapping;
+using Phutball.Shell.Presenters.Interfaces;
 
-namespace EndGames.Shell.Presenters
+namespace Phutball.Shell.Presenters
 {
     public class GameStatePresenter : Screen, IGameStatePresenter
     {

@@ -1,12 +1,11 @@
-using System;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Shell.Presenters;
-using EndGames.Shell.Presenters.Interfaces;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Shell.Presenters;
+using Phutball.Shell.Presenters.Interfaces;
 using Rhino.Mocks;
 
-namespace EndGames.Shell.Tests.Presenters
+namespace Phutball.Shell.Tests.Presenters
 {
     public class when_shell_opens_screen : observations_for_auto_created_sut_of_type<ShellPresenter>
     {

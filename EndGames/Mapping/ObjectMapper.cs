@@ -1,6 +1,6 @@
 using AutoMapper;
 
-namespace EndGames.Mapping
+namespace Phutball.Mapping
 {
     public class DoMapper : IDoMapper
     {

@@ -1,7 +1,7 @@
 ﻿using Caliburn.PresentationFramework;
-using EndGames.Shell.Models;
+using Phutball.Shell.Models;
 
-namespace EndGames.Shell.Mapping
+namespace Phutball.Shell.Mapping
 {
     public class PlayerOnBoardModel : PropertyChangedBase
     {

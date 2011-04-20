@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace EndGames
+namespace Phutball
 {
     public class Switch<T>
     {

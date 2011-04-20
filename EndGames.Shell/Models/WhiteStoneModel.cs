@@ -1,4 +1,4 @@
-﻿namespace EndGames.Shell.Models
+﻿namespace Phutball.Shell.Models
 {
     public class WhiteStoneModel : IStoneModel
     {}

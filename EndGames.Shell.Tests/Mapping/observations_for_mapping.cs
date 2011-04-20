@@ -1,6 +1,6 @@
-﻿using EndGames.Utils;
+﻿using Phutball.Utils;
 
-namespace EndGames.Shell.Tests.Mapping
+namespace Phutball.Shell.Tests.Mapping
 {
     public abstract class observations_for_mapping<TSource,TDestination> : ForTesting.observations_for_mapping<TSource,TDestination>
     {

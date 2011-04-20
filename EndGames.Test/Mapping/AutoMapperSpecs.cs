@@ -1,9 +1,9 @@
 using AutoMapper;
-using EndGames.Mapping;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Mapping;
 
-namespace EndGames.Tests.Mapping
+namespace Phutball.Tests.Mapping
 {
     public class when_mapping_test_view_model_to_target_class : observations_for_auto_created_sut_of_type<DoMapper>
     {

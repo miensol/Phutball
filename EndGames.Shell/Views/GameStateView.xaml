@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EndGames.Shell.Views.GameStateView"
+﻿<UserControl x:Class="Phutball.Shell.Views.GameStateView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Practices.ServiceLocation;
 
-namespace EndGames.Mapping
+namespace Phutball.Mapping
 {
     public static class AutoMapperExtensions
     {

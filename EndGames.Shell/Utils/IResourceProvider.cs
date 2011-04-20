@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace EndGames.Shell.Utils
+namespace Phutball.Shell.Utils
 {
     public interface IResourceProvider
     {

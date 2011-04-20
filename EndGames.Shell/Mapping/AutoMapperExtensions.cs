@@ -2,7 +2,7 @@
 using AutoMapper;
 using Caliburn.PresentationFramework;
 
-namespace EndGames.Shell.Mapping
+namespace Phutball.Shell.Mapping
 {
     public static class AutoMapperExtensions
     {

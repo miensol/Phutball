@@ -1,11 +1,10 @@
-using EndGames.Phutball;
-using EndGames.Shell.Mapping;
-using EndGames.Shell.Models;
 using NUnit.Framework;
+using Phutball.Shell.Mapping;
+using Phutball.Shell.Models;
+using Phutball.Shell.Tests.SpecificationExtensions;
 using Rhino.Mocks;
-using EndGames.Shell.Tests.SpecificationExtensions;
 
-namespace EndGames.Shell.Tests.Mapping
+namespace Phutball.Shell.Tests.Mapping
 {
     public abstract class observations_for_mapping_field_to_field_model : observations_for_mapping<Field, FieldModel>
     {

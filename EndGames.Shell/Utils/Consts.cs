@@ -1,4 +1,4 @@
-namespace EndGames.Shell.Utils
+namespace Phutball.Shell.Utils
 {
     public class Consts
     {

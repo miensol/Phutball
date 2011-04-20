@@ -1,9 +1,9 @@
-using System.Windows;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Shell.Presenters.Interfaces;
 using Microsoft.Practices.ServiceLocation;
-using EndGames.Shell.Extensions;
-namespace EndGames.Shell.Presenters
+using Phutball.Shell.Extensions;
+using Phutball.Shell.Presenters.Interfaces;
+
+namespace Phutball.Shell.Presenters
 {
     public class ShellPresenter : Navigator<IScreen>, IShellPresenter   
     {

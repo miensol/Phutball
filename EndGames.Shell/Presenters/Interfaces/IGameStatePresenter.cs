@@ -1,4 +1,4 @@
-﻿namespace EndGames.Shell.Presenters.Interfaces
+﻿namespace Phutball.Shell.Presenters.Interfaces
 {
     public interface IGameStatePresenter
     {

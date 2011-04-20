@@ -1,9 +1,7 @@
-using System;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Phutball;
-using EndGames.Shell.Presenters.Interfaces;
+using Phutball.Shell.Presenters.Interfaces;
 
-namespace EndGames.Shell.Presenters
+namespace Phutball.Shell.Presenters
 {
 
     public class GameOptionsPresenter : Screen, IGameOptionsPresenter

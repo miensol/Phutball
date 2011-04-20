@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phutball</RootNamespace>
+    <AssemblyName>Phutball</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventPublisher.cs" />
+    <Compile Include="AlphaBetaOptions.cs" />
+    <Compile Include="BestMoveApplier.cs" />
+    <Compile Include="BlackStone.cs" />
+    <Compile Include="Events\ComputerStartedMoving.cs" />
+    <Compile Include="Events\ComputerStopedMoving.cs" />
+    <Compile Include="Events\CurrentPlayerWonEvent.cs" />
+    <Compile Include="Events\MovePerfomed.cs" />
+    <Compile Include="Events\MovesHistoryChanged.cs" />
+    <Compile Include="Events\PhutballGameEnded.cs" />
+    <Compile Include="Events\PlayerOnTheMoveChanged.cs" />
+    <Compile Include="Events\PlayersStateChanged.cs" />
+    <Compile Include="IAlphaBetaOptions.cs" />
+    <Compile Include="IFieldsUpdater.cs" />
+    <Compile Include="IPlayersState.cs" />
+    <Compile Include="IPlayersSwapper.cs" />
+    <Compile Include="Jumpers\Extensions.cs" />
+    <Compile Include="Jumpers\FieldExtensions.cs" />
+    <Compile Include="Jumpers\IntExtensions.cs" />
+    <Compile Include="Moves\DeselectWhiteFieldIfSelectedMove.cs" />
+    <Compile Include="Moves\EmptyPhutballMove.cs" />
+    <Compile Include="Moves\IPhutballMove.cs" />
+    <Compile Include="Moves\MoveExtnensions.cs" />
+    <Compile Include="Moves\MoveHistoryItem.cs" />
+    <Compile Include="Moves\MovesHistory.cs" />
+    <Compile Include="Moves\PhutballMoveContext.cs" />
+    <Compile Include="NulloPlayersSwapper.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerEnum.cs" />
+    <Compile Include="PlayerMoves\IPerformMoves.cs" />
+    <Compile Include="PlayerMoves\NullPerformMoves.cs" />
+    <Compile Include="PlayerMoves\PerformMoves.cs" />
+    <Compile Include="PlayerMoves\PerformMovesUntilPlayerOnMoveChange.cs" />
+    <Compile Include="PlayerOnBoardInfo.cs" />
+    <Compile Include="Search\AllAlternatigJumpsTreeCollection.cs" />
+    <Compile Include="Search\AlphaBetaMoveFindingStrategy.cs" />
+    <Compile Include="Search\AlternatingJumpsMovesTree.cs" />
+    <Compile Include="Search\AndOrSearch.cs" />
+    <Compile Include="Search\BfsSearch.cs" />
+    <Compile Include="Search\BoardValues\AddValues.cs" />
+    <Compile Include="Search\BoardValues\BlackkStoneToTargetBorderCount.cs" />
+    <Compile Include="Search\BoardValues\DistanceToBottomBorderCounter.cs" />
+    <Compile Include="Search\BoardValues\DistanceToUpperBorderCounter.cs" />
+    <Compile Include="Search\BoardValues\Extensions.cs" />
+    <Compile Include="Search\BoardValues\IDistanceCounter.cs" />
+    <Compile Include="Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
+    <Compile Include="Search\BoundedDepthMoveFindingStrategy.cs" />
+    <Compile Include="Search\DepthCounterNodeVisitor.cs" />
+    <Compile Include="Search\EmptyNodeVisitor.cs" />
+    <Compile Include="Search\EnsureMoveIsValid.cs" />
+    <Compile Include="Search\Extensions.cs" />
+    <Compile Include="Search\IJumpNodeTree.cs" />
+    <Compile Include="Search\IJumpNodeTreeWithFactory.cs" />
+    <Compile Include="Search\IMoveFinders.cs" />
+    <Compile Include="Search\ITreeSearchContinuation.cs" />
+    <Compile Include="Search\ISearchNodeVisitor.cs" />
+    <Compile Include="Search\ITreeSearch.cs" />
+    <Compile Include="Search\MoveFinders.cs" />
+    <Compile Include="Search\MoveScore.cs" />
+    <Compile Include="Search\PlaceBlackStonesAroundWhite.cs" />
+    <Compile Include="Search\RawMoveFinders.cs" />
+    <Compile Include="Search\PickBestValueNodeVisitor.cs" />
+    <Compile Include="Search\CompisiteSearchNodeVisitor.cs" />
+    <Compile Include="Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
+    <Compile Include="Search\SearchExtensions.cs" />
+    <Compile Include="Search\StopOnDepthNodeVisitor.cs" />
+    <Compile Include="Search\TreeExtensions.cs" />
+    <Compile Include="Search\VisitedNodesCounter.cs" />
+    <Compile Include="PlayersState.cs" />
+    <Compile Include="TargetBorderEnum.cs" />
+    <Compile Include="Switch.cs" />
+    <Compile Include="Utils\EnumOf.cs" />
+    <Compile Include="Jumpers\JumpersFactory.cs" />
+    <Compile Include="Moves\CompositeMove.cs" />
+    <Compile Include="Moves\DeselectWhiteFIeldMove.cs" />
+    <Compile Include="Moves\IMove.cs" />
+    <Compile Include="Jumpers\FieldJump.cs" />
+    <Compile Include="Jumpers\FieldJumpIterator.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="FieldsGraph.cs" />
+    <Compile Include="Events\PhutballBoardInitialized.cs" />
+    <Compile Include="Events\PhutballGameFieldsChanged.cs" />
+    <Compile Include="Events\PhutballGameStarted.cs" />
+    <Compile Include="Moves\JumpWhiteStoneMove.cs" />
+    <Compile Include="Moves\PlaceBlackStoneMove.cs" />
+    <Compile Include="Moves\SelectWhiteFieldMove.cs" />
+    <Compile Include="PlayerMoves\HandlePlayerMoves.cs" />
+    <Compile Include="Jumpers\IJumpDirectly.cs" />
+    <Compile Include="IFieldsGraph.cs" />
+    <Compile Include="PlayerMoves\IHandlePlayerMoves.cs" />
+    <Compile Include="Jumpers\IJump.cs" />
+    <Compile Include="IPhutballBoard.cs" />
+    <Compile Include="IPhutballOptions.cs" />
+    <Compile Include="PlayerMoves\IPlayerMoveState.cs" />
+    <Compile Include="Jumpers\IStoneJumper.cs" />
+    <Compile Include="Jumpers\StoneMover.cs" />
+    <Compile Include="PhutballBoard.cs" />
+    <Compile Include="PhutballGameState.cs" />
+    <Compile Include="PhutballGameStateEnum.cs" />
+    <Compile Include="PhutballOptions.cs" />
+    <Compile Include="PlayerMoves\PlayerMoveStateBase.cs" />
+    <Compile Include="PlayerMoves\PlayerSelectedFieldStateMove.cs" />
+    <Compile Include="Jumpers\StoneJumper.cs" />
+    <Compile Include="PlayerMoves\WaitingForPlayerMoveState.cs" />
+    <Compile Include="Search\BoardJumpTree.cs" />
+    <Compile Include="Search\BoardValues\IValueOfGraph.cs" />
+    <Compile Include="Search\BoardValues\TargetBorder.cs" />
+    <Compile Include="ReadOnlyPhutballBoard.cs" />
+    <Compile Include="Search\BoardValues\IValueOf.cs" />
+    <Compile Include="Search\BoardValues\WhiteStoneToBorderDistanceValue.cs" />
+    <Compile Include="Search\BruteForceMoveFindingStartegy.cs" />
+    <Compile Include="Search\DfsSearch.cs" />
+    <Compile Include="Search\IMoveFindingStartegy.cs" />
+    <Compile Include="Search\JumpNode.cs" />
+    <Compile Include="Search\OneTimeValueThenDefault.cs" />
+    <Compile Include="Search\Tree.cs" />
+    <Compile Include="WhiteStone.cs" />
+    <Compile Include="IStone.cs" />
+    <Compile Include="Utils\IStartupTask.cs" />
+    <Compile Include="Mapping\AutoMapperExtensions.cs" />
+    <Compile Include="BasicExtensions.cs" />
+    <Compile Include="Mapping\IDoMapper.cs" />
+    <Compile Include="Mapping\ObjectMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Phutball\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

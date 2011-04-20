@@ -3,7 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d"
-  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views="clr-namespace:EndGames.Shell.Views" xmlns:Utils="clr-namespace:EndGames.Shell.Utils">
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Views="clr-namespace:Phutball.Shell.Views" xmlns:Utils="clr-namespace:Phutball.Shell.Utils" x:Class="Phutball.Shell.Resources.d__users_piotr_dev_c__moje_endgames_endgames_shell_resources_custom_xaml">
    
     <Style x:Key="{x:Type Button}"  TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
         <Setter Property="Height" Value="30" />

@@ -1,6 +1,6 @@
 ﻿using Caliburn.PresentationFramework;
 
-namespace EndGames.Shell.Models
+namespace Phutball.Shell.Models
 {
     public class ModelWithId : PropertyChangedBase
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace EndGames
+namespace Phutball
 {
     public class Worker<T>
     {

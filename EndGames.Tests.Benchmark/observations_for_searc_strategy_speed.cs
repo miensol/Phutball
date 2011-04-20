@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using EndGames.Phutball;
-using EndGames.Phutball.Search;
-using EndGames.Tests.Phutball.Search;
 using ForTesting;
 using log4net.Config;
 using NUnit.Framework;
+using Phutball;
+using Phutball.Search;
+using Phutball.Tests.Search;
 
 namespace EndGames.Tests.Benchmark
 {

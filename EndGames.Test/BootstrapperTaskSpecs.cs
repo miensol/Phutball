@@ -1,9 +1,9 @@
 using System.Reflection;
-using EndGames.Utils;
 using ForTesting;
 using NUnit.Framework;
+using Phutball.Utils;
 
-namespace EndGames.Tests
+namespace Phutball.Tests
 {
     public class when_runing_task_using_boostrapper_class : observations_for_static_sut
     {

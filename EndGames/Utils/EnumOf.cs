@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace EndGames.Utils
+namespace Phutball.Utils
 {
     public abstract class EnumOf<T>
     {

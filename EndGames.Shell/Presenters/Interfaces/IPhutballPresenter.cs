@@ -1,6 +1,6 @@
 using Caliburn.PresentationFramework.Screens;
 
-namespace EndGames.Shell.Presenters.Interfaces
+namespace Phutball.Shell.Presenters.Interfaces
 {
     public interface IPhutballPresenter : IScreen
     {

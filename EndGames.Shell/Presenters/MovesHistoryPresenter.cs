@@ -1,9 +1,9 @@
 ﻿using Caliburn.PresentationFramework.Filters;
 using Caliburn.PresentationFramework.Screens;
-using EndGames.Phutball.Events;
-using EndGames.Phutball.Moves;
+using Phutball.Events;
+using Phutball.Moves;
 
-namespace EndGames.Shell.Presenters
+namespace Phutball.Shell.Presenters
 {
     public class MovesHistoryPresenter : Screen 
     {
