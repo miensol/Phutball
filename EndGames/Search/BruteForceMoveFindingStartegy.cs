@@ -1,21 +1,31 @@
 ﻿using System;
 using log4net;
 using Phutball.PlayerMoves;
+using Phutball.Search.BoardValues;
 
 namespace Phutball.Search
 {
     public class BruteForceMoveFindingStartegy : IMoveFindingStartegy
     {
-        private static readonly ILog Logger = LogManager.GetLogger(typeof(BruteForceMoveFindingStartegy));
-
         private readonly ISearchNodeVisitor<JumpNode> _defaultNodeVistor;
-        private readonly Func<ISearchNodeVisitor<JumpNode>, ITreeSearch<JumpNode>> _searchFactory;
+        private readonly Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder, ITreeSearch<JumpNode>> _searchFactory;
         private readonly IPlayersState _playersState;
         private MovesFactory _movesFactory;
 
         public BruteForceMoveFindingStartegy(
             ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
             Func<ISearchNodeVisitor<JumpNode>,ITreeSearch<JumpNode>> searchFactory,
+            IPlayersState playersState, 
+            MovesFactory movesFactory)
+        {
+            _defaultNodeVistor = defaultNodeVistor;
+            _movesFactory = movesFactory;
+            _searchFactory = (visotors,perfomer, target) => searchFactory(visotors);
+            _playersState = playersState;
+        }
+
+        public BruteForceMoveFindingStartegy(ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
+            Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder,ITreeSearch<JumpNode>> searchFactory,
             IPlayersState playersState, 
             MovesFactory movesFactory)
         {
@@ -32,22 +42,21 @@ namespace Phutball.Search
             var graphCopy = (IFieldsGraph)fieldsGraph.Clone();
             var tree = _movesFactory.GetMovesTree(graphCopy);
             var targetBorder = _playersState.CurrentPlayer.GetTargetBorder(fieldsGraph);
-            var bestValuePicker = new PickBestValueNodeVisitor(targetBorder, graphCopy, new PerformMoves(graphCopy, _playersState));
+            var performMoves = new PerformMoves(graphCopy, _playersState);
+            var bestValuePicker = new PickBestValueNodeVisitor(targetBorder, graphCopy, performMoves);
             var nodeCounter = new VisitedNodesCounter<JumpNode>();
-            var search = _searchFactory(_defaultNodeVistor.FollowedBy(bestValuePicker).FollowedBy(nodeCounter));
-            Logger.Debug("Started search");
+            var depthCounter = new DepthCounterNodeVisitor<JumpNode>();
+            var searchNodeVisitor = _defaultNodeVistor.FollowedBy(bestValuePicker).FollowedBy(nodeCounter).FollowedBy(depthCounter);
+            var search = _searchFactory(searchNodeVisitor, performMoves, targetBorder);
             search.Run(tree);
-            Logger.Debug("End search");
-            Logger.DebugFormat("Node visited {0}", nodeCounter.Count);
-            Logger.DebugFormat("Result move {0}", bestValuePicker.ResultMove);
-            return new PhutballMoveScore( bestValuePicker.ResultMove, bestValuePicker.CurrentMaxValue);
+            return new PhutballMoveScore( bestValuePicker.ResultMove, bestValuePicker.CurrentMaxValue)
+                       {
+                           VisitedNodesCount = nodeCounter.Count,
+                           MaxDepth = depthCounter.MaxDepth
+                       };
         }
     }
-    public class MovesFactory
-    {
-        public RootedBySelectingWhiteFieldBoardJumpTree GetMovesTree(IFieldsGraph graphCopy)
-        {
-            return new RootedBySelectingWhiteFieldBoardJumpTree(graphCopy);
-        }
-    }
+
+ 
+
 }

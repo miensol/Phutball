@@ -1,40 +1,57 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using ForTesting;
+using log4net;
 using log4net.Config;
 using NUnit.Framework;
-using Phutball;
 using Phutball.Search;
 using Phutball.Tests.Search;
 
-namespace EndGames.Tests.Benchmark
+namespace Phutball.Tests.Benchmark
 {
+    public static class CultureSetter
+    {
+        public static void SetToPolish()
+        {
+            var currentUiCulture = CultureInfo.GetCultureInfo("PL");
+            Thread.CurrentThread.CurrentCulture = currentUiCulture;
+            Thread.CurrentThread.CurrentUICulture = currentUiCulture;
+        }
+    }
+
     public abstract class observations_for_search_strategy_speed : observations_for_static_sut
     {
         static observations_for_search_strategy_speed()
         {
             XmlConfigurator.Configure(new FileInfo("log4net.config"));
+            
         }
 
         private Stopwatch _timer = new Stopwatch();
         protected RawMoveFinders RawMoveFinders ;
         protected IPhutballOptions options = new PhutballOptions();
-        protected TimeSpan MessureTime(Action work)
+        public int MAX_VISITED_NODES_COUNT = 10000000;
+
+        protected Tuple<TimeSpan, TResult> MessureTime<TResult>(Func<TResult> work)
         {
             _timer.Reset();
             _timer.Start();
-            work();
+            var result = work();
             _timer.Stop();
-            return _timer.Elapsed;
+            return Tuple.Create(_timer.Elapsed,result) ;
         }
 
         protected IFieldsGraph RandomGraph(int rowCount, int columnCount, double blackDencity)
         {
             options.RowCount = rowCount;
             options.ColumnCount = columnCount;
+            options.DfsSearchDepth = rowCount*columnCount;
+            options.DfsMaxVistedNodes = MAX_VISITED_NODES_COUNT;
             return TestGraphs.Random(rowCount, columnCount, blackDencity);
         }
 
@@ -43,25 +60,18 @@ namespace EndGames.Tests.Benchmark
         }
     }
 
-    public static class IntExtensions
-    {
-        public static IEnumerable<TValue> Times<TValue>(this int i, Func<TValue> work)
-        {
-            for(var index = 0  ; index < i; ++index)
-            {
-                yield return work();
-            }
-        }
-    }
-
     public abstract class observations_for_searching_with_brute_force : observations_for_search_strategy_speed
     {
-        private const int TIMES_TO_COUNT_AVERAGE = 1;
+        private const int TO_COUNT_AVERAGE = 1000;
+        protected const string INFO_HEADER = "Dencity;Size;Visited;MaxVisited;MaxDepth;Time;ExceededMaxVisited;Cuttoffs";
 
-        public TimeSpan brute_force_time(IFieldsGraph graph)
+        public static readonly ILog Logger = LogManager.GetLogger("Test");
+
+        public Tuple<TimeSpan, PhutballMoveScore> brute_force_time(IFieldsGraph graph)
         {
             var search = GetSearchEngine(graph);
-            return MessureTime(()=> search.Search(graph));
+            var time = MessureTime(()=> search.Search(graph));
+            return Tuple.Create(time.Item1, time.Item2);
         }
 
         protected abstract IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph);
@@ -69,30 +79,43 @@ namespace EndGames.Tests.Benchmark
         protected void run_benchmark_with_black_dencity_equal_to(double blackDencity)
         {
             board_collection().Select(tuple => 
-                                      new { current = tuple, times = TIMES_TO_COUNT_AVERAGE.Times(() => brute_force_time(RandomGraph(tuple.Item1, tuple.Item2, blackDencity))) })
-                .Each(times=> Console.WriteLine("{0}\tx\t{1}\t took {2}"
-                                                    .ToFormat(times.current.Item1, 
-                                                              times.current.Item2, 
-                                                              TimeSpan.FromTicks((long)times.times.Average(t=> t.Ticks)))
-                                  )
+            new
+                {
+                    boarSize = tuple, 
+                    results = TO_COUNT_AVERAGE.Times(() => brute_force_time(RandomGraph(tuple.Item1, tuple.Item2, blackDencity))).ToList()
+                })
+                .Each(times=>
+                          {
+                              Logger.Info("{0};{1};{2};{3};{4};{5};{6};{7}".ToFormat(
+                                    blackDencity,
+                                    times.boarSize.Item1,
+                                    times.results.Average(t=> t.Item2.VisitedNodesCount),
+                                    times.results.Max(t=> t.Item2.VisitedNodesCount),
+                                    times.results.Average(t=> t.Item2.MaxDepth),
+                                    TimeSpan.FromTicks((long) times.results.Average(t => t.Item1.Ticks)).TotalMilliseconds,
+                                    times.results.Count(t=> t.Item2.VisitedNodesCount>= MAX_VISITED_NODES_COUNT),
+                                    times.results.Average(t=> t.Item2.CuttoffsCount)
+                                  ));
+                          }
                 );
         }
 
-        private IEnumerable<Tuple<int,int>> board_collection()
+        private static IEnumerable<Tuple<int,int>> board_collection()
         {
-            yield return new Tuple<int, int>(20,15);
-            yield return new Tuple<int, int>(30,22);
-            yield return new Tuple<int, int>(40,30);
-            yield return new Tuple<int, int>(50,40);
-            yield return new Tuple<int, int>(60,50);
-            yield return new Tuple<int, int>(70,60);
-            yield return new Tuple<int, int>(80,70);
-            yield return new Tuple<int, int>(90,80);
-            yield return new Tuple<int, int>(100,90);
-            yield return new Tuple<int, int>(110,100);
-            yield return new Tuple<int, int>(120,110);
-            yield return new Tuple<int, int>(130,120);
-            yield return new Tuple<int, int>(140,130);
+//            return Enumerable.Range(1, 10).Select(i => i*10)
+//                .Select(r => Tuple.Create(r, r));
+            yield return new Tuple<int, int>(10,10);
+            //yield return new Tuple<int, int>(15,15);
+            //yield return new Tuple<int, int>(20,20);
+            //yield return new Tuple<int, int>(25,25);
+            //yield return new Tuple<int, int>(30,30);
+            //yield return new Tuple<int, int>(35,35);
+          //  yield return new Tuple<int, int>(40,40);
+            //yield return new Tuple<int, int>(60,60);
+            //yield return new Tuple<int, int>(70,70);
+            //yield return new Tuple<int, int>(80,80);
+            //yield return new Tuple<int, int>(90,90);
+            //yield return new Tuple<int, int>(100,100);            
         }
 
         [Test]
@@ -156,22 +179,80 @@ namespace EndGames.Tests.Benchmark
         }
     }
 
-    public class when_searching_with_brute_force : observations_for_searching_with_brute_force
+    [TestFixture]
+    public class when_searching_with_dfs : observations_for_searching_with_brute_force
     {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            RandomSource.Reset();
+            Logger.Info("Dfs search");
+            Logger.Info(INFO_HEADER);
+        }
+
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
             RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
-            return RawMoveFinders.DfsUnbounded();
+            return RawMoveFinders.DfsNodesBounded();
+        }
+    } 
+    
+    
+    [TestFixture]
+    public class when_searching_with_cuttoffs_to_white : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            RandomSource.Reset();
+            Logger.Info("Dfs with cutoffs to white");
+            Logger.Info(INFO_HEADER);
+        }
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.DfsCuttoffToWhite();
+        }
+    }   
+    
+    [TestFixture]
+    public class when_searching_with_cuttoffs : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            RandomSource.Reset();
+            Logger.Info("Dfs with cutoffs");
+            Logger.Info(INFO_HEADER);
+        }
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.DfsCuttoff();
         }
     } 
     
     [TestFixture]
-    public class when_searching_with_brute_force_with_limited_search_depth : observations_for_searching_with_brute_force
+    public class when_searching_with_bfs : observations_for_searching_with_brute_force
     {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            Logger.Info("Bfs search");
+            Logger.Info(INFO_HEADER);
+        }
+
+
         protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
         {
             RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
-            return RawMoveFinders.DfsBounded();
+            return RawMoveFinders.BfsNodesBounded();
         }
     }
 }

@@ -51,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -86,6 +87,7 @@
     <Compile Include="Events\PlayersStateChanged.cs" />
     <Compile Include="IAlphaBetaOptions.cs" />
     <Compile Include="IFieldsUpdater.cs" />
+    <Compile Include="IntExtensions.cs" />
     <Compile Include="IPlayersState.cs" />
     <Compile Include="IPlayersSwapper.cs" />
     <Compile Include="Jumpers\Extensions.cs" />
@@ -106,11 +108,14 @@
     <Compile Include="PlayerMoves\PerformMoves.cs" />
     <Compile Include="PlayerMoves\PerformMovesUntilPlayerOnMoveChange.cs" />
     <Compile Include="PlayerOnBoardInfo.cs" />
+    <Compile Include="RandomSource.cs" />
     <Compile Include="Search\AllAlternatigJumpsTreeCollection.cs" />
     <Compile Include="Search\AlphaBetaMoveFindingStrategy.cs" />
     <Compile Include="Search\AlternatingJumpsMovesTree.cs" />
     <Compile Include="Search\AndOrSearch.cs" />
+    <Compile Include="Search\BestValueAddRemoveCollection.cs" />
     <Compile Include="Search\BfsSearch.cs" />
+    <Compile Include="Search\BinaryHeap.cs" />
     <Compile Include="Search\BoardValues\AddValues.cs" />
     <Compile Include="Search\BoardValues\BlackkStoneToTargetBorderCount.cs" />
     <Compile Include="Search\BoardValues\DistanceToBottomBorderCounter.cs" />
@@ -119,10 +124,14 @@
     <Compile Include="Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
     <Compile Include="Search\BoundedDepthMoveFindingStrategy.cs" />
+    <Compile Include="Search\BoundedVistedNodesCountStrategy.cs" />
+    <Compile Include="Search\CuttoffPickBestValueNodeVisitor.cs" />
+    <Compile Include="Search\CuttofsMoveFindingStrategy.cs" />
     <Compile Include="Search\DepthCounterNodeVisitor.cs" />
     <Compile Include="Search\EmptyNodeVisitor.cs" />
     <Compile Include="Search\EnsureMoveIsValid.cs" />
     <Compile Include="Search\Extensions.cs" />
+    <Compile Include="Search\IAddRemoveCollection.cs" />
     <Compile Include="Search\IJumpNodeTree.cs" />
     <Compile Include="Search\IJumpNodeTreeWithFactory.cs" />
     <Compile Include="Search\IMoveFinders.cs" />
@@ -131,13 +140,17 @@
     <Compile Include="Search\ITreeSearch.cs" />
     <Compile Include="Search\MoveFinders.cs" />
     <Compile Include="Search\MoveScore.cs" />
+    <Compile Include="Search\MovesFactory.cs" />
+    <Compile Include="Search\PhutballMoveScore.cs" />
     <Compile Include="Search\PlaceBlackStonesAroundWhite.cs" />
+    <Compile Include="Search\QueueAddRemoveCollection.cs" />
     <Compile Include="Search\RawMoveFinders.cs" />
     <Compile Include="Search\PickBestValueNodeVisitor.cs" />
     <Compile Include="Search\CompisiteSearchNodeVisitor.cs" />
     <Compile Include="Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
     <Compile Include="Search\SearchExtensions.cs" />
     <Compile Include="Search\StopOnDepthNodeVisitor.cs" />
+    <Compile Include="Search\StopOnVisitedNodesCount.cs" />
     <Compile Include="Search\TreeExtensions.cs" />
     <Compile Include="Search\VisitedNodesCounter.cs" />
     <Compile Include="PlayersState.cs" />

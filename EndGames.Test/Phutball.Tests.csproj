@@ -51,15 +51,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.5.10112, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.5.9.10348\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks">
+      <HintPath>..\packages\NUnit.2.5.9.10348\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\packages\NUnit.2.5.9.10348\lib\pnunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -85,12 +92,14 @@
     <Compile Include="Search\BoardValues\DistanceCounterSpecs.cs" />
     <Compile Include="Search\BruteForceMoveFindingStartegySpecs.cs" />
     <Compile Include="Search\DfsSearchSpecs.cs" />
+    <Compile Include="Search\FieldsGraphAssertions.cs" />
+    <Compile Include="Search\FieldType.cs" />
     <Compile Include="Search\IGraphBuilder.cs" />
     <Compile Include="Search\RandomGraphBuilder.cs" />
+    <Compile Include="Search\TestFieldsGraph.cs" />
     <Compile Include="Search\TestGraphs.cs" />
     <Compile Include="Search\TestTree.cs" />
     <Compile Include="Search\TreeExtensionsSpecs.cs" />
-    <Compile Include="TestPhutballOptions.cs" />
     <Compile Include="Search\BoardValues\WhiteStoneToBorderDistanceValueSpecs.cs" />
     <Compile Include="TraversingJumpsSpecs.cs" />
     <Compile Include="WaitingForPlayerMoveStateSpecs.cs" />
@@ -125,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Games\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

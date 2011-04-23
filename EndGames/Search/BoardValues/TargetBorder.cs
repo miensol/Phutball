@@ -37,6 +37,18 @@ namespace Phutball.Search.BoardValues
             return this;
         }
 
+        public TargetBorder EndRowIndexIs(Func<TargetBorder,int> endRowIndexAccessor)
+        {
+            _endRowIndexAccessor = endRowIndexAccessor;
+            return this;
+        }
+
+        public TargetBorder ComparePositionsUsing(Func<int,int,bool> leftCloserThanRgith)
+        {
+            _leftCloserThanRight = leftCloserThanRgith;
+            return this;
+        }
+
         public TargetBorder Oposite
         {
             get { return _opositeBorder(); }
@@ -47,6 +59,8 @@ namespace Phutball.Search.BoardValues
         private Func<TargetBorder> _opositeBorder;
         private IDistanceCounter _distanceCounter;
         private IEnumerable<Tuple<int, int>> _blackPlaces;
+        private Func<int, int, bool> _leftCloserThanRight;
+        private Func<TargetBorder,int> _endRowIndexAccessor;
 
         public int RowIndex
         {
@@ -61,6 +75,11 @@ namespace Phutball.Search.BoardValues
 
         public int LooseValue { get; private set; }
 
+        public int EndRowIndex
+        {
+            get { return _endRowIndexAccessor(this); }
+        }
+
         private void EnsureRowIndexIsInitilized()
         {
             if(false == _isInitilized)
@@ -73,7 +92,7 @@ namespace Phutball.Search.BoardValues
         public int GetDistanceFrom(Field whiteField)
         {
             return _distanceCounter.Distance(whiteField);
-        }
+        }        
 
         public override string ToString()
         {
@@ -88,6 +107,11 @@ namespace Phutball.Search.BoardValues
         public static bool IsWinOrLooseValue(int leftValue)
         {
             return leftValue == WinValueConst || leftValue == LooseValueConst;
+        }
+
+        public bool IsLeftCloserThanRigth(int leftRowIndex, int rightRowIndex)
+        {
+            return _leftCloserThanRight(leftRowIndex, rightRowIndex);
         }
     }
 }

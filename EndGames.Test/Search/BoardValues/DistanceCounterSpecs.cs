@@ -17,7 +17,7 @@ namespace Phutball.Tests.Search.BoardValues
 
         protected override void EstablishContext()
         {
-            ProvideImplementationOf<IFieldsGraph>(new FieldsGraph(new TestPhutballOptions()
+            ProvideImplementationOf<IFieldsGraph>(new FieldsGraph(new PhutballOptions()
             {
                 RowCount = 7,
                 ColumnCount = 5

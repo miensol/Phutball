@@ -7,6 +7,7 @@
         int DfsSearchDepth { get; set; }
         int BfsSearchDepth { get; set; }
         AlphaBetaOptions AlphaBeta { get; set; }
-        
+        int DfsMaxVistedNodes { get; set; }
+        int BfsMaxVisitedNodes { get; set; }
     }
 }

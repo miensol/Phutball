@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Phutball.Moves;
+using Phutball.Search.BoardValues;
 
 namespace Phutball.Search
 {
@@ -42,6 +43,42 @@ namespace Phutball.Search
                 _movesFactory, (vistor)=> new DfsSearch<JumpNode>(vistor));
         }
 
+        public IMoveFindingStartegy DfsCuttoff()
+        {
+            return new CuttofsMoveFindingStrategy(
+                new EmptyNodeVisitor<JumpNode>(),
+                (vistors) => new DfsSearch<JumpNode>(vistors),
+                _playersStateCopy(),
+                _movesFactory
+                )
+                       {
+                           CuttoffToTarget = true,
+                           MaxVisitedNodes = _phutballOptions.DfsMaxVistedNodes
+                       };
+        }
+
+        public IMoveFindingStartegy DfsCuttoffToWhite()
+        {
+            return new CuttofsMoveFindingStrategy(
+                    new EmptyNodeVisitor<JumpNode>(),
+                    (vistors)=> new DfsSearch<JumpNode>(vistors),
+                    _playersStateCopy(),
+                    _movesFactory
+                )
+                       {
+                           MaxVisitedNodes = _phutballOptions.DfsMaxVistedNodes
+                       };
+        }
+
+        public IMoveFindingStartegy DfsNodesBounded()
+        {
+            return new BoundedVistedNodesCountStrategy(
+                    _playersStateCopy(), 
+                    _phutballOptions.DfsMaxVistedNodes,
+                    _movesFactory, (vistors)=> new DfsSearch<JumpNode>(vistors)
+                );
+        }
+
         public IMoveFindingStartegy BfsBounded()
         {
             return new BoundedDepthMoveFindingStrategy(_playersStateCopy(), _phutballOptions.BfsSearchDepth, _movesFactory,
@@ -76,6 +113,24 @@ namespace Phutball.Search
                                     (parent) => new AllAlternatigJumpsTreeCollection(parent, _phutballOptions.AlphaBeta)
                                             .Concat(new PlaceBlackStonesAroundWhite(parent, playersStateCopy, _phutballOptions.AlphaBeta))
                                     )
+            );
+        }
+
+        public IMoveFindingStartegy BfsNodesBounded()
+        {
+            return new BoundedVistedNodesCountStrategy(_playersStateCopy(), _phutballOptions.BfsMaxVisitedNodes,
+                                                       _movesFactory,
+                                                       (vistors) => new BfsSearch<JumpNode>(vistors));
+        }
+
+        public IMoveFindingStartegy OrderByNodesValues()
+        {
+            return new BoundedVistedNodesCountStrategy(
+                _playersStateCopy(),
+                _phutballOptions.BfsMaxVisitedNodes,
+                _movesFactory,
+                (visotors, performer, target) => new BfsSearch<JumpNode>(visotors,
+                new BestValueAddRemoveCollection(performer,new WhiteStoneToBorderDistanceValue(target)))
             );
         }
     }

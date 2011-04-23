@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using ForTesting;
 using NUnit.Framework;
@@ -61,6 +60,89 @@ namespace Phutball.Tests.Search
         }
     }
 
+    public class when_applying_best_move_with_dfs_with_cuttoffs_to_white : observations_for_applying_best_move
+    {
+
+        [Test]
+        public void should_jump_over_one_black_stone_to_winning_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStonToJumpToWinningBorder()).ShouldHaveWhiteFieldAt(1,2);
+        }
+
+        [Test]
+        public void should_not_jump_over_black_stone_to_loosing_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStoneToJumpToLoosingBorder()).ShouldHaveWhiteFieldAt(3, 2);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_find_winning_move()
+        {
+            AfterMoveOn(TestGraphs.OneBackwardJumpToFindWinningPath()).ShouldHaveWhiteFieldAt(1, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_postion()
+        {
+            AfterMoveOn(TestGraphs.TwoBackWardJumpsToImprovePosition()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_position_but_avoid_loosing()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWillLose()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_picking_best_way()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWins()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+
+        [Test]
+        public void should_not_pick_move_passing_though_losing_fields()
+        {
+            AfterMoveOn(TestGraphs.WinningWayPassingThoughLossingField()).ShouldHaveWhiteFieldAt(3, 3);
+        }
+
+        [Test]
+        public void should_continue_searching_after_improving_position()
+        {
+            AfterMoveOn(TestGraphs.ContinueSearchAfterImprovingPosition()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+
+        [Test]
+        public void should_cuttoff_to_white_properly()
+        {
+            AfterMoveOn(TestGraphs.BestResultIs2ThereIs1CuttoffToWhite()).ShouldHaveWhiteFieldAt(2, 5);
+            _bestMove.CuttoffsCount.ShouldEqual(1);
+
+        }
+
+        protected override IMoveFindingStartegy GetSearchStrategy()
+        {
+            return RawMoveFinders.DfsCuttoffToWhite();
+        }
+    }
+
+
+    public class when_searching_for_best_move_with_cuttoffs_to_target_border : observations_for_applying_best_move
+    {
+
+        [Test]
+        public void should_cuttoff_from_start_if_cant_win()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsNoneWillWin()).ShouldHaveWhiteFieldAt(6, 3);
+            _bestMove.CuttoffsCount.ShouldEqual(1);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchStrategy()
+        {
+            return RawMoveFinders.DfsCuttoff();
+        }
+    }
+
 
     public class when_applying_best_move_with_bfs : observations_for_applying_best_move_with_bfs
     {
@@ -113,6 +195,24 @@ namespace Phutball.Tests.Search
         }
     }
 
+    public class when_searching_in_order_of_graph_values : observations_for_applying_best_move
+    {
+
+        [Test]
+        public void should_firstly_traverse_bettern_nodes()
+        {
+            AfterMoveOn(TestGraphs.ImproveBy1AndGoDownDepply()).ShouldHaveWhiteFieldAt(2, 0);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchStrategy()
+        {
+            return RawMoveFinders.OrderByNodesValues();
+        }
+    }
+
+
+
 
     public abstract class observations_for_applying_best_move : observations_for_static_sut_with_ioc
     {
@@ -124,6 +224,7 @@ namespace Phutball.Tests.Search
         private IMoveFindingStartegy _strategy;
         protected RawMoveFinders RawMoveFinders;
         private PerformMoves _performMoves;
+        protected PhutballMoveScore _bestMove;
         protected abstract IMoveFindingStartegy GetSearchStrategy();
 
         protected IFieldsGraph AfterMoveOn(TestFieldsGraph graphToSearch)
@@ -136,13 +237,12 @@ namespace Phutball.Tests.Search
                                           ColumnCount = actualGraph.ColumnCount
                                       };
             RawMoveFinders = new RawMoveFinders(new MovesFactory(), _playersState,  phutballOptions);
-            _performMoves = new PerformMoves(actualGraph, Dependency<IPlayersState>());
+            _performMoves = new PerformMoves(actualGraph, new NulloPlayersSwapper());
             _strategy = GetSearchStrategy();
-            ProvideImplementationOf(actualGraph);
-            var bestMove = _strategy.Search(actualGraph);
-            if(bestMove.Move != null)
+            _bestMove = _strategy.Search(actualGraph);
+            if (_bestMove.Move != null)
             {
-                _performMoves.Perform(bestMove.Move);                
+                _performMoves.Perform(_bestMove.Move);                
             }
             return actualGraph;
         }
@@ -228,71 +328,6 @@ namespace Phutball.Tests.Search
         }
     }
 
-    public class TestFieldsGraph : IGraphBuilder
-    {
-        private readonly int _rowCount;
-        private readonly int _columnCount;
-        private Func<FieldsGraph> _graphCreator;
-
-        public TestFieldsGraph(int rowCount, int columnCount)
-        {
-            _rowCount = rowCount;
-            _columnCount = columnCount;
-            _graphCreator = () => CreateDefaultFieldsGraph(rowCount, columnCount);
-        }
-
-        public TestFieldsGraph(FieldType[][] board)
-        {
-            _graphCreator = () => CreateFieldsFromMatrix(board);
-        }
-
-        private FieldsGraph CreateFieldsFromMatrix(FieldType[][] graphs)
-        {
-            int columnCount = graphs[0].Length;
-            int rowCOunt = graphs.Length;
-            var fields = new List<Field>();
-            for(int row = 0; row < rowCOunt; ++row)
-            {
-                for(int column = 0; column < columnCount; ++column)
-                {
-                    var index = row*columnCount + column;
-                    fields.Add(GetField(index, row, column, graphs[row][column]));
-                }
-            }
-            var fieldsGraph = new FieldsGraph(new TestPhutballOptions
-                                                  {
-                                                      RowCount = rowCOunt,
-                                                      ColumnCount = columnCount
-                                                  });
-            fieldsGraph.UpdateFields(fields.ToArray());
-            return fieldsGraph;
-        }
-
-        public Field GetField(int index, int row, int column, FieldType type)
-        {
-            var field = new Field(index, row, column);
-            if (type.Equals(FieldType.Black))
-            {
-                field.PlaceBlackStone();
-            }
-            if (type.Equals(FieldType.White))
-            {
-                field.PlaceWhiteStone();
-            }
-            return field;
-        }
-
-        private FieldsGraph CreateDefaultFieldsGraph(int rowCount, int columnCount)
-        {
-            return new FieldsGraph(new TestPhutballOptions {RowCount = rowCount, ColumnCount = columnCount});
-        }
-
-        public IFieldsGraph Build()
-        {
-            return _graphCreator();
-        }
-    }
-
 
     public abstract class observations_for_brute_force_searching : observations_for_auto_created_sut_of_type<BruteForceMoveFindingStartegy>
     {
@@ -316,8 +351,8 @@ namespace Phutball.Tests.Search
         {
             _fieldsGraph = GraphBuilder().Build();
             _playersState = PlayersState.SecondIsOnTheMove();
-            _performMoves = new PerformMoves(_fieldsGraph, Dependency<IPlayersState>());
-            var testPhutballOptions = new TestPhutballOptions
+            _performMoves = new PerformMoves(_fieldsGraph, new NulloPlayersSwapper());
+            var testPhutballOptions = new PhutballOptions
                                           {
                                               RowCount = _fieldsGraph.RowCount,
                                               ColumnCount = _fieldsGraph.ColumnCount
@@ -328,25 +363,5 @@ namespace Phutball.Tests.Search
         }
         protected abstract TestFieldsGraph GraphBuilder();
     
-    }
-
-
-    public static class FieldsGraphAssertions
-    {
-        [DebuggerStepThrough]
-        public static IFieldsGraph ShouldHaveWhiteFieldAt(this IFieldsGraph graph, int row, int column)
-        {
-            var whiteField = graph.GetWhiteField();
-            whiteField.RowIndex.ShouldEqual(row, "Row should be {0} but was {1}");
-            whiteField.ColumnIndex.ShouldEqual(column, "Column should be {0} but was {1}");
-            return graph;
-        }
-    }
-
-    public enum FieldType
-    {
-        Empty,
-        Black,
-        White
     }
 }

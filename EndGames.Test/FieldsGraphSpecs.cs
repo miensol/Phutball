@@ -14,7 +14,7 @@ namespace Phutball.Tests
 
         protected override FieldsGraph CreateSut()
         {
-            return new FieldsGraph(new TestPhutballOptions
+            return new FieldsGraph(new PhutballOptions
                                        {
                                            RowCount = 7,
                                            ColumnCount = 5
@@ -41,7 +41,7 @@ namespace Phutball.Tests
         }
         protected override void EstablishContext()
         {
-            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
+            ProvideImplementationOf<IPhutballOptions>(new PhutballOptions
                                                           {
                                                               RowCount = 7,
                                                               ColumnCount = 5

@@ -17,7 +17,9 @@ namespace Phutball
                                                                                       Direction.W),
                                                                                   Direction.N.Multiply(2).Add(
                                                                                       Direction.E),
-                                                                              }));
+                                                                              }))
+                .ComparePositionsUsing((left,right)=> left < right)
+                .EndRowIndexIs(me=> 1);
 
             Bottom = new TargetBorder(() => fieldsGraph.RowCount - 2, "Bottom")
                 .OppositeIs(() => Upper)
@@ -28,7 +30,9 @@ namespace Phutball
                                                                                                 Direction.E),
                                                                                             Direction.S.Multiply(2).Add(
                                                                                                 Direction.W),
-                                                                                        }));
+                                                                                        }))
+                .EndRowIndexIs((me)=> me.RowIndex )
+                .ComparePositionsUsing((left, right) => left > right);
         }
 
         public TargetBorder Upper { get; private set; }

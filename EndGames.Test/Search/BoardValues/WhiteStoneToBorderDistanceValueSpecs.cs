@@ -119,7 +119,7 @@ namespace Phutball.Tests.Search.BoardValues
 
         protected override void EstablishContext()
         {
-            ProvideImplementationOf<IPhutballOptions>(new TestPhutballOptions
+            ProvideImplementationOf<IPhutballOptions>(new PhutballOptions
                                                           {
                                                               RowCount = 7,
                                                               ColumnCount = 5

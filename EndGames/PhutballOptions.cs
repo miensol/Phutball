@@ -11,10 +11,17 @@ namespace Phutball
             ColumnCount = 15;
             DfsSearchDepth = 10;
             BfsSearchDepth = 10;
+            DfsMaxVistedNodes = int.MaxValue;
+            BfsMaxVisitedNodes = int.MaxValue;
+            
             AlphaBeta = AlphaBetaOptions.Defaults();       
         }
 
         public AlphaBetaOptions AlphaBeta { get; set; }
+
+        public int DfsMaxVistedNodes { get; set; }
+
+        public int BfsMaxVisitedNodes { get; set; }
 
         public int RowCount { get; set; }
 

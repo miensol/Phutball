@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Phutball.Moves;
 using Phutball.PlayerMoves;
@@ -18,6 +19,10 @@ namespace Phutball.Search
 
         public int CurrentMaxValue { get; set; }
 
+        public JumpNode CurrentMaxNode { get; set; }
+
+        public event Action MaxUpdated;
+
         public PickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph graphCopy, IPerformMoves performMoves)
         {
             _targetBorder = targetBorder;
@@ -25,6 +30,7 @@ namespace Phutball.Search
             _graphCopy = graphCopy;
             _performMoves = performMoves;
             CurrentMaxValue = _valueOfGraph.GetValue(_graphCopy);
+            MaxUpdated += () => { };
         }
 
         public void OnEnter(ITree<JumpNode> node, ITreeSearchContinuation treeSearchContinuation)
@@ -36,7 +42,7 @@ namespace Phutball.Search
             }
             else
             {
-                UpdateMaxValue(actualValue, treeSearchContinuation);
+                MaxValueUpdated(actualValue, treeSearchContinuation, node);
             }
         }
 
@@ -48,7 +54,7 @@ namespace Phutball.Search
             return _valueOfGraph.GetValue(node.ActualGraph);
         }
 
-        private void UpdateMaxValue(int actualValue, ITreeSearchContinuation treeSearchContinuation)
+        private void MaxValueUpdated(int actualValue, ITreeSearchContinuation treeSearchContinuation, ITree<JumpNode> node)
         {
             if (actualValue <= CurrentMaxValue)
             {
@@ -60,6 +66,8 @@ namespace Phutball.Search
             }
             ResultMove = new CompositeMove(_acutalMoves.ToArray().Reverse());
             CurrentMaxValue = actualValue;
+            CurrentMaxNode = node.Node;
+            MaxUpdated();
         }
 
 

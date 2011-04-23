@@ -33,6 +33,7 @@ namespace Phutball.Jumpers
                                                                 Direction.SE,
                                                                 Direction.S
                                                             };
+        
 
         public JumpersFactory(IFieldsGraph fieldsGraph, int stoneRadius)
         {
@@ -44,9 +45,19 @@ namespace Phutball.Jumpers
         {
         }
 
+//        public IEnumerable<IJump> AllJumps(Field from)
+//        {
+//            return AllDirections.ToList().Shuffle().Select(direction=> new FieldJump(_fieldsGraph, from, direction));
+//        }
+//        
+//        public IEnumerable<IJump> AllJumps(Field from)
+//        {
+//            return AllDirectionsRandom.Select(direction => new FieldJump(_fieldsGraph, from, direction));
+//        }
+        
         public IEnumerable<IJump> AllJumps(Field from)
         {
-            return AllDirections.ToList().Shuffle().Select(direction=> new FieldJump(_fieldsGraph, from, direction));
+            return AllDirections.Select(direction => new FieldJump(_fieldsGraph, from, direction));
         }
 
         public IJump FromTo(Field from, Field to)
