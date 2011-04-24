@@ -29,6 +29,7 @@ namespace Phutball.Search
             {
                 //var current = _toVisit.Dequeue();
                 var current = _toVisit.Pull();
+                var node = current.Node;
                 Enter(current);
                 FollowChildrenIfNeeded(current);
             }
@@ -77,12 +78,19 @@ namespace Phutball.Search
             var last = _lastEntered;
             while (actual != last)
             {
-                toEnter.Push(actual);
-                actual = actual.Parent;
+                if(actual != null)
+                {
+                    toEnter.Push(actual);
+                    actual = actual.Parent;    
+                }                
                 if(actual != last)
                 {
-                    _nodeVisitor.OnLeave(last, this);
-                    last = last.Parent ?? last;
+                    if(last != null)
+                    {
+                        _nodeVisitor.OnLeave(last, this);
+                        last = last.Parent;    
+                    }
+                    
                 }
             }
             while (toEnter.Any())

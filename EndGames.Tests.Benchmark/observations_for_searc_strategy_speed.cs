@@ -26,6 +26,9 @@ namespace Phutball.Tests.Benchmark
 
     public abstract class observations_for_search_strategy_speed : observations_for_static_sut
     {
+        public int MAX_VISITED_NODES_COUNT = 10000000;
+        protected const int TO_COUNT_AVERAGE = 1000;
+
         static observations_for_search_strategy_speed()
         {
             XmlConfigurator.Configure(new FileInfo("log4net.config"));
@@ -35,7 +38,6 @@ namespace Phutball.Tests.Benchmark
         private Stopwatch _timer = new Stopwatch();
         protected RawMoveFinders RawMoveFinders ;
         protected IPhutballOptions options = new PhutballOptions();
-        public int MAX_VISITED_NODES_COUNT = 10000000;
 
         protected Tuple<TimeSpan, TResult> MessureTime<TResult>(Func<TResult> work)
         {
@@ -52,6 +54,7 @@ namespace Phutball.Tests.Benchmark
             options.ColumnCount = columnCount;
             options.DfsSearchDepth = rowCount*columnCount;
             options.DfsMaxVistedNodes = MAX_VISITED_NODES_COUNT;
+            options.BfsMaxVisitedNodes = MAX_VISITED_NODES_COUNT;
             return TestGraphs.Random(rowCount, columnCount, blackDencity);
         }
 
@@ -62,8 +65,7 @@ namespace Phutball.Tests.Benchmark
 
     public abstract class observations_for_searching_with_brute_force : observations_for_search_strategy_speed
     {
-        private const int TO_COUNT_AVERAGE = 1000;
-        protected const string INFO_HEADER = "Dencity;Size;Visited;MaxVisited;MaxDepth;Time;ExceededMaxVisited;Cuttoffs";
+        protected const string INFO_HEADER = "Dencity;Size;Visited;MaxVisited;MaxDepth;Time;ExceededMaxVisited;Cuttoffs;SumOfValues";
 
         public static readonly ILog Logger = LogManager.GetLogger("Test");
 
@@ -86,7 +88,7 @@ namespace Phutball.Tests.Benchmark
                 })
                 .Each(times=>
                           {
-                              Logger.Info("{0};{1};{2};{3};{4};{5};{6};{7}".ToFormat(
+                              Logger.Info("{0};{1};{2};{3};{4};{5};{6};{7};{8}".ToFormat(
                                     blackDencity,
                                     times.boarSize.Item1,
                                     times.results.Average(t=> t.Item2.VisitedNodesCount),
@@ -94,7 +96,8 @@ namespace Phutball.Tests.Benchmark
                                     times.results.Average(t=> t.Item2.MaxDepth),
                                     TimeSpan.FromTicks((long) times.results.Average(t => t.Item1.Ticks)).TotalMilliseconds,
                                     times.results.Count(t=> t.Item2.VisitedNodesCount>= MAX_VISITED_NODES_COUNT),
-                                    times.results.Average(t=> t.Item2.CuttoffsCount)
+                                    times.results.Average(t=> t.Item2.CuttoffsCount),
+                                    times.results.Average(t=> t.Item2.Score)
                                   ));
                           }
                 );
@@ -104,18 +107,18 @@ namespace Phutball.Tests.Benchmark
         {
 //            return Enumerable.Range(1, 10).Select(i => i*10)
 //                .Select(r => Tuple.Create(r, r));
-            yield return new Tuple<int, int>(10,10);
-            //yield return new Tuple<int, int>(15,15);
-            //yield return new Tuple<int, int>(20,20);
-            //yield return new Tuple<int, int>(25,25);
-            //yield return new Tuple<int, int>(30,30);
-            //yield return new Tuple<int, int>(35,35);
-          //  yield return new Tuple<int, int>(40,40);
-            //yield return new Tuple<int, int>(60,60);
-            //yield return new Tuple<int, int>(70,70);
-            //yield return new Tuple<int, int>(80,80);
-            //yield return new Tuple<int, int>(90,90);
-            //yield return new Tuple<int, int>(100,100);            
+//            yield return new Tuple<int, int>(10,10);
+            yield return new Tuple<int, int>(15,15);
+//            yield return new Tuple<int, int>(20,20);
+//            yield return new Tuple<int, int>(25,25);
+//            yield return new Tuple<int, int>(30,30);
+//            yield return new Tuple<int, int>(35,35);
+//            yield return new Tuple<int, int>(40,40);
+//            yield return new Tuple<int, int>(60,60);
+//            yield return new Tuple<int, int>(70,70);
+//            yield return new Tuple<int, int>(80,80);
+//            yield return new Tuple<int, int>(90,90);
+//            yield return new Tuple<int, int>(100,100);            
         }
 
         [Test]
@@ -200,7 +203,7 @@ namespace Phutball.Tests.Benchmark
     
     
     [TestFixture]
-    public class when_searching_with_cuttoffs_to_white : observations_for_searching_with_brute_force
+    public class when_searching_dfs_with_cuttoffs_to_white : observations_for_searching_with_brute_force
     {
         [TestFixtureSetUp]
         public void start_fixture()
@@ -219,7 +222,7 @@ namespace Phutball.Tests.Benchmark
     }   
     
     [TestFixture]
-    public class when_searching_with_cuttoffs : observations_for_searching_with_brute_force
+    public class when_searching_dfs_with_cuttoffs : observations_for_searching_with_brute_force
     {
         [TestFixtureSetUp]
         public void start_fixture()
@@ -253,6 +256,64 @@ namespace Phutball.Tests.Benchmark
         {
             RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
             return RawMoveFinders.BfsNodesBounded();
+        }
+    } 
+    
+    
+    [TestFixture]
+    public class when_searching_with_bfs_with_cuttoffs_to_white : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            Logger.Info("Bfs cuttoff to white");
+            Logger.Info(INFO_HEADER);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.BfsCuttoffToWhite();
+        }
+    } 
+    
+    [TestFixture]
+    public class when_searching_in_order_of_board_values : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            Logger.Info("Ordered search");
+            Logger.Info(INFO_HEADER);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.OrderByNodesValues();
+        }
+    } 
+    
+    [TestFixture]
+    public class when_searching_in_order_of_board_values_with_cuttoffs_to_white : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            Logger.Info("Ordered search with cuttof to white");
+            Logger.Info(INFO_HEADER);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
+            return RawMoveFinders.OrderByNodesValuesWithCuttofsToWhite();
         }
     }
 }

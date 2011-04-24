@@ -1,17 +1,32 @@
 ﻿using System;
+using Phutball.PlayerMoves;
+using Phutball.Search.BoardValues;
 
 namespace Phutball.Search
 {
     public class CuttofsMoveFindingStrategy : IMoveFindingStartegy
     {
         private readonly ISearchNodeVisitor<JumpNode> _defaultNodeVistor;
-        private readonly Func<ISearchNodeVisitor<JumpNode>, ITreeSearch<JumpNode>> _searchFactory;
+        private readonly Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder, ITreeSearch<JumpNode>> _searchFactory;
         private readonly IPlayersState _playersState;
         private MovesFactory _movesFactory;
 
         public CuttofsMoveFindingStrategy(
             ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
             Func<ISearchNodeVisitor<JumpNode>,ITreeSearch<JumpNode>> searchFactory,
+            IPlayersState playersState, 
+            MovesFactory movesFactory)
+        {
+            _defaultNodeVistor = defaultNodeVistor;
+            _movesFactory = movesFactory;
+            _searchFactory = (vistor,perform, target) => searchFactory(vistor);
+            _playersState = playersState;
+            MaxVisitedNodes = int.MaxValue;
+        }
+        
+        public CuttofsMoveFindingStrategy(
+            ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
+            Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder,ITreeSearch<JumpNode>> searchFactory,
             IPlayersState playersState, 
             MovesFactory movesFactory)
         {
@@ -30,7 +45,8 @@ namespace Phutball.Search
             var graphCopy = (IFieldsGraph)fieldsGraph.Clone();
             var tree = _movesFactory.GetMovesTree(graphCopy);
             var targetBorder = _playersState.CurrentPlayer.GetTargetBorder(fieldsGraph);
-            var cuttoffVisitor = new CuttoffPickBestValueNodeVisitor(targetBorder, graphCopy, _playersState)
+            var performMoves = new PerformMoves(graphCopy, _playersState);
+            var cuttoffVisitor = new CuttoffPickBestValueNodeVisitor(targetBorder, graphCopy, performMoves)
                                      {
                                          CuttoffToTargetBorder = CuttoffToTarget
                                      };
@@ -40,7 +56,7 @@ namespace Phutball.Search
                 .FollowedBy(cuttoffVisitor)
                 .FollowedBy(depthCounter)
                 .FollowedBy(_defaultNodeVistor);
-            var search = _searchFactory(searchNodeVisitor);
+            var search = _searchFactory(searchNodeVisitor, performMoves, targetBorder);
             search.Run(tree);
             return new PhutballMoveScore(cuttoffVisitor.PickBestValue.ResultMove, cuttoffVisitor.PickBestValue.CurrentMaxValue)
                        {

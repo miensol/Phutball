@@ -201,8 +201,58 @@ namespace Phutball.Tests.Search
         [Test]
         public void should_firstly_traverse_bettern_nodes()
         {
-            AfterMoveOn(TestGraphs.ImproveBy1AndGoDownDepply()).ShouldHaveWhiteFieldAt(2, 0);
+            AfterMoveOn(TestGraphs.ImproveBy1AndGoDownDepply()).ShouldHaveWhiteFieldAt(2, 1);
         }
+
+
+        [Test]
+        public void should_jump_over_one_black_stone_to_winning_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStonToJumpToWinningBorder()).ShouldHaveWhiteFieldAt(1, 2);
+        }
+
+        [Test]
+        public void should_not_jump_over_black_stone_to_loosing_border()
+        {
+            AfterMoveOn(TestGraphs.BlackStoneToJumpToLoosingBorder()).ShouldHaveWhiteFieldAt(3, 2);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_find_winning_move()
+        {
+            AfterMoveOn(TestGraphs.OneBackwardJumpToFindWinningPath()).ShouldHaveWhiteFieldAt(1, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_postion()
+        {
+            AfterMoveOn(TestGraphs.TwoBackWardJumpsToImprovePosition()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_to_improve_final_position_but_avoid_loosing()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWillLose()).ShouldHaveWhiteFieldAt(2, 1);
+        }
+
+        [Test]
+        public void should_jump_backwards_picking_best_way()
+        {
+            AfterMoveOn(TestGraphs.TwoWaysToJumpBackwardsOneWins()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+
+        [Test]
+        public void should_not_pick_move_passing_though_losing_fields()
+        {
+            AfterMoveOn(TestGraphs.WinningWayPassingThoughLossingField()).ShouldHaveWhiteFieldAt(3, 3);
+        }
+
+        [Test]
+        public void should_continue_searching_after_improving_position()
+        {
+            AfterMoveOn(TestGraphs.ContinueSearchAfterImprovingPosition()).ShouldHaveWhiteFieldAt(0, 5);
+        }
+
 
 
         protected override IMoveFindingStartegy GetSearchStrategy()

@@ -7,20 +7,20 @@ namespace Phutball.Tests.Search
         private const FieldType Empty = FieldType.Empty;
         private const FieldType Black = FieldType.Black;
         private const FieldType White = FieldType.White;
-        
+
 
         public static TestFieldsGraph BlackStonToJumpToWinningBorder()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Empty, White, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }
@@ -30,13 +30,13 @@ namespace Phutball.Tests.Search
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, White, Empty, Empty},
+                        new[] {Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }
@@ -46,140 +46,140 @@ namespace Phutball.Tests.Search
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, White, Empty},
+                        new[] {Empty, Black, Black, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty},
                     }
                 );
-        } 
-        
-        
+        }
+
+
         public static TestFieldsGraph TwoBackWardJumpsToImprovePosition()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, White, Empty, Empty},
+                        new[] {Empty, Black, Empty, Black, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Black, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
-        } 
-        
+        }
+
         public static TestFieldsGraph TwoWaysToJumpBackwardsOneWillLose()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Black, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, White, Empty, Empty},
+                        new[] {Empty, Black, Empty, Black, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Black, Black, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
-        } 
-        
+        }
+
         public static TestFieldsGraph TwoWaysToJumpBackwardsOneWins()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Black, Empty, White, Empty, Black, Empty},
+                        new[] {Empty, Black, Empty, Black, Empty, Black, Empty},
+                        new[] {Empty, Black, Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Black, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }
-        
+
         public static TestFieldsGraph WinningWayPassingThoughLossingField()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Black },
-                        new[]{ Empty, Black, Empty, White, Empty, Black },
-                        new[]{ Empty, Black, Empty, Black, Empty, Black },
-                        new[]{ Empty, Black, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Black, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black},
+                        new[] {Empty, Black, Empty, Empty, Empty, Black},
+                        new[] {Empty, Black, Empty, White, Empty, Black},
+                        new[] {Empty, Black, Empty, Black, Empty, Black},
+                        new[] {Empty, Black, Empty, Black, Black, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty},
+                        new[] {Empty, Black, Empty, Black, Empty, Empty},
+                        new[] {Empty, Empty, Black, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
-        } 
-        
+        }
+
         public static TestFieldsGraph ContinueSearchAfterImprovingPosition()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Black, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Black, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, White, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Black, Black, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Black, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Black, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, White, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }
-        
+
         public static TestFieldsGraph BestResultIs2ThereIs1CuttoffToWhite()
         {
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Black, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, White, Empty, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Black, Black, Empty, Empty, Black, Empty},
+                        new[] {Empty, Black, Empty, White, Empty, Black, Empty},
+                        new[] {Empty, Black, Empty, Empty, Black, Black, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }
@@ -187,21 +187,21 @@ namespace Phutball.Tests.Search
         public static TestFieldsGraph TwoWaysToJumpBackwardsNoneWillWin()
         {
             return new TestFieldsGraph(
-               new[]
+                new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Empty, Empty, Empty, Black, Empty },
-                        new[]{ Empty, Empty, Empty, White, Empty, Empty, Empty },
-                        new[]{ Empty, Black, Black, Empty, Black, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, White, Empty, Empty, Empty},
+                        new[] {Empty, Black, Black, Empty, Black, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                     }
-               );
+                );
         }
 
         public static TestFieldsGraph ImproveBy1AndGoDownDepply()
@@ -209,21 +209,21 @@ namespace Phutball.Tests.Search
             return new TestFieldsGraph(
                 new[]
                     {
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Black, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Black, Empty, Empty, Empty, Empty, Black, Black, Empty },
-                        new[]{ Empty, Black, Empty, Black, White, Black, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Black, Empty },                        
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Black, Black, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
-                        new[]{ Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty },
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Black, Black, Empty},
+                        new[] {Empty, Empty, Black, Empty, Black, White, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Black, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                     }
                 );
         }

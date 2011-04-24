@@ -19,11 +19,11 @@ namespace Phutball.Search
         private readonly int _targetBorderRowEndIndex;
 
 
-        public CuttoffPickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph fieldsGraph, IPlayersState playersState)
+        public CuttoffPickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph fieldsGraph, IPerformMoves performMoves )
         {
             _targetBorder = targetBorder;
             _fieldsGraph = fieldsGraph;
-            PickBestValue = new PickBestValueNodeVisitor(targetBorder, fieldsGraph, new PerformMoves(this, playersState));
+            PickBestValue = new PickBestValueNodeVisitor(targetBorder, fieldsGraph, performMoves);
             InitliazeBlackBuckets(fieldsGraph);
             PickBestValue.MaxUpdated += OnBestPositionUpdated;
             _targetBorderRowEndIndex = _targetBorder.EndRowIndex;

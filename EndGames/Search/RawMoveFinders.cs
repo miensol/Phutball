@@ -70,6 +70,31 @@ namespace Phutball.Search
                        };
         }
 
+        public IMoveFindingStartegy OrderByNodesValuesWithCuttofsToWhite()
+        {
+            return new CuttofsMoveFindingStrategy(                
+                new EmptyNodeVisitor<JumpNode>(),
+                (visotors, performer, target) => new BfsSearch<JumpNode>(visotors,new BestValueAddRemoveCollection(performer,new WhiteStoneToBorderDistanceValue(target))),
+                _playersStateCopy(), _movesFactory
+                )
+                       {
+                           MaxVisitedNodes = _phutballOptions.BfsMaxVisitedNodes,
+                       };
+        }
+
+        public IMoveFindingStartegy BfsCuttoffToWhite()
+        {
+            return new CuttofsMoveFindingStrategy(
+                    new EmptyNodeVisitor<JumpNode>(),
+                    (vistors) => new BfsSearch<JumpNode>(vistors),
+                    _playersStateCopy(),
+                    _movesFactory
+                )
+            {
+                MaxVisitedNodes = _phutballOptions.DfsMaxVistedNodes
+            };
+        }
+
         public IMoveFindingStartegy DfsNodesBounded()
         {
             return new BoundedVistedNodesCountStrategy(
