@@ -1,4 +1,6 @@
-﻿namespace Phutball.Search
+﻿using Phutball.Search.Visitors;
+
+namespace Phutball.Search
 {
     public static class SearchExtensions
     {

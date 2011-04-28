@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using ForTesting;
 using Phutball.Search;
+using Phutball.Search.Visitors;
 
 namespace Phutball.Tests.Search
 {
@@ -163,6 +164,11 @@ namespace Phutball.Tests.Search
             _tree = Tree(1, Tree(2, Tree(3)), Tree(4));
             _tree.TraverseDfs(this, 2).ToList();
             _entered.ShouldHaveTheSameElementsAs(1,2,4);
+
+            foreach (var node in _tree.TraverseDfs(new EmptyNodeVisitor<int>()))
+            {
+                // logika dotycz¹ca wêz³a
+            }
         }
 
         [Test]

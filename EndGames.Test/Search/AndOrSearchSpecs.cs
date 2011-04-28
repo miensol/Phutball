@@ -2,10 +2,11 @@ using ForTesting;
 using NUnit.Framework;
 using Phutball.Search;
 using Phutball.Search.BoardValues;
+using Phutball.Search.Visitors;
 
 namespace Phutball.Tests.Search
 {
-    public abstract class AndOrTrees : osbservations_for_tree_search<AndOrSearch<int>>
+    public abstract class MiniMaxTree : osbservations_for_tree_search<AlphaBetaSearch<int>>
     {
         public static ITree<int> WikiTree()
         {
@@ -153,7 +154,7 @@ namespace Phutball.Tests.Search
     }
 
 
-    public class when_searching_with_and_or : osbservations_for_tree_search<AndOrSearch<int>>
+    public class when_searching_with_alpha_beta : osbservations_for_tree_search<AlphaBetaSearch<int>>
     {
         private ITree<int> _tree;
         private IntTreeValuer _intTreeValuer = new IntTreeValuer();
@@ -171,12 +172,12 @@ namespace Phutball.Tests.Search
 
         protected override void EstablishContext()
         {
-            _tree = AndOrTrees.WikiNoValuesTree();
+            _tree = MiniMaxTree.WikiNoValuesTree();
         }
 
-        protected override AndOrSearch<int> CreateSut()
+        protected override AlphaBetaSearch<int> CreateSut()
         {
-            return new AndOrSearch<int>(_intTreeValuer, AlphaBetaOptions.Defaults(), new EmptyNodeVisitor<int>());
+            return new AlphaBetaSearch<int>(_intTreeValuer, AlphaBetaOptions.Defaults(), new EmptyNodeVisitor<int>());
         }
 
     }

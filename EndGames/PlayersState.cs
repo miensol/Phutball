@@ -98,5 +98,10 @@ namespace Phutball
         {
             return new PlayersState(EventPublisher.Empty(), PlayerEnum.Second(), PlayerEnum.First());
         }
+        
+        public static IPlayersState FirstIsOnTheMove()
+        {
+            return new PlayersState(EventPublisher.Empty(), PlayerEnum.First(), PlayerEnum.Second());
+        }
     }
 }

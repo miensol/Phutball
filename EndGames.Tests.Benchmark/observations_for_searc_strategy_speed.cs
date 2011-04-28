@@ -27,7 +27,7 @@ namespace Phutball.Tests.Benchmark
     public abstract class observations_for_search_strategy_speed : observations_for_static_sut
     {
         public int MAX_VISITED_NODES_COUNT = 10000000;
-        protected const int TO_COUNT_AVERAGE = 1000;
+        protected const int TO_COUNT_AVERAGE = 100;
 
         static observations_for_search_strategy_speed()
         {
@@ -108,12 +108,12 @@ namespace Phutball.Tests.Benchmark
 //            return Enumerable.Range(1, 10).Select(i => i*10)
 //                .Select(r => Tuple.Create(r, r));
 //            yield return new Tuple<int, int>(10,10);
-            yield return new Tuple<int, int>(15,15);
+//            yield return new Tuple<int, int>(15,15);
 //            yield return new Tuple<int, int>(20,20);
 //            yield return new Tuple<int, int>(25,25);
 //            yield return new Tuple<int, int>(30,30);
 //            yield return new Tuple<int, int>(35,35);
-//            yield return new Tuple<int, int>(40,40);
+            yield return new Tuple<int, int>(40,40);
 //            yield return new Tuple<int, int>(60,60);
 //            yield return new Tuple<int, int>(70,70);
 //            yield return new Tuple<int, int>(80,80);
@@ -314,6 +314,31 @@ namespace Phutball.Tests.Benchmark
         {
             RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.SecondIsOnTheMove(), options);
             return RawMoveFinders.OrderByNodesValuesWithCuttofsToWhite();
+        }
+    }
+
+    [TestFixture]
+    public class when_searching_with_alpha_beta : observations_for_searching_with_brute_force
+    {
+        [TestFixtureSetUp]
+        public void start_fixture()
+        {
+            CultureSetter.SetToPolish();
+            Logger.Info("Mini max");
+            Logger.Info(INFO_HEADER);
+        }
+
+
+        protected override IMoveFindingStartegy GetSearchEngine(IFieldsGraph graph)
+        {
+            options.AlphaBeta.JumpsMaxDepth = 10;
+            options.AlphaBeta.StoneRadius = 1;
+            options.AlphaBeta.SkipShortMoves = 1;
+            options.AlphaBeta.SearchDepth = 3;
+            options.AlphaBeta.BlackStonesToBorderWeight = 0;
+            options.AlphaBeta.DistanceToBorderWeight = 1;
+            RawMoveFinders = new RawMoveFinders(new MovesFactory(), PlayersState.FirstIsOnTheMove(), options);
+            return RawMoveFinders.AlphaBeta();
         }
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using Phutball.PlayerMoves;
 using Phutball.Search.BoardValues;
+using Phutball.Search.Visitors;
 
-namespace Phutball.Search
+namespace Phutball.Search.Strategies
 {
-    public class CuttofsMoveFindingStrategy : IMoveFindingStartegy
+    public class BruteForceMoveFindingStartegy : IMoveFindingStartegy
     {
         private readonly ISearchNodeVisitor<JumpNode> _defaultNodeVistor;
         private readonly Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder, ITreeSearch<JumpNode>> _searchFactory;
         private readonly IPlayersState _playersState;
         private MovesFactory _movesFactory;
 
-        public CuttofsMoveFindingStrategy(
+        public BruteForceMoveFindingStartegy(
             ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
             Func<ISearchNodeVisitor<JumpNode>,ITreeSearch<JumpNode>> searchFactory,
             IPlayersState playersState, 
@@ -19,13 +20,11 @@ namespace Phutball.Search
         {
             _defaultNodeVistor = defaultNodeVistor;
             _movesFactory = movesFactory;
-            _searchFactory = (vistor,perform, target) => searchFactory(vistor);
+            _searchFactory = (visotors,perfomer, target) => searchFactory(visotors);
             _playersState = playersState;
-            MaxVisitedNodes = int.MaxValue;
         }
-        
-        public CuttofsMoveFindingStrategy(
-            ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
+
+        public BruteForceMoveFindingStartegy(ISearchNodeVisitor<JumpNode> defaultNodeVistor, 
             Func<ISearchNodeVisitor<JumpNode>, IPerformMoves, TargetBorder,ITreeSearch<JumpNode>> searchFactory,
             IPlayersState playersState, 
             MovesFactory movesFactory)
@@ -34,11 +33,9 @@ namespace Phutball.Search
             _movesFactory = movesFactory;
             _searchFactory = searchFactory;
             _playersState = playersState;
-            MaxVisitedNodes = int.MaxValue;
         }
+        
 
-        public bool CuttoffToTarget { get; set; }
-        public int MaxVisitedNodes { get; set; }
 
         public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
@@ -46,24 +43,20 @@ namespace Phutball.Search
             var tree = _movesFactory.GetMovesTree(graphCopy);
             var targetBorder = _playersState.CurrentPlayer.GetTargetBorder(fieldsGraph);
             var performMoves = new PerformMoves(graphCopy, _playersState);
-            var cuttoffVisitor = new CuttoffPickBestValueNodeVisitor(targetBorder, graphCopy, performMoves)
-                                     {
-                                         CuttoffToTargetBorder = CuttoffToTarget
-                                     };
+            var bestValuePicker = new PickBestValueNodeVisitor(targetBorder, graphCopy, performMoves);
+            var nodeCounter = new VisitedNodesCounter<JumpNode>();
             var depthCounter = new DepthCounterNodeVisitor<JumpNode>();
-            var stopOnMaxNodesVisited = new StopOnVisitedNodesCount<JumpNode>(MaxVisitedNodes);
-            var searchNodeVisitor = stopOnMaxNodesVisited
-                .FollowedBy(cuttoffVisitor)
-                .FollowedBy(depthCounter)
-                .FollowedBy(_defaultNodeVistor);
+            var searchNodeVisitor = _defaultNodeVistor.FollowedBy(bestValuePicker).FollowedBy(nodeCounter).FollowedBy(depthCounter);
             var search = _searchFactory(searchNodeVisitor, performMoves, targetBorder);
             search.Run(tree);
-            return new PhutballMoveScore(cuttoffVisitor.PickBestValue.ResultMove, cuttoffVisitor.PickBestValue.CurrentMaxValue)
+            return new PhutballMoveScore( bestValuePicker.ResultMove, bestValuePicker.CurrentMaxValue)
                        {
-                           VisitedNodesCount = stopOnMaxNodesVisited.VistedNodesCount,
-                           MaxDepth = depthCounter.MaxDepth,
-                           CuttoffsCount = cuttoffVisitor.CuttoffsCount
+                           VisitedNodesCount = nodeCounter.Count,
+                           MaxDepth = depthCounter.MaxDepth
                        };
         }
     }
+
+ 
+
 }

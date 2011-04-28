@@ -1,8 +1,9 @@
 ﻿using System;
 using Phutball.PlayerMoves;
 using Phutball.Search.BoardValues;
+using Phutball.Search.Visitors;
 
-namespace Phutball.Search
+namespace Phutball.Search.Strategies
 {
     public class BoundedVistedNodesCountStrategy : IMoveFindingStartegy
     {

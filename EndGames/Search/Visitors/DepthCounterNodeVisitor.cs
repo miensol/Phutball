@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Phutball.Search
+namespace Phutball.Search.Visitors
 {
     public class DepthCounterNodeVisitor<TNode> : ISearchNodeVisitor<TNode>
     {

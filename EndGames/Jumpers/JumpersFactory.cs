@@ -14,36 +14,31 @@ namespace Phutball.Jumpers
         public static readonly Tuple<int, int> SW = new Tuple<int, int>(1, -1);
         public static readonly Tuple<int, int> W = new Tuple<int, int>(0, -1);
         public static readonly Tuple<int, int> NW = new Tuple<int, int>(-1, -1);
+
+        public static readonly Tuple<int, int>[] All = new[]
+                                                                      {
+                                                                          N,
+                                                                          NE,
+                                                                          NW,
+                                                                          W,
+                                                                          E,
+                                                                          SW,
+                                                                          SE,
+                                                                          S
+                                                                      };
     }
 
 
     public class JumpersFactory 
     {
         private readonly IFieldsGraph _fieldsGraph;
-        private readonly int _stoneRadius;
 
-        private static readonly Tuple<int, int>[] AllDirections = new[]
-                                                            {
-                                                                Direction.N,
-                                                                Direction.NE,
-                                                                Direction.NW,
-                                                                Direction.W,
-                                                                Direction.E,
-                                                                Direction.SW,
-                                                                Direction.SE,
-                                                                Direction.S
-                                                            };
-        
 
-        public JumpersFactory(IFieldsGraph fieldsGraph, int stoneRadius)
+        public JumpersFactory(IFieldsGraph fieldsGraph)
         {
             _fieldsGraph = fieldsGraph;
-            _stoneRadius = stoneRadius;
         }
-
-        public JumpersFactory(IFieldsGraph fieldsGraph):this(fieldsGraph, 1)
-        {
-        }
+        
 
 //        public IEnumerable<IJump> AllJumps(Field from)
 //        {
@@ -57,7 +52,7 @@ namespace Phutball.Jumpers
         
         public IEnumerable<IJump> AllJumps(Field from)
         {
-            return AllDirections.Select(direction => new FieldJump(_fieldsGraph, from, direction));
+            return Direction.All.Select(direction => new FieldJump(_fieldsGraph, from, direction));
         }
 
         public IJump FromTo(Field from, Field to)
@@ -67,28 +62,8 @@ namespace Phutball.Jumpers
 
         public static IEnumerable<Tuple<int, int>> Directions()
         {
-            return AllDirections;
+            return Direction.All;
         }
-
-        public IEnumerable<Field> AllPlaces(Field whiteField)
-        {
-            return ChoosValidPlacesForBlackField(whiteField, Directions());
-        }
-
-        private IEnumerable<Field> ChoosValidPlacesForBlackField(Field whiteField, IEnumerable<Tuple<int, int>> directions)
-        {
-            var whiteCords = _fieldsGraph.GetCoordinates(whiteField);
-            return directions.Shuffle()
-                .SelectMany(dir=> Enumerable.Range(1,_stoneRadius).Select(radius=> dir.Multiply(radius)))
-                .Distinct()
-                .Select(dir=> new StoneMover(dir).Next(whiteCords))
-                .Where(dir=> _fieldsGraph.CanPlaceBlackStone(dir))
-                .Select(validCord=> _fieldsGraph.GetField(validCord));
-        }
-
-        public IEnumerable<Field> PlacesForBlack(IEnumerable<Tuple<int, int>> places, Field whiteField)
-        {
-            return ChoosValidPlacesForBlackField(whiteField, places);
-        }
+        
     }
 }

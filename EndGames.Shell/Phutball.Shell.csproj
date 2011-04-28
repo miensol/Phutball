@@ -197,6 +197,8 @@
     </Compile>
     <Compile Include="Extensions\WpfExtensions.cs" />
     <Compile Include="Mapping\FieldToFieldModelMapping.cs" />
+    <Compile Include="Mapping\IDoMapper.cs" />
+    <Compile Include="Mapping\ObjectMapper.cs" />
     <Compile Include="Mapping\PlayerOnBoardModel.cs" />
     <Compile Include="Mapping\PlayerToPlayerModelMapping.cs" />
     <Compile Include="Mapping\StoneToStoneModelMapping.cs" />

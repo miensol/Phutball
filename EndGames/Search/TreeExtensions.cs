@@ -23,15 +23,15 @@ namespace Phutball.Search
             return result;
         }
 
-        public static IEnumerable<ITree<T>> TraverseDfs<T>(this ITree<T> tree, ISearchNodeVisitor<T> visitor, int maxDepth)
+        public static IEnumerable<ITree<T>> TraverseDfs<T>(this ITree<T> tree, ISearchNodeVisitor<T> visitor, int depth)
         {
-            if (maxDepth == 0)
+            if (depth == 0)
             {
                 yield break;
             }
             visitor.OnEnter(tree, null);
             yield return tree;
-            foreach (var child in tree.Children.SelectMany(child => child.TraverseDfs(visitor, maxDepth - 1)))
+            foreach (var child in tree.Children.SelectMany(child => child.TraverseDfs(visitor, depth - 1)))
             {
                 yield return child;
             }   

@@ -5,7 +5,7 @@ using Phutball.Moves;
 using Phutball.PlayerMoves;
 using Phutball.Search.BoardValues;
 
-namespace Phutball.Search
+namespace Phutball.Search.Visitors
 {
     public class PickBestValueNodeVisitor : ISearchNodeVisitor<JumpNode>
     {

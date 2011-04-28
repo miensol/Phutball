@@ -54,16 +54,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -110,25 +102,36 @@
     <Compile Include="PlayerOnBoardInfo.cs" />
     <Compile Include="RandomSource.cs" />
     <Compile Include="Search\AllAlternatigJumpsTreeCollection.cs" />
-    <Compile Include="Search\AlphaBetaMoveFindingStrategy.cs" />
     <Compile Include="Search\AlternatingJumpsMovesTree.cs" />
-    <Compile Include="Search\AndOrSearch.cs" />
+    <Compile Include="Search\AlphaBetaSearch.cs" />
     <Compile Include="Search\BestValueAddRemoveCollection.cs" />
     <Compile Include="Search\BfsSearch.cs" />
-    <Compile Include="Search\BinaryHeap.cs" />
+    <Compile Include="Search\FirstJumpThenPlaceStones.cs" />
+    <Compile Include="Search\IPlaceBlackStone.cs" />
+    <Compile Include="Search\PlayerBlackStonePlacer.cs" />
+    <Compile Include="Search\Strategies\AlphaBetaMoveFindingStrategy.cs" />
+    <Compile Include="Search\Strategies\BoundedDepthMoveFindingStrategy.cs" />
+    <Compile Include="Search\Strategies\BoundedVistedNodesCountStrategy.cs" />
+    <Compile Include="Search\Strategies\BruteForceMoveFindingStartegy.cs" />
+    <Compile Include="Search\Strategies\CuttoffsMoveFindingStrategy.cs" />
+    <Compile Include="Search\TowardsTargetBorderStonePlacer.cs" />
+    <Compile Include="Search\Visitors\CompisiteSearchNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\CuttoffPickBestValueNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\DepthCounterNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\EmptyNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\PerformMovesNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\PickBestValueNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\StopOnDepthNodeVisitor.cs" />
+    <Compile Include="Search\Visitors\StopOnVisitedNodesCount.cs" />
+    <Compile Include="Search\Visitors\VisitedNodesCounter.cs" />
+    <Compile Include="Utils\BinaryHeap.cs" />
     <Compile Include="Search\BoardValues\AddValues.cs" />
-    <Compile Include="Search\BoardValues\BlackkStoneToTargetBorderCount.cs" />
+    <Compile Include="Search\BoardValues\BlackStoneToTargetBorderCount.cs" />
     <Compile Include="Search\BoardValues\DistanceToBottomBorderCounter.cs" />
     <Compile Include="Search\BoardValues\DistanceToUpperBorderCounter.cs" />
     <Compile Include="Search\BoardValues\Extensions.cs" />
     <Compile Include="Search\BoardValues\IDistanceCounter.cs" />
     <Compile Include="Search\BoardValues\WhiteStoneToCurrentPlayerBorderDistance.cs" />
-    <Compile Include="Search\BoundedDepthMoveFindingStrategy.cs" />
-    <Compile Include="Search\BoundedVistedNodesCountStrategy.cs" />
-    <Compile Include="Search\CuttoffPickBestValueNodeVisitor.cs" />
-    <Compile Include="Search\CuttofsMoveFindingStrategy.cs" />
-    <Compile Include="Search\DepthCounterNodeVisitor.cs" />
-    <Compile Include="Search\EmptyNodeVisitor.cs" />
     <Compile Include="Search\EnsureMoveIsValid.cs" />
     <Compile Include="Search\Extensions.cs" />
     <Compile Include="Search\IAddRemoveCollection.cs" />
@@ -142,17 +145,12 @@
     <Compile Include="Search\MoveScore.cs" />
     <Compile Include="Search\MovesFactory.cs" />
     <Compile Include="Search\PhutballMoveScore.cs" />
-    <Compile Include="Search\PlaceBlackStonesAroundWhite.cs" />
+    <Compile Include="Search\PlaceBlackStonesForPlayer.cs" />
     <Compile Include="Search\QueueAddRemoveCollection.cs" />
     <Compile Include="Search\RawMoveFinders.cs" />
-    <Compile Include="Search\PickBestValueNodeVisitor.cs" />
-    <Compile Include="Search\CompisiteSearchNodeVisitor.cs" />
     <Compile Include="Search\RootedBySelectingWhiteFieldBoardJumpTree.cs" />
     <Compile Include="Search\SearchExtensions.cs" />
-    <Compile Include="Search\StopOnDepthNodeVisitor.cs" />
-    <Compile Include="Search\StopOnVisitedNodesCount.cs" />
     <Compile Include="Search\TreeExtensions.cs" />
-    <Compile Include="Search\VisitedNodesCounter.cs" />
     <Compile Include="PlayersState.cs" />
     <Compile Include="TargetBorderEnum.cs" />
     <Compile Include="Switch.cs" />
@@ -195,19 +193,14 @@
     <Compile Include="ReadOnlyPhutballBoard.cs" />
     <Compile Include="Search\BoardValues\IValueOf.cs" />
     <Compile Include="Search\BoardValues\WhiteStoneToBorderDistanceValue.cs" />
-    <Compile Include="Search\BruteForceMoveFindingStartegy.cs" />
     <Compile Include="Search\DfsSearch.cs" />
     <Compile Include="Search\IMoveFindingStartegy.cs" />
     <Compile Include="Search\JumpNode.cs" />
-    <Compile Include="Search\OneTimeValueThenDefault.cs" />
     <Compile Include="Search\Tree.cs" />
     <Compile Include="WhiteStone.cs" />
     <Compile Include="IStone.cs" />
     <Compile Include="Utils\IStartupTask.cs" />
-    <Compile Include="Mapping\AutoMapperExtensions.cs" />
     <Compile Include="BasicExtensions.cs" />
-    <Compile Include="Mapping\IDoMapper.cs" />
-    <Compile Include="Mapping\ObjectMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,9 +220,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Phutball\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

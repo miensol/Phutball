@@ -1,6 +1,7 @@
 ﻿using System;
+using Phutball.Search.Visitors;
 
-namespace Phutball.Search
+namespace Phutball.Search.Strategies
 {
     public class BoundedDepthMoveFindingStrategy : IMoveFindingStartegy
     {

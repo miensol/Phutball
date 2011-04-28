@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Linq;
 using Phutball.Moves;
 using Phutball.Search.BoardValues;
+using Phutball.Search.Strategies;
+using Phutball.Search.Visitors;
 
 namespace Phutball.Search
 {
@@ -45,7 +46,7 @@ namespace Phutball.Search
 
         public IMoveFindingStartegy DfsCuttoff()
         {
-            return new CuttofsMoveFindingStrategy(
+            return new CuttoffsMoveFindingStrategy(
                 new EmptyNodeVisitor<JumpNode>(),
                 (vistors) => new DfsSearch<JumpNode>(vistors),
                 _playersStateCopy(),
@@ -59,7 +60,7 @@ namespace Phutball.Search
 
         public IMoveFindingStartegy DfsCuttoffToWhite()
         {
-            return new CuttofsMoveFindingStrategy(
+            return new CuttoffsMoveFindingStrategy(
                     new EmptyNodeVisitor<JumpNode>(),
                     (vistors)=> new DfsSearch<JumpNode>(vistors),
                     _playersStateCopy(),
@@ -72,7 +73,7 @@ namespace Phutball.Search
 
         public IMoveFindingStartegy OrderByNodesValuesWithCuttofsToWhite()
         {
-            return new CuttofsMoveFindingStrategy(                
+            return new CuttoffsMoveFindingStrategy(                
                 new EmptyNodeVisitor<JumpNode>(),
                 (visotors, performer, target) => new BfsSearch<JumpNode>(visotors,new BestValueAddRemoveCollection(performer,new WhiteStoneToBorderDistanceValue(target))),
                 _playersStateCopy(), _movesFactory
@@ -84,7 +85,7 @@ namespace Phutball.Search
 
         public IMoveFindingStartegy BfsCuttoffToWhite()
         {
-            return new CuttofsMoveFindingStrategy(
+            return new CuttoffsMoveFindingStrategy(
                     new EmptyNodeVisitor<JumpNode>(),
                     (vistors) => new BfsSearch<JumpNode>(vistors),
                     _playersStateCopy(),
@@ -124,7 +125,7 @@ namespace Phutball.Search
             var playersStateCopy = _playersStateCopy();
             var options = _phutballOptions.AlphaBeta.AllowNoMoveToBeTaken();
             return new AlphaBetaMoveFindingStrategy(playersStateCopy, options,
-                    (graph) => new AlternatingJumpsMovesTree(new JumpNode(graph, new EmptyPhutballMove()),
+                    (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),
                         (parent) => new AllAlternatigJumpsTreeCollection(parent, options))
                 );
         }
@@ -132,13 +133,14 @@ namespace Phutball.Search
         public IMoveFindingStartegy AlphaBeta()
         {
             var playersStateCopy = _playersStateCopy();
+            var alphaBetaOptions = _phutballOptions.AlphaBeta;
             return new AlphaBetaMoveFindingStrategy(
-                playersStateCopy, _phutballOptions.AlphaBeta,
-                (graph) => new AlternatingJumpsMovesTree( JumpNode.Empty(graph),
-                                    (parent) => new AllAlternatigJumpsTreeCollection(parent, _phutballOptions.AlphaBeta)
-                                            .Concat(new PlaceBlackStonesAroundWhite(parent, playersStateCopy, _phutballOptions.AlphaBeta))
-                                    )
-            );
+                playersStateCopy, alphaBetaOptions,
+                (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),
+                                                         (parent) =>
+                                                         new FirstJumpThenPlaceStones(parent, alphaBetaOptions,
+                                                                                      playersStateCopy))
+                );
         }
 
         public IMoveFindingStartegy BfsNodesBounded()

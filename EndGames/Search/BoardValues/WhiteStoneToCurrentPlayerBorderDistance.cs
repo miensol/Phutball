@@ -2,14 +2,12 @@
 {
     public class WhiteStoneToCurrentPlayerBorderDistance : IValueOf<JumpNode>
     {
-        private readonly IPlayersState _playersState;
         private readonly int _distanceToBorderWeight;
         private WhiteStoneToBorderDistanceValue _whiteStoneToBorderDistance;
         private TargetBorder _targetBorder;
 
         public WhiteStoneToCurrentPlayerBorderDistance(IPlayersState playersState, IFieldsGraph fieldsGraph, int distanceToBorderWeight)
         {
-            _playersState = playersState;
             _distanceToBorderWeight = distanceToBorderWeight;
             var currentPlayer = playersState.CurrentPlayer;
             _targetBorder = currentPlayer.GetTargetBorder(fieldsGraph);

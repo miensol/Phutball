@@ -1,4 +1,4 @@
-﻿namespace Phutball.Search
+﻿namespace Phutball.Search.Visitors
 {
     public class VisitedNodesCounter<TNode> : ISearchNodeVisitor<TNode>
     {

@@ -1,8 +1,9 @@
 ﻿using Phutball.Search.BoardValues;
+using Phutball.Search.Visitors;
 
 namespace Phutball.Search
 {
-    public class AndOrSearch<T> : ITreeSearch<T>
+    public class AlphaBetaSearch<T> : ITreeSearch<T>
     {
         private const int MAX_PLAYER = 0;
         private const int MIN_PLAYER = 1;
@@ -12,7 +13,7 @@ namespace Phutball.Search
         private DepthCounterNodeVisitor<T> _depthCounter;
         private ISearchNodeVisitor<T> _nodeVisitor;
 
-        public AndOrSearch(IValueOf<T> valuer, IAlphaBetaOptions maxDepth, ISearchNodeVisitor<T> nodeVisitor)
+        public AlphaBetaSearch(IValueOf<T> valuer, IAlphaBetaOptions maxDepth, ISearchNodeVisitor<T> nodeVisitor)
         {
             _valuer = valuer;
             _maxDepth = maxDepth.SearchDepth;
@@ -30,6 +31,8 @@ namespace Phutball.Search
         }
 
         public MoveScore<T,int> BestMove { get; set; }
+
+        public int CuttoffsCount { get; set; }
 
         private MoveScore<T,int> AlphaBeta(ITree<T> tree, MoveScore<T,int> alpha, MoveScore<T,int> beta, Switch<int> player)
         {
@@ -54,6 +57,7 @@ namespace Phutball.Search
                         alpha = alpha.Max( AlphaBeta(child, alpha, beta, player.Swap()) );
                         if (beta.Score <= alpha.Score)
                         {
+                            CuttoffsCount++;
                             break;
                         }
                         if(LongRunningProcess.Current.IsCancellationRequested)
@@ -72,6 +76,7 @@ namespace Phutball.Search
                         beta = beta.Min(AlphaBeta(child, alpha, beta, player.Swap()));
                         if (beta.Score <= alpha.Score)
                         {
+                            CuttoffsCount++;
                             break;
                         }
                         if (LongRunningProcess.Current.IsCancellationRequested)

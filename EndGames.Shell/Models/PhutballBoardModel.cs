@@ -4,6 +4,7 @@ using Caliburn.PresentationFramework;
 using Phutball.Events;
 using Phutball.Mapping;
 using Phutball.Shell.Extensions;
+using Phutball.Shell.Mapping;
 using Phutball.Shell.Utils;
 
 namespace Phutball.Shell.Models

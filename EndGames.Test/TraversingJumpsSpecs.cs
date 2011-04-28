@@ -3,6 +3,7 @@ using NUnit.Framework;
 using ForTesting;
 using Phutball.PlayerMoves;
 using Phutball.Search;
+using Phutball.Search.Visitors;
 using Phutball.Tests.Search;
 
 namespace Phutball.Tests

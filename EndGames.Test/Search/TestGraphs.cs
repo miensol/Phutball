@@ -175,6 +175,7 @@ namespace Phutball.Tests.Search
                         new[] {Empty, Black, Empty, Empty, Black, Black, Empty},
                         new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
                         new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
+                        new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
                         new[] {Empty, Empty, Empty, Empty, Empty, Empty, Empty},
                         new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},
                         new[] {Empty, Black, Empty, Empty, Empty, Empty, Empty},

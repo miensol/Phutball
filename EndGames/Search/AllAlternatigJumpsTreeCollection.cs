@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Phutball.Moves;
 using Phutball.PlayerMoves;
+using Phutball.Search.Visitors;
 
 namespace Phutball.Search
 {
     public class AllAlternatigJumpsTreeCollection : IEnumerable<IJumpNodeTreeWithFactory>
     {
         private readonly IAlphaBetaOptions _alphaBetaOptions;
-        private JumpNode _parentJumpNode;
+        private readonly JumpNode _parentJumpNode;
 
         public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent, IAlphaBetaOptions alphaBetaOptions)
         {

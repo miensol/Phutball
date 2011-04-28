@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Phutball.Moves;
 using Phutball.PlayerMoves;
 using Phutball.Search;
+using Phutball.Search.Strategies;
 
 namespace Phutball.Tests.Search
 {

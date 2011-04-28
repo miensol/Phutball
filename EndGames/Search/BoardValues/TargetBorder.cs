@@ -1,9 +1,19 @@
 using System;
-using System.Collections.Generic;
-using Phutball.Jumpers;
 
 namespace Phutball.Search.BoardValues
 {
+    public static class TargetBorderExtensions
+    {
+        public static TResult Select<TResult>(this TargetBorder targetBorder,Func<TResult> upper, Func<TResult> bottom)
+        {
+            if(targetBorder.Name == TargetBorderEnum.UpperName)
+            {
+                return upper();
+            }
+            return bottom();
+        }
+    }
+
     public class TargetBorder
     {
         public static readonly int WinValueConst = int.MaxValue;
@@ -18,18 +28,13 @@ namespace Phutball.Search.BoardValues
             LooseValue = LooseValueConst;
             _rowAccessor = rowAccessor;            
         }
-
-        public TargetBorder ChoosePlacesForBlackStoneUsing(Func<IEnumerable<Tuple<int,int>>,IEnumerable<Tuple<int,int>>> blackChooser)
-        {
-            _blackPlaces = blackChooser(JumpersFactory.Directions());
-            return this;
-        }
         
         public TargetBorder OppositeIs(Func<TargetBorder> opositeBorder)
         {
             _opositeBorder = opositeBorder;
             return this;
         }
+        
 
         public TargetBorder CountDistanceUsing(IDistanceCounter distanceCounter)
         {
@@ -58,7 +63,6 @@ namespace Phutball.Search.BoardValues
         private bool _isInitilized;
         private Func<TargetBorder> _opositeBorder;
         private IDistanceCounter _distanceCounter;
-        private IEnumerable<Tuple<int, int>> _blackPlaces;
         private Func<int, int, bool> _leftCloserThanRight;
         private Func<TargetBorder,int> _endRowIndexAccessor;
 
@@ -97,11 +101,6 @@ namespace Phutball.Search.BoardValues
         public override string ToString()
         {
             return Name;
-        }
-
-        public IEnumerable<Tuple<int,int>> PlacesForBlackStone()
-        {
-            return _blackPlaces;
         }
 
         public static bool IsWinOrLooseValue(int leftValue)

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Diagnostics.Contracts;
 
-namespace Phutball.Search
+namespace Phutball.Utils
 {
     /// <summary>
     /// Binary heap

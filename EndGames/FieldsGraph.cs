@@ -41,7 +41,7 @@ namespace Phutball
         {
             int row = field.Id/ColumnCount;
             int column = field.Id%ColumnCount;
-            return new Tuple<int, int>(row, column);
+            return Tuple.Create(row, column);
         }
 
         public bool IsValidPlaceForWhiteField(Tuple<int, int> cords)
@@ -57,6 +57,11 @@ namespace Phutball
         public Field GetWhiteField()
         {
             return GetFieldCloned(_whiteField.Id);
+        }
+
+        public Tuple<int, int> GetWhiteFieldCoords()
+        {
+            return GetCoordinates(_whiteField);
         }
 
         public void UpdateFields(params Field[] fieldsToUpdate)
@@ -80,7 +85,7 @@ namespace Phutball
                     _blackFields.Add(fieldToUpdate);    
                 }                
             }
-        }        
+        }
 
         public IEnumerable<Field> GetFields()
         {
@@ -109,7 +114,7 @@ namespace Phutball
         private bool IsValidRow(int rowIndex)
         {
             return rowIndex >= 0 && rowIndex < RowCount;
-        }        
+        }
 
         public void Initialize()
         {

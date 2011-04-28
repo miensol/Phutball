@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Caliburn", "Caliburn", "{A88A62DF-F577-4870-BBFE-1213414EC572}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CA716FE2-9110-4EE9-AC95-B21341A72FB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phutball.Shell", "EndGames.Shell\Phutball.Shell.csproj", "{6ED2F022-574E-40AB-8271-431ED97EE2CF}"

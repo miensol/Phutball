@@ -4,7 +4,7 @@ using System.Linq;
 using Phutball.PlayerMoves;
 using Phutball.Search.BoardValues;
 
-namespace Phutball.Search
+namespace Phutball.Search.Visitors
 {
     public class CuttoffPickBestValueNodeVisitor : ISearchNodeVisitor<JumpNode>, IFieldsUpdater
     {
@@ -13,17 +13,21 @@ namespace Phutball.Search
         private readonly TargetBorder _targetBorder;
         private readonly IFieldsGraph _fieldsGraph;
         public PickBestValueNodeVisitor PickBestValue { get; private set; }
+
+        public IPerformMoves MovesPerformer { get; private set; }
+
         private int _bestWhiteStonePostion;
         private HashSet<Field> _blackFields;
         private Dictionary<int, HashSet<Field>> _blackFieldsByRowIndex;
         private readonly int _targetBorderRowEndIndex;
 
 
-        public CuttoffPickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph fieldsGraph, IPerformMoves performMoves )
+        public CuttoffPickBestValueNodeVisitor(TargetBorder targetBorder, IFieldsGraph fieldsGraph, IPlayersState playersState )
         {
             _targetBorder = targetBorder;
             _fieldsGraph = fieldsGraph;
-            PickBestValue = new PickBestValueNodeVisitor(targetBorder, fieldsGraph, performMoves);
+            MovesPerformer = new PerformMoves(this, playersState);
+            PickBestValue = new PickBestValueNodeVisitor(targetBorder, fieldsGraph, MovesPerformer);
             InitliazeBlackBuckets(fieldsGraph);
             PickBestValue.MaxUpdated += OnBestPositionUpdated;
             _targetBorderRowEndIndex = _targetBorder.EndRowIndex;

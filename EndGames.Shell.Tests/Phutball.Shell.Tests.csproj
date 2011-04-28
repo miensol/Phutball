@@ -92,6 +92,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\AutoMapperExtensionsSpecs.cs" />
+    <Compile Include="Mapping\AutoMapperSpecs.cs" />
     <Compile Include="Mapping\FieldToFieldModelMappingSpecs.cs" />
     <Compile Include="Mapping\observations_for_mapping.cs" />
     <Compile Include="Presenters\HomePresenterSpecs.cs" />

@@ -17,5 +17,6 @@ namespace Phutball
         bool CanPlaceBlackStone(Tuple<int,int> coords);
         TargetBorderEnum Borders();
         IEnumerable<Field> GetBlackFields();
+        Tuple<int, int> GetWhiteFieldCoords();
     }
 }

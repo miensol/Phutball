@@ -1,6 +1,7 @@
 using ForTesting;
 using NUnit.Framework;
 using Phutball.Mapping;
+using Phutball.Shell.Mapping;
 using Rhino.Mocks;
 
 namespace Phutball.Tests.Mapping
