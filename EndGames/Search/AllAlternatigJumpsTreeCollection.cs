@@ -11,10 +11,18 @@ namespace Phutball.Search
     {
         private readonly IAlphaBetaOptions _alphaBetaOptions;
         private readonly JumpNode _parentJumpNode;
+        private ISearchNodeVisitor<JumpNode> _afterMoveVisitor;
 
         public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent, IAlphaBetaOptions alphaBetaOptions)
+            :this(parent, alphaBetaOptions, new EmptyNodeVisitor<JumpNode>())
+        {
+        
+        }
+
+        public AllAlternatigJumpsTreeCollection(IJumpNodeTreeWithFactory parent, IAlphaBetaOptions alphaBetaOptions, ISearchNodeVisitor<JumpNode> afterMoveVisitor)
         {
             _alphaBetaOptions = alphaBetaOptions;
+            _afterMoveVisitor = afterMoveVisitor;
             Parent = parent;
             _parentJumpNode = Parent.Node;            
         }
@@ -26,7 +34,8 @@ namespace Phutball.Search
             var actualGraph = (IFieldsGraph) _parentJumpNode.ActualGraph.Clone();
             var localMovePerformer = PerformMoves.DontCareAboutPlayerStateChange(actualGraph);
             var current = new RootedBySelectingWhiteFieldBoardJumpTree(actualGraph);
-            var currentMoves = current.TraverseDfs(new PerformMovesNodeVisitor(localMovePerformer), _alphaBetaOptions.JumpsMaxDepth)
+            var visitor = new PerformMovesNodeVisitor(localMovePerformer).FollowedBy(_afterMoveVisitor);
+            var currentMoves = current.TraverseDfs(visitor, _alphaBetaOptions.JumpsMaxDepth)
                 .Skip(_alphaBetaOptions.SkipShortMoves);
             foreach (var currentMove in currentMoves)
             {

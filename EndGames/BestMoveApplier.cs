@@ -10,38 +10,6 @@ using Phutball.Search;
 
 namespace Phutball
 {
-    public class LongRunningProcess
-    {
-        private static CancellationTokenSource _cancelationTokenSurce;
-
-        public static CancellationTokenSource StartNew()
-        {
-            if(_cancelationTokenSurce != null)
-            {
-                throw new InvalidOperationException("must clear long running process first");
-            }
-            _cancelationTokenSurce = new CancellationTokenSource();
-            return _cancelationTokenSurce;
-        }
-
-        public static CancellationToken Current
-        {
-            get
-            {
-                if(_cancelationTokenSurce == null)
-                {
-                    return CancellationToken.None;
-                }
-                return _cancelationTokenSurce.Token;
-            }
-        }
-
-        public static void Clear()
-        {
-            _cancelationTokenSurce = null;
-        }
-    }
-
     public class BestMoveApplier
     {
         private readonly IMoveFinders _moveFinders;
@@ -74,7 +42,7 @@ namespace Phutball
 
         private Func<IMoveFinders, IEnumerable<IMoveFindingStartegy>> ComputerStrategies
         {
-            get { return f => new[] {f.AlphaBetaJumpsOrStay(), f.AlphaBeta()}; }
+            get { return f => new[] {f.SmartAlphaBeta(), f.AlphaBeta()}; }
         }
 
         public void ChooseAndPerform(CancellationToken cancelComputerMove)

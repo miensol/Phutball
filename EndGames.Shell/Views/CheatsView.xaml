@@ -2,38 +2,32 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:cal="clr-namespace:Caliburn.PresentationFramework.RoutedMessaging;assembly=Caliburn.PresentationFramework" xmlns:Presenters="clr-namespace:Phutball.Shell.Presenters" mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              
              IsEnabled="{Binding IsEnabled}"
              >
-    
-    <StackPanel x:Name="LayoutRoot" Orientation="Vertical">
-        <TextBlock>Make move using</TextBlock>
-        <Button x:Name="MakeMoveDfs" >
-            Bounded Depth first search
-        </Button>        
-        <Button x:Name="MakeMoveBfs" >
-            Bounded Depth Breadth First Search
-        </Button> 
-        <Button x:Name="UnboundedMoveDfs">
-            Unbounded Depth First Search
-        </Button> 
-        <Button x:Name="UnboundedMoveBfs">
-            Unbounded Breadth First Search
-        </Button>
-        <Button x:Name="MakeMoveAlphaBetaJumps" >
-            Alpha Beta Jumps
-        </Button>
-        <Button x:Name="MakeMoveAlphaBetaJumpsOrStay" >
-            Alpha Beta Jump Or Stay
-        </Button>
-        <Button x:Name="MakeMoveAlphaBeta" >
-            Alpha Beta 
-        </Button>
+
+    <StackPanel Orientation="Vertical" x:Name="LayoutRoot">
+        <TextBlock >
+            Make move using:
+        </TextBlock>
+        
         <Button x:Name="MakeMoveLikeComputer" >
-            Alpha Beta Like Computer
+            Like Computer
         </Button>
+
+        <ItemsControl ItemsSource="{Binding MoveStrategies}">            
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type Presenters:MoveStrategyButtonModel}" >
+                    <Button cal:Message.Attach="[Event  Click] = [Action MakeMove($dataContext)]" >
+                        <TextBlock Text="{Binding StrategyName}" />
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
     </StackPanel>
+    
+    
 </UserControl>

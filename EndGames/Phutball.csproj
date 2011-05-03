@@ -85,6 +85,7 @@
     <Compile Include="Jumpers\Extensions.cs" />
     <Compile Include="Jumpers\FieldExtensions.cs" />
     <Compile Include="Jumpers\IntExtensions.cs" />
+    <Compile Include="LongRunningProcess.cs" />
     <Compile Include="Moves\DeselectWhiteFieldIfSelectedMove.cs" />
     <Compile Include="Moves\EmptyPhutballMove.cs" />
     <Compile Include="Moves\IPhutballMove.cs" />
@@ -106,8 +107,10 @@
     <Compile Include="Search\AlphaBetaSearch.cs" />
     <Compile Include="Search\BestValueAddRemoveCollection.cs" />
     <Compile Include="Search\BfsSearch.cs" />
+    <Compile Include="Search\CompositeBlackStonePlacer.cs" />
     <Compile Include="Search\FirstJumpThenPlaceStones.cs" />
     <Compile Include="Search\IPlaceBlackStone.cs" />
+    <Compile Include="Search\NeighboursOfWhiteStoneBlackStonePlacer.cs" />
     <Compile Include="Search\PlayerBlackStonePlacer.cs" />
     <Compile Include="Search\Strategies\AlphaBetaMoveFindingStrategy.cs" />
     <Compile Include="Search\Strategies\BoundedDepthMoveFindingStrategy.cs" />

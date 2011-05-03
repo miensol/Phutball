@@ -140,6 +140,20 @@ namespace Phutball.Search
                                                          (parent) =>
                                                          new FirstJumpThenPlaceStones(parent, alphaBetaOptions,
                                                                                       playersStateCopy))
+                );        
+        }
+
+
+        public IMoveFindingStartegy SmartAlphaBeta()
+        {
+            var playersStateCopy = _playersStateCopy();
+            var alphaBetaOptions = _phutballOptions.AlphaBeta.AllowNoMoveToBeTaken();
+            return new AlphaBetaMoveFindingStrategy(
+                playersStateCopy, alphaBetaOptions,
+                (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),
+                                                         (parent) =>
+                                                         new JumpCollectWhiteStonePlacesThenPutBlack(parent, alphaBetaOptions,
+                                                                                      playersStateCopy))
                 );
         }
 

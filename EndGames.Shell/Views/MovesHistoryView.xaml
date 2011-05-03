@@ -11,8 +11,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="Undo" IsEnabled="{Binding UndoEnabled}">Undo</Button>
-        <Button x:Name="Redo" Grid.Column="1" IsEnabled="{Binding RedoEnabled}">Redo</Button>
+        <Button x:Name="Undo">Undo</Button>
+        <Button x:Name="Redo" Grid.Column="1">Redo</Button>
         
     </Grid>
 </UserControl>

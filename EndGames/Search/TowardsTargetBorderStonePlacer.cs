@@ -8,21 +8,17 @@ namespace Phutball.Search
     public class TowardsTargetBorderStonePlacer : IPlaceBlackStone
     {
         private readonly IAlphaBetaOptions _alphaBetaOptions;
-        private readonly IEnumerable<Tuple<int, int>> _upper;
-        private readonly IEnumerable<Tuple<int, int>> _bottom;
 
         public TowardsTargetBorderStonePlacer(IAlphaBetaOptions alphaBetaOptions)
         {
             _alphaBetaOptions = alphaBetaOptions;
-            _upper = Direction.All.Take(5).ToList();
-            _bottom = Direction.All.Reverse().Take(5).ToList();
         }
 
         public IEnumerable<Tuple<int, int>> UpperIsTarget(IFieldsGraph fieldsGraph)
         {
             var coord = fieldsGraph.GetWhiteFieldCoords();
 
-            return _upper.SelectMany(MultiplyByRadius).Reverse()
+            return Direction.AllUpper.Take(5).SelectMany(MultiplyByRadius)
                 .Select(r=> coord.Add(r));
         }
 
@@ -35,7 +31,7 @@ namespace Phutball.Search
         {
             var coord = fieldsGraph.GetWhiteFieldCoords();
 
-            return _bottom.SelectMany(MultiplyByRadius).Reverse()
+            return Direction.AllBottom.Take(5).SelectMany(MultiplyByRadius)
                 .Select(r => coord.Add(r));
         }
     }

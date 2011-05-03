@@ -26,6 +26,9 @@ namespace Phutball.Jumpers
                                                                           SE,
                                                                           S
                                                                       };
+
+        public static readonly Tuple<int, int>[] AllUpper = All;
+        public static readonly Tuple<int, int>[] AllBottom = AllUpper.Reverse().ToArray();
     }
 
 

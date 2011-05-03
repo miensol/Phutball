@@ -24,6 +24,31 @@
             return _rawMoveFinders.DfsBounded().EnsureMoveIsValid();
         }
 
+        public IMoveFindingStartegy DfsCuttoff()
+        {
+            return _rawMoveFinders.DfsCuttoff().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy DfsCuttoffToWhite()
+        {
+            return _rawMoveFinders.DfsCuttoffToWhite().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy OrderByNodesValuesWithCuttofsToWhite()
+        {
+            return _rawMoveFinders.OrderByNodesValuesWithCuttofsToWhite().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy BfsCuttoffToWhite()
+        {
+            return _rawMoveFinders.BfsCuttoffToWhite().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy DfsNodesBounded()
+        {
+            return _rawMoveFinders.DfsNodesBounded().EnsureMoveIsValid();
+        }
+
         public IMoveFindingStartegy BfsBounded()
         {
             return _rawMoveFinders.BfsBounded().EnsureMoveIsValid();
@@ -37,6 +62,21 @@
         public IMoveFindingStartegy AlphaBeta()
         {
             return _rawMoveFinders.AlphaBeta().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy SmartAlphaBeta()
+        {
+            return _rawMoveFinders.SmartAlphaBeta().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy BfsNodesBounded()
+        {
+            return _rawMoveFinders.BfsNodesBounded().EnsureMoveIsValid();
+        }
+
+        public IMoveFindingStartegy OrderByNodesValues()
+        {
+            return _rawMoveFinders.OrderByNodesValues().EnsureMoveIsValid();
         }
 
         public IMoveFindingStartegy AlphaBetaJumpsOrStay()

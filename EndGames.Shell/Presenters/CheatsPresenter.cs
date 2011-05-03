@@ -1,10 +1,19 @@
-﻿using Caliburn.PresentationFramework.Actions;
+﻿using System;
+using Caliburn.PresentationFramework.Actions;
 using Caliburn.PresentationFramework.Screens;
 using Phutball.Events;
+using Phutball.Search;
 using Phutball.Shell.Presenters.Interfaces;
 
 namespace Phutball.Shell.Presenters
 {
+    public class MoveStrategyButtonModel
+    {
+        public Func<IMoveFinders, IMoveFindingStartegy> ChooseStrategy { get; set; }
+        public string StrategyName { get; set; }
+    }
+
+
     public class CheatsPresenter : Screen, ICheatsPresenter
     {
         private readonly IEventPublisher _eventPublisher;
@@ -12,9 +21,11 @@ namespace Phutball.Shell.Presenters
 
         public CheatsPresenter(
             IEventPublisher eventPublisher,
-            BestMoveApplier bestMoveApplier
+            BestMoveApplier bestMoveApplier,
+            MoveStrategiesCollection moveStrategies
             )
         {
+            MoveStrategies = moveStrategies;
             _eventPublisher = eventPublisher;
             _bestMoveApplier = bestMoveApplier;
             _eventPublisher.Subscribe<PhutballGameStarted>(Enable);
@@ -34,6 +45,7 @@ namespace Phutball.Shell.Presenters
         }
 
         private bool _isEnabled;
+
         public bool IsEnabled
         {
             get { return _isEnabled; }
@@ -41,6 +53,22 @@ namespace Phutball.Shell.Presenters
                 NotifyOfPropertyChange(()=> IsEnabled);
             }
         }
+
+        private MoveStrategiesCollection _moveStrategies;
+        public MoveStrategiesCollection MoveStrategies
+        {
+            get { return _moveStrategies; }
+            set { _moveStrategies = value; 
+                NotifyOfPropertyChange(()=> MoveStrategies);
+            }
+        }
+
+        [AsyncAction(BlockInteraction = true)]
+        public void MakeMove(MoveStrategyButtonModel strategy)
+        {
+            _bestMoveApplier.PerformAndStore(strategy.ChooseStrategy);
+        }
+
 
         [AsyncAction(BlockInteraction = true)]
         public void MakeMoveDfs()
@@ -82,6 +110,12 @@ namespace Phutball.Shell.Presenters
         public void MakeMoveAlphaBeta()
         {
             _bestMoveApplier.PerformAndStore((f) => f.AlphaBeta());            
+        }
+        
+        [AsyncAction(BlockInteraction = true)]
+        public void MakeMoveSmartAlphaBeta()
+        {
+            _bestMoveApplier.PerformAndStore((f) => f.SmartAlphaBeta());            
         }
         
         [AsyncAction(BlockInteraction = true)]
