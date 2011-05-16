@@ -10,6 +10,7 @@ namespace Phutball.Search
     {
         private readonly MovesFactory _movesFactory;
         private readonly Func<IPlayersState> _playersStateCopy;
+
         private readonly IPhutballOptions _phutballOptions;
 
         public RawMoveFinders(MovesFactory movesFactory, IPlayersState playersState, IPhutballOptions phutballOptions)
@@ -147,7 +148,20 @@ namespace Phutball.Search
         public IMoveFindingStartegy SmartAlphaBeta()
         {
             var playersStateCopy = _playersStateCopy();
-            var alphaBetaOptions = _phutballOptions.AlphaBeta.AllowNoMoveToBeTaken();
+            var alphaBetaOptions = _phutballOptions.AlphaBeta;
+            return new AlphaBetaMoveFindingStrategy(
+                playersStateCopy, alphaBetaOptions,
+                (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),
+                                                         (parent) =>
+                                                         new JumpCollectWhiteStonePlacesThenPutBlack(parent, alphaBetaOptions,
+                                                                                      playersStateCopy))
+                );
+        }
+
+        public IMoveFindingStartegy SmartAlphaBetaJumpOrStay()
+        {
+            var playersStateCopy = _playersStateCopy();
+            var alphaBetaOptions = _phutballOptions.AlphaBeta.AllowNoMoveToBeTaken().HalfDepth();
             return new AlphaBetaMoveFindingStrategy(
                 playersStateCopy, alphaBetaOptions,
                 (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),

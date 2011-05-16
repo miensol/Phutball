@@ -22,7 +22,7 @@ namespace Phutball
                        };
         }
 
-        public IAlphaBetaOptions AllowNoMoveToBeTaken()
+        public AlphaBetaOptions AllowNoMoveToBeTaken()
         {
             return new AlphaBetaOptions
                        {
@@ -33,6 +33,19 @@ namespace Phutball
                            SkipShortMoves = 0,
                            StoneRadius = StoneRadius
                        };
+        }
+
+        public IAlphaBetaOptions HalfDepth()
+        {
+            return new AlphaBetaOptions
+            {
+                SearchDepth = SearchDepth / 2,
+                BlackStonesToBorderWeight = BlackStonesToBorderWeight,
+                DistanceToBorderWeight = DistanceToBorderWeight,
+                JumpsMaxDepth = JumpsMaxDepth,
+                SkipShortMoves = SkipShortMoves,
+                StoneRadius = StoneRadius
+            };
         }
 
         public int SkipShortMoves { get; set; }

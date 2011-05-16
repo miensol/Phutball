@@ -19,7 +19,7 @@ namespace Phutball.Search
 
         public IEnumerable<Tuple<int, int>> UpperIsTarget(IFieldsGraph fieldsGraph)
         {
-            return Direction.AllUpper.Take(5).Select(dir => _firstPosition.Add(dir))
+            return Direction.AllUpper.Take(5).Shuffle().Select(dir => _firstPosition.Add(dir))
                 .Concat(new[]{_firstPosition})
                 .Concat(_whiteCoords)
                 .Concat(Direction.AllUpper.Take(3).SelectMany(

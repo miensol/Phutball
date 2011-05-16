@@ -26,7 +26,7 @@
         <Expander ExpandDirection="Left" IsExpanded="False" Header="Options">
             <ContentControl cal:View.Model="{Binding GameOptions}" />            
         </Expander>
-		<StackPanel Orientation="Vertical">
+		<StackPanel Orientation="Vertical" Name="CenterPanel">
 			<ContentControl cal:View.Model="{Binding GameState}" />
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
 
@@ -39,8 +39,10 @@
 			</StackPanel>
             <ContentControl cal:View.Model="{Binding MovesHistory}" />
 		</StackPanel>
-		<Expander ExpandDirection="Right" IsExpanded="False" Header="Cheats">							
-            <ContentControl cal:View.Model="{Binding Cheats}" />
+        <Expander ExpandDirection="Right" IsExpanded="False" Header="Cheats" Height="{Binding ElementName=CenterPanel,Path=ActualHeight, Mode=OneWay}">	
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+                <ContentControl cal:View.Model="{Binding Cheats}"  />
+            </ScrollViewer>
 		</Expander>
 
 	</StackPanel>

@@ -79,6 +79,11 @@
             return _rawMoveFinders.OrderByNodesValues().EnsureMoveIsValid();
         }
 
+        public IMoveFindingStartegy SmartAlphaBetaJumpOrStay()
+        {
+            return _rawMoveFinders.SmartAlphaBetaJumpOrStay().EnsureMoveIsValid();
+        }
+
         public IMoveFindingStartegy AlphaBetaJumpsOrStay()
         {
             return _rawMoveFinders.AlphaBetaJumpsOrStay().EnsureMoveIsValid();

@@ -17,5 +17,6 @@
         IMoveFindingStartegy SmartAlphaBeta();
         IMoveFindingStartegy BfsNodesBounded();
         IMoveFindingStartegy OrderByNodesValues();
+        IMoveFindingStartegy SmartAlphaBetaJumpOrStay();
     }
 }
