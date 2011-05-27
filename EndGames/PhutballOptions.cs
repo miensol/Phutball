@@ -13,7 +13,7 @@ namespace Phutball
             BfsSearchDepth = 10;
             DfsMaxVistedNodes = int.MaxValue;
             BfsMaxVisitedNodes = int.MaxValue;
-            
+            SecondStartsGame = false;
             AlphaBeta = AlphaBetaOptions.Defaults();       
         }
 
@@ -22,6 +22,8 @@ namespace Phutball
         public int DfsMaxVistedNodes { get; set; }
 
         public int BfsMaxVisitedNodes { get; set; }
+
+        public bool SecondStartsGame { get; set; }
 
         public int RowCount { get; set; }
 

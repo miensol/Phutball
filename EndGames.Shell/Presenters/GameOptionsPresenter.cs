@@ -1,3 +1,4 @@
+using System;
 using Caliburn.PresentationFramework.Screens;
 using Phutball.Shell.Presenters.Interfaces;
 
@@ -24,6 +25,8 @@ namespace Phutball.Shell.Presenters
             _dfsDepth = _phutballOptions.DfsSearchDepth;
             _bfsDepth = _phutballOptions.BfsSearchDepth;
             AlphaBeta = _phutballOptions.AlphaBeta;
+            SecondStartsGame = _phutballOptions.SecondStartsGame;
+            FirstStartsGame = _phutballOptions.SecondStartsGame;
         }
 
         private AlphaBetaOptions _alphaBeta;
@@ -56,7 +59,23 @@ namespace Phutball.Shell.Presenters
             }
         }
 
-     
+        public bool SecondStartsGame
+        {
+            get { return _phutballOptions.SecondStartsGame; }
+            set { _phutballOptions.SecondStartsGame = value; 
+                NotifyOfPropertyChange(()=> SecondStartsGame);
+            }
+        }
+
+        public bool FirstStartsGame
+        {
+            get { return _phutballOptions.SecondStartsGame == false; }
+            set { _phutballOptions.SecondStartsGame = false == value;
+                NotifyOfPropertyChange(() => FirstStartsGame);
+            }
+        }
+
+
         public void UpdateBoardSize()
         {
             _phutballOptions.RowCount = (int)Height + BORDER_FIELDS_COUNT;

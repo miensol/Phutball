@@ -9,5 +9,6 @@
         AlphaBetaOptions AlphaBeta { get; set; }
         int DfsMaxVistedNodes { get; set; }
         int BfsMaxVisitedNodes { get; set; }
+        bool SecondStartsGame { get; set; }
     }
 }

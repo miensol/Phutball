@@ -5,19 +5,21 @@ namespace Phutball
     public class PlayersState : IPlayersState
     {
         private readonly IEventPublisher _eventPublisher;
+        private readonly IPhutballOptions _options;
         private Switch<PlayerOnBoardInfo> _switch;
 
-        public PlayersState(IEventPublisher eventPublisher)
-            : this(eventPublisher,PlayerEnum.First(), PlayerEnum.Second())
+        public PlayersState(IEventPublisher eventPublisher, IPhutballOptions phutballOptions)
+            : this(eventPublisher,phutballOptions, PlayerEnum.First(), PlayerEnum.Second())
         {
         }
 
-        private PlayersState(Player first, Player second):this(EventPublisher.Empty(), first, second)
+        private PlayersState(Player first, Player second):this(EventPublisher.Empty(), new PhutballOptions(), first, second)
         {}
 
-        private PlayersState(IEventPublisher eventPublisher, Player first, Player second)
+        private PlayersState(IEventPublisher eventPublisher, IPhutballOptions options, Player first, Player second)
         {
             _eventPublisher = eventPublisher;
+            _options = options;
             Initialize(first, second);
         }
 
@@ -65,8 +67,15 @@ namespace Phutball
         {
             First.ClearTime();
             Second.ClearTime();
-            First.StartMoving();
-            Second.StopMoving();
+            if(_options.SecondStartsGame)
+            {
+                First.StopMoving();
+                Second.StartMoving();                
+            }else
+            {
+                First.StartMoving();
+                Second.StopMoving();                
+            }            
         }
 
         public void Stop()
@@ -96,12 +105,12 @@ namespace Phutball
 
         public static IPlayersState SecondIsOnTheMove()
         {
-            return new PlayersState(EventPublisher.Empty(), PlayerEnum.Second(), PlayerEnum.First());
+            return new PlayersState(EventPublisher.Empty(), new PhutballOptions(), PlayerEnum.Second(), PlayerEnum.First());
         }
         
         public static IPlayersState FirstIsOnTheMove()
         {
-            return new PlayersState(EventPublisher.Empty(), PlayerEnum.First(), PlayerEnum.Second());
+            return new PlayersState(EventPublisher.Empty(), new PhutballOptions(), PlayerEnum.First(), PlayerEnum.Second());
         }
     }
 }

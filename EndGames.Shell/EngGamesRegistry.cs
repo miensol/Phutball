@@ -17,7 +17,7 @@ namespace Phutball.Shell
             For<IFieldsUpdater>().Singleton().Use(ctx=> ctx.GetInstance<IPhutballBoard>());
             For<PhutballGameState>().Singleton().Use<PhutballGameState>();
             For<PlayersState>().Singleton();
-            SelectConstructor(()=> new PlayersState(null));
+            SelectConstructor(()=> new PlayersState(null,null));
             SelectConstructor(()=> new PerformMoves(null, null));
             For<IEventPublisher>().Singleton().Use<EventPublisher>();
             For<PhutballOptions>().Singleton();
