@@ -45,7 +45,7 @@ namespace Phutball
 
         public static string ToMinutesAndSeconds(this TimeSpan ts)
         {
-            return "{0}:{1}".ToFormat(ts.Minutes, ts.Seconds);
+            return "{0}:{1}".ToFormat(ts.Minutes, ts.Seconds.ToString("00"));
         }
 
         public static bool IsEven(this int number)

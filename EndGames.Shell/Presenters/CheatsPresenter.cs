@@ -1,19 +1,10 @@
-﻿using System;
-using Caliburn.PresentationFramework.Actions;
+﻿using Caliburn.PresentationFramework.Actions;
 using Caliburn.PresentationFramework.Screens;
 using Phutball.Events;
-using Phutball.Search;
 using Phutball.Shell.Presenters.Interfaces;
 
 namespace Phutball.Shell.Presenters
 {
-    public class MoveStrategyButtonModel
-    {
-        public Func<IMoveFinders, IMoveFindingStartegy> ChooseStrategy { get; set; }
-        public string StrategyName { get; set; }
-    }
-
-
     public class CheatsPresenter : Screen, ICheatsPresenter
     {
         private readonly IEventPublisher _eventPublisher;

@@ -22,7 +22,9 @@ namespace Phutball.Shell.Presenters
                 .Select(mi => new MoveStrategyButtonModel
                                   {
                                       ChooseStrategy = (factory) => (IMoveFindingStartegy) mi.Invoke(_moveFinders, null),
-                                      StrategyName =  Regex.Replace(mi.Name,"([A-Z])"," $1",RegexOptions.Compiled).Trim()
+                                      StrategyName =  Regex.Replace(mi.Name,"([A-Z])"," $1",RegexOptions.Compiled).Trim(),
+                                      ToolTip = mi.HasCustomAttribute<StrategyDesctiptionAttribute>() ? mi.GetCustomAttribute<StrategyDesctiptionAttribute>().Tooltip : "",
+                                      ShowToolTip = mi.HasCustomAttribute<StrategyDesctiptionAttribute>() 
                                   })
                 .OrderBy(model=> model.StrategyName)
                 .GetEnumerator();

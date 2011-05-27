@@ -117,6 +117,7 @@
     <Compile Include="Search\Strategies\BoundedVistedNodesCountStrategy.cs" />
     <Compile Include="Search\Strategies\BruteForceMoveFindingStartegy.cs" />
     <Compile Include="Search\Strategies\CuttoffsMoveFindingStrategy.cs" />
+    <Compile Include="Search\StrategyDesctiptionAttribute.cs" />
     <Compile Include="Search\TowardsTargetBorderStonePlacer.cs" />
     <Compile Include="Search\Visitors\CompisiteSearchNodeVisitor.cs" />
     <Compile Include="Search\Visitors\CuttoffPickBestValueNodeVisitor.cs" />

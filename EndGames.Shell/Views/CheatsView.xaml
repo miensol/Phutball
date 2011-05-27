@@ -12,16 +12,28 @@
         <TextBlock >
             Make move using:
         </TextBlock>
-        
-        <Button x:Name="MakeMoveLikeComputer" >
+
+        <Button x:Name="MakeMoveLikeComputer" ToolTipService.ShowDuration="20000" >
             Like Computer
+            <Button.ToolTip>
+                <ToolTip >
+                    <TextBlock Text="Wykonaj ruch przy użyciu aktualnie skonfigurowanego gracza komputerowego" />
+                </ToolTip>
+            </Button.ToolTip>
         </Button>
 
         <ItemsControl ItemsSource="{Binding MoveStrategies}">            
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type Presenters:MoveStrategyButtonModel}" >
-                    <Button cal:Message.Attach="[Event  Click] = [Action MakeMove($dataContext)]" >
+                    <Button cal:Message.Attach="[Event  Click] = [Action MakeMove($dataContext)]" 
+                             ToolTipService.ShowDuration="20000"
+                            >
                         <TextBlock Text="{Binding StrategyName}" />
+                        <Button.ToolTip>
+                            <ToolTip IsEnabled="{Binding ShowToolTip}" >
+                                <TextBlock Text="{Binding ToolTip}" />
+                            </ToolTip>
+                        </Button.ToolTip>
                     </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

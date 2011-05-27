@@ -221,6 +221,7 @@
     <Compile Include="Models\PhutballBoardModel.cs" />
     <Compile Include="Presenters\MovesHistoryPresenter.cs" />
     <Compile Include="Presenters\MoveStrategiesCollection.cs" />
+    <Compile Include="Presenters\MoveStrategyButtonModel.cs" />
     <Compile Include="Presenters\PhutballBoardPresenter.cs" />
     <Compile Include="Presenters\PhutballPresenter.cs" />
     <Compile Include="Utils\Consts.cs" />
