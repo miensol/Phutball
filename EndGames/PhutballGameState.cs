@@ -81,6 +81,7 @@ namespace Phutball
             _currentState = PhutballGameStateEnum.Started;
             _eventPublisher.Publish(new PhutballGameStarted());
             _eventPublisher.Publish(new PlayersStateChanged());
+            PerformMoveAsComputerIfNeeded();
         }
 
         public void CurrentPlayerClickedField(int fieldId)
@@ -88,6 +89,11 @@ namespace Phutball
             var field = _phutballBoard.GetField(fieldId);
             _handlePlayerMoves.PlayerClickedField(field);
             _eventPublisher.Publish(new PlayersStateChanged());
+            PerformMoveAsComputerIfNeeded();
+        }
+
+        private void PerformMoveAsComputerIfNeeded()
+        {
             if (_playersState.CurrentPlayer.IsAComputer)
             {
                 _cancenTokenSource = LongRunningProcess.StartNew();

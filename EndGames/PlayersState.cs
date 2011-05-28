@@ -69,6 +69,7 @@ namespace Phutball
             Second.ClearTime();
             if(_options.SecondStartsGame)
             {
+                _switch = _switch.Swap();
                 First.StopMoving();
                 Second.StartMoving();                
             }else

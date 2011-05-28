@@ -148,7 +148,7 @@ namespace Phutball.Search
         public IMoveFindingStartegy SmartAlphaBeta()
         {
             var playersStateCopy = _playersStateCopy();
-            var alphaBetaOptions = _phutballOptions.AlphaBeta;
+            var alphaBetaOptions = _phutballOptions.AlphaBeta.UseSmartSearchDepth();
             return new AlphaBetaMoveFindingStrategy(
                 playersStateCopy, alphaBetaOptions,
                 (graph) => new AlternatingJumpsMovesTree(JumpNode.Empty(graph),
