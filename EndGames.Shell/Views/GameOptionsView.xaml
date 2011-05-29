@@ -1,7 +1,9 @@
 ﻿<UserControl x:Class="Phutball.Shell.Views.GameOptionsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:cal="http://www.caliburnproject.org" xmlns:utils="clr-namespace:Phutball.Shell.Utils" mc:Ignorable="d" d:DesignHeight="358" d:DesignWidth="467">
+    
 	<StackPanel Orientation="Vertical" VerticalAlignment="Top" Name="Parent" >
 
-		<DockPanel  HorizontalAlignment="Stretch"                    
+		<DockPanel  HorizontalAlignment="Stretch"  
+                    ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijanego przez algorytm DFS"
                     >
             <TextBlock VerticalAlignment="Center">
 				DFS search depth
@@ -10,16 +12,20 @@
                 DockPanel.Dock="Right"
                 Value="{Binding DfsDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="100" />
         </DockPanel>
-        <DockPanel >
+        <DockPanel 
+            ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijanego przez algorytm BFS"
+            >
 			<TextBlock VerticalAlignment="Center" >
-				BFS search depth
+				BFS search depth                
 			</TextBlock>
 			<utils:NumericUpDown 
                 VerticalAlignment="Center"
                 DockPanel.Dock="Right"
                 Value="{Binding BfsDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="100" />
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Maksymalna głębokość drzewa mini-max rozwijana przez algorytm alfa-beta"
+            >
             <TextBlock VerticalAlignment="Center" TextWrapping="Wrap">
 				Alpha-Beta - mini max tree depth
 			</TextBlock>
@@ -27,7 +33,9 @@
                 DockPanel.Dock="Right"
                 Value="{Binding AlphaBeta.SearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="20" Change="1" />
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Maksymalna głębokość drzewa mini-max rozwijana przez algorytm alfa-beta w wersji smart"
+            >
             <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" >
 				Smart Alpha-Beta - mini max tree depth
             </TextBlock>
@@ -36,7 +44,9 @@
                 Value="{Binding AlphaBeta.SmartSearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="20" Change="1" />
         </DockPanel>
 
-        <DockPanel>
+        <DockPanel
+            ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijana podczas działania algorytmu alfa-beta"
+            >
             <TextBlock VerticalAlignment="Center">
 				Alpha-Beta jump tree max depth
 			</TextBlock>
@@ -45,7 +55,9 @@
                 Value="{Binding AlphaBeta.JumpsMaxDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="20" Change="1" />
 
         </DockPanel>
-        <DockPanel >
+        <DockPanel 
+            ToolTip="Maksymlna odległość pól, na których algorytm alfa-beta będzie dostawiał piłkarzy, od pozycji piłki"
+            >
             <TextBlock VerticalAlignment="Center">
 				Alpha-Beta Stone Radius
 			</TextBlock>
@@ -54,7 +66,9 @@
                 Value="{Binding AlphaBeta.StoneRadius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="1" Maximum="10" Change="1" />
 
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Rozmiar planszy. Jego zmiana spowoduje zatrzymanie aktualnej rozgrywki"
+            >
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center">Width</TextBlock>
@@ -68,7 +82,9 @@
 				
 					<Button x:Name="UpdateBoardSize" ToolTip="This will reset the game">Update</Button>
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Podczas obliczania wartości danej konfiguracji odległość od wygrywającego krańca plaszy jest mnożona przez podaną wartość"
+            >
 
             <TextBlock VerticalAlignment="Center">
 				Distance to winnig border weight
@@ -77,7 +93,9 @@
                 DockPanel.Dock="Right"
                 Value="{Binding AlphaBeta.DistanceToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="1" Maximum="100" Change="1" />
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Podczas obliczania wartości danej konfiguracji liczba piłkarzy znajdujących się pomiędzy początkową pozycją piłki a docelowym krańcem planszy jest mnożona przez tą wartość."
+            >
             <TextBlock TextWrapping="Wrap" VerticalAlignment="Center">
 				Black stones to target border weight
 			</TextBlock>
@@ -86,7 +104,9 @@
                 
                 Value="{Binding AlphaBeta.BlackStonesToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Change="1" />
         </DockPanel>
-        <DockPanel>
+        <DockPanel
+            ToolTip="Gracz rozpoczynający grę"
+            >
             <TextBlock VerticalAlignment="Center">
 				First move by player at
 			</TextBlock>
