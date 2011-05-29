@@ -42,7 +42,7 @@ namespace Phutball
 
         private Func<IMoveFinders, IEnumerable<IMoveFindingStartegy>> ComputerStrategies
         {
-            get { return f => new[] {f.SmartAlphaBeta(), f.SmartAlphaBetaJumpOrStay()}; }
+            get { return f => new[] {f.SmartAlphaBeta(), f.AlphaBeta()}; }
         }
 
         public void ChooseAndPerform(CancellationToken cancelComputerMove)

@@ -75,6 +75,21 @@ namespace Phutball.Shell.Presenters
             }
         }
 
+        public void BegginerComputer()
+        {
+            AlphaBeta = _phutballOptions.AlphaBeta.SetToBegginer();
+        }
+
+        public void LearnerComputer()
+        {
+            AlphaBeta = _phutballOptions.AlphaBeta.SetToLearner();
+        }
+
+        public void AdvancedComputer()
+        {
+            AlphaBeta = _phutballOptions.AlphaBeta.SetToAdvanced();
+        }
+
 
         public void UpdateBoardSize()
         {
@@ -83,9 +98,5 @@ namespace Phutball.Shell.Presenters
             _eventPublisher.Publish(new CriticalGameOptionsChanged());
         }
 
-    }
-
-    public class CriticalGameOptionsChanged
-    {
     }
 }

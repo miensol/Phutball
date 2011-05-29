@@ -211,6 +211,7 @@
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Models\WhiteStoneModel.cs" />
     <Compile Include="Presenters\CheatsPresenter.cs" />
+    <Compile Include="Presenters\CriticalGameOptionsChanged.cs" />
     <Compile Include="Presenters\GameOptionsPresenter.cs" />
     <Compile Include="Presenters\GameStatePresenter.cs" />
     <Compile Include="Presenters\Interfaces\ICheatsPresenter.cs" />

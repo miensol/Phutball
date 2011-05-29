@@ -38,7 +38,7 @@ namespace Phutball.Search
         {
             Enter(tree);
             MoveScore<T,int> result;
-            if(_depthCounter.CurrentDepth == _maxDepth || tree.IsLeaf || LongRunningProcess.Current.IsCancellationRequested)
+            if(_depthCounter.CurrentDepth >= _maxDepth || tree.IsLeaf || LongRunningProcess.Current.IsCancellationRequested)
             {
                 result = new MoveScore<T,int>
                              {

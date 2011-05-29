@@ -21,7 +21,7 @@ namespace Phutball.Search
 
         public static PhutballMoveScore Empty()
         {
-            return new PhutballMoveScore(new EmptyPhutballMove(), 0);
+            return new PhutballMoveScore(new EmptyPhutballMove(), int.MinValue);
         }
 
         public PhutballMoveScore FollowedBy(IPhutballMove phutballMove)

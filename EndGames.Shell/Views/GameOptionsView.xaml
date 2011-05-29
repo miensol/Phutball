@@ -31,7 +31,7 @@
 			</TextBlock>
 			<utils:NumericUpDown 
                 DockPanel.Dock="Right"
-                Value="{Binding AlphaBeta.SearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="20" Change="1" />
+                Value="{Binding AlphaBeta.SearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="20" Change="1" />
         </DockPanel>
         <DockPanel
             ToolTip="Maksymalna głębokość drzewa mini-max rozwijana przez algorytm alfa-beta w wersji smart"
@@ -41,7 +41,7 @@
             </TextBlock>
             <utils:NumericUpDown 
                 DockPanel.Dock="Right"
-                Value="{Binding AlphaBeta.SmartSearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="20" Change="1" />
+                Value="{Binding AlphaBeta.SmartSearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="20" Change="1" />
         </DockPanel>
 
         <DockPanel
@@ -117,5 +117,14 @@
 				<ComboBoxItem Content="Bottom Border" IsSelected="{Binding SecondStartsGame, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 			</ComboBox>
         </DockPanel>
+        
+        <StackPanel Orientation="Vertical" ToolTip="Załaduje predefiniowane ustawiania gracza komputerowego zmieniające poziom trudności gry." >
+            <TextBlock>Load computer player skill</TextBlock>
+            <Button x:Name="BegginerComputer" >Beginner</Button>
+            <Button x:Name="LearnerComputer" >Learner</Button>
+            <Button x:Name="AdvancedComputer" >Advanced</Button>
+            
+        </StackPanel>
+        
 	</StackPanel>
 </UserControl>

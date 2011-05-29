@@ -25,6 +25,10 @@ namespace Phutball.Search.Strategies
 
         public PhutballMoveScore Search(IFieldsGraph fieldsGraph)
         {
+            if(_alphaBetaSearchDepth.SearchDepth == 0)
+            {
+                return PhutballMoveScore.Empty();
+            }
             var actualGraph = (IFieldsGraph)fieldsGraph.Clone();
             var performMoves = new PerformMoves(actualGraph, _playersState);
             var visitedNodes = new VisitedNodesCounter<JumpNode>();

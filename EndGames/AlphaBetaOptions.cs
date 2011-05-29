@@ -70,5 +70,41 @@ namespace Phutball
                            StoneRadius = StoneRadius
                        };
         }
+
+        public AlphaBetaOptions SetToBegginer()
+        {
+            SearchDepth = 4;
+            SmartSearchDepth = 0;
+            BlackStonesToBorderWeight = 1;
+            DistanceToBorderWeight = 1;
+            JumpsMaxDepth = 5;
+            SkipShortMoves = 1;
+            StoneRadius = 1;
+            return this;
+        }
+
+        public AlphaBetaOptions SetToLearner()
+        {
+            SearchDepth = 4;
+            SmartSearchDepth = 4;
+            BlackStonesToBorderWeight = 2;
+            DistanceToBorderWeight = 7;
+            JumpsMaxDepth = 6;
+            SkipShortMoves = 1;
+            StoneRadius = 1;
+            return this;
+        }
+
+        public AlphaBetaOptions SetToAdvanced()
+        {
+            SearchDepth = 5;
+            SmartSearchDepth = 7;
+            BlackStonesToBorderWeight = 2;
+            DistanceToBorderWeight = 7;
+            JumpsMaxDepth = 10;
+            SkipShortMoves = 1;
+            StoneRadius = 2;
+            return this;
+        }
     }
 }
