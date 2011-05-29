@@ -33,7 +33,7 @@ namespace Phutball
             _bestMoveApplier = bestMoveApplier;
             _handlePlayerMovesFactory = handlePlayerMovesFactory;
             _handlePlayerMoves = handlePlayerMovesFactory();
-            _eventPublisher.Subscribe<CurrentPlayerWonEvent>((e)=> CurrentPlayerWon());
+            _eventPublisher.Subscribe<PlayerWonEvent>((e)=> CurrentPlayerWon());
             _eventPublisher.Subscribe<PlayerOnTheMoveChanged>(OnPlayerOnTheMoveChanged);
             _eventPublisher.Subscribe<ComputerStartedMoving>((e)=> LongRunningProcess.Clear());
         }

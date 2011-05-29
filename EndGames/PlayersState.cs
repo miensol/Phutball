@@ -1,4 +1,5 @@
-﻿using Phutball.Events;
+﻿using System;
+using Phutball.Events;
 
 namespace Phutball
 {
@@ -102,6 +103,22 @@ namespace Phutball
         {
             Initialize(PlayerEnum.First(), PlayerEnum.Second());
             Start();
+        }
+
+        public void PlayerWon(Player player)
+        {
+            if(AnyPlayerIsMoving())
+            {
+                _eventPublisher.Publish(new PlayerWonEvent
+                {
+                    Player = player
+                });   
+            }
+        }
+
+        public Player Next
+        {
+            get { return _switch.Swap().Value.Player; }
         }
 
         public static IPlayersState SecondIsOnTheMove()

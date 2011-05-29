@@ -1,12 +1,13 @@
 using System.Linq;
+using System.Windows;
 using System.Windows.Threading;
 using Caliburn.PresentationFramework.Filters;
 using Caliburn.PresentationFramework.Screens;
 using System;
 using Phutball.Events;
-using Phutball.Mapping;
 using Phutball.Shell.Mapping;
 using Phutball.Shell.Presenters.Interfaces;
+using Phutball;
 
 namespace Phutball.Shell.Presenters
 {
@@ -26,6 +27,12 @@ namespace Phutball.Shell.Presenters
                              IsEnabled = false
                          };
             _timer.Tick += UpdatePlayersTimes;
+            _eventPublisher.Subscribe<PlayerWonEvent>(OnCurrentPlayerWon);
+        }
+
+        private void OnCurrentPlayerWon(PlayerWonEvent obj)
+        {
+            MessageBox.Show("Player {0} won".ToFormat(obj.Player.Name));
         }
 
         private void UpdatePlayersTimes(object sender, EventArgs e)

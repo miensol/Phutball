@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Phutball.Search.BoardValues
 {
@@ -65,6 +66,7 @@ namespace Phutball.Search.BoardValues
         private IDistanceCounter _distanceCounter;
         private Func<int, int, bool> _leftCloserThanRight;
         private Func<TargetBorder,int> _endRowIndexAccessor;
+        private Func<TargetBorder, int[]> _winingIndexesAccessor;
 
         public int RowIndex
         {
@@ -111,6 +113,17 @@ namespace Phutball.Search.BoardValues
         public bool IsLeftCloserThanRigth(int leftRowIndex, int rightRowIndex)
         {
             return _leftCloserThanRight(leftRowIndex, rightRowIndex);
+        }
+
+        public TargetBorder WiningIndexes(Func<TargetBorder, int[]> winingIdexcesAccessor)
+        {
+            _winingIndexesAccessor = winingIdexcesAccessor;
+            return this;
+        }
+
+        public bool IsWinning(int whiteIndex)
+        {
+            return _winingIndexesAccessor(this).Contains(whiteIndex);
         }
     }
 }

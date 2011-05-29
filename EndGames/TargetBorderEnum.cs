@@ -12,28 +12,16 @@ namespace Phutball
             Upper = new TargetBorder(() => 1, UpperName)
                 .OppositeIs(() => Bottom)
                 .CountDistanceUsing(new DistanceToUpperBorderCounter(fieldsGraph))
-//                .ChoosePlacesForBlackStoneUsing(all => all.Take(5).Concat(new[]
-//                                                                              {
-//                                                                                  Direction.N.Multiply(2).Add(
-//                                                                                      Direction.W),
-//                                                                                  Direction.N.Multiply(2).Add(
-//                                                                                      Direction.E),
-//                                                                              }))
                 .ComparePositionsUsing((left,right)=> left < right)
-                .EndRowIndexIs(me=> 1);
+                .EndRowIndexIs(me=> 1)
+                .WiningIndexes((me)=> new[]{0,1});
 
             Bottom = new TargetBorder(() => fieldsGraph.RowCount - 2, Bottomname)
                 .OppositeIs(() => Upper)
                 .CountDistanceUsing(new DistanceToBottomBorderCounter(fieldsGraph))
-//                .ChoosePlacesForBlackStoneUsing(all => all.Reverse().Take(5).Concat(new[]
-//                                                                                        {
-//                                                                                            Direction.S.Multiply(2).Add(
-//                                                                                                Direction.E),
-//                                                                                            Direction.S.Multiply(2).Add(
-//                                                                                                Direction.W),
-//                                                                                        }))
                 .EndRowIndexIs((me)=> me.RowIndex )
-                .ComparePositionsUsing((left, right) => left > right);
+                .ComparePositionsUsing((left, right) => left > right)
+                .WiningIndexes((me)=> new[]{me.RowIndex, me.RowIndex + 1});
         }
 
         public TargetBorder Upper { get; private set; }

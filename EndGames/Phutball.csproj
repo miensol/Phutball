@@ -71,7 +71,7 @@
     <Compile Include="BlackStone.cs" />
     <Compile Include="Events\ComputerStartedMoving.cs" />
     <Compile Include="Events\ComputerStopedMoving.cs" />
-    <Compile Include="Events\CurrentPlayerWonEvent.cs" />
+    <Compile Include="Events\PlayerWonEvent.cs" />
     <Compile Include="Events\MovePerfomed.cs" />
     <Compile Include="Events\MovesHistoryChanged.cs" />
     <Compile Include="Events\PhutballGameEnded.cs" />

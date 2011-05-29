@@ -9,5 +9,7 @@
         IPlayersState CopyRestarted();
         void StartVsComputer();
         void StartVsHuman();
+        void PlayerWon(Player player);
+        Player Next { get; }
     }
 }

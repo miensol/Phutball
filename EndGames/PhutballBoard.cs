@@ -4,13 +4,16 @@ namespace Phutball
 {
     public class PhutballBoard : ReadOnlyPhutballBoard, IPhutballBoard
     {
+        private readonly IPlayersState _playerState;
         private readonly IEventPublisher _eventPublisher;
 
         public PhutballBoard(
+            IPlayersState playerState,
             IFieldsGraph fieldsGraph, 
             IEventPublisher eventPublisher, 
             IPhutballOptions options) : base(fieldsGraph, options)
         {
+            _playerState = playerState;
             _eventPublisher = eventPublisher;
         }
 
@@ -21,7 +24,21 @@ namespace Phutball
             _eventPublisher.Publish(new PhutballGameFieldsChanged {ChangedFields = fields});
             if(IsEndingConfiguration())
             {
-                _eventPublisher.Publish(new CurrentPlayerWonEvent());
+                NotifyPlayerWon();
+            }
+        }
+
+        private void NotifyPlayerWon()
+        {
+            var currentPlayer = _playerState.CurrentPlayer;
+            var targetBorder = currentPlayer.GetTargetBorder(_fieldsGraph);                
+            var whiteField = _fieldsGraph.GetWhiteField().RowIndex;
+            if(targetBorder.IsWinning(whiteField))
+            {
+                _playerState.PlayerWon(currentPlayer);
+            }else
+            {
+                _playerState.PlayerWon(_playerState.Next);
             }
         }
 
