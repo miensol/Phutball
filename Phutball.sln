@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phutball.Tests", "Phutball.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phutball.Tests.Benchmark", "Phutball.Tests.Benchmark\Phutball.Tests.Benchmark.csproj", "{E8028C25-3E76-462F-A79E-C65DBF25E385}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Phutball.Setup", "Phutball.Setup\Phutball.Setup.vdproj", "{B7E59169-8B8F-4308-A87A-4B801A9DD069}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,8 @@ Global
 		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8028C25-3E76-462F-A79E-C65DBF25E385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E59169-8B8F-4308-A87A-4B801A9DD069}.Debug|Any CPU.ActiveCfg = Debug
+		{B7E59169-8B8F-4308-A87A-4B801A9DD069}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
