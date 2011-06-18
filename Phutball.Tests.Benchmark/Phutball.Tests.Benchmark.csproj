@@ -54,11 +54,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EndGames.Test\Phutball.Tests.csproj">
+    <ProjectReference Include="..\Phutball.Tests\Phutball.Tests.csproj">
       <Project>{B9D565CE-4AB5-4119-971D-57D54813E739}</Project>
       <Name>Phutball.Tests</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EndGames\Phutball.csproj">
+    <ProjectReference Include="..\Phutball\Phutball.csproj">
       <Project>{8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD}</Project>
       <Name>Phutball</Name>
     </ProjectReference>

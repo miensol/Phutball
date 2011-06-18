@@ -313,7 +313,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EndGames\Phutball.csproj">
+    <ProjectReference Include="..\Phutball\Phutball.csproj">
       <Project>{8123DFAD-32E3-4C77-BB3D-B11EC4EDD3FD}</Project>
       <Name>Phutball</Name>
     </ProjectReference>
