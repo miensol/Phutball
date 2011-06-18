@@ -3,7 +3,7 @@
 	<StackPanel Orientation="Vertical" VerticalAlignment="Top" Name="Parent" >
 
 		<DockPanel  HorizontalAlignment="Stretch"  
-                    ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijanego przez algorytm DFS"
+                    ToolTip="Maximum depth of a single jump tree used by dfs algorithm"
                     >
             <TextBlock VerticalAlignment="Center">
 				DFS search depth
@@ -13,7 +13,7 @@
                 Value="{Binding DfsDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="100" />
         </DockPanel>
         <DockPanel 
-            ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijanego przez algorytm BFS"
+            ToolTip="Maximum depth of a single jump tree used by bfs algorithm"
             >
 			<TextBlock VerticalAlignment="Center" >
 				BFS search depth                
@@ -24,7 +24,7 @@
                 Value="{Binding BfsDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="100" />
         </DockPanel>
         <DockPanel
-            ToolTip="Maksymalna głębokość drzewa mini-max rozwijana przez algorytm alfa-beta"
+            ToolTip="Maximum depth of a mini-max tree used by the alpha-beta algorithm"
             >
             <TextBlock VerticalAlignment="Center" TextWrapping="Wrap">
 				Alpha-Beta - mini max tree depth
@@ -34,7 +34,7 @@
                 Value="{Binding AlphaBeta.SearchDepth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="20" Change="1" />
         </DockPanel>
         <DockPanel
-            ToolTip="Maksymalna głębokość drzewa mini-max rozwijana przez algorytm alfa-beta w wersji smart"
+            ToolTip="Maximum depth of a mini-max tree used by the smart alpha-beta algorithm"
             >
             <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" >
 				Smart Alpha-Beta - mini max tree depth
@@ -45,7 +45,7 @@
         </DockPanel>
 
         <DockPanel
-            ToolTip="Maksymalna głębokość drzewa pojedyńczego skoku rozwijana podczas działania algorytmu alfa-beta"
+            ToolTip="Maximum depth of a single jump tree that is used by alpha-beta algorithm"
             >
             <TextBlock VerticalAlignment="Center">
 				Alpha-Beta jump tree max depth
@@ -56,7 +56,7 @@
 
         </DockPanel>
         <DockPanel 
-            ToolTip="Maksymlna odległość pól, na których algorytm alfa-beta będzie dostawiał piłkarzy, od pozycji piłki"
+            ToolTip="Maximum distance between empty intersections and the ball used by alfa-beta algorithm to place players on board"
             >
             <TextBlock VerticalAlignment="Center">
 				Alpha-Beta Stone Radius
@@ -67,7 +67,7 @@
 
         </DockPanel>
         <DockPanel
-            ToolTip="Rozmiar planszy. Jego zmiana spowoduje zatrzymanie aktualnej rozgrywki"
+            ToolTip="Size of board. Changes will reset actual game"
             >
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
@@ -83,7 +83,7 @@
 					<Button x:Name="UpdateBoardSize" ToolTip="This will reset the game">Update</Button>
         </DockPanel>
         <DockPanel
-            ToolTip="Podczas obliczania wartości danej konfiguracji odległość od wygrywającego krańca plaszy jest mnożona przez podaną wartość"
+            ToolTip="Weight used to multiply a distance between the ball and the target goal line during a computation of a board value"
             >
 
             <TextBlock VerticalAlignment="Center">
@@ -94,7 +94,7 @@
                 Value="{Binding AlphaBeta.DistanceToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="1" Maximum="100" Change="1" />
         </DockPanel>
         <DockPanel
-            ToolTip="Podczas obliczania wartości danej konfiguracji liczba piłkarzy znajdujących się pomiędzy początkową pozycją piłki a docelowym krańcem planszy jest mnożona przez tą wartość."
+            ToolTip="Weight used to multiply the number of players between initial white stone position and the target goal line during a computation of a board value."
             >
             <TextBlock TextWrapping="Wrap" VerticalAlignment="Center">
 				Black stones to target border weight
@@ -105,7 +105,7 @@
                 Value="{Binding AlphaBeta.BlackStonesToBorderWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Change="1" />
         </DockPanel>
         <DockPanel
-            ToolTip="Gracz rozpoczynający grę"
+            ToolTip="Player that starts the game"
             >
             <TextBlock VerticalAlignment="Center">
 				First move by player at
@@ -118,7 +118,7 @@
 			</ComboBox>
         </DockPanel>
         
-        <StackPanel Orientation="Vertical" ToolTip="Załaduje predefiniowane ustawiania gracza komputerowego zmieniające poziom trudności gry." >
+        <StackPanel Orientation="Vertical" ToolTip="Load predefined settings that change the level of computer player" >
             <TextBlock>Load computer player skill</TextBlock>
             <Button x:Name="BegginerComputer" >Beginner</Button>
             <Button x:Name="LearnerComputer" >Learner</Button>

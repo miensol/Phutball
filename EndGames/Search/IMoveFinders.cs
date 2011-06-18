@@ -2,51 +2,47 @@
 {
     public interface IMoveFinders
     {
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania dfs bez ograniczenia na głębokość")]
+        [StrategyDesctiption("Make a jump using dfs with unbounded search detph")]
         IMoveFindingStartegy DfsUnbounded();
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania bfs bez ograniczenia na głębokość")]
+        [StrategyDesctiption("Make a jump using bfs with unbounded search depth")]
         IMoveFindingStartegy BfsUnbounded();
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania dfs o maksymalnej głębokości zadanej w opcjach")]
+        [StrategyDesctiption("Maka a jump using dfs with maximum search depth given in options")]
         IMoveFindingStartegy DfsBounded();
-        [StrategyDesctiption(@"Wykonaj skok przy użyciu przeszukiwania dfs przerywając przeszukiwanie jeśli nie można zwyciężyć lub poprawić pozycji.
-W opcjach ustawiamy maksymalna liczbę odwiedzonych wierzchołków.")]        
+        [StrategyDesctiption(@"Make a jump using dfs. The search will stop when there is no way to win in current move or the best
+jump found already cannot be improved. The maximum number of visited nodes is configured in options")]        
         IMoveFindingStartegy DfsCuttoff();
-        [StrategyDesctiption(@"Wykonaj skok przy użyciu przeszukiwania dfs przerywając przeszukiwanie jeśli nie można poprawić pozycji.
-W opcjach ustawiamy limit na liczbę odwiedzonych wierzchołków.")]
+        [StrategyDesctiption(@"Make a jump using dfs. The search will stop when there is no way to improve the best jump found already.
+The maximum number of visited nodes is configured in options")]
         IMoveFindingStartegy DfsCuttoffToWhite();
-        [StrategyDesctiption(@"Wykonaj skok przeglądając najpierw najbardziej korzystne wierzhołki i przerywając przeszukiwanie jeśli nie można poprawić pozyacji.
-W opcjach ustawiamy limit na liczbę odwiedzonych wierzchołków.")]
+        [StrategyDesctiption(@"Make a jump using search that firstly visits nodes that improve positions the most and 
+stops when there is no way to improve the best jump found already. The maximum number of visited nodes is configured in options")]
         IMoveFindingStartegy OrderByNodesValuesWithCuttofsToWhite();
-        [StrategyDesctiption(@"Wykonaj skok przy użyciu przeszukiwania bfs przerywając przeszukiwanie jeśli nie można poprawić pozycji.
-W opcjach ustawiamy limit na liczbę odwiedzonych wierzchołków")]
+        [StrategyDesctiption(@"Make a jump using bfs. The search will stop when there is no way to improve the best jump found already.
+The maximum number of visited nodes is configured in options")]
         IMoveFindingStartegy BfsCuttoffToWhite();
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania dfs z limitem na liczbę odwiedzonych wierzchołków")]
+        [StrategyDesctiption(@"Make a jump using dfs with a limit on the number of nodes visited that is given in options")]
         IMoveFindingStartegy DfsNodesBounded();
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania bfs o maksymalnej głębokości zadanej w opcjach")]
+        [StrategyDesctiption(@"Make a jump using bfs with maximum search depth given in options")]
         IMoveFindingStartegy BfsBounded();
-        [StrategyDesctiption(@"Wykonaj skok przy użyciu przeszukiwania alfa-beta.
-W opcjach ustawiamy głębokość drzewa mini-max oraz maksymalna głębokość drzewa pojedyńczego skoku")]
+        [StrategyDesctiption(@"Make a jump using alfa-beta search. The mini-max tree depth and the maximum depth of a single jump is configured in options")]
         IMoveFindingStartegy AlphaBetaJumps();
-        [StrategyDesctiption(@"Wykonaj skok poprawiający pozycje przy użyciu przeszukiwania alfa-beta lub pozostaw piłkarz na miejscu jeśli nie można poprawić pozycji.
-W opcjach ustawiamy głębokość drzewa mini-max oraz maksymalna głębokość drzewa pojedyńczego skoku")]
+        [StrategyDesctiption(@"Make a jump using alpha-beta search or don't move the ball if you can't improve position. 
+The mini-max tree depth and the maximum depth of a single jump is configured in options")]
         IMoveFindingStartegy AlphaBetaJumpsOrStay();
-        [StrategyDesctiption(@"Wykonaj ruch przy użyciu przeszukiwania alfa-beta. 
-W opcjach ustawiamy głębokość drzewa mini-max, maksymalna głębokość drzewa pojedyńczego skoku oraz 
-maksymlną odległość pomiędzy piłką i pustymi polami, na których algorytm będzie dokładał piłkarzy")]
+        [StrategyDesctiption(@"Make a move using alpha-beta search. The mini-max tree depth, the maximum depth of a single jump 
+and the maximum distance between the ball and an intersection where a player can be placed is configured in options")]
         IMoveFindingStartegy AlphaBeta();
-        [StrategyDesctiption(@"Wykonaj ruch przy użyciu przeszukiwania alfa-beta. 
-W opcjach ustawiamy głębokość drzewa mini-max, maksymalna głębokość drzewa pojedyńczego skoku.
-Piłkarze będą stawiani na polach sąsiadująych z możliwymi pozyacjami piłki w kierunku bramki.")]
+        [StrategyDesctiption(@"Make a move using alpha-beta search. The mini-max tree depth and the maximum depth of a single jump are given in options.
+Black stones will be placed in the neighbourhood of possible ball positions toward the target goal line")]
         IMoveFindingStartegy SmartAlphaBeta();
-        [StrategyDesctiption("Wykonaj skok przy użyciu przeszukiwania bfs z limitem na liczbę odwiedzonych wierzchołków")]
+        [StrategyDesctiption(@"Make a jump using bfs search with a limit on the number of visited nodes that is given in options")]
         IMoveFindingStartegy BfsNodesBounded();
-        [StrategyDesctiption(@"Wykonaj skok przeglądając najpierw najbardziej korzystne wierzhołki.
-W opcjach ustawiamy limit na liczbę odwiedzonych wierzchołków.")]
+        [StrategyDesctiption(@"Make a jump using search that firstly visited nodes that improve position the most. The maximum number of visited nodes is given in options")]
         IMoveFindingStartegy OrderByNodesValues();
 
-        [StrategyDesctiption(@"Wykonaj ruch przy użyciu przeszukiwania alfa-beta lub nie rób nic jeśli nie można poprawić pozycji. 
-W opcjach ustawiamy głębokość drzewa mini-max, maksymalna głębokość drzewa pojedyńczego skoku.
-Piłkarze będą stawiani na polach sąsiadująych z możliwymi pozyacjami piłki w kierunku bramki.")]
+        [StrategyDesctiption(@"Make a jump using alpha-beta search or don't move the ball if you can't improve position. 
+The mini-max tree depth and the maximum depth of a single jump are given in options.
+Black stones will be placed in the neighbourhood of possible ball positions toward the target goal line")]
         IMoveFindingStartegy SmartAlphaBetaJumpOrStay();
     }
 }

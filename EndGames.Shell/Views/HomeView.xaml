@@ -28,33 +28,34 @@
                 </Paragraph>
                 
                 <Paragraph TextAlignment="Center">
-                    Zasady gry
+                    Rules of the game
                 </Paragraph>
                 <List>
                     <ListItem>
-                        <Paragraph>Gracze wykonują ruchy naprzemian</Paragraph>
+                        <Paragraph>Players make moves alternatively</Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>Ruch może polagać na dostawianiu na planszy jednego piłkarza (czarny kamień)</Paragraph>
+                        <Paragraph>A move can either be placing player (black stone) at not occupied intersection</Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>Lub na wykonaniu skoku piłką (biały kamień) zbijając z planszy piłkarzy.
-                        Skok można wykonywać w każdym kierunku i przerwać w dowolnym momencie</Paragraph>
+                        <Paragraph>Or a jump with a ball (white stone) that removes players that are jumped over from board.
+                            The jump can be made in any direction and may be stopped at any time</Paragraph>
                     </ListItem>
                     <ListItem>
-                        <Paragraph>Jeśli dotkniemy białego kamienia musimy wykonać nim ruch, jeśli nie ma możliwości skoku odznaczamy piłkę i ruch ma przeciwnik</Paragraph>
+                        <Paragraph>If you touch the ball (it will be marked) you have to make a jump. 
+                            If there is no way to jump you need to touch the ball again to pass a turn to your oponent</Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            Grę zwycięża ten z graczy, któremu uda się dotrzeć piłką na lub za końcową linie przeciwnika
+                            The player that will place the ball on or over the oponent's line wins the game.
                         </Paragraph>
                     </ListItem>
                 </List>
 
 
                 <Paragraph FontStyle="Italic" FontSize="10">
-                    Program stworzony w ramach pracy magisterskiej pod tytułem "Algorytm testowania końca gry" 
-                    pod kierunkiem dr inż. Dariusza Dereniowskiego na wydziale Elektroniki Telekomunikacji i Informatki Politechniki Gdańskiej
+                    The game was build as a part of M.Sc. thesis titled "The algorithms for end game testing" under a guidance
+                    of PhD Dariusz Dereniowski at the Gdańsk University of Technology, Faculty of Electronics, Telecommunications and Informatics
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentScrollViewer>

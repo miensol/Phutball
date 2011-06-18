@@ -17,7 +17,7 @@
             Like Computer
             <Button.ToolTip>
                 <ToolTip >
-                    <TextBlock Text="Wykonaj ruch przy użyciu aktualnie skonfigurowanego gracza komputerowego" />
+                    <TextBlock Text="Make a move using the same algorithm as actually configured computer palyer" />
                 </ToolTip>
             </Button.ToolTip>
         </Button>
