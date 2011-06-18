@@ -3,26 +3,31 @@ ForTesting/[Bb]in
 ForTesting/[Dd]ebug*/
 ForTesting/[Rr]elease*/
 
-Endgames/obj/
-Endgames/[Bb]in
-Endgames/[Dd]ebug*/
-Endgames/[Rr]elease*/
+Phutball/obj/
+Phutball/[Bb]in
+Phutball/[Dd]ebug*/
+Phutball/[Rr]elease*/
 
-Endgames.Shell/publish/
-Endgames.Shell/obj/
-Endgames.Shell/[Bb]in
-Endgames.Shell/[Dd]ebug*/
-Endgames.Shell/[Rr]elease*/
+Phutball.Setup/obj/
+Phutball.Setup/[Bb]in
+Phutball.Setup/[Dd]ebug*/
+Phutball.Setup/[Rr]elease*/
 
-Endgames.Tests/obj/
-Endgames.Tests/[Bb]in
-Endgames.Tests/[Dd]ebug*/
-Endgames.Tests/[Rr]elease*/
+Phutball.Shell/publish/
+Phutball.Shell/obj/
+Phutball.Shell/[Bb]in
+Phutball.Shell/[Dd]ebug*/
+Phutball.Shell/[Rr]elease*/
 
-Endgames.Shell.Tests/obj/
-Endgames.Shell.Tests/[Bb]in
-Endgames.Shell.Tests/[Dd]ebug*/
-Endgames.Shell.Tests/[Rr]elease*/
+Phutball.Tests/obj/
+Phutball.Tests/[Bb]in
+Phutball.Tests/[Dd]ebug*/
+Phutball.Tests/[Rr]elease*/
+
+Phutball.Shell.Tests/obj/
+Phutball.Shell.Tests/[Bb]in
+Phutball.Shell.Tests/[Dd]ebug*/
+Phutball.Shell.Tests/[Rr]elease*/
 
 #OS junk files
 [Tt]humbs.db
