@@ -54,7 +54,7 @@
 
 
                 <Paragraph FontStyle="Italic" FontSize="10">
-                    The game was build as a part of M.Sc. thesis titled "The algorithms for end game testing" under a guidance
+                    The application was build as a part of M.Sc. thesis titled "The algorithms for game end testing" under a guidance
                     of PhD Dariusz Dereniowski at the Gdańsk University of Technology, Faculty of Electronics, Telecommunications and Informatics
                 </Paragraph>
             </FlowDocument>
